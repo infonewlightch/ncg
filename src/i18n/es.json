@@ -719,5 +719,10 @@
   "Translation is unavailable right now. Read the English source or try again later.": "La traducción no está disponible ahora. Lee el original en inglés o inténtalo más tarde.",
   "Source: World English Bible (public domain). This automatic translation has not been reviewed by the church or a Bible publisher.": "Fuente: World English Bible (dominio público). Esta traducción automática no ha sido revisada por la iglesia ni por una editorial bíblica.",
   "Your language applies to menus and content. Untranslated screens use English. Published Bible editions come first; if no edition is connected, you can request an English-source translation aid.": "Tu idioma se aplica a los menús y al contenido. Las pantallas sin traducir usan inglés. Se priorizan las ediciones bíblicas publicadas; si no hay una edición conectada, puedes solicitar una traducción de apoyo desde el inglés.",
-  "New reference translations have reached today’s limit. You can keep reading English and request another translation tomorrow.": "Se alcanzó el límite de nuevas traducciones de apoyo de hoy. Puedes seguir leyendo en inglés y solicitar otra traducción mañana."
+  "New reference translations have reached today’s limit. You can keep reading English and request another translation tomorrow.": "Se alcanzó el límite de nuevas traducciones de apoyo de hoy. Puedes seguir leyendo en inglés y solicitar otra traducción mañana.",
+  "You have 300 bookmarks. Remove an unused bookmark before saving another.": "Tienes 300 marcadores. Elimina uno que no uses antes de guardar otro.",
+  "Bible bookmarks are saved on this device. Sign in to keep them in your account.": "Los marcadores de la Biblia se guardan en este dispositivo. Inicia sesión para guardarlos en tu cuenta.",
+  "Bookmarks are kept on this device. Account sync will retry when connected.": "Los marcadores están guardados en este dispositivo. La sincronización se reintentará al recuperar la conexión.",
+  "Syncing Bible bookmarks with your account.": "Sincronizando los marcadores de la Biblia con tu cuenta.",
+  "Bible bookmarks are saved to your account.": "Los marcadores de la Biblia están guardados en tu cuenta."
 }
