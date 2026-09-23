@@ -748,5 +748,10 @@
   "My quiz progress": "Mi progreso en los cuestionarios",
   "answered": "respondidas",
   "correct": "correctas",
-  "rounds completed": "rondas completadas"
+  "rounds completed": "rondas completadas",
+  "Video bookmarks are saved on this device. Sign in and import them from My page.": "Los marcadores de vídeos se guardan en este dispositivo. Inicia sesión e impórtalos desde Mi espacio.",
+  "Video bookmark sync is delayed. Changes stay on this device and are retried when connected.": "La sincronización de los marcadores está retrasada. Los cambios se guardan en este dispositivo y se reintentarán al conectar.",
+  "Saving church video bookmarks to your account.": "Guardando los marcadores de vídeos de la iglesia en tu cuenta.",
+  "Church video bookmarks are saved to your account.": "Los marcadores de vídeos de la iglesia están guardados en tu cuenta.",
+  "Personally added videos and their bookmarks stay on this device. Church videos made private will not appear in the list.": "Los vídeos añadidos personalmente y sus marcadores permanecen en este dispositivo. Los vídeos de la iglesia que se hagan privados no aparecerán en la lista."
 }

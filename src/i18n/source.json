@@ -1044,6 +1044,26 @@
     "ko": "NCG 자체 제작 콘텐츠"
   },
   {
+    "en": "Video bookmarks are saved on this device. Sign in and import them from My page.",
+    "ko": "영상 책갈피는 이 기기에 저장됩니다. 로그인 후 마이페이지에서 가져올 수 있습니다."
+  },
+  {
+    "en": "Video bookmark sync is delayed. Changes stay on this device and are retried when connected.",
+    "ko": "영상 책갈피 동기화가 지연되고 있습니다. 기기에 보관하고 다시 연결되면 재시도합니다."
+  },
+  {
+    "en": "Saving church video bookmarks to your account.",
+    "ko": "교회 영상 책갈피를 계정에 저장하는 중입니다."
+  },
+  {
+    "en": "Church video bookmarks are saved to your account.",
+    "ko": "교회 영상 책갈피가 계정에 저장되었습니다."
+  },
+  {
+    "en": "Personally added videos and their bookmarks stay on this device. Church videos made private will not appear in the list.",
+    "ko": "직접 등록한 영상과 해당 책갈피는 이 기기에만 보관됩니다. 교회가 비공개로 전환한 영상은 목록에 나타나지 않습니다."
+  },
+  {
     "en": "4F, 200-1 Haan-dong, Gwangmyeong-si, Gyeonggi-do, Republic of Korea",
     "ko": "대한민국 경기도 광명시 하안동 200-1, 4층"
   },
