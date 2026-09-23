@@ -756,5 +756,9 @@
   "Personally added videos and their bookmarks stay on this device. Church videos made private will not appear in the list.": "Los vídeos añadidos personalmente y sus marcadores permanecen en este dispositivo. Los vídeos de la iglesia que se hagan privados no aparecerán en la lista.",
   "12-character friend code": "Código de amigo de 12 caracteres",
   "Published reflections may be automatically translated by an external AI service (OpenAI via Netlify) for other readers. Translations may contain errors.": "Las reflexiones publicadas pueden traducirse automáticamente mediante un servicio externo de IA (OpenAI a través de Netlify) para otros lectores. Las traducciones pueden contener errores.",
-  "Delivered messages are automatically translated by an external AI service (OpenAI via Netlify) into each reader’s language. Translations may contain errors; you can view the original.": "Los mensajes entregados se traducen automáticamente mediante un servicio externo de IA (OpenAI a través de Netlify) al idioma de cada lector. Las traducciones pueden contener errores; puedes ver el original."
+  "Delivered messages are automatically translated by an external AI service (OpenAI via Netlify) into each reader’s language. Translations may contain errors; you can view the original.": "Los mensajes entregados se traducen automáticamente mediante un servicio externo de IA (OpenAI a través de Netlify) al idioma de cada lector. Las traducciones pueden contener errores; puedes ver el original.",
+  "Please try again after the previous reminder request finishes.": "Inténtalo de nuevo cuando termine la solicitud anterior del recordatorio.",
+  "Checking reminder settings…": "Comprobando la configuración de recordatorios…",
+  "Could not check the reminder service. Please check again.": "No se pudo comprobar el servicio de recordatorios. Inténtalo de nuevo.",
+  "Check again": "Volver a comprobar"
 }

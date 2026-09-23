@@ -6,6 +6,8 @@ import {gzipSync,brotliCompressSync} from 'node:zlib';
 import {bibleTranslationNode} from './bible-translation.ts';
 import {bibleSourceHandler} from './bible-source.ts';
 import {createGateway} from './gateway.ts';
+// @ts-ignore Server-only JavaScript module.
+import {pushConfiguration} from './push-worker.mjs';
 const TYPES:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.webmanifest':'application/manifest+json','.png':'image/png','.svg':'image/svg+xml','.ico':'image/x-icon','.woff2':'font/woff2','.txt':'text/plain; charset=utf-8'};
 export function preferredEncoding(accepted:string){
  const weights=new Map(accepted.toLowerCase().split(',').map(item=>{const [name,...params]=item.trim().split(';');const q=params.find(p=>p.trim().startsWith('q='));const weight=q?Number(q.trim().slice(2)):1;return [name,Number.isFinite(weight)&&weight>=0&&weight<=1?weight:0] as const;}));
@@ -25,6 +27,10 @@ export function createProductionHandler(env:Record<string,string>,dist=resolve(f
   try{
    if(req.headers.host!==origin.host)return fail(421);
    const url=new URL(req.url||'/',origin);if(url.origin!==origin.origin)return fail(403);
+   if(url.pathname==='/api/push-status'){
+    if(req.method!=='GET')return fail(405);
+    const configured=pushConfiguration(env);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({configured,...(configured?{publicKey:env.NCG_VAPID_PUBLIC_KEY}:{})}));return;
+   }
    if(url.pathname==='/api/bible-translation'){await bibleTranslationNode(req,res,env);return;}
    if(url.pathname==='/api/bible-source'){await bibleSourceHandler(req,res);return;}
    if(url.pathname.startsWith('/api/')){await gateway(req,res);return;}

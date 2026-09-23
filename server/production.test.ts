@@ -16,6 +16,9 @@ beforeAll(async()=>{
 afterAll(async()=>{await rm(directory,{recursive:true,force:true});});
 const handler=()=>createProductionHandler({NCG_PUBLIC_ORIGIN:'http://127.0.0.1:4311',VITE_SUPABASE_URL:'https://test.supabase.co'},dist);
 describe('production static file and browser boundaries',()=>{
+ it('reports disabled reminder service without caching or exposing environment values',async()=>{
+  const result=await invokeHandler(handler(),{url:'/api/push-status'});expect(result.status).toBe(200);expect(JSON.parse(result.text)).toEqual({configured:false});expect(result.headers['cache-control']).toBe('no-store');expect((await invokeHandler(handler(),{url:'/api/push-status',method:'POST'})).status).toBe(405);
+ });
  it('serves public navigation with CSP, uncached shells and immutable built assets',async()=>{
   const result=await invokeHandler(handler());expect(result.status).toBe(200);expect(result.text).toBe(document);expect(result.headers['cache-control']).toBe('no-store');
   expect(result.headers['content-security-policy']).toContain("script-src 'self'");expect(result.headers['content-security-policy']).toContain('https://test.supabase.co wss://test.supabase.co');

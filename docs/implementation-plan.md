@@ -44,7 +44,8 @@
 - [ ] 관리자 계정 infonewlighch@gmail.com 검증 후 서버 역할 지정.
 - [ ] NKRV 등 승인된 성경 공급자 키/역본 사용허가, 실제 회원 간 공동체 번역 전송 검증. 영어 기반 성경 참고 번역은 Netlify AI Gateway 실요청 검증 완료.
 - [ ] 교회 공식 YouTube 링크, 교육/주간QT 초안 교회 검수.
-- [ ] VAPID 키, 운영 HTTPS 주소, 실제 푸시 예약 작업 및 수신 검증.
+- [x] QT 푸시 예약 함수·설정 상태 API·계정 전환/반복 클릭 보호. 준비되지 않은 설정은 발송하지 않음. 278 tests/48 files와 PC/모바일 모의 브라우저 검증 통과.
+- [ ] VAPID·작업자 비밀키·발송 활성화 및 실제 기기 수신 검증. 운영 HTTPS 주소는 연결 완료이며 예약 함수는 미활성 설정으로 배포.
 - [x] 사용자 승인 후 Netlify 공개: https://newlightchurchglobal.com/ . Git 연속 배포와 서버 함수 4개 연결 완료.
 - [x] 공식 도메인 newlightchurchglobal.com: 가비아 DNS 및 Netlify Let's Encrypt apex/www 발급 확인. 실제 HTTPS200, HTTP/www301 확인. Supabase 기본 URL도 공식 주소로 전환.
 - [x] 사용자 확정 NCG.png OG 이미지 및 NCG 제목/슬로건 설명 공개 배포. 원본과 공개 이미지 해시 일치 확인.

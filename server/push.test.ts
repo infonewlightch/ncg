@@ -53,3 +53,8 @@ describe('Push worker boundary',()=>{
   expect(await dispatchQtPush({client:{rpc},send})).toMatchObject({claimed:2,sent:1,failed:1,acknowledgementFailures:0});expect(send).toHaveBeenCalledTimes(1);expect(rpc).toHaveBeenCalledWith('ncg_finish_qt_push',{delivery_id:'one',lease_id:'lease1',outcome:'sent'});
  });
 });
+it('records thrown acknowledgement failures without abandoning other leased jobs',async()=>{
+ const jobs=Array.from({length:5},(_,i)=>({delivery_id:String(i),lease_id:'lease',subscription,language:'en',reading_date:'2028-03-12',translations:previewQtWeek[0].translations}));
+ const rpc=vi.fn().mockResolvedValueOnce({data:jobs,error:null}).mockRejectedValueOnce(Error('network uncertain')).mockResolvedValue({error:null});const send=vi.fn(async()=>({statusCode:201}));
+ expect(await dispatchQtPush({client:{rpc},send})).toMatchObject({sent:5,acknowledgementFailures:1});expect(send).toHaveBeenCalledTimes(5);
+});

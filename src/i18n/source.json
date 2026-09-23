@@ -672,6 +672,10 @@
     "ko": "이 기기의 알림 설정을 확인하지 못했습니다."
   },
   {
+    "en": "Please try again after the previous reminder request finishes.",
+    "ko": "이전 알림 설정이 끝난 뒤 다시 시도해주세요."
+  },
+  {
     "en": "Daily QT reminders are enabled on this device.",
     "ko": "이 기기에서 매일 QT 알림을 받도록 설정했습니다."
   },
@@ -716,6 +720,14 @@
     "ko": "이 브라우저에서는 웹 푸시를 사용할 수 없습니다. iPhone·iPad에서는 홈 화면에 추가한 앱에서 확인해주세요."
   },
   {
+    "en": "Checking reminder settings…",
+    "ko": "알림 설정을 확인하고 있습니다."
+  },
+  {
+    "en": "Could not check the reminder service. Please check again.",
+    "ko": "알림 서비스 상태를 확인하지 못했습니다. 다시 확인해주세요."
+  },
+  {
     "en": "The daily reminder service is being connected. Notifications are not enabled yet.",
     "ko": "매일 발송할 알림 서버를 연결 중입니다. 아직 알림이 켜진 상태는 아닙니다."
   },
@@ -746,6 +758,10 @@
   {
     "en": "Turn off",
     "ko": "끄기"
+  },
+  {
+    "en": "Check again",
+    "ko": "다시 확인"
   },
   {
     "en": "QT Bible version",
