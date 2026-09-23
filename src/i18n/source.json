@@ -152,8 +152,32 @@
     "ko": "알림 닫기"
   },
   {
+    "en": "This sign-in link has expired or was already used. Request a new email below.",
+    "ko": "인증 링크가 만료되었거나 이미 사용되었습니다. 아래에서 새 인증 메일을 요청해주세요."
+  },
+  {
+    "en": "Sign-in was cancelled. You can try again when ready.",
+    "ko": "로그인이 취소되었습니다. 원하실 때 다시 진행할 수 있습니다."
+  },
+  {
+    "en": "Open the link in the browser where you requested it. On another device, request a new sign-in email here.",
+    "ko": "인증 메일을 요청한 브라우저에서 링크를 열어주세요. 다른 기기라면 이 화면에서 새 인증 메일을 요청할 수 있습니다."
+  },
+  {
+    "en": "Could not reach the sign-in service. Check your connection and try again.",
+    "ko": "인증 서버에 연결하지 못했습니다. 연결을 확인한 뒤 다시 시도해주세요."
+  },
+  {
+    "en": "Sign-in could not be completed. Please start again below.",
+    "ko": "인증을 완료하지 못했습니다. 아래에서 로그인을 다시 진행해주세요."
+  },
+  {
     "en": "Could not connect to Google sign-in. Please try again.",
     "ko": "Google 로그인에 연결하지 못했습니다. 잠시 후 다시 시도해주세요."
+  },
+  {
+    "en": "Too many requests. Please wait before trying again.",
+    "ko": "요청이 많습니다. 잠시 기다린 뒤 다시 시도해주세요."
   },
   {
     "en": "Unable to send the email. Check your address or try again later.",
@@ -188,12 +212,36 @@
     "ko": "회원 서비스를 준비하고 있습니다. 인증 서버 연결 후 Google·이메일로 이용할 수 있습니다."
   },
   {
+    "en": "Could not check available sign-in methods. Check your connection and try again.",
+    "ko": "로그인 방법을 확인하지 못했습니다. 연결을 확인한 뒤 다시 시도해주세요."
+  },
+  {
+    "en": "Try again",
+    "ko": "다시 시도"
+  },
+  {
+    "en": "Checking available sign-in methods.",
+    "ko": "로그인 방법을 확인하고 있습니다."
+  },
+  {
+    "en": "New registrations are temporarily closed. Existing members can still sign in.",
+    "ko": "현재 새 회원가입은 잠시 중단되어 있습니다. 기존 계정은 로그인할 수 있습니다."
+  },
+  {
     "en": "Continue with Google",
     "ko": "Google로 계속하기"
   },
   {
+    "en": "Google sign-in is being prepared.",
+    "ko": "Google 로그인은 준비 중입니다."
+  },
+  {
     "en": "or email",
     "ko": "또는 이메일"
+  },
+  {
+    "en": "Email sign-in is being prepared.",
+    "ko": "이메일 로그인은 준비 중입니다."
   },
   {
     "en": "Email address",
@@ -216,6 +264,10 @@
     "ko": "인증 메일이 발송되었다면 받은 편지함의 링크를 열어주세요. 인증 코드가 있는 경우 아래에 입력할 수 있습니다."
   },
   {
+    "en": "Open the link in the browser where you requested the email.",
+    "ko": "링크는 인증 메일을 요청한 브라우저에서 열어주세요."
+  },
+  {
     "en": "Email verification code",
     "ko": "이메일 인증 코드"
   },
@@ -224,8 +276,16 @@
     "ko": "인증하고 계속"
   },
   {
-    "en": "Use another email / request again",
-    "ko": "다른 이메일 사용 / 다시 요청"
+    "en": "Use another email",
+    "ko": "다른 이메일 사용"
+  },
+  {
+    "en": "Request another email",
+    "ko": "인증 메일 다시 요청"
+  },
+  {
+    "en": "Request again in {seconds} seconds",
+    "ko": "다시 요청하기까지 {seconds}초"
   },
   {
     "en": "Search Bible books",
@@ -346,10 +406,6 @@
   {
     "en": "Account sync is delayed. Your work is kept on this device and retried when connected.",
     "ko": "계정 동기화가 지연되고 있습니다. 이 기기의 기록을 보관하고 연결되면 다시 시도합니다."
-  },
-  {
-    "en": "Try again",
-    "ko": "다시 시도"
   },
   {
     "en": "The language list could not load. You can enter a language tag below.",
@@ -1958,10 +2014,6 @@
   {
     "en": "Sign out",
     "ko": "로그아웃"
-  },
-  {
-    "en": "Could not check your account. Please sign in again.",
-    "ko": "계정을 확인하지 못했습니다. 다시 로그인해주세요."
   },
   {
     "en": "Welcome",

@@ -724,5 +724,20 @@
   "Bible bookmarks are saved on this device. Sign in to keep them in your account.": "Los marcadores de la Biblia se guardan en este dispositivo. Inicia sesión para guardarlos en tu cuenta.",
   "Bookmarks are kept on this device. Account sync will retry when connected.": "Los marcadores están guardados en este dispositivo. La sincronización se reintentará al recuperar la conexión.",
   "Syncing Bible bookmarks with your account.": "Sincronizando los marcadores de la Biblia con tu cuenta.",
-  "Bible bookmarks are saved to your account.": "Los marcadores de la Biblia están guardados en tu cuenta."
+  "Bible bookmarks are saved to your account.": "Los marcadores de la Biblia están guardados en tu cuenta.",
+  "This sign-in link has expired or was already used. Request a new email below.": "Este enlace ha caducado o ya se ha utilizado. Solicita un nuevo correo a continuación.",
+  "Sign-in was cancelled. You can try again when ready.": "Se ha cancelado el inicio de sesión. Puedes volver a intentarlo cuando quieras.",
+  "Open the link in the browser where you requested it. On another device, request a new sign-in email here.": "Abre el enlace en el navegador donde lo solicitaste. Si estás en otro dispositivo, solicita aquí un nuevo correo de acceso.",
+  "Could not reach the sign-in service. Check your connection and try again.": "No se pudo conectar con el servicio de acceso. Comprueba la conexión e inténtalo de nuevo.",
+  "Sign-in could not be completed. Please start again below.": "No se pudo completar el inicio de sesión. Vuelve a empezar a continuación.",
+  "Too many requests. Please wait before trying again.": "Hay demasiadas solicitudes. Espera un momento antes de volver a intentarlo.",
+  "Could not check available sign-in methods. Check your connection and try again.": "No se pudieron comprobar los métodos de acceso disponibles. Comprueba la conexión e inténtalo de nuevo.",
+  "Checking available sign-in methods.": "Comprobando los métodos de acceso disponibles.",
+  "New registrations are temporarily closed. Existing members can still sign in.": "Los nuevos registros están temporalmente cerrados. Los miembros existentes pueden iniciar sesión.",
+  "Google sign-in is being prepared.": "Estamos preparando el acceso con Google.",
+  "Email sign-in is being prepared.": "Estamos preparando el acceso por correo electrónico.",
+  "Open the link in the browser where you requested the email.": "Abre el enlace en el navegador donde solicitaste el correo.",
+  "Use another email": "Usar otro correo",
+  "Request another email": "Solicitar otro correo",
+  "Request again in {seconds} seconds": "Puedes volver a solicitarlo en {seconds} segundos"
 }

@@ -1057,3 +1057,11 @@ main{padding:28px 20px 0}
 .reader-dark .button.secondary{background:#263d59;color:#f1f5fa;border-color:#8b9bb0}.reader-dark .button.secondary:hover{background:#304d70}
 
 .reader-version-row>.text-link{flex-shrink:0;max-width:48%;white-space:nowrap}.reader-version-row>.text-link>span{overflow:hidden;text-overflow:ellipsis}.reader-version-row>.text-link>svg{flex-shrink:0}.reader-version-row>label{flex:1;min-width:0}
+
+/* Sign-in availability and recovery stay readable on small screens. */
+.auth-notice{padding:18px 22px;margin-bottom:22px;border:1px solid #ded2af;border-radius:10px;background:#faf7ef;color:var(--ink);font-size:14px;line-height:1.8}
+.auth-notice p{margin:0 0 8px}
+.auth-method-note{font-size:12px;line-height:1.8;color:var(--muted);margin:10px 0}
+.auth-email-address{font-size:14px;font-weight:600;overflow-wrap:anywhere}
+.auth-email-actions{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:18px}
+.auth-form .tabs button:disabled{cursor:not-allowed;opacity:.6}
