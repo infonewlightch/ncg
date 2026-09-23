@@ -1,0 +1,12 @@
+import {readFileSync} from 'node:fs';
+import {describe,it,expect,vi} from 'vitest';
+import {contactPayload,submitContact,type ContactDraft} from './contact';
+const draft:ContactDraft={kind:'thanks',name:'',email:'',message:'감사합니다 & Thank you = مرحبًا',language:'ko',website:''};
+describe('private contact submission',()=>{
+ it('preserves multilingual text and safely encodes separators in optional anonymous messages',()=>{const body=contactPayload(draft);expect(new URLSearchParams(body.toString()).get('message')).toBe(draft.message);expect(body.get('email')).toBe('');expect(body.get('category')).toBe('thanks');});
+ it('rejects malformed input and honeypot values before sending',()=>{for(const patch of [{email:'invalid'}, {message:'    '},{message:'x'.repeat(4001)},{website:'spam'},{kind:'invalid'},{language:'<script>'}])expect(()=>contactPayload({...draft,...patch} as ContactDraft)).toThrow();});
+ it('keeps the deploy-time form declaration in sync with every submitted field',()=>{const html=readFileSync(new URL('../../public/contact-form.html',import.meta.url),'utf8');expect(html).toContain('data-netlify="true"');expect(html).toContain('netlify-honeypot="website"');for(const key of contactPayload(draft).keys())expect(html).toContain(`name="${key}"`);});
+ it('sends only to the official HTTPS host, with an URL-encoded POST',async()=>{const send=vi.fn().mockResolvedValue(new Response('',{status:200}));await submitContact(draft,'https://newlightchurchglobal.com',send);const [url,options]=send.mock.calls[0];expect(String(url)).toBe('https://newlightchurchglobal.com/');expect(options.method).toBe('POST');expect(new URLSearchParams(options.body).get('form-name')).toBe('ncg-contact');expect(options.headers['Content-Type']).toBe('application/x-www-form-urlencoded');});
+ it('never reports a local preview, lookalike domain or HTTP endpoint as a successful submission',async()=>{const send=vi.fn();for(const url of ['http://localhost:4310','http://newlightchurchglobal.com','https://newlightchurchglobal.com.attacker.test'])await expect(submitContact(draft,url,send)).rejects.toThrow('contact_unavailable');expect(send).not.toHaveBeenCalled();});
+ it('propagates network and server errors so the user keeps the draft',async()=>{for(const status of [404,429,500])await expect(submitContact(draft,'https://newlightchurchglobal.com',vi.fn().mockResolvedValue(new Response('',{status})))).rejects.toThrow();await expect(submitContact(draft,'https://newlightchurchglobal.com',vi.fn().mockRejectedValue(Error('offline')))).rejects.toThrow('offline');});
+});

@@ -76,6 +76,10 @@
     "ko": "새신자 교육"
   },
   {
+    "en": "Contact",
+    "ko": "문의하기"
+  },
+  {
     "en": "One Gospel.",
     "ko": "하나의 복음."
   },
@@ -1228,6 +1232,122 @@
     "ko": "현재는 로컬 개발 체험입니다. 전 세계 공유는 서버 연결 후 제공됩니다."
   },
   {
+    "en": "Suggestions",
+    "ko": "건의사항"
+  },
+  {
+    "en": "Report a problem",
+    "ko": "불편사항"
+  },
+  {
+    "en": "A word of thanks",
+    "ko": "감사 인사"
+  },
+  {
+    "en": "Other questions",
+    "ko": "기타 문의"
+  },
+  {
+    "en": "Please check your email address.",
+    "ko": "이메일 주소를 확인해주세요."
+  },
+  {
+    "en": "Please enter a message between 5 and 4,000 characters.",
+    "ko": "문의 내용은 5자 이상 4,000자 이하로 입력해주세요."
+  },
+  {
+    "en": "Please try again shortly. Your message is still here.",
+    "ko": "잠시 후 다시 보내주세요. 작성한 내용은 그대로 남아 있습니다."
+  },
+  {
+    "en": "We could not confirm receipt. Check your connection or contact us by email.",
+    "ko": "접수 완료를 확인하지 못했습니다. 연결을 확인하거나 이메일로 문의해주세요."
+  },
+  {
+    "en": "We are here to listen.",
+    "ko": "당신의 이야기를 듣겠습니다."
+  },
+  {
+    "en": "From ideas for a better NCG to a simple thank-you, we welcome your message.",
+    "ko": "더 나은 NCG를 위한 제안부터 작은 감사까지, 편하게 전해주세요."
+  },
+  {
+    "en": "Every voice matters.",
+    "ko": "한 사람의 목소리도 소중하게."
+  },
+  {
+    "en": "Tell us about your experience. We will take the time to read what you share.",
+    "ko": "이용하며 느낀 점을 알려주세요. 전해주신 이야기를 하나씩 살펴보겠습니다."
+  },
+  {
+    "en": "Your message stays private.",
+    "ko": "비공개로 전달됩니다."
+  },
+  {
+    "en": "Messages go to the NCG team and are not published on a public board.",
+    "ko": "문의는 공개 게시판에 올라가지 않고 NCG 운영팀에 전달됩니다."
+  },
+  {
+    "en": "Leave your email address if you would like a reply.",
+    "ko": "답장을 원하시면 이메일 주소를 남겨주세요."
+  },
+  {
+    "en": "Thank you for sharing with us.",
+    "ko": "소중한 이야기를 보내주셔서 감사합니다."
+  },
+  {
+    "en": "Your message has been received. Our team will review what you shared.",
+    "ko": "문의가 접수되었습니다. 남겨주신 내용을 운영팀이 확인하겠습니다."
+  },
+  {
+    "en": "Send another message",
+    "ko": "다른 이야기 보내기"
+  },
+  {
+    "en": "What would you like to share?",
+    "ko": "어떤 이야기를 전하고 싶으신가요?"
+  },
+  {
+    "en": "Name · optional",
+    "ko": "이름 · 선택"
+  },
+  {
+    "en": "Reply email · optional",
+    "ko": "답장받을 이메일 · 선택"
+  },
+  {
+    "en": "Your message",
+    "ko": "전하고 싶은 이야기"
+  },
+  {
+    "en": "What worked well? What could be better? Write in your own language.",
+    "ko": "어떤 점이 좋았나요? 무엇이 불편했나요? 당신의 언어로 적어주세요."
+  },
+  {
+    "en": "No sign-in needed.",
+    "ko": "로그인 없이 보낼 수 있습니다."
+  },
+  {
+    "en": "Character count",
+    "ko": "입력한 글자 수"
+  },
+  {
+    "en": "We use your message and contact details to review and respond to your inquiry.",
+    "ko": "보내주신 내용과 연락처는 문의 확인과 답변을 위해 사용합니다."
+  },
+  {
+    "en": "Please use the official site to send your message.",
+    "ko": "문의는 공식 사이트에서 보낼 수 있습니다."
+  },
+  {
+    "en": "Open the contact page",
+    "ko": "공식 문의 페이지 열기"
+  },
+  {
+    "en": "Send message",
+    "ko": "마음 전하기"
+  },
+  {
     "en": "Check the friendship or block status.",
     "ko": "친구 관계나 차단 상태를 확인해주세요."
   },
@@ -1306,10 +1426,6 @@
   {
     "en": "Write a message to your friend.",
     "ko": "친구에게 마음을 전하세요."
-  },
-  {
-    "en": "Send message",
-    "ko": "메시지 보내기"
   },
   {
     "en": "Links and suspicious messages are reviewed before delivery. Messages refresh every 15 seconds.",
