@@ -8,6 +8,7 @@ NCG uses the NCG-only Supabase project and PKCE redirects. Google and passwordle
 - The client checks `/auth/v1/settings` using the browser publishable key, no cookies, no cache and an eight-second timeout. Disabled methods cannot be clicked; a failed check presents a retry. Enabling Google at Supabase later is reflected after loading the sign-in page again.
 - The email form distinguishes sign-in (`shouldCreateUser: false`) from registration (`true`). It locks duplicate actions, fixes the address used for code verification to the address submitted, and waits at least 60 seconds before resending. No live email has been sent during automated testing.
 - Production return routes were configured earlier: `/auth/callback` for members and `/admin.html` for operators. No public navigation exposes the admin page; authorization still requires the server-side administrator role.
+- Netlify now checks the four required connection settings before building, requires the NCG project and official HTTPS origin, rejects privileged browser keys, and verifies the public Auth settings with an eight-second timeout. A failed check stops the new deployment rather than publishing a client without authentication. Local `npm run build` remains available without hosted credentials.
 
 ## Callback recovery
 
