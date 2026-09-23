@@ -40,7 +40,9 @@
 - [ ] 교회 공식 YouTube 링크, 교육/주간QT 초안 교회 검수.
 - [ ] VAPID 키, 운영 HTTPS 주소, 실제 푸시 예약 작업 및 수신 검증.
 - [x] 사용자 승인 후 Netlify 정적 미리보기 공개: https://ncg-newlight.netlify.app/ (서버 함수 미배포).
-- [ ] 공식 도메인 newlightchurchglobal.com: Netlify 기본 주소/www 별칭 등록 완료, 가비아 로그인·DNS·HTTPS 확인 대기.
-- [ ] GitHub 저장소 최초 업로드와 연속 배포. 로컬 main/origin만 준비, push/PR 하지 않음.
+- [x] 공식 도메인 newlightchurchglobal.com: 가비아 DNS 및 Netlify Let's Encrypt apex/www 발급 확인. 실제 HTTPS200, HTTP/www301 확인. Supabase 기본 URL도 공식 주소로 전환.
+- [x] 사용자 확정 NCG.png OG 이미지 및 NCG 제목/슬로건 설명 공개 배포. 원본과 공개 이미지 해시 일치 확인.
+- [x] GitHub infonewlightch/ncg 최초 백업. 65294a2를 main에 push하고 원격 SHA 일치 확인. 122 tests/20 files 통과.
+- [ ] Git 연속 배포 및 서버 함수 실제 배포. 현재는 Netlify 정적 업로드.
 
 단일 편집 세션 원칙을 지킨다. 외부 프로젝트나 원본 다바르를 수정하지 않는다. 15분 heartbeat `ncg`가 이 작업에 연결되어 있으며 완료 또는 기한 도달 시 비활성화한다.

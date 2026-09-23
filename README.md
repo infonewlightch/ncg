@@ -14,7 +14,7 @@ npm run dev
 
 로컬 주소: http://127.0.0.1:4310
 
-공개 개발 미리보기: https://ncg-newlight.netlify.app/ · 공식 도메인 `newlightchurchglobal.com`은 Netlify 등록 후 가비아 DNS 연결 대기 중입니다.
+공식 주소의 개발 미리보기: https://newlightchurchglobal.com/ · 가비아 DNS와 Netlify HTTPS 연결을 확인했습니다. www와 HTTP는 공식 HTTPS 주소로 이동합니다. 기존 https://ncg-newlight.netlify.app/ 도 사용할 수 있습니다.
 
 ```sh
 npm test
@@ -92,7 +92,7 @@ on conflict do nothing;
 
 Vitest는 실제 PostgreSQL 호환 PGlite에서 RLS를 실행해 제3자 메시지 열람·무단 쓰기·권한상승·차단·신고·관리자 검수 격리를 확인합니다. 그 밖에 원본 데이터 무결성·언어 설정·성경 장절 연결·퀴즈 정답 보존·미디어 URL·서버 오류를 검사합니다. 원격 배포 환경의 실계정 검증을 대신하지 않습니다.
 
-공개 미리보기는 Netlify 정적 업로드입니다. 서버 함수는 아직 배포하지 않았으며, 실제 성경 API·번역 공급자는 연결 전입니다. 남은 핵심은 공식 도메인, Google/이메일 인증 검증, 허가된 다국어 성경/화면 번역 확장, QT 교회 검수·발행, 푸시 운영 연결과 실제 계정 통합 검증입니다. 지속 기록은 `docs/WORKLOG.md`를 봅니다.
+공개 미리보기는 Netlify 정적 업로드입니다. 서버 함수는 아직 배포하지 않았으며, 실제 성경 API·번역 공급자는 연결 전입니다. 공식 도메인과 확정 OG 이미지 배포 및 GitHub 최초 백업은 완료했습니다. 남은 핵심은 Google/이메일 인증 검증, 허가된 다국어 성경/화면 번역 확장, QT 교회 검수·발행, 푸시 운영 연결과 실제 계정 통합 검증입니다. 지속 기록은 로컬 `docs/WORKLOG.md`를 봅니다.
 
 ## 운영 주체
 
