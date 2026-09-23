@@ -3,6 +3,7 @@ import {readFile,realpath,stat} from 'node:fs/promises';
 import {resolve,sep,extname} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import {gzipSync,brotliCompressSync} from 'node:zlib';
+import {bibleSourceHandler} from './bible-source.ts';
 import {createGateway} from './gateway.ts';
 const TYPES:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.webmanifest':'application/manifest+json','.png':'image/png','.svg':'image/svg+xml','.ico':'image/x-icon','.woff2':'font/woff2','.txt':'text/plain; charset=utf-8'};
 export function preferredEncoding(accepted:string){
@@ -23,6 +24,7 @@ export function createProductionHandler(env:Record<string,string>,dist=resolve(f
   try{
    if(req.headers.host!==origin.host)return fail(421);
    const url=new URL(req.url||'/',origin);if(url.origin!==origin.origin)return fail(403);
+   if(url.pathname==='/api/bible-source'){await bibleSourceHandler(req,res);return;}
    if(url.pathname.startsWith('/api/')){await gateway(req,res);return;}
    if(req.method!=='GET'&&req.method!=='HEAD')return fail(405);
    let pathname=decodeURIComponent(url.pathname);if(pathname.includes('\0')||pathname.includes('\\'))return fail(400);

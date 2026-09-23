@@ -228,6 +228,62 @@
     "ko": "다른 이메일 사용 / 다시 요청"
   },
   {
+    "en": "Search Bible books",
+    "ko": "성경 이름 검색"
+  },
+  {
+    "en": "Search a book",
+    "ko": "성경 이름 검색"
+  },
+  {
+    "en": "Testament",
+    "ko": "성경 구분"
+  },
+  {
+    "en": "All",
+    "ko": "전체"
+  },
+  {
+    "en": "Old Testament",
+    "ko": "구약"
+  },
+  {
+    "en": "New Testament",
+    "ko": "신약"
+  },
+  {
+    "en": "Book",
+    "ko": "성경"
+  },
+  {
+    "en": "Bible books",
+    "ko": "성경 목록"
+  },
+  {
+    "en": "No matching books.",
+    "ko": "일치하는 성경이 없습니다."
+  },
+  {
+    "en": "Chapter",
+    "ko": "장"
+  },
+  {
+    "en": "Chapters",
+    "ko": "장 목록"
+  },
+  {
+    "en": "Verse",
+    "ko": "절"
+  },
+  {
+    "en": "Verses",
+    "ko": "절 목록"
+  },
+  {
+    "en": "Read passage",
+    "ko": "본문 읽기"
+  },
+  {
     "en": "Account sync is delayed. Your work is kept on this device and retried when connected.",
     "ko": "계정 동기화가 지연되고 있습니다. 이 기기의 기록을 보관하고 연결되면 다시 시도합니다."
   },
@@ -860,62 +916,6 @@
     "ko": "대한민국 경기도 광명시 하안동 200-1, 4층"
   },
   {
-    "en": "Find a passage",
-    "ko": "성경 찾기"
-  },
-  {
-    "en": "Book",
-    "ko": "성경"
-  },
-  {
-    "en": "Chapter",
-    "ko": "장"
-  },
-  {
-    "en": "Verse",
-    "ko": "절"
-  },
-  {
-    "en": "Chapter · Verse",
-    "ko": "장 · 절 선택"
-  },
-  {
-    "en": "Search Bible books",
-    "ko": "성경 이름 검색"
-  },
-  {
-    "en": "Search a book",
-    "ko": "성경 이름 검색"
-  },
-  {
-    "en": "All",
-    "ko": "전체"
-  },
-  {
-    "en": "Old Testament",
-    "ko": "구약"
-  },
-  {
-    "en": "New Testament",
-    "ko": "신약"
-  },
-  {
-    "en": "chapters",
-    "ko": "장"
-  },
-  {
-    "en": "No matching books.",
-    "ko": "일치하는 성경이 없습니다."
-  },
-  {
-    "en": "Choose a chapter, then read the whole chapter or a specific verse.",
-    "ko": "장을 선택한 뒤 전체 장 또는 원하는 절로 이동하세요."
-  },
-  {
-    "en": "Read chapter",
-    "ko": "장 전체 읽기"
-  },
-  {
     "en": "THE HOLY BIBLE",
     "ko": "성경 말씀"
   },
@@ -934,6 +934,10 @@
   {
     "en": "NKRV is our planned default Korean version. Until the licensed text is connected, read it on the Korean Bible Society website.",
     "ko": "개역개정은 한국어 기본 역본으로 준비하고 있습니다. 앱 내 본문 연결 전에는 대한성서공회에서 읽을 수 있습니다."
+  },
+  {
+    "en": "Find a passage",
+    "ko": "성경 찾기"
   },
   {
     "en": "Bible reader",
@@ -964,8 +968,8 @@
     "ko": "역본 연결 대기"
   },
   {
-    "en": "WEB is available now. The additional version catalogue is being connected.",
-    "ko": "WEB 영어 성경을 먼저 제공합니다. 다른 역본 목록은 연결 중입니다."
+    "en": "Open editions and source links are available. Additional partner editions are being connected.",
+    "ko": "공개 역본과 제공처를 먼저 안내합니다. 추가 제휴 역본은 연결 중입니다."
   },
   {
     "en": "Text size",
@@ -1012,8 +1016,8 @@
     "ko": "이 언어의 역본을 준비하고 있습니다."
   },
   {
-    "en": "Available versions include their publisher and source. We do not substitute generated translations for Scripture.",
-    "ko": "사용이 허가된 역본의 본문과 출판사 정보를 함께 제공합니다. 준비되지 않은 본문을 임의 번역하여 성경으로 표시하지 않습니다."
+    "en": "We look for a published translation first. English-based automatic translation will be clearly distinguished from the source text.",
+    "ko": "연결 가능한 정식 역본을 먼저 찾습니다. 영어 기반 자동번역은 원문과 구분하여 제공할 예정입니다."
   },
   {
     "en": "Choose another language",
@@ -1022,6 +1026,14 @@
   {
     "en": "Read on YouVersion",
     "ko": "YouVersion에서 성경 읽기"
+  },
+  {
+    "en": "Read this edition at its source. In-app access requires an additional connection.",
+    "ko": "이 역본은 제공처에서 읽을 수 있습니다. 앱 내 본문 이용은 별도 연결이 필요합니다."
+  },
+  {
+    "en": "Read at the source",
+    "ko": "제공처에서 읽기"
   },
   {
     "en": "This passage could not be loaded.",
@@ -1050,6 +1062,10 @@
   {
     "en": "Next chapter",
     "ko": "다음 장"
+  },
+  {
+    "en": "Edition terms",
+    "ko": "이 역본의 이용 안내"
   },
   {
     "en": "Publisher",

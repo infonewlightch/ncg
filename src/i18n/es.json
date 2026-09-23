@@ -695,5 +695,15 @@
   "Character count": "Número de caracteres",
   "We use your message and contact details to review and respond to your inquiry.": "Utilizamos tu mensaje y tus datos de contacto para revisar y responder a tu consulta.",
   "Please use the official site to send your message.": "Envía tu mensaje desde el sitio oficial.",
-  "Open the contact page": "Abrir la página de contacto"
+  "Open the contact page": "Abrir la página de contacto",
+  "Testament": "Testamento",
+  "Bible books": "Libros de la Biblia",
+  "Chapters": "Capítulos",
+  "Verses": "Versículos",
+  "Read passage": "Leer el pasaje",
+  "Open editions and source links are available. Additional partner editions are being connected.": "Hay ediciones abiertas y enlaces a sus fuentes. Se están conectando más ediciones de colaboradores.",
+  "We look for a published translation first. English-based automatic translation will be clearly distinguished from the source text.": "Primero buscamos una traducción publicada. La traducción automática del inglés se distinguirá claramente del texto original.",
+  "Read this edition at its source. In-app access requires an additional connection.": "Lee esta edición en su fuente. El acceso dentro de la aplicación requiere una conexión adicional.",
+  "Read at the source": "Leer en la fuente",
+  "Edition terms": "Condiciones de la edición"
 }

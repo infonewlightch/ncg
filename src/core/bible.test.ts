@@ -1,6 +1,6 @@
 import {readFileSync,readdirSync} from 'node:fs';
 import {describe,it,expect,vi} from 'vitest';
-import {preferredBibleVersion,koreanRevisedLink,webVersion,adjacentChapter,readReaderPreferences,resolvePassage,safeBibleLink,bibleRequest,parsePassage,type BibleIndex} from './bible';
+import {preferredBibleVersion,verseInSelection,navigateBibleChapter,koreanRevisedLink,webVersion,adjacentChapter,readReaderPreferences,resolvePassage,safeBibleLink,bibleRequest,parsePassage,type BibleIndex} from './bible';
 
 const index:BibleIndex={text_direction:'ltr',books:[{id:'GEN',title:'Genesis',full_title:'Genesis',abbreviation:'Gen',canon:'old_testament',chapters:[{id:1,title:1,passage_id:'GEN.1',verses:[{id:1,title:1,passage_id:'GEN.1.1'}]}]},{id:'EXO',title:'Exodus',full_title:'Exodus',abbreviation:'Exo',canon:'old_testament',chapters:[{id:1,title:1,passage_id:'EXO.1',verses:[]}]}]};
 describe('Bible navigation and source integrity',()=>{
@@ -24,10 +24,22 @@ describe('Bible navigation and source integrity',()=>{
   expect(adjacentChapter(index,'GEN.1',-1)).toBeNull();
   expect(adjacentChapter(index,'EXO.1',1)).toBeNull();
  });
+ it('loads the previous book’s actual last chapter before crossing a lazy index boundary',async()=>{
+  const partial={...index,books:index.books.map(b=>b.id==='GEN'?{...b,chaptersKnown:false}:b)};
+  const load=vi.fn(async()=>[{id:50,title:50,passage_id:'GEN.50',verses:[]}]);
+  const result=await navigateBibleChapter(partial,'EXO.1',-1,load);
+  expect(result?.passage).toBe('GEN.50');expect(result?.index.books[0].chaptersKnown).toBe(true);expect(load).toHaveBeenCalledWith('GEN');
+ });
  it('handles absent verses when changing Bible versions without relabelling another verse',()=>{
   expect(resolvePassage(index,'GEN.1.36')).toBe('GEN.1');
   expect(resolvePassage(index,'GEN.1.1')).toBe('GEN.1.1');
   expect(resolvePassage(index,'REV.22')).toBe('GEN.1');
+ });
+ it('highlights combined source verses when either verse is selected',()=>{
+  expect(verseInSelection('JHN.3.17','16-17')).toBe(true);
+  expect(verseInSelection('JHN.3.16-18','18–19')).toBe(true);
+  expect(verseInSelection('JHN.3.16','17')).toBe(false);
+  expect(verseInSelection('JHN.3','16')).toBe(false);
  });
  it('bounds settings and blocks unsafe provider links',()=>{
   expect(readReaderPreferences({fontSize:70,theme:'invalid',passage:'../../x'})).toMatchObject({fontSize:30,theme:'light',passage:'JHN.3'});
@@ -36,7 +48,7 @@ describe('Bible navigation and source integrity',()=>{
  });
  it('keeps local public-domain Scripture available during a catalogue outage',async()=>{
   const spy=vi.spyOn(globalThis,'fetch').mockRejectedValue(new Error('offline'));
-  try{expect(await bibleRequest('versions',{language:'en'},new AbortController().signal)).toMatchObject({data:[{id:'webp',language_tag:'en'}],providerStatus:'bible_unavailable'});}finally{spy.mockRestore();}
+  try{expect(await bibleRequest('versions',{language:'en'},new AbortController().signal)).toMatchObject({data:expect.arrayContaining([expect.objectContaining({id:'webp',language_tag:'en'})]),providerStatus:'bible_unavailable'});}finally{spy.mockRestore();}
  });
  it('contains 66 books / 1189 chapters with unique, correctly aligned verse identifiers',()=>{
   const root=new URL('../../public/bibles/webp/',import.meta.url);
