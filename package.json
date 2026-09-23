@@ -16,6 +16,7 @@
     "db:prepare": "node scripts/build-database-setup.mjs"
   },
   "dependencies": {
+    "@netlify/blobs": "^11.1.0",
     "@supabase/supabase-js": "^2.117.1",
     "lucide-react": "1.47.0",
     "react": "19.3.0",

@@ -32,6 +32,21 @@ Refresh the catalogue using `scripts/import-bible-catalogue.py` with the downloa
 - Desktop 1280px, mobile 390px: no horizontal overflow; current columns scroll into view after the native dialog opens.
 - Build and 139 tests / 23 files passed at 02:16 KST. Tests cover source parsing, footnotes, merged verse selection, cross-book navigation, proxy restrictions and local complete-Bible integrity.
 
-## Still pending
+## English-source reference translation
 
-English-source automatic translation must be labelled as automatic and unreviewed, with the English original available. It is not an authorized published Bible version, and a missing catalogue entry does not establish that no translation exists. Provider outages or licence restrictions must not silently activate this fallback. The current reader does not yet generate automatic translations.
+When no edition is present in the connected catalogue, NCG shows the original English WEBP and offers an explicitly requested translation aid. A missing catalogue entry does not prove that no published Bible exists; a YouVersion directory link remains available. Known catalogue editions, including source-only editions, take priority. A provider outage or licence restriction does not trigger translation of an already catalogued edition.
+
+- Every aid is marked **automatic / unreviewed**, distinct from a published or church-approved Bible. The English source remains visible with its original attribution and notes.
+- Requests contain only an ISO language tag, chapter and one fixed block of at most six verse entries. The server loads its own public-domain WEBP source; it does not accept arbitrary prompts or source text.
+- The model must preserve each supplied verse ID exactly once and in order. Missing, duplicated, reordered, unchanged-English, malformed or truncated results fail closed. Textual-note-only verses are not sent to the model as empty text to be filled in.
+- Known sign languages are not represented as machine-written translations. Unknown or unsupported languages show an honest message with continued access to the English original.
+- Netlify AI Gateway provides server-only provider credentials; `gpt-4.1-mini` is the initial model. No credentials enter the browser or repository.
+- Site-wide Netlify Blobs cache keys include source content, prompt revision, model and target tag. An atomic daily counter caps fresh provider calls at 60 across instances; per-IP rate limit is six requests per 180 seconds. Cache hits do not use the generation budget. Two active provider requests per instance and a 25-second timeout bound runtime work. The standalone Node/Vite adapter uses an in-memory cache/counter for development.
+- The cap is a launch safeguard, not a guarantee of indefinite free service. Increase only with measured usage and a funded hosting plan. No paid plan or automatic credit recharge was enabled for this change.
+- Automated structural checks do not establish linguistic or theological accuracy. Native-language and church review are still needed.
+
+References: [Netlify AI Gateway](https://docs.netlify.com/build/ai-gateway/overview/), [Netlify Blobs conditional writes](https://docs.netlify.com/build/data-and-storage/netlify-blobs/), [Netlify rate limiting](https://docs.netlify.com/manage/security/secure-access-to-sites/rate-limiting/).
+
+## Remaining source work
+
+NKRV still needs a licensed in-app source. The full global published-version catalogue, automated translations in every language, and native-speaker review are not complete.

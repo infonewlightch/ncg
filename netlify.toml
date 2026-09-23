@@ -11,3 +11,6 @@
 
 # Hosting remains a development preview until account, provider and church-content
 # checks in docs/implementation-plan.md have been completed.
+
+[functions."bible-translation"]
+  included_files = ["public/bibles/webp/*.json"]

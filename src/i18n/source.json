@@ -284,6 +284,66 @@
     "ko": "본문 읽기"
   },
   {
+    "en": "English-source translation aid",
+    "ko": "영어 원문 기반 참고 번역"
+  },
+  {
+    "en": "Automatic translation · Unreviewed",
+    "ko": "자동번역 · 검수 전"
+  },
+  {
+    "en": "No connected edition was found for this language. You can request a reading aid translated from the English WEB Bible. It is not a published Bible edition and may contain errors. Read the English source below alongside it.",
+    "ko": "현재 연결된 역본에서 이 언어를 찾지 못했습니다. 영어 WEB 성경을 바탕으로 참고 번역을 요청할 수 있습니다. 정식 성경 역본이 아니며, 번역 오류가 있을 수 있습니다. 영어 원문은 아래에서 함께 읽을 수 있습니다."
+  },
+  {
+    "en": "Read on YouVersion",
+    "ko": "YouVersion에서 성경 읽기"
+  },
+  {
+    "en": "Previous verses",
+    "ko": "이전 구절"
+  },
+  {
+    "en": "Next verses",
+    "ko": "다음 구절"
+  },
+  {
+    "en": "Translating…",
+    "ko": "번역하고 있습니다…"
+  },
+  {
+    "en": "Translate these verses into my language",
+    "ko": "이 구절들을 내 언어로 번역"
+  },
+  {
+    "en": "Please wait. You can keep reading the English source.",
+    "ko": "잠시 기다려주세요. 영어 원문은 계속 읽을 수 있습니다."
+  },
+  {
+    "en": "A reliable automatic translation could not be provided in this language. Choose another language or read the English source.",
+    "ko": "이 언어로 신뢰할 수 있는 자동번역을 제공하지 못했습니다. 다른 언어나 영어 원문을 선택해주세요."
+  },
+  {
+    "en": "New reference translations have reached today’s limit. You can keep reading English and request another translation tomorrow.",
+    "ko": "오늘의 새 참고 번역 요청이 모두 사용되었습니다. 영어 원문은 계속 읽을 수 있으며, 다음 날 다시 번역을 요청할 수 있습니다."
+  },
+  {
+    "en": "Translation is busy. Please try again later.",
+    "ko": "번역 요청이 많습니다. 잠시 후 다시 시도해주세요."
+  },
+  {
+    "en": "A published edition is available for this language. Please select your language again.",
+    "ko": "이 언어의 출판된 역본이 확인되었습니다. 언어를 다시 선택해주세요."
+  },
+  {
+    "en": "Translation is unavailable right now. Read the English source or try again later.",
+    "ko": "지금은 번역을 불러오지 못했습니다. 영어 원문을 읽거나 나중에 다시 시도해주세요."
+  },
+  {
+    "en": "Source: World English Bible (public domain). This automatic translation has not been reviewed by the church or a Bible publisher.",
+    "ko": "출처: World English Bible (공개 저작물). 자동번역은 교회나 출판사의 검수를 거치지 않았습니다."
+  },
+  {
     "en": "Account sync is delayed. Your work is kept on this device and retried when connected.",
     "ko": "계정 동기화가 지연되고 있습니다. 이 기기의 기록을 보관하고 연결되면 다시 시도합니다."
   },
@@ -304,8 +364,8 @@
     "ko": "모든 언어를 향해"
   },
   {
-    "en": "Your language applies to menus and content. Untranslated screens use English. Scripture is shown only from an available Bible version.",
-    "ko": "선택한 언어를 메뉴와 콘텐츠에 함께 적용합니다. 아직 번역되지 않은 화면은 영어로 안내하며, 성경은 정식 역본이 있을 때만 표시합니다."
+    "en": "Your language applies to menus and content. Untranslated screens use English. Published Bible editions come first; if no edition is connected, you can request an English-source translation aid.",
+    "ko": "선택한 언어를 메뉴와 콘텐츠에 함께 적용합니다. 아직 번역되지 않은 화면은 영어로 안내합니다. 성경은 출판된 역본을 우선하며, 연결된 역본이 없으면 영어 기반 참고 번역을 요청할 수 있습니다."
   },
   {
     "en": "Search a language or code",
@@ -1024,10 +1084,6 @@
     "ko": "다른 언어 선택"
   },
   {
-    "en": "Read on YouVersion",
-    "ko": "YouVersion에서 성경 읽기"
-  },
-  {
     "en": "Read this edition at its source. In-app access requires an additional connection.",
     "ko": "이 역본은 제공처에서 읽을 수 있습니다. 앱 내 본문 이용은 별도 연결이 필요합니다."
   },
@@ -1390,10 +1446,6 @@
   {
     "en": "Translated · Show original",
     "ko": "자동번역 · 원문 보기"
-  },
-  {
-    "en": "Translating…",
-    "ko": "번역 중…"
   },
   {
     "en": "Showing original; translation unavailable.",

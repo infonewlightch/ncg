@@ -705,5 +705,19 @@
   "We look for a published translation first. English-based automatic translation will be clearly distinguished from the source text.": "Primero buscamos una traducción publicada. La traducción automática del inglés se distinguirá claramente del texto original.",
   "Read this edition at its source. In-app access requires an additional connection.": "Lee esta edición en su fuente. El acceso dentro de la aplicación requiere una conexión adicional.",
   "Read at the source": "Leer en la fuente",
-  "Edition terms": "Condiciones de la edición"
+  "Edition terms": "Condiciones de la edición",
+  "English-source translation aid": "Traducción de apoyo desde el inglés",
+  "Automatic translation · Unreviewed": "Traducción automática · Sin revisar",
+  "No connected edition was found for this language. You can request a reading aid translated from the English WEB Bible. It is not a published Bible edition and may contain errors. Read the English source below alongside it.": "No se encontró una edición conectada en este idioma. Puedes solicitar una traducción de apoyo de la Biblia WEB en inglés. No es una edición bíblica publicada y puede contener errores. Lee también el texto original en inglés que aparece debajo.",
+  "Previous verses": "Versículos anteriores",
+  "Next verses": "Versículos siguientes",
+  "Translate these verses into my language": "Traducir estos versículos a mi idioma",
+  "Please wait. You can keep reading the English source.": "Espera un momento. Puedes seguir leyendo el texto original en inglés.",
+  "A reliable automatic translation could not be provided in this language. Choose another language or read the English source.": "No se pudo ofrecer una traducción automática fiable en este idioma. Elige otro idioma o lee el original en inglés.",
+  "Translation is busy. Please try again later.": "Hay muchas solicitudes de traducción. Inténtalo más tarde.",
+  "A published edition is available for this language. Please select your language again.": "Hay una edición publicada en este idioma. Vuelve a seleccionar tu idioma.",
+  "Translation is unavailable right now. Read the English source or try again later.": "La traducción no está disponible ahora. Lee el original en inglés o inténtalo más tarde.",
+  "Source: World English Bible (public domain). This automatic translation has not been reviewed by the church or a Bible publisher.": "Fuente: World English Bible (dominio público). Esta traducción automática no ha sido revisada por la iglesia ni por una editorial bíblica.",
+  "Your language applies to menus and content. Untranslated screens use English. Published Bible editions come first; if no edition is connected, you can request an English-source translation aid.": "Tu idioma se aplica a los menús y al contenido. Las pantallas sin traducir usan inglés. Se priorizan las ediciones bíblicas publicadas; si no hay una edición conectada, puedes solicitar una traducción de apoyo desde el inglés.",
+  "New reference translations have reached today’s limit. You can keep reading English and request another translation tomorrow.": "Se alcanzó el límite de nuevas traducciones de apoyo de hoy. Puedes seguir leyendo en inglés y solicitar otra traducción mañana."
 }
