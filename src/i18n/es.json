@@ -760,5 +760,11 @@
   "Please try again after the previous reminder request finishes.": "Inténtalo de nuevo cuando termine la solicitud anterior del recordatorio.",
   "Checking reminder settings…": "Comprobando la configuración de recordatorios…",
   "Could not check the reminder service. Please check again.": "No se pudo comprobar el servicio de recordatorios. Inténtalo de nuevo.",
-  "Check again": "Volver a comprobar"
+  "Check again": "Volver a comprobar",
+  "This screen needs to be reloaded.": "Es necesario volver a cargar esta pantalla.",
+  "You are offline. Reconnect before reloading.": "No tienes conexión. Vuelve a conectarte antes de recargar.",
+  "The connection may have been interrupted or the app updated. Reload to reopen this address.": "Es posible que se haya interrumpido la conexión o actualizado la aplicación. Recarga para volver a abrir esta dirección.",
+  "Reloading may discard unsaved input. Close this dialog to return to your screen.": "Al recargar puedes perder lo que no hayas guardado. Cierra este cuadro para volver a tu pantalla.",
+  "Reloading…": "Volviendo a cargar…",
+  "Choose a language": "Elige un idioma"
 }

@@ -1,17 +1,5 @@
 [
   {
-    "en": "Unable to load this page.",
-    "ko": "화면을 불러오지 못했습니다."
-  },
-  {
-    "en": "Check your connection and try again.",
-    "ko": "연결을 확인한 뒤 다시 시도해주세요."
-  },
-  {
-    "en": "Reload",
-    "ko": "다시 불러오기"
-  },
-  {
     "en": "Home",
     "ko": "홈"
   },
@@ -408,6 +396,10 @@
     "ko": "계정 동기화가 지연되고 있습니다. 이 기기의 기록을 보관하고 연결되면 다시 시도합니다."
   },
   {
+    "en": "Choose a language",
+    "ko": "언어 선택"
+  },
+  {
     "en": "The language list could not load. You can enter a language tag below.",
     "ko": "언어 목록을 불러오지 못했습니다. 아래에서 언어 태그를 직접 입력할 수 있습니다."
   },
@@ -650,6 +642,38 @@
   {
     "en": "If browser data is cleared or storage is reclaimed, download again. Offline availability of other versions depends on publisher permission.",
     "ko": "브라우저 데이터를 지우거나 저장 공간이 정리되면 다시 저장해야 합니다. 다른 역본의 오프라인 제공은 출판사 허가에 따라 달라집니다."
+  },
+  {
+    "en": "This screen needs to be reloaded.",
+    "ko": "화면을 다시 불러와야 합니다."
+  },
+  {
+    "en": "Unable to load this page.",
+    "ko": "화면을 불러오지 못했습니다."
+  },
+  {
+    "en": "You are offline. Reconnect before reloading.",
+    "ko": "인터넷 연결이 끊겨 있습니다. 연결한 뒤 다시 불러와 주세요."
+  },
+  {
+    "en": "The connection may have been interrupted or the app updated. Reload to reopen this address.",
+    "ko": "연결이 끊겼거나 앱이 업데이트되었을 수 있어요. 새로고침하면 현재 주소를 다시 엽니다."
+  },
+  {
+    "en": "Check your connection and try again.",
+    "ko": "연결을 확인한 뒤 다시 시도해주세요."
+  },
+  {
+    "en": "Reloading may discard unsaved input. Close this dialog to return to your screen.",
+    "ko": "새로고침하면 저장하지 않은 입력은 사라질 수 있습니다. 이 창을 닫으면 기존 화면으로 돌아갑니다."
+  },
+  {
+    "en": "Reloading…",
+    "ko": "다시 불러오는 중…"
+  },
+  {
+    "en": "Reload",
+    "ko": "다시 불러오기"
   },
   {
     "en": "GLOBAL QUIET TIME",
