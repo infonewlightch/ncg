@@ -23,7 +23,7 @@
 - [x] 별도 Node 운영 서버: 번역 인증/RLS/원문 확인/할당량·정적 파일/CSP/성경 API. 단일 인스턴스 제한이며 실제 공급자·원격 배포 전.
 - [x] 운영 서버 구조와 관리자 영상 초안·검수·게시 및 006 SQL. 공식 교회 링크·실제 배포는 남음.
 - [x] 007 SQL: 실제 66권 장절 범위와 단락 분할 경계 검증.
-- [x] UI 문구 745개 카탈로그·빌드 누락 검사·스페인어 팩과 QT 안내 초안.
+- [x] UI 문구 746개 카탈로그·빌드 누락 검사·스페인어 팩과 QT 안내 초안.
 - [x] WEBP 66권 전체 저장·해시 검증·중단/이어받기 구현 및 원문 무결성 테스트. 공개 호스팅에서 66권+앱 파일 해시 검증과 기기 저장 완료 확인. 네트워크를 끊은 재실행은 미검증.
 - [x] 한국어 개역개정 우선 역본 선택과 대한성서공회 공식 장별 링크. 실제 본문 사용허가·연결은 남음.
 - [ ] 추가 언어 UI 검수·콘텐츠 제공 범위 확장. 언어 선택 목록만으로 번역 제공을 주장하지 않음.
@@ -48,7 +48,7 @@
 - [x] 사용자 승인 후 Netlify 공개: https://newlightchurchglobal.com/ . Git 연속 배포와 서버 함수 4개 연결 완료.
 - [x] 공식 도메인 newlightchurchglobal.com: 가비아 DNS 및 Netlify Let's Encrypt apex/www 발급 확인. 실제 HTTPS200, HTTP/www301 확인. Supabase 기본 URL도 공식 주소로 전환.
 - [x] 사용자 확정 NCG.png OG 이미지 및 NCG 제목/슬로건 설명 공개 배포. 원본과 공개 이미지 해시 일치 확인.
-- [x] GitHub infonewlightch/ncg 백업. 기능 변경을 main에 백업하고 연속 배포. 199 tests/38 files 및 build 통과(채팅·나눔 비동기 처리 검증 단계).
+- [x] GitHub infonewlightch/ncg 백업. 기능 변경을 main에 백업하고 연속 배포. 205 tests/39 files 및 build 통과(채팅·나눔·친구 검색 비동기 처리 검증 단계).
 - [x] Git 연속 배포 및 서버 함수 실제 배포. Netlify deploy 6ab40c67428d32000894e262 (02:29), 요청 제한 규칙 2개 확인.
 - [x] 공유 제목 NCG - New Light Church Global, 원본 OG 유지, Contact 비공개 Netlify Forms 수신함 등록.
 - [x] eBible 공식 1,550역본/1,242 ISO 언어 카탈로그(전체 읽기 가능 또는 전체 검수 완료라는 뜻은 아님), 라이선스 허용분 본문 어댑터. 실제 스페인어/아랍어 36절, RTL, 독립 3열 PC 탐색·모바일 선택 검증.
