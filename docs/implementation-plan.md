@@ -48,7 +48,8 @@
 - [x] 사용자 승인 후 Netlify 공개: https://newlightchurchglobal.com/ . Git 연속 배포와 서버 함수 4개 연결 완료.
 - [x] 공식 도메인 newlightchurchglobal.com: 가비아 DNS 및 Netlify Let's Encrypt apex/www 발급 확인. 실제 HTTPS200, HTTP/www301 확인. Supabase 기본 URL도 공식 주소로 전환.
 - [x] 사용자 확정 NCG.png OG 이미지 및 NCG 제목/슬로건 설명 공개 배포. 원본과 공개 이미지 해시 일치 확인.
-- [x] GitHub infonewlightch/ncg 백업. 기능 변경을 main에 백업하고 연속 배포. 228 tests/42 files 및 build 통과(번역 응답 격리·사용량 저장 실패 차단 검증 단계).
+- [x] GitHub infonewlightch/ncg 백업. 기능 변경을 main에 백업하고 연속 배포. 237 tests/44 files 및 build 통과(번역 응답 격리·사용량 DB 예약 검증 단계).
+- [x] 011 SQL 적용: 번역 사용량을 Supabase transaction으로 예약, 기존 성경 사용량 이월·UTC 일일 제한·오류 시 생성 중단. 공동체용 할당량 준비; 실제 공동체 번역 API는 아직 503이며 별도 연결 필요.
 - [x] Git 연속 배포 및 서버 함수 실제 배포. Netlify deploy 6ab40c67428d32000894e262 (02:29), 요청 제한 규칙 2개 확인.
 - [x] 공유 제목 NCG - New Light Church Global, 원본 OG 유지, Contact 비공개 Netlify Forms 수신함 등록.
 - [x] eBible 공식 1,550역본/1,242 ISO 언어 카탈로그(전체 읽기 가능 또는 전체 검수 완료라는 뜻은 아님), 라이선스 허용분 본문 어댑터. 실제 스페인어/아랍어 36절, RTL, 독립 3열 PC 탐색·모바일 선택 검증.

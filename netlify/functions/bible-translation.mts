@@ -1,5 +1,6 @@
 import {getStore} from '@netlify/blobs';
 import {checkedBlobFetch} from '../../server/blob-safe-fetch.ts';
+import {claimTranslationBudget} from '../../server/translation-quota.ts';
 import {bibleTranslation,type ScriptureTranslation,type TranslationStore} from '../../server/bible-translation.ts';
 export default async function handler(request:Request){
  const blobs=getStore({name:'bible-reference-translations',consistency:'strong',fetch:checkedBlobFetch});
@@ -7,16 +8,10 @@ export default async function handler(request:Request){
   get:key=>blobs.get(key,{type:'json'}),
   async set(key,value:ScriptureTranslation){await blobs.setJSON(key,value);},
   async claim(){
-   const key=`budget/${new Date().toISOString().slice(0,10)}`;
-   for(let attempt=0;attempt<5;attempt++){
-    const existing=await blobs.getWithMetadata(key,{type:'json'});const used=existing?existing.data?.used:0;
-    if(!Number.isInteger(used)||used<0||(existing&&(typeof existing.etag!=='string'||!existing.etag)))throw Error('translation_budget_unavailable');
-    if(used>=60)return false;
-    const {modified,etag}=await blobs.setJSON(key,{used:used+1},existing?{onlyIfMatch:existing.etag}:{onlyIfNew:true});
-    // Some SDK versions report conditional-write failures as modified with no ETag.
-    if(modified){if(typeof etag!=='string'||!etag)throw Error('translation_budget_unavailable');return true;}
-   }
-   return false;
+   // Carry the old preview usage forward; never write or reset the legacy counter.
+   const legacy=await blobs.getWithMetadata(`budget/${new Date().toISOString().slice(0,10)}`,{type:'json'});
+   const used=legacy?legacy.data?.used:0;if(!Number.isInteger(used)||used<0||used>60)throw Error('translation_quota_unavailable');
+   return claimTranslationBudget({NCG_SUPABASE_URL:process.env.NCG_SUPABASE_URL||process.env.VITE_SUPABASE_URL||'',VITE_SUPABASE_PUBLISHABLE_KEY:process.env.VITE_SUPABASE_PUBLISHABLE_KEY||''},'bible',null,fetch,used);
   }
  };
  return bibleTranslation(request,{OPENAI_API_KEY:process.env.OPENAI_API_KEY||'',OPENAI_BASE_URL:process.env.OPENAI_BASE_URL||'',NCG_BIBLE_TRANSLATION_MODEL:process.env.NCG_BIBLE_TRANSLATION_MODEL||''},{store});

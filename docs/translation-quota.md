@@ -1,0 +1,13 @@
+# Translation preview quotas
+
+Migration `011_ncg_translation_budget.sql` was applied to the NCG Supabase project on 2026-09-24 at approximately 06:46 KST. Ledger SHA-256: `2e71b23fdd857b0e7f0a4e2c98b31258f6723e9379d35e119c7b310be066f063`. Do not reapply the combined new-project setup to this existing database.
+
+The RPC reserves one request inside a PostgreSQL transaction, locking the global row before the caller row. Each UTC day allows 60 Bible generation reservations and separately 60 community reservations. Community reservations are also limited to 20 per authenticated active member; all guests share 20. A denied member reservation does not consume the global allowance. Failed or uncertain requests are not refunded or retried automatically. These are preview request counts, not monetary spending limits.
+
+The Netlify Bible adapter reads the previous Blobs counter and passes its validated value as a floor. The RPC can raise existing usage to that floor but cannot lower it. This preserves usage on the migration day. Cached Bible translations remain in Blobs and do not reserve another generation. Failed quota reads/RPC responses stop generation. The standalone development adapter still uses an in-memory counter.
+
+The table has RLS and no direct privileges for anonymous or authenticated clients. Only the fixed-search-path security-definer RPC is executable. Records contain kind, UTC date, member UUID or shared subject, and used count; no text, IP addresses or tokens. Successful reservations prune rows older than 14 days. Public clients can call the RPC and exhaust the small preview allowance, but cannot read or reset counters or increase the allowance. This is an availability limitation; production expansion needs a server-only reservation boundary and provider spending controls.
+
+Validation: 237 tests across 44 files and production build pass. PGlite covers shared limits, per-member/guest limits, inactive members, invalid arguments, direct access denial, UTC/retention and legacy carry-forward. Transport tests cover the correct project, public credentials, member bearer forwarding and fail-closed responses. These do not constitute a simultaneous remote database stress test. Actual anonymous REST inspection returned 401/42501 for the table and 400/invalid_budget for an invalid RPC kind, without consuming a reservation.
+
+The community budget is prepared only. Netlify `/api/translate` remains a 503 stub until its authentication, RLS source resolution and provider adapter are connected and verified. Successful Bible translation does not demonstrate working community or private-chat translation.
