@@ -800,6 +800,22 @@
     "ko": "성경에서 이어 읽기"
   },
   {
+    "en": "Quiz progress is saved on this device. Sign in and import it from My page.",
+    "ko": "퀴즈 기록은 이 기기에 저장됩니다. 로그인 후 마이페이지에서 가져올 수 있습니다."
+  },
+  {
+    "en": "Quiz sync is delayed. Progress is kept on this device and retried when connected.",
+    "ko": "퀴즈 동기화가 지연되고 있습니다. 기기에 보관하고 다시 연결되면 재시도합니다."
+  },
+  {
+    "en": "Saving quiz progress to your account.",
+    "ko": "퀴즈 기록을 계정에 저장하는 중입니다."
+  },
+  {
+    "en": "Quiz progress is saved to your account.",
+    "ko": "퀴즈 기록이 계정에 저장되었습니다."
+  },
+  {
     "en": "Refresh reflections",
     "ko": "나눔 새로고침"
   },
@@ -2060,6 +2076,22 @@
     "ko": "보관한 말씀"
   },
   {
+    "en": "My quiz progress",
+    "ko": "나의 퀴즈 기록"
+  },
+  {
+    "en": "answered",
+    "ko": "푼 문제"
+  },
+  {
+    "en": "correct",
+    "ko": "정답"
+  },
+  {
+    "en": "rounds completed",
+    "ko": "완료한 도전"
+  },
+  {
     "en": "Requests · Messages · Blocked members",
     "ko": "친구 요청 · 메시지 · 차단 관리"
   },
@@ -2328,8 +2360,8 @@
     "ko": "순위나 경쟁 없이, 각자의 속도로 배우세요."
   },
   {
-    "en": "Best on this device",
-    "ko": "이 기기의 최고 점수"
+    "en": "My best score",
+    "ko": "나의 최고 점수"
   },
   {
     "en": "pts",

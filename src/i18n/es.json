@@ -739,5 +739,14 @@
   "Open the link in the browser where you requested the email.": "Abre el enlace en el navegador donde solicitaste el correo.",
   "Use another email": "Usar otro correo",
   "Request another email": "Solicitar otro correo",
-  "Request again in {seconds} seconds": "Puedes volver a solicitarlo en {seconds} segundos"
+  "Request again in {seconds} seconds": "Puedes volver a solicitarlo en {seconds} segundos",
+  "Quiz progress is saved on this device. Sign in and import it from My page.": "Tu progreso del cuestionario se guarda en este dispositivo. Inicia sesión e impórtalo desde Mi espacio.",
+  "Quiz sync is delayed. Progress is kept on this device and retried when connected.": "La sincronización del cuestionario está retrasada. Tu progreso se guarda en este dispositivo y se reintentará al conectar.",
+  "Saving quiz progress to your account.": "Guardando el progreso del cuestionario en tu cuenta.",
+  "Quiz progress is saved to your account.": "El progreso del cuestionario está guardado en tu cuenta.",
+  "My best score": "Mi mejor puntuación",
+  "My quiz progress": "Mi progreso en los cuestionarios",
+  "answered": "respondidas",
+  "correct": "correctas",
+  "rounds completed": "rondas completadas"
 }
