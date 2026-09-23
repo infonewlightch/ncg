@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "NCG",
+  "short_name": "NCG",
+  "description": "One Gospel. Every Nation. Every Language.",
+  "start_url": "/#/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fafbfc",
+  "theme_color": "#123564",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/brand/newlight-symbol.png",
+      "sizes": "820x820",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

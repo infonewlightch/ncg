@@ -1,0 +1,1 @@
+export const church={name:'새빛교회',englishName:'Newlight Church',email:'infonewlighch@gmail.com',address:'대한민국 경기도 광명시 하안동 200-1, 4층',englishAddress:'4F, 200-1 Haan-dong, Gwangmyeong-si, Gyeonggi-do, Republic of Korea',affiliation:'대한예수교장로회(합동) 경기동중노회'};

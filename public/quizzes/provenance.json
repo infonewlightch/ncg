@@ -1,0 +1,33 @@
+{
+  "authorization": "The owner explicitly authorized reuse of their Dabar app and content.",
+  "processing": "Duplicate IDs or identical normalized questions keep their first occurrence. Wording, correct answers and explanations are preserved. Theological review remains required.",
+  "imports": [
+    {
+      "language": "ko",
+      "source": "https://dabar.theamov.com/api/questions?complete=1&lang=ko",
+      "downloaded": "2026-09-23",
+      "source_count": 3014,
+      "imported_count": 3011,
+      "duplicate_count": 3,
+      "sha256": "926f1d0701c45d69d20541125cd7e3da308808205d069cae01d7bbfe0e13bd9d"
+    },
+    {
+      "language": "en",
+      "source": "https://dabar.theamov.com/api/questions?complete=1&lang=en",
+      "downloaded": "2026-09-23",
+      "source_count": 3020,
+      "imported_count": 3004,
+      "duplicate_count": 16,
+      "sha256": "6ce7daa513ac990292f9a4fff0b72c1b34a17be50b86f28aa1e9621d655d735d"
+    },
+    {
+      "language": "th",
+      "source": "https://dabar.theamov.com/api/questions?complete=1&lang=th",
+      "downloaded": "2026-09-23",
+      "source_count": 3014,
+      "imported_count": 3008,
+      "duplicate_count": 6,
+      "sha256": "b94d6b012448246f7179fc6529a2ad5bc07562b678efb1c999a3a3eed37acc5f"
+    }
+  ]
+}

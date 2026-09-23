@@ -1,0 +1,408 @@
+{
+  "revision": "c9959c84aeeaf612274e",
+  "bytes": 9747204,
+  "files": [
+    {
+      "path": "/bibles/webp/index.json",
+      "book": "index",
+      "bytes": 178315,
+      "sha256": "ee6483a86ab1c09ba3563404585a7ffeea9c789557b08d3eaa982ef864b723ee"
+    },
+    {
+      "path": "/bibles/webp/offline/GEN.json",
+      "book": "GEN",
+      "bytes": 452995,
+      "sha256": "d70acae173cd712b20498de1b9ec64e0251b90717a40615a9ebad0cfc04fa982"
+    },
+    {
+      "path": "/bibles/webp/offline/EXO.json",
+      "book": "EXO",
+      "bytes": 384887,
+      "sha256": "30fbaa3a9a732189348cbc4b914dd020b08057eb50d417a512ddf74c9f042e96"
+    },
+    {
+      "path": "/bibles/webp/offline/LEV.json",
+      "book": "LEV",
+      "bytes": 285767,
+      "sha256": "915c9a4f5a1f6bc21db270dd242ea84d3b7896297b2f7e5c7577e3707a71cd7c"
+    },
+    {
+      "path": "/bibles/webp/offline/NUM.json",
+      "book": "NUM",
+      "bytes": 396465,
+      "sha256": "7401ac2251f26f87e7d8aca54582c41be078fed537cd9fbbd8d3e2bae28e9adc"
+    },
+    {
+      "path": "/bibles/webp/offline/DEU.json",
+      "book": "DEU",
+      "bytes": 327434,
+      "sha256": "9e5ae38b74522aa7d5e7ee1831a2d429c8d92aede3d6e7a3af885fd230e82665"
+    },
+    {
+      "path": "/bibles/webp/offline/JOS.json",
+      "book": "JOS",
+      "bytes": 222735,
+      "sha256": "52b5dbb4a31324f2565ca1604911e3b56d557a234c710f626f4227fd1248b5db"
+    },
+    {
+      "path": "/bibles/webp/offline/JDG.json",
+      "book": "JDG",
+      "bytes": 219723,
+      "sha256": "bb29411a22778ff11d186fbedcb139a6a777faf02cc5d8d82e61b94ba692d0d4"
+    },
+    {
+      "path": "/bibles/webp/offline/RUT.json",
+      "book": "RUT",
+      "bytes": 30010,
+      "sha256": "3af70fb29216b51e83cfc8498fcb9a417617177173d062acb776ca2d8fd9b269"
+    },
+    {
+      "path": "/bibles/webp/offline/1SA.json",
+      "book": "1SA",
+      "bytes": 289213,
+      "sha256": "fd5f0a5ff5ee8f80121e093296cf7cb4d8646e765eb2c308f4233c009c1d44ae"
+    },
+    {
+      "path": "/bibles/webp/offline/2SA.json",
+      "book": "2SA",
+      "bytes": 238254,
+      "sha256": "ccadcc12ef5b56d3bc1466bb7086e5320b9415a8783bc3a1be2151a128e521d8"
+    },
+    {
+      "path": "/bibles/webp/offline/1KI.json",
+      "book": "1KI",
+      "bytes": 283094,
+      "sha256": "1ced641f9a481298323497c026d5e26b4398ae1e3fe3d0c6d55626f773d1ad2d"
+    },
+    {
+      "path": "/bibles/webp/offline/2KI.json",
+      "book": "2KI",
+      "bytes": 269523,
+      "sha256": "a816afc5ebd71e172dbed7a0d2399babdbb7221b25b03316975f49faf3a97022"
+    },
+    {
+      "path": "/bibles/webp/offline/1CH.json",
+      "book": "1CH",
+      "bytes": 257877,
+      "sha256": "d206c860bf7430e053be0a43de28da4adf8d486cc411261fba8f3316448816bc"
+    },
+    {
+      "path": "/bibles/webp/offline/2CH.json",
+      "book": "2CH",
+      "bytes": 310767,
+      "sha256": "09696326b4b319353264226c621a5b6518d6d67da3b174704cce8eb4c23373f4"
+    },
+    {
+      "path": "/bibles/webp/offline/EZR.json",
+      "book": "EZR",
+      "bytes": 91881,
+      "sha256": "147bc730cc5bb191ae496ad52f5ba1d1f151186b6a1a6359834cd3c0bc180dfd"
+    },
+    {
+      "path": "/bibles/webp/offline/NEH.json",
+      "book": "NEH",
+      "bytes": 129925,
+      "sha256": "c1bcfce78b8f8ab3317b73f9c5d9444d2187b8c01729030ec65a58b84dccfc25"
+    },
+    {
+      "path": "/bibles/webp/offline/EST.json",
+      "book": "EST",
+      "bytes": 67052,
+      "sha256": "e93db51d14839d6cead9ff86e2522242dec201a9715a0f3329e6f050dee54a00"
+    },
+    {
+      "path": "/bibles/webp/offline/JOB.json",
+      "book": "JOB",
+      "bytes": 233156,
+      "sha256": "65b14ce3b741e62f55717a901deb4078701cca4fc19fa3ad2d61240b54417623"
+    },
+    {
+      "path": "/bibles/webp/offline/PSA.json",
+      "book": "PSA",
+      "bytes": 563402,
+      "sha256": "7ecb1c83798c97e5f43a6139ac23011e735213550c66d0eb6a8ed9e1e5d94f82"
+    },
+    {
+      "path": "/bibles/webp/offline/PRO.json",
+      "book": "PRO",
+      "bytes": 196710,
+      "sha256": "d9b3270f41f990f1a14725e8b25fe292b08022cc25af8b00ef9d93d5cd137115"
+    },
+    {
+      "path": "/bibles/webp/offline/ECC.json",
+      "book": "ECC",
+      "bytes": 66027,
+      "sha256": "74454d80ce1b13136d9e9002d1f0e54486313dcd5d2cb6048553a0185e3fa2ba"
+    },
+    {
+      "path": "/bibles/webp/offline/SNG.json",
+      "book": "SNG",
+      "bytes": 32495,
+      "sha256": "d68b890c5795e6d7756283ae5cc48ab529e96d7cf8c96d0d3194d6a7843886c3"
+    },
+    {
+      "path": "/bibles/webp/offline/ISA.json",
+      "book": "ISA",
+      "bytes": 441093,
+      "sha256": "a1ef4d7017f2516e878dd21c58e2d4c895de5f2c5eab62cb39c35178c174534d"
+    },
+    {
+      "path": "/bibles/webp/offline/JER.json",
+      "book": "JER",
+      "bytes": 503724,
+      "sha256": "5f01a99f2d9d2a2ea4f44a1fd72ca03716e5602659eeb36f79d20c67628c597c"
+    },
+    {
+      "path": "/bibles/webp/offline/LAM.json",
+      "book": "LAM",
+      "bytes": 43098,
+      "sha256": "bdb3eee6995fe5aef3ae646e7e02d7f0783c8ec5ef6c0d07124364b56993664a"
+    },
+    {
+      "path": "/bibles/webp/offline/EZK.json",
+      "book": "EZK",
+      "bytes": 459891,
+      "sha256": "694ac0c8f12e2abd5d579986b6f03a922d288c32bec83aac44561092bf23169a"
+    },
+    {
+      "path": "/bibles/webp/offline/DAN.json",
+      "book": "DAN",
+      "bytes": 137981,
+      "sha256": "b148285422056183021c2ce463df48dad12fdafd20abc459374760ef10894130"
+    },
+    {
+      "path": "/bibles/webp/offline/HOS.json",
+      "book": "HOS",
+      "bytes": 63848,
+      "sha256": "e4d2bf7373313b2ff03dd302d2988ae71a918f4bffe66d582a5bcecf2e660ee3"
+    },
+    {
+      "path": "/bibles/webp/offline/JOL.json",
+      "book": "JOL",
+      "bytes": 24420,
+      "sha256": "c43f7da527c6a8d64ea8a4f11cc929d6b9682c1963e78f4e2fc7f6f07450b0d3"
+    },
+    {
+      "path": "/bibles/webp/offline/AMO.json",
+      "book": "AMO",
+      "bytes": 50124,
+      "sha256": "0d7533b1705d016d3fe07e41d09f823a2d33ed9c847b7aa7354ddd0411ab072b"
+    },
+    {
+      "path": "/bibles/webp/offline/OBA.json",
+      "book": "OBA",
+      "bytes": 7958,
+      "sha256": "a00d31350b6b966efb6660919fe5ce9ca50c338b1569e63a8f1197ae09ec1ce6"
+    },
+    {
+      "path": "/bibles/webp/offline/JON.json",
+      "book": "JON",
+      "bytes": 15638,
+      "sha256": "109b9bec21fe80641c7567f487015e853b1fb83ba3530b1c7d5c1d780f391506"
+    },
+    {
+      "path": "/bibles/webp/offline/MIC.json",
+      "book": "MIC",
+      "bytes": 36761,
+      "sha256": "c8b3850eda70c24875c8fc4294a85bd15622f6bc224db1f70c8e55932e036287"
+    },
+    {
+      "path": "/bibles/webp/offline/NAM.json",
+      "book": "NAM",
+      "bytes": 15605,
+      "sha256": "b881590f79c78bea7bc78f23fda09b73ae011daeaaad321b7555d664837cc436"
+    },
+    {
+      "path": "/bibles/webp/offline/HAB.json",
+      "book": "HAB",
+      "bytes": 17846,
+      "sha256": "8cc850d70a81e4708b6f29b8024ed68c7e7cbd7fe051771cc93593a6dc02276c"
+    },
+    {
+      "path": "/bibles/webp/offline/ZEP.json",
+      "book": "ZEP",
+      "bytes": 19475,
+      "sha256": "218af11a9fd372d66f2f7c64f8be53873948228c57665e14182ac2350e1f2cad"
+    },
+    {
+      "path": "/bibles/webp/offline/HAG.json",
+      "book": "HAG",
+      "bytes": 13446,
+      "sha256": "52a05a81f6b89c222fe5eda24a862b93b02d1fa34ac2675cc2f8a0bbf0cc7a6f"
+    },
+    {
+      "path": "/bibles/webp/offline/ZEC.json",
+      "book": "ZEC",
+      "bytes": 74644,
+      "sha256": "271f87fcce6133d58ef96f547841c8f62aeac4d00b9530d5ebf8f00edd1dc872"
+    },
+    {
+      "path": "/bibles/webp/offline/MAL.json",
+      "book": "MAL",
+      "bytes": 21397,
+      "sha256": "417888fee5b5bf7da2eea0d4ff85931c92116dc37788a0c0ac27913a8c6519ff"
+    },
+    {
+      "path": "/bibles/webp/offline/MAT.json",
+      "book": "MAT",
+      "bytes": 301597,
+      "sha256": "14fb7e5fe06897d302325d81be09427d2a83eaf8864e60639a44b633b62f80cb"
+    },
+    {
+      "path": "/bibles/webp/offline/MRK.json",
+      "book": "MRK",
+      "bytes": 187508,
+      "sha256": "b3a529c361b38916dee5732163758bbde88afb6fdad5252627c292ea9e794b0d"
+    },
+    {
+      "path": "/bibles/webp/offline/LUK.json",
+      "book": "LUK",
+      "bytes": 315622,
+      "sha256": "a358b4ad5227413ec86e671b382e9ad5b8f1099ca5f9b075c25eef41c04d76fc"
+    },
+    {
+      "path": "/bibles/webp/offline/JHN.json",
+      "book": "JHN",
+      "bytes": 240867,
+      "sha256": "5cbd37728b0e56f6f053497cea6aad269a40312ca96d56b489435288fd04de75"
+    },
+    {
+      "path": "/bibles/webp/offline/ACT.json",
+      "book": "ACT",
+      "bytes": 301988,
+      "sha256": "b68b767832dbbc9f8e4cd0175f410dc2d1e1f355cda8ac39a2fc144428085010"
+    },
+    {
+      "path": "/bibles/webp/offline/ROM.json",
+      "book": "ROM",
+      "bytes": 124031,
+      "sha256": "d2435bb8c2efbbaee5117684b017cf41699a34e18ab37eaed79004a1fc022e18"
+    },
+    {
+      "path": "/bibles/webp/offline/1CO.json",
+      "book": "1CO",
+      "bytes": 119634,
+      "sha256": "3ee43f0eecff2d8376a273a70d48f5159e22196df7e26fbe96edb65a5262b1d2"
+    },
+    {
+      "path": "/bibles/webp/offline/2CO.json",
+      "book": "2CO",
+      "bytes": 76812,
+      "sha256": "020f99299d19d77fc11dd921a801f9599da54dadec77ddb37b8799eb37140be4"
+    },
+    {
+      "path": "/bibles/webp/offline/GAL.json",
+      "book": "GAL",
+      "bytes": 40487,
+      "sha256": "b5d41f78793cbb170308a5a57d9b8a562d202ded7fb9e995ba1525b88ba9bc9f"
+    },
+    {
+      "path": "/bibles/webp/offline/EPH.json",
+      "book": "EPH",
+      "bytes": 40238,
+      "sha256": "8fa49b85e2b4b39139054d2828083185616e7a25323e7364dccb01f1652e9b2a"
+    },
+    {
+      "path": "/bibles/webp/offline/PHP.json",
+      "book": "PHP",
+      "bytes": 28297,
+      "sha256": "c6ef2aad1728fbc431884f2650625d585fedf717bf6201b7d38f0f39a1996a3c"
+    },
+    {
+      "path": "/bibles/webp/offline/COL.json",
+      "book": "COL",
+      "bytes": 26071,
+      "sha256": "abc25d60bdc16871a4bc42125d90dc84cd02761658a72d37d9174525eda8c397"
+    },
+    {
+      "path": "/bibles/webp/offline/1TH.json",
+      "book": "1TH",
+      "bytes": 23697,
+      "sha256": "2afd6ffeaca2a2c5e0e4b0e31b921e978136567cfb057355fe0db0d34972e3bd"
+    },
+    {
+      "path": "/bibles/webp/offline/2TH.json",
+      "book": "2TH",
+      "bytes": 13333,
+      "sha256": "fa2df7ffa588ee494fa12ffd58ec00e7704a81ec6acd7bc377e2843af1c3b177"
+    },
+    {
+      "path": "/bibles/webp/offline/1TI.json",
+      "book": "1TI",
+      "bytes": 31360,
+      "sha256": "108f377f4337e8655523f468abd45d0ec23706090e1a572e6073d3d923f0910b"
+    },
+    {
+      "path": "/bibles/webp/offline/2TI.json",
+      "book": "2TI",
+      "bytes": 21775,
+      "sha256": "f7b3e5596bfea1b32e57cf8f2f7d8fbcc6eb815b3ee9bccb26e25545a8b375ca"
+    },
+    {
+      "path": "/bibles/webp/offline/TIT.json",
+      "book": "TIT",
+      "bytes": 12525,
+      "sha256": "3b2abff753f937cbbed12d26554489cca3f84d3afeec61026611ccd7c79b07ae"
+    },
+    {
+      "path": "/bibles/webp/offline/PHM.json",
+      "book": "PHM",
+      "bytes": 5785,
+      "sha256": "82bc6362e7884c16a15a8b682943caef240a29a5af60a31e88eb010e9de03498"
+    },
+    {
+      "path": "/bibles/webp/offline/HEB.json",
+      "book": "HEB",
+      "bytes": 90992,
+      "sha256": "e4b77d884f8a9ea4d9ff874765a6383155a44115470660927fea9d337163a4d6"
+    },
+    {
+      "path": "/bibles/webp/offline/JAS.json",
+      "book": "JAS",
+      "bytes": 29594,
+      "sha256": "b1a1dc349f824dacfb41a7c93aeb498e205b8594f75c6cf49f6bd2cf23dc1345"
+    },
+    {
+      "path": "/bibles/webp/offline/1PE.json",
+      "book": "1PE",
+      "bytes": 32095,
+      "sha256": "4239d17feb89ef11d4d79841623b78b2d833efcd2e0ef68a3feb5888a136b00c"
+    },
+    {
+      "path": "/bibles/webp/offline/2PE.json",
+      "book": "2PE",
+      "bytes": 20169,
+      "sha256": "d6033b249ca9f06664afc02370a3bcff03da1147366a2199a3d1bce1c39e459b"
+    },
+    {
+      "path": "/bibles/webp/offline/1JN.json",
+      "book": "1JN",
+      "bytes": 30893,
+      "sha256": "89a5b38be499ba441606dd834c16f20cb8eb300ef111238dc9c819ec4ef9b9f1"
+    },
+    {
+      "path": "/bibles/webp/offline/2JN.json",
+      "book": "2JN",
+      "bytes": 3782,
+      "sha256": "d482faa95e3388c9f1ec9dda95857481305a06ff92d450cf46b81d8a58128424"
+    },
+    {
+      "path": "/bibles/webp/offline/3JN.json",
+      "book": "3JN",
+      "bytes": 3733,
+      "sha256": "b174b8cad4f14e2aac8c6f1d1e19c3b8eb4ac771669422523a772e2ae86a2a36"
+    },
+    {
+      "path": "/bibles/webp/offline/JUD.json",
+      "book": "JUD",
+      "bytes": 8359,
+      "sha256": "3b024c236141835da0fbd16907eb39cfc583c8112de2cd999e2dd7161e3fb0ee"
+    },
+    {
+      "path": "/bibles/webp/offline/REV.json",
+      "book": "REV",
+      "bytes": 141304,
+      "sha256": "5f1f025ab078c6be62386364c16b186067d635e01124cef14d1a25d2b811373a"
+    }
+  ]
+}

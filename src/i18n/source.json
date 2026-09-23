@@ -1,0 +1,2674 @@
+[
+  {
+    "en": "Unable to load this page.",
+    "ko": "화면을 불러오지 못했습니다."
+  },
+  {
+    "en": "Check your connection and try again.",
+    "ko": "연결을 확인한 뒤 다시 시도해주세요."
+  },
+  {
+    "en": "Reload",
+    "ko": "다시 불러오기"
+  },
+  {
+    "en": "Home",
+    "ko": "홈"
+  },
+  {
+    "en": "Global QT",
+    "ko": "전 세계 QT"
+  },
+  {
+    "en": "TOGETHER",
+    "ko": "함께"
+  },
+  {
+    "en": "Bible",
+    "ko": "성경 읽기"
+  },
+  {
+    "en": "Worship",
+    "ko": "온라인 예배"
+  },
+  {
+    "en": "Messages",
+    "ko": "말씀 · 설교"
+  },
+  {
+    "en": "Community",
+    "ko": "나눔 공동체"
+  },
+  {
+    "en": "Friends & chat",
+    "ko": "친구 · 대화"
+  },
+  {
+    "en": "Bible School",
+    "ko": "성경교육"
+  },
+  {
+    "en": "Page not found.",
+    "ko": "페이지를 찾지 못했어요."
+  },
+  {
+    "en": "Go home",
+    "ko": "홈으로"
+  },
+  {
+    "en": "Skip to content",
+    "ko": "본문으로 이동"
+  },
+  {
+    "en": "YOUR JOURNEY OF FAITH",
+    "ko": "함께하는 믿음의 여정"
+  },
+  {
+    "en": "Main navigation",
+    "ko": "주 메뉴"
+  },
+  {
+    "en": "Bible quizzes",
+    "ko": "성경퀴즈"
+  },
+  {
+    "en": "New believers",
+    "ko": "새신자 교육"
+  },
+  {
+    "en": "One Gospel.",
+    "ko": "하나의 복음."
+  },
+  {
+    "en": "Every nation. Every language.",
+    "ko": "모든 민족. 모든 언어."
+  },
+  {
+    "en": "Our faith & mission",
+    "ko": "NCG의 믿음과 사명"
+  },
+  {
+    "en": "Sign in / Join",
+    "ko": "로그인 / 회원가입"
+  },
+  {
+    "en": "My page",
+    "ko": "마이페이지"
+  },
+  {
+    "en": "CONNECTED IN THE GOSPEL",
+    "ko": "복음으로 연결되는 우리"
+  },
+  {
+    "en": "Sign in",
+    "ko": "로그인"
+  },
+  {
+    "en": "Search messages",
+    "ko": "말씀 검색"
+  },
+  {
+    "en": "Data saver",
+    "ko": "데이터 절약 모드"
+  },
+  {
+    "en": "My space",
+    "ko": "내 공간"
+  },
+  {
+    "en": "Storage is unavailable. Changes may be lost when you close this page.",
+    "ko": "이 브라우저에서 저장이 차단되어 있습니다. 현재 내용은 창을 닫으면 사라질 수 있습니다."
+  },
+  {
+    "en": "Data saver · Video thumbnails are not loaded.",
+    "ko": "데이터 절약 모드 · 영상 썸네일을 불러오지 않습니다."
+  },
+  {
+    "en": "Interface translation is being prepared. Menus currently appear in English.",
+    "ko": "이 언어의 화면 번역을 준비하고 있습니다. 현재 메뉴는 영어로 표시합니다."
+  },
+  {
+    "en": "Change language",
+    "ko": "언어 변경"
+  },
+  {
+    "en": "Loading…",
+    "ko": "잠시만 기다려주세요."
+  },
+  {
+    "en": "Mobile navigation",
+    "ko": "모바일 메뉴"
+  },
+  {
+    "en": "Share",
+    "ko": "나눔"
+  },
+  {
+    "en": "Dismiss message",
+    "ko": "알림 닫기"
+  },
+  {
+    "en": "Could not connect to Google sign-in. Please try again.",
+    "ko": "Google 로그인에 연결하지 못했습니다. 잠시 후 다시 시도해주세요."
+  },
+  {
+    "en": "Unable to send the email. Check your address or try again later.",
+    "ko": "인증 메일을 보내지 못했습니다. 이메일 주소와 가입 여부를 확인하거나 잠시 후 다시 시도해주세요."
+  },
+  {
+    "en": "The code is invalid or has expired.",
+    "ko": "인증 코드가 올바르지 않거나 만료되었습니다."
+  },
+  {
+    "en": "WELCOME TO NCG",
+    "ko": "NCG에 오신 것을 환영합니다"
+  },
+  {
+    "en": "Continue your journey, together.",
+    "ko": "믿음의 여정을, 함께 이어가요."
+  },
+  {
+    "en": "Keep your reflections and learning together. Connect with friends around the world.",
+    "ko": "내 묵상과 배움을 모으고, 세계의 친구들과 연결되세요."
+  },
+  {
+    "en": "Scripture and lessons are open without signing in.",
+    "ko": "말씀과 교육은 로그인 없이도 볼 수 있습니다."
+  },
+  {
+    "en": "Join NCG",
+    "ko": "회원가입"
+  },
+  {
+    "en": "Member services are being prepared. Google and email sign-in will be available after setup.",
+    "ko": "회원 서비스를 준비하고 있습니다. 인증 서버 연결 후 Google·이메일로 이용할 수 있습니다."
+  },
+  {
+    "en": "Continue with Google",
+    "ko": "Google로 계속하기"
+  },
+  {
+    "en": "or email",
+    "ko": "또는 이메일"
+  },
+  {
+    "en": "Email address",
+    "ko": "이메일 주소"
+  },
+  {
+    "en": "Sending…",
+    "ko": "전송 중…"
+  },
+  {
+    "en": "Send sign-in email",
+    "ko": "인증 메일 보내기"
+  },
+  {
+    "en": "Verify through your inbox. No password to remember.",
+    "ko": "메일로 본인을 확인합니다. 비밀번호를 만들지 않아도 됩니다."
+  },
+  {
+    "en": "If an email was sent, open the link in your inbox. If it includes a code, you can enter it below.",
+    "ko": "인증 메일이 발송되었다면 받은 편지함의 링크를 열어주세요. 인증 코드가 있는 경우 아래에 입력할 수 있습니다."
+  },
+  {
+    "en": "Email verification code",
+    "ko": "이메일 인증 코드"
+  },
+  {
+    "en": "Verify and continue",
+    "ko": "인증하고 계속"
+  },
+  {
+    "en": "Use another email / request again",
+    "ko": "다른 이메일 사용 / 다시 요청"
+  },
+  {
+    "en": "Account sync is delayed. Your work is kept on this device and retried when connected.",
+    "ko": "계정 동기화가 지연되고 있습니다. 이 기기의 기록을 보관하고 연결되면 다시 시도합니다."
+  },
+  {
+    "en": "Try again",
+    "ko": "다시 시도"
+  },
+  {
+    "en": "The language list could not load. You can enter a language tag below.",
+    "ko": "언어 목록을 불러오지 못했습니다. 아래에서 언어 태그를 직접 입력할 수 있습니다."
+  },
+  {
+    "en": "Enter a valid language tag, e.g. en-GB, zh-Hant, ase.",
+    "ko": "언어 태그를 확인해주세요. 예: en-GB, zh-Hant, ase"
+  },
+  {
+    "en": "Every language matters",
+    "ko": "모든 언어를 향해"
+  },
+  {
+    "en": "Your language applies to menus and content. Untranslated screens use English. Scripture is shown only from an available Bible version.",
+    "ko": "선택한 언어를 메뉴와 콘텐츠에 함께 적용합니다. 아직 번역되지 않은 화면은 영어로 안내하며, 성경은 정식 역본이 있을 때만 표시합니다."
+  },
+  {
+    "en": "Search a language or code",
+    "ko": "언어 이름 또는 코드 검색"
+  },
+  {
+    "en": "Search languages",
+    "ko": "언어 검색"
+  },
+  {
+    "en": "entries · includes sign languages",
+    "ko": "개 항목 · 수어 포함"
+  },
+  {
+    "en": "Interface translation pending",
+    "ko": "화면 번역 준비 중"
+  },
+  {
+    "en": "Show more",
+    "ko": "더 보기"
+  },
+  {
+    "en": "No match. You can enter a language tag below.",
+    "ko": "일치하는 언어가 없습니다. 아래에서 언어 태그를 지정할 수 있습니다."
+  },
+  {
+    "en": "Enter a regional or script language tag",
+    "ko": "지역·문자별 언어 태그 직접 입력"
+  },
+  {
+    "en": "BCP 47 language tag",
+    "ko": "BCP 47 언어 태그"
+  },
+  {
+    "en": "Use this language",
+    "ko": "이 언어 선택"
+  },
+  {
+    "en": "Play: ",
+    "ko": "재생: "
+  },
+  {
+    "en": "WORSHIP",
+    "ko": "예배"
+  },
+  {
+    "en": "MESSAGE",
+    "ko": "말씀"
+  },
+  {
+    "en": "Newlight Church",
+    "ko": "새빛교회"
+  },
+  {
+    "en": "Saved on this device",
+    "ko": "기기에 등록한 영상"
+  },
+  {
+    "en": "Remove bookmark",
+    "ko": "보관 해제"
+  },
+  {
+    "en": "Save message",
+    "ko": "말씀 보관"
+  },
+  {
+    "en": "Play video",
+    "ko": "영상 재생"
+  },
+  {
+    "en": "Connects to the video provider when you play.",
+    "ko": "재생을 누르면 영상 서비스에 연결됩니다."
+  },
+  {
+    "en": "Could not load this file. Check the URL and access permissions.",
+    "ko": "영상 파일에 연결하지 못했습니다. 주소와 접근 권한을 확인해주세요."
+  },
+  {
+    "en": "Take a moment with the Word.",
+    "ko": "말씀과 함께하는 시간을 가져보세요."
+  },
+  {
+    "en": "Captions depend on the languages available for this video. Availability and accuracy vary by provider.",
+    "ko": "자막은 영상에 제공된 언어만 이용할 수 있습니다. 자동 번역의 정확성과 제공 여부는 영상 서비스에 따라 달라집니다."
+  },
+  {
+    "en": "Open original",
+    "ko": "원본에서 열기"
+  },
+  {
+    "en": "Enter a valid YouTube video link or HTTPS MP4/WebM URL.",
+    "ko": "유효한 YouTube 영상 링크 또는 HTTPS MP4/WebM 주소를 입력해주세요."
+  },
+  {
+    "en": "Please enter a title.",
+    "ko": "영상 제목을 입력해주세요."
+  },
+  {
+    "en": "This video is already in your library.",
+    "ko": "이미 등록된 영상입니다."
+  },
+  {
+    "en": "Video saved on this device.",
+    "ko": "영상이 이 기기에 등록되었습니다."
+  },
+  {
+    "en": "Add a video link",
+    "ko": "영상 링크 등록"
+  },
+  {
+    "en": "Saved in this browser. It is not published to other members.",
+    "ko": "현재는 이 브라우저에 저장됩니다. 회원 전체에게 공개되지는 않습니다."
+  },
+  {
+    "en": "YouTube or hosted video URL",
+    "ko": "YouTube 또는 직접 호스팅 영상 주소"
+  },
+  {
+    "en": "Title",
+    "ko": "제목"
+  },
+  {
+    "en": "Description",
+    "ko": "설명"
+  },
+  {
+    "en": "Category",
+    "ko": "분류"
+  },
+  {
+    "en": "Sermon / message",
+    "ko": "설교 · 말씀"
+  },
+  {
+    "en": "Online worship",
+    "ko": "온라인 예배"
+  },
+  {
+    "en": "Video language",
+    "ko": "영상 언어"
+  },
+  {
+    "en": "Add video",
+    "ko": "영상 등록"
+  },
+  {
+    "en": "Your first connection to the Word",
+    "ko": "말씀을 만나는 첫 연결"
+  },
+  {
+    "en": "Add a YouTube link to find and watch it here.",
+    "ko": "YouTube 링크를 등록하면 여기에서 바로 찾고 시청할 수 있어요."
+  },
+  {
+    "en": "Add a video",
+    "ko": "영상 링크 등록"
+  },
+  {
+    "en": "Read the Bible offline",
+    "ko": "인터넷 없이 성경 읽기"
+  },
+  {
+    "en": "All 66 books saved on this device",
+    "ko": "66권 기기 저장 완료"
+  },
+  {
+    "en": "English WEB Bible · Free download",
+    "ko": "영어 WEB 성경 · 무료 저장"
+  },
+  {
+    "en": "Save all 66 books from the official source on this device. Saved Scripture opens without waiting for a connection.",
+    "ko": "공식 원문 66권을 이 기기에 저장합니다. 저장한 성경은 연결을 기다리지 않고 열립니다."
+  },
+  {
+    "en": "About {size} MB of storage, plus the app. We recommend downloading over Wi-Fi.",
+    "ko": "저장 공간 약 {size} MB + 앱 화면. Wi-Fi에서 저장하는 것을 권장합니다."
+  },
+  {
+    "en": "Bible download progress",
+    "ko": "성경 저장 진행률"
+  },
+  {
+    "en": "Checking saved files…",
+    "ko": "저장 상태 확인 중…"
+  },
+  {
+    "en": "Saved · All 66 books are available offline.",
+    "ko": "저장 완료 · 인터넷 없이 66권을 읽을 수 있습니다."
+  },
+  {
+    "en": "Scripture saved · Preparing the app for offline use.",
+    "ko": "성경 저장 완료 · 앱 화면을 준비하고 있습니다."
+  },
+  {
+    "en": "{count} / 66 books saved · You can resume the download.",
+    "ko": "{count} / 66권 저장됨 · 이어서 저장할 수 있습니다."
+  },
+  {
+    "en": "There is not enough storage. Free up space and try again.",
+    "ko": "기기의 저장 공간이 부족합니다. 공간을 확보한 뒤 다시 시도해주세요."
+  },
+  {
+    "en": "The source files could not be verified. Reconnect and try again.",
+    "ko": "원문 파일을 확인하지 못했습니다. 연결 후 다시 저장해주세요."
+  },
+  {
+    "en": "The download did not finish. Reconnect to resume.",
+    "ko": "저장을 완료하지 못했습니다. 연결 후 이어서 저장해주세요."
+  },
+  {
+    "en": "Pause download",
+    "ko": "저장 잠시 멈추기"
+  },
+  {
+    "en": "Resume download",
+    "ko": "이어서 저장"
+  },
+  {
+    "en": "Download all 66 books",
+    "ko": "66권 저장하기"
+  },
+  {
+    "en": "Offline downloads are available in the installable app.",
+    "ko": "오프라인 저장은 설치 가능한 서비스에서 제공됩니다."
+  },
+  {
+    "en": "If browser data is cleared or storage is reclaimed, download again. Offline availability of other versions depends on publisher permission.",
+    "ko": "브라우저 데이터를 지우거나 저장 공간이 정리되면 다시 저장해야 합니다. 다른 역본의 오프라인 제공은 출판사 허가에 따라 달라집니다."
+  },
+  {
+    "en": "GLOBAL QUIET TIME",
+    "ko": "전 세계가 함께하는 큐티"
+  },
+  {
+    "en": "One passage. Many languages. One community.",
+    "ko": "같은 말씀, 수많은 언어, 하나의 공동체."
+  },
+  {
+    "en": "Reflect on the Word, put it into practice, and listen to one another.",
+    "ko": "말씀을 묵상하고, 삶에 새기고, 서로의 이야기에 귀 기울여요."
+  },
+  {
+    "en": "Explore Global QT",
+    "ko": "전 세계 QT"
+  },
+  {
+    "en": "Unable to check reminders on this device.",
+    "ko": "이 기기의 알림 설정을 확인하지 못했습니다."
+  },
+  {
+    "en": "Daily QT reminders are enabled on this device.",
+    "ko": "이 기기에서 매일 QT 알림을 받도록 설정했습니다."
+  },
+  {
+    "en": "Notifications were not allowed. You can allow them in your browser’s site settings.",
+    "ko": "브라우저에서 알림이 허용되지 않았습니다. 사이트 설정에서 허용할 수 있어요."
+  },
+  {
+    "en": "Enter a valid time zone, for example Asia/Seoul.",
+    "ko": "올바른 시간대를 입력해주세요. 예: Asia/Seoul"
+  },
+  {
+    "en": "Unable to enable reminders. Check the server connection and browser settings.",
+    "ko": "알림을 설정하지 못했습니다. 서버 연결과 브라우저 설정을 확인해주세요."
+  },
+  {
+    "en": "QT reminders are off on this device.",
+    "ko": "이 기기의 QT 알림을 껐습니다."
+  },
+  {
+    "en": "Unable to change reminder settings. Please try again.",
+    "ko": "알림 설정을 변경하지 못했습니다. 다시 시도해주세요."
+  },
+  {
+    "en": "A daily moment with the Word",
+    "ko": "매일 말씀으로 시작해요"
+  },
+  {
+    "en": "A gentle reminder for today’s QT, at your chosen time.",
+    "ko": "원하는 시간에 오늘의 QT를 알려드려요."
+  },
+  {
+    "en": "Reminder time",
+    "ko": "알림 시간"
+  },
+  {
+    "en": "My time zone",
+    "ko": "내 시간대"
+  },
+  {
+    "en": "Web push is unavailable here. On iPhone or iPad, try opening the app added to your Home Screen.",
+    "ko": "이 브라우저에서는 웹 푸시를 사용할 수 없습니다. iPhone·iPad에서는 홈 화면에 추가한 앱에서 확인해주세요."
+  },
+  {
+    "en": "The daily reminder service is being connected. Notifications are not enabled yet.",
+    "ko": "매일 발송할 알림 서버를 연결 중입니다. 아직 알림이 켜진 상태는 아닙니다."
+  },
+  {
+    "en": "Sign in to enable reminders on this device.",
+    "ko": "로그인한 뒤 이 기기에서 알림을 켤 수 있어요."
+  },
+  {
+    "en": "Reminders on",
+    "ko": "알림 켜짐"
+  },
+  {
+    "en": "Reminders are off on this device.",
+    "ko": "이 기기의 알림이 꺼져 있습니다."
+  },
+  {
+    "en": "Saving…",
+    "ko": "설정 중…"
+  },
+  {
+    "en": "Save time & language",
+    "ko": "시간 · 언어 저장"
+  },
+  {
+    "en": "Enable QT reminders",
+    "ko": "QT 알림 켜기"
+  },
+  {
+    "en": "Turn off",
+    "ko": "끄기"
+  },
+  {
+    "en": "QT Bible version",
+    "ko": "QT 성경 역본"
+  },
+  {
+    "en": "Version pending",
+    "ko": "역본 연결 대기"
+  },
+  {
+    "en": "Showing the WEB English text you selected. Your interface language stays the same.",
+    "ko": "선택하신 WEB 영어 원문을 표시합니다. 메뉴 언어는 유지됩니다."
+  },
+  {
+    "en": "Loading Scripture…",
+    "ko": "성경 본문을 불러오는 중…"
+  },
+  {
+    "en": "A licensed Bible in your language is being connected. You can read the same passage below.",
+    "ko": "이 언어의 정식 성경 역본을 연결하고 있습니다. 같은 장절을 아래에서 읽을 수 있습니다."
+  },
+  {
+    "en": "Unable to load the passage. Please check your connection.",
+    "ko": "본문을 불러오지 못했습니다. 연결을 확인해주세요."
+  },
+  {
+    "en": "Read NKRV at the Korean Bible Society",
+    "ko": "대한성서공회에서 개역개정 읽기"
+  },
+  {
+    "en": "Read the WEB in English",
+    "ko": "WEB 영어 성경으로 읽기"
+  },
+  {
+    "en": "Find my language on YouVersion",
+    "ko": "내 언어 성경 찾기"
+  },
+  {
+    "en": "Retry",
+    "ko": "다시 시도"
+  },
+  {
+    "en": "Notes",
+    "ko": "각주"
+  },
+  {
+    "en": "Source and permissions",
+    "ko": "본문 출처 및 이용 안내"
+  },
+  {
+    "en": "Continue in the Bible",
+    "ko": "성경에서 이어 읽기"
+  },
+  {
+    "en": "Refresh reflections",
+    "ko": "나눔 새로고침"
+  },
+  {
+    "en": "Loading shared reflections…",
+    "ko": "함께 나눈 이야기를 불러오는 중…"
+  },
+  {
+    "en": "Unable to load reflections. Check your connection and try again.",
+    "ko": "나눔을 불러오지 못했습니다. 연결을 확인하고 다시 시도해주세요."
+  },
+  {
+    "en": "More reflections",
+    "ko": "나눔 더 보기"
+  },
+  {
+    "en": "Reflections saved on this device",
+    "ko": "이 기기에 저장한 나눔"
+  },
+  {
+    "en": "Begin with your reflection.",
+    "ko": "당신의 묵상으로 시작해요."
+  },
+  {
+    "en": "Share your gratitude, prayers, and life in the Word.",
+    "ko": "말씀 안에서 만난 감사와 기도, 삶의 이야기를 나누어보세요."
+  },
+  {
+    "en": "Write a reflection",
+    "ko": "첫 나눔 남기기"
+  },
+  {
+    "en": "Unable to complete this action. Check your connection and account status.",
+    "ko": "처리하지 못했습니다. 연결과 이용 상태를 확인해주세요."
+  },
+  {
+    "en": "Prayer",
+    "ko": "기도제목"
+  },
+  {
+    "en": "Reflection",
+    "ko": "은혜나눔"
+  },
+  {
+    "en": "Translating into your language…",
+    "ko": "내 언어로 번역 중…"
+  },
+  {
+    "en": "Automatic translation",
+    "ko": "자동 번역"
+  },
+  {
+    "en": "Show translation",
+    "ko": "번역 보기"
+  },
+  {
+    "en": "Show original",
+    "ko": "원문 보기"
+  },
+  {
+    "en": "Translation service not connected · showing original.",
+    "ko": "번역 서비스 연결 전 · 원문으로 표시합니다."
+  },
+  {
+    "en": "Translation unavailable for this language · showing original.",
+    "ko": "이 언어의 번역을 불러오지 못해 원문으로 표시합니다."
+  },
+  {
+    "en": "Prayed with you",
+    "ko": "함께 기도했어요"
+  },
+  {
+    "en": "Pray together",
+    "ko": "함께 기도해요"
+  },
+  {
+    "en": "Community reflection",
+    "ko": "공동체 나눔"
+  },
+  {
+    "en": "On this device",
+    "ko": "이 기기의 나눔"
+  },
+  {
+    "en": "Under review · not yet shared with other members.",
+    "ko": "검토 중 · 아직 다른 회원에게 공개되지 않았습니다."
+  },
+  {
+    "en": "This reflection is not publicly available.",
+    "ko": "공개가 제한된 나눔입니다."
+  },
+  {
+    "en": "Your reflection is no longer public.",
+    "ko": "나눔을 비공개로 전환했습니다."
+  },
+  {
+    "en": "Withdraw reflection",
+    "ko": "나눔 숨기기"
+  },
+  {
+    "en": "Friend request sent.",
+    "ko": "친구 요청을 보냈습니다."
+  },
+  {
+    "en": "Add friend",
+    "ko": "친구 요청"
+  },
+  {
+    "en": "Report",
+    "ko": "신고"
+  },
+  {
+    "en": "Member blocked. You can unblock them in Friends.",
+    "ko": "이 사용자를 차단했습니다. 친구 화면에서 해제할 수 있습니다."
+  },
+  {
+    "en": "Block",
+    "ko": "차단"
+  },
+  {
+    "en": "Report reflection",
+    "ko": "나눔 신고"
+  },
+  {
+    "en": "Report submitted for review.",
+    "ko": "신고를 접수했습니다. 관리자가 검토합니다."
+  },
+  {
+    "en": "Reason",
+    "ko": "신고 사유"
+  },
+  {
+    "en": "Submit report",
+    "ko": "신고 접수"
+  },
+  {
+    "en": "Enter your name, nationality, and reflection.",
+    "ko": "이름, 국적, 나눔 내용을 입력해주세요."
+  },
+  {
+    "en": "Your reflection is awaiting review before worldwide sharing.",
+    "ko": "나눔을 검토 요청했습니다. 승인 후 전 세계에 공개됩니다."
+  },
+  {
+    "en": "Unable to submit your reflection. Check the content and connection, then try again shortly.",
+    "ko": "나눔을 접수하지 못했습니다. 내용과 연결을 확인하고 잠시 후 다시 시도해주세요."
+  },
+  {
+    "en": "Reflection saved on this device.",
+    "ko": "나눔이 이 기기에 저장되었습니다."
+  },
+  {
+    "en": "Share your QT",
+    "ko": "오늘의 QT 나누기"
+  },
+  {
+    "en": "Share your heart",
+    "ko": "마음을 나누어 주세요"
+  },
+  {
+    "en": "After review, your reflection, name, nationality, and writing language will be visible worldwide. Keep contact details and sensitive information private.",
+    "ko": "이름·국적·작성 언어와 함께 검토 후 전 세계에 공개됩니다. 연락처나 민감한 개인 정보는 적지 마세요."
+  },
+  {
+    "en": "This reflection will be saved only on this device. Worldwide sharing requires the connected service and sign-in.",
+    "ko": "지금 작성하는 나눔은 이 기기에만 저장됩니다. 전 세계 공개 나눔은 서버 연결과 로그인이 필요합니다."
+  },
+  {
+    "en": "Display name",
+    "ko": "표시 이름"
+  },
+  {
+    "en": "Nationality",
+    "ko": "국적"
+  },
+  {
+    "en": "Enter in your own words",
+    "ko": "자유롭게 입력"
+  },
+  {
+    "en": "Post type",
+    "ko": "나눔 종류"
+  },
+  {
+    "en": "Prayer request",
+    "ko": "기도제목"
+  },
+  {
+    "en": "Writing language",
+    "ko": "작성 언어"
+  },
+  {
+    "en": "My reflection and prayer",
+    "ko": "나의 묵상과 기도"
+  },
+  {
+    "en": "How did today’s Scripture speak to your life?",
+    "ko": "오늘 말씀이 내 삶에 어떻게 다가왔나요?"
+  },
+  {
+    "en": "Submitting…",
+    "ko": "접수 중…"
+  },
+  {
+    "en": "Submit for sharing",
+    "ko": "검토 요청하고 나누기"
+  },
+  {
+    "en": "Save reflection on this device",
+    "ko": "이 기기에 나눔 저장"
+  },
+  {
+    "en": "NCG Home",
+    "ko": "NCG 홈"
+  },
+  {
+    "en": "Close",
+    "ko": "닫기"
+  },
+  {
+    "en": "Newlight Church · Gyeonggi Dongjung Presbytery · Presbyterian Church in Korea (Hapdong)",
+    "ko": "대한예수교장로회(합동) 경기동중노회 · 새빛교회"
+  },
+  {
+    "en": "NCG original content",
+    "ko": "NCG 자체 제작 콘텐츠"
+  },
+  {
+    "en": "4F, 200-1 Haan-dong, Gwangmyeong-si, Gyeonggi-do, Republic of Korea",
+    "ko": "대한민국 경기도 광명시 하안동 200-1, 4층"
+  },
+  {
+    "en": "Find a passage",
+    "ko": "성경 찾기"
+  },
+  {
+    "en": "Book",
+    "ko": "성경"
+  },
+  {
+    "en": "Chapter",
+    "ko": "장"
+  },
+  {
+    "en": "Verse",
+    "ko": "절"
+  },
+  {
+    "en": "Chapter · Verse",
+    "ko": "장 · 절 선택"
+  },
+  {
+    "en": "Search Bible books",
+    "ko": "성경 이름 검색"
+  },
+  {
+    "en": "Search a book",
+    "ko": "성경 이름 검색"
+  },
+  {
+    "en": "All",
+    "ko": "전체"
+  },
+  {
+    "en": "Old Testament",
+    "ko": "구약"
+  },
+  {
+    "en": "New Testament",
+    "ko": "신약"
+  },
+  {
+    "en": "chapters",
+    "ko": "장"
+  },
+  {
+    "en": "No matching books.",
+    "ko": "일치하는 성경이 없습니다."
+  },
+  {
+    "en": "Choose a chapter, then read the whole chapter or a specific verse.",
+    "ko": "장을 선택한 뒤 전체 장 또는 원하는 절로 이동하세요."
+  },
+  {
+    "en": "Read chapter",
+    "ko": "장 전체 읽기"
+  },
+  {
+    "en": "THE HOLY BIBLE",
+    "ko": "성경 말씀"
+  },
+  {
+    "en": "Closer to the Word",
+    "ko": "말씀 가까이"
+  },
+  {
+    "en": "Find a passage. Read with care. Keep it in your heart.",
+    "ko": "성경을 찾고, 천천히 읽고, 마음에 새겨보세요."
+  },
+  {
+    "en": "New Korean Revised Version",
+    "ko": "개역개정 성경"
+  },
+  {
+    "en": "NKRV is our planned default Korean version. Until the licensed text is connected, read it on the Korean Bible Society website.",
+    "ko": "개역개정은 한국어 기본 역본으로 준비하고 있습니다. 앱 내 본문 연결 전에는 대한성서공회에서 읽을 수 있습니다."
+  },
+  {
+    "en": "Bible reader",
+    "ko": "성경 읽기"
+  },
+  {
+    "en": "Book · Chapter · Verse",
+    "ko": "성경 · 장 · 절"
+  },
+  {
+    "en": "Saved passages",
+    "ko": "보관한 성경 구절"
+  },
+  {
+    "en": "Reading settings",
+    "ko": "읽기 설정"
+  },
+  {
+    "en": "Bible version",
+    "ko": "성경 역본"
+  },
+  {
+    "en": "Loading versions…",
+    "ko": "역본 불러오는 중…"
+  },
+  {
+    "en": "No version connected",
+    "ko": "역본 연결 대기"
+  },
+  {
+    "en": "WEB is available now. The additional version catalogue is being connected.",
+    "ko": "WEB 영어 성경을 먼저 제공합니다. 다른 역본 목록은 연결 중입니다."
+  },
+  {
+    "en": "Text size",
+    "ko": "글자 크기"
+  },
+  {
+    "en": "Smaller text",
+    "ko": "글자 작게"
+  },
+  {
+    "en": "Larger text",
+    "ko": "글자 크게"
+  },
+  {
+    "en": "Reading background",
+    "ko": "읽기 배경"
+  },
+  {
+    "en": "Light",
+    "ko": "밝게"
+  },
+  {
+    "en": "Warm",
+    "ko": "따뜻하게"
+  },
+  {
+    "en": "Dark",
+    "ko": "어둡게"
+  },
+  {
+    "en": "Finding Bibles in your language.",
+    "ko": "내 언어의 성경을 찾고 있어요."
+  },
+  {
+    "en": "Bible versions are being connected.",
+    "ko": "정식 성경 역본을 연결하고 있습니다."
+  },
+  {
+    "en": "Unable to load Bible versions.",
+    "ko": "성경 목록을 불러오지 못했습니다."
+  },
+  {
+    "en": "A Bible in your language is being prepared.",
+    "ko": "이 언어의 역본을 준비하고 있습니다."
+  },
+  {
+    "en": "Available versions include their publisher and source. We do not substitute generated translations for Scripture.",
+    "ko": "사용이 허가된 역본의 본문과 출판사 정보를 함께 제공합니다. 준비되지 않은 본문을 임의 번역하여 성경으로 표시하지 않습니다."
+  },
+  {
+    "en": "Choose another language",
+    "ko": "다른 언어 선택"
+  },
+  {
+    "en": "Read on YouVersion",
+    "ko": "YouVersion에서 성경 읽기"
+  },
+  {
+    "en": "This passage could not be loaded.",
+    "ko": "이 본문을 불러오지 못했습니다."
+  },
+  {
+    "en": "Check your connection or choose another version.",
+    "ko": "연결을 확인하거나 다른 역본을 선택해주세요."
+  },
+  {
+    "en": "Loading the passage…",
+    "ko": "말씀을 불러오고 있습니다."
+  },
+  {
+    "en": "Bookmark passage",
+    "ko": "책갈피 저장"
+  },
+  {
+    "en": "Read the full chapter",
+    "ko": "이 장 전체 읽기"
+  },
+  {
+    "en": "Previous chapter",
+    "ko": "이전 장"
+  },
+  {
+    "en": "Next chapter",
+    "ko": "다음 장"
+  },
+  {
+    "en": "Publisher",
+    "ko": "출판사 안내"
+  },
+  {
+    "en": "Source",
+    "ko": "본문 출처"
+  },
+  {
+    "en": "Reading preferences could not be saved in this browser.",
+    "ko": "이 브라우저에서 읽기 설정을 저장하지 못했습니다."
+  },
+  {
+    "en": "From Scripture into life",
+    "ko": "읽은 말씀을 삶으로"
+  },
+  {
+    "en": "Reflect together in Global QT.",
+    "ko": "전 세계 QT에서 함께 묵상해요."
+  },
+  {
+    "en": "Version currently unavailable",
+    "ko": "현재 연결되지 않은 역본"
+  },
+  {
+    "en": "Bookmark a passage as you read. Bookmarks in your current language appear here.",
+    "ko": "읽다가 마음에 남은 구절에 책갈피를 남겨보세요. 현재 언어의 책갈피가 여기에 모입니다."
+  },
+  {
+    "en": "God & salvation",
+    "ko": "하나님과 구원"
+  },
+  {
+    "en": "Commandments & life",
+    "ko": "십계명과 삶"
+  },
+  {
+    "en": "Means of grace",
+    "ko": "은혜의 방편"
+  },
+  {
+    "en": "NCG SCHOOL · CATECHISM",
+    "ko": "NCG SCHOOL · 소요리문답"
+  },
+  {
+    "en": "Westminster Shorter Catechism",
+    "ko": "웨스트민스터 소요리문답"
+  },
+  {
+    "en": "Explore the foundations of faith through 107 questions and answers.",
+    "ko": "107개의 문답으로 차근차근 배우는 믿음의 기초."
+  },
+  {
+    "en": "studied",
+    "ko": "문답 학습"
+  },
+  {
+    "en": "Catechism progress",
+    "ko": "문답 학습 진도"
+  },
+  {
+    "en": "Continue learning",
+    "ko": "이어서 배우기"
+  },
+  {
+    "en": "Start learning",
+    "ko": "첫 문답 시작"
+  },
+  {
+    "en": "Translation is being prepared. Current lesson language:",
+    "ko": "선택한 언어의 번역을 준비 중입니다. 현재 교육 언어:"
+  },
+  {
+    "en": "Search catechism",
+    "ko": "문답 검색"
+  },
+  {
+    "en": "Search by number or content",
+    "ko": "문답 번호나 내용 검색"
+  },
+  {
+    "en": "Unable to load the catechism. Please reload.",
+    "ko": "문답을 불러오지 못했습니다. 다시 접속해주세요."
+  },
+  {
+    "en": "No matching questions.",
+    "ko": "일치하는 문답이 없습니다."
+  },
+  {
+    "en": "Loading questions…",
+    "ko": "문답을 불러오는 중…"
+  },
+  {
+    "en": "Adapted from the owner’s Dabar content. Church review for public use is pending.",
+    "ko": "다바르의 문답과 번역을 이어받았습니다. 공개 운영을 위한 교회 검수 중입니다."
+  },
+  {
+    "en": "Question {number}",
+    "ko": "제{number}문"
+  },
+  {
+    "en": "WESTMINSTER SHORTER CATECHISM",
+    "ko": "웨스트민스터 소요리문답"
+  },
+  {
+    "en": "ANSWER",
+    "ko": "답"
+  },
+  {
+    "en": "Think it through, then reveal the answer",
+    "ko": "생각해 본 뒤, 답 펼치기"
+  },
+  {
+    "en": "Previous",
+    "ko": "이전"
+  },
+  {
+    "en": "Studied",
+    "ko": "학습했어요"
+  },
+  {
+    "en": "Mark as studied",
+    "ko": "이 문답을 학습했어요"
+  },
+  {
+    "en": "Next",
+    "ko": "다음"
+  },
+  {
+    "en": "ONE BODY. MANY STORIES.",
+    "ko": "한 몸, 서로의 이야기"
+  },
+  {
+    "en": "We walk this journey together.",
+    "ko": "우리는, 함께 믿음의 길을 걷습니다."
+  },
+  {
+    "en": "Different languages. Different lives. One community in Jesus Christ.",
+    "ko": "서로 다른 언어, 서로 다른 일상. 예수 그리스도 안에서 하나의 공동체."
+  },
+  {
+    "en": "Share your gratitude or prayer today.",
+    "ko": "오늘의 감사와 기도제목을 나눠주세요."
+  },
+  {
+    "en": "All stories",
+    "ko": "모든 나눔"
+  },
+  {
+    "en": "Prayers",
+    "ko": "기도제목"
+  },
+  {
+    "en": "Reflections",
+    "ko": "은혜나눔"
+  },
+  {
+    "en": "YOUR LANGUAGE, YOUR HEART",
+    "ko": "당신의 언어, 당신의 마음"
+  },
+  {
+    "en": "Together, in your language",
+    "ko": "나의 언어로 만나는 우리"
+  },
+  {
+    "en": "Every reflection shows the author’s name, nationality, and writing language. When translation is unavailable, the original stays visible.",
+    "ko": "글쓴이의 이름·국적·작성 언어를 함께 표시합니다. 번역을 제공할 수 없는 경우에는 원문을 그대로 보여드립니다."
+  },
+  {
+    "en": "One Scripture. One heart.",
+    "ko": "같은 말씀, 하나의 마음"
+  },
+  {
+    "en": "Public reflections appear after review. You can report inappropriate content and block unwanted contact.",
+    "ko": "공개 나눔은 검토 후 표시됩니다. 부적절한 내용은 신고하고 원치 않는 사용자는 차단할 수 있습니다."
+  },
+  {
+    "en": "Local development preview. Worldwide sharing requires the server connection.",
+    "ko": "현재는 로컬 개발 체험입니다. 전 세계 공유는 서버 연결 후 제공됩니다."
+  },
+  {
+    "en": "Check the friendship or block status.",
+    "ko": "친구 관계나 차단 상태를 확인해주세요."
+  },
+  {
+    "en": "A request or friendship already exists.",
+    "ko": "이미 요청했거나 친구로 연결되어 있습니다."
+  },
+  {
+    "en": "Please wait a moment before trying again.",
+    "ko": "잠시 쉬었다가 다시 시도해주세요."
+  },
+  {
+    "en": "Please avoid sending the same message repeatedly.",
+    "ko": "같은 메시지를 반복해서 보낼 수 없습니다."
+  },
+  {
+    "en": "Please revise inappropriate language before sending.",
+    "ko": "부적절한 표현을 수정한 뒤 다시 보내주세요."
+  },
+  {
+    "en": "Unable to complete the request. Please try again.",
+    "ko": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해주세요."
+  },
+  {
+    "en": "Translated · Show original",
+    "ko": "자동번역 · 원문 보기"
+  },
+  {
+    "en": "Translating…",
+    "ko": "번역 중…"
+  },
+  {
+    "en": "Showing original; translation unavailable.",
+    "ko": "번역을 불러오지 못해 원문으로 표시합니다."
+  },
+  {
+    "en": "Could not load the conversation.",
+    "ko": "대화를 불러오지 못했습니다."
+  },
+  {
+    "en": "Friends",
+    "ko": "친구 목록"
+  },
+  {
+    "en": "Friend",
+    "ko": "친구"
+  },
+  {
+    "en": "Refresh messages",
+    "ko": "대화 새로고침"
+  },
+  {
+    "en": "Loading conversation…",
+    "ko": "대화를 불러오는 중…"
+  },
+  {
+    "en": "Begin with a kind hello.",
+    "ko": "따뜻한 인사로 시작해요."
+  },
+  {
+    "en": "Share the Word and everyday life with your friend.",
+    "ko": "친구와 말씀과 일상을 나누세요."
+  },
+  {
+    "en": "Awaiting review",
+    "ko": "운영자 검토 중"
+  },
+  {
+    "en": "Not published",
+    "ko": "게시 제한"
+  },
+  {
+    "en": "Message",
+    "ko": "메시지"
+  },
+  {
+    "en": "Write a message to your friend.",
+    "ko": "친구에게 마음을 전하세요."
+  },
+  {
+    "en": "Send message",
+    "ko": "메시지 보내기"
+  },
+  {
+    "en": "Links and suspicious messages are reviewed before delivery. Messages refresh every 15 seconds.",
+    "ko": "링크와 의심 메시지는 운영자 검토 후 전달됩니다. 대화는 15초마다 갱신됩니다."
+  },
+  {
+    "en": "Could not load friends. Check the connection.",
+    "ko": "친구 정보를 불러오지 못했습니다. 연결을 확인해주세요."
+  },
+  {
+    "en": "Search failed. Please try again.",
+    "ko": "친구를 찾지 못했습니다. 잠시 후 다시 시도해주세요."
+  },
+  {
+    "en": "Blocked. Friend requests and messages are disabled in both directions.",
+    "ko": "차단했습니다. 서로 친구 요청과 메시지를 보낼 수 없습니다."
+  },
+  {
+    "en": "WALK IN FAITH, TOGETHER",
+    "ko": "믿음으로 함께 걷는 길"
+  },
+  {
+    "en": "Friends & conversations",
+    "ko": "친구와 대화"
+  },
+  {
+    "en": "Different countries, one faith. Listen to your friend’s story.",
+    "ko": "서로 다른 나라, 같은 믿음. 친구의 이야기에 귀 기울여요."
+  },
+  {
+    "en": "Checking your account…",
+    "ko": "계정 확인 중…"
+  },
+  {
+    "en": "Connect with a friend code",
+    "ko": "친구 코드로 연결하기"
+  },
+  {
+    "en": "Invite a friend without sharing your email address.",
+    "ko": "이메일을 공개하지 않고 친구를 초대할 수 있어요."
+  },
+  {
+    "en": "Friend code",
+    "ko": "친구 코드"
+  },
+  {
+    "en": "Find",
+    "ko": "찾기"
+  },
+  {
+    "en": "Name not set",
+    "ko": "이름 미설정"
+  },
+  {
+    "en": "Send request",
+    "ko": "친구 요청"
+  },
+  {
+    "en": "No available member found. Check the code.",
+    "ko": "연결할 사용자를 찾지 못했습니다. 코드를 확인해주세요."
+  },
+  {
+    "en": "My friend code",
+    "ko": "나의 친구 코드"
+  },
+  {
+    "en": "Friend code copied.",
+    "ko": "친구 코드를 복사했습니다."
+  },
+  {
+    "en": "Please select and copy the code manually.",
+    "ko": "복사하지 못했습니다. 코드를 직접 선택해주세요."
+  },
+  {
+    "en": "Copy code",
+    "ko": "코드 복사"
+  },
+  {
+    "en": "Accept a request to begin a conversation.",
+    "ko": "친구 요청을 수락하면 서로 대화할 수 있습니다."
+  },
+  {
+    "en": "Requests",
+    "ko": "친구 요청"
+  },
+  {
+    "en": "Blocked",
+    "ko": "차단 관리"
+  },
+  {
+    "en": "Refresh list",
+    "ko": "목록 새로고침"
+  },
+  {
+    "en": "No blocked members.",
+    "ko": "차단한 사용자가 없습니다."
+  },
+  {
+    "en": "Blocked member",
+    "ko": "차단한 사용자"
+  },
+  {
+    "en": "Could not unblock.",
+    "ko": "차단을 해제하지 못했습니다."
+  },
+  {
+    "en": "Unblock",
+    "ko": "차단 해제"
+  },
+  {
+    "en": "No pending requests.",
+    "ko": "기다리는 친구 요청이 없습니다."
+  },
+  {
+    "en": "Find a friend to share the journey.",
+    "ko": "믿음의 여정을 함께할 친구를 만나보세요."
+  },
+  {
+    "en": "Exchange friend codes to connect.",
+    "ko": "친구 코드를 주고받아 연결해 보세요."
+  },
+  {
+    "en": "Chat",
+    "ko": "대화"
+  },
+  {
+    "en": "Accept",
+    "ko": "수락"
+  },
+  {
+    "en": "Decline",
+    "ko": "거절"
+  },
+  {
+    "en": "Awaiting acceptance",
+    "ko": "수락 기다리는 중"
+  },
+  {
+    "en": "Report a conversation",
+    "ko": "대화 신고"
+  },
+  {
+    "en": "A moderator can review the reported message.",
+    "ko": "신고된 메시지는 운영자가 확인할 수 있습니다."
+  },
+  {
+    "en": "Spam, ads, or requests for money",
+    "ko": "스팸·광고·금전 요구"
+  },
+  {
+    "en": "Harassment or threats",
+    "ko": "괴롭힘·위협"
+  },
+  {
+    "en": "Inappropriate content",
+    "ko": "부적절한 내용"
+  },
+  {
+    "en": "Other",
+    "ko": "기타"
+  },
+  {
+    "en": "Report submitted.",
+    "ko": "신고를 접수했습니다."
+  },
+  {
+    "en": "THE HEART OF NCG",
+    "ko": "NCG의 중심"
+  },
+  {
+    "en": "Jesus Christ, our living hope.",
+    "ko": "예수 그리스도, 우리의 소망."
+  },
+  {
+    "en": "God loved us and sent Jesus Christ. Jesus bore our sins on the cross and rose from the dead.",
+    "ko": "하나님께서 우리를 사랑하셔서 예수 그리스도를 보내셨습니다. 예수님은 십자가에서 우리 죄를 담당하시고 죽음에서 부활하셨습니다."
+  },
+  {
+    "en": "God’s love",
+    "ko": "하나님의 사랑"
+  },
+  {
+    "en": "God made us and loves us. He calls us into a personal relationship with Him.",
+    "ko": "하나님은 우리를 지으시고 사랑하십니다. 그분은 우리를 인격적으로 만나기를 원하십니다."
+  },
+  {
+    "en": "John 3:16",
+    "ko": "요한복음 3:16"
+  },
+  {
+    "en": "Our need for salvation",
+    "ko": "우리에게 필요한 구원"
+  },
+  {
+    "en": "Sin separates us from God. Our own good works cannot restore that relationship.",
+    "ko": "죄는 하나님과 우리 사이를 가로막습니다. 우리는 스스로의 선행만으로 그 관계를 회복할 수 없습니다."
+  },
+  {
+    "en": "Romans 3:23",
+    "ko": "로마서 3:23"
+  },
+  {
+    "en": "The cross and the resurrection",
+    "ko": "예수님의 십자가와 부활"
+  },
+  {
+    "en": "Jesus Christ died on the cross for our sins and rose again on the third day. Salvation is God’s gracious gift, received through faith in Him.",
+    "ko": "예수 그리스도께서 우리 죄를 대신하여 십자가에서 죽으시고 사흘 만에 다시 살아나셨습니다. 구원은 그분을 믿음으로 받는 하나님의 은혜입니다."
+  },
+  {
+    "en": "1 Corinthians 15:3–4 · Ephesians 2:8–9",
+    "ko": "고린도전서 15:3–4 · 에베소서 2:8–9"
+  },
+  {
+    "en": "Responding in faith",
+    "ko": "믿음으로 응답하는 삶"
+  },
+  {
+    "en": "Turn to God in repentance and trust Jesus as Savior and Lord. Continue to know Him through Scripture, prayer, worship, and the life of the church.",
+    "ko": "죄를 인정하고 하나님께 돌아오며 예수님을 구주와 주님으로 믿으십시오. 말씀과 기도, 예배와 교회 공동체 안에서 그분을 알아가는 길을 함께 걸어갑니다."
+  },
+  {
+    "en": "John 1:12",
+    "ko": "요한복음 1:12"
+  },
+  {
+    "en": "Every journey begins with a step.",
+    "ko": "처음이어도, 함께 걸을 수 있습니다."
+  },
+  {
+    "en": "Begin with the new believer course or reflect on today’s Scripture in Global QT.",
+    "ko": "새신자 교육에서 하나씩 배우거나, 공동 QT에서 오늘의 말씀을 묵상해보세요."
+  },
+  {
+    "en": "Begin learning",
+    "ko": "새신자 교육 시작"
+  },
+  {
+    "en": "YOU BELONG HERE",
+    "ko": "당신을 위한 자리"
+  },
+  {
+    "en": "Together, in the Gospel.",
+    "ko": "오늘도, 복음 안에서 함께."
+  },
+  {
+    "en": "A journey of faith, open to everyone",
+    "ko": "누구에게나 열린 믿음의 여정"
+  },
+  {
+    "en": "ONE GOSPEL. EVERY SOUL.",
+    "ko": "하나의 복음, 모든 사람에게"
+  },
+  {
+    "en": "The cross of Jesus Christ,",
+    "ko": "예수 그리스도의 십자가,"
+  },
+  {
+    "en": "a way open to everyone.",
+    "ko": "모든 사람에게 열린 길."
+  },
+  {
+    "en": "Whatever your language. Wherever you are.",
+    "ko": "어떤 언어로 말하든, 어디에 있든."
+  },
+  {
+    "en": "Worship, learn, and live together in His love.",
+    "ko": "그 사랑 안에서 함께 예배하고, 배우고, 살아갑니다."
+  },
+  {
+    "en": "Discover the Gospel",
+    "ko": "복음 알아보기"
+  },
+  {
+    "en": "Join in worship",
+    "ko": "온라인 예배"
+  },
+  {
+    "en": "Worship together",
+    "ko": "함께 예배해요"
+  },
+  {
+    "en": "One heart, wherever you are",
+    "ko": "어디에 있든, 한마음으로"
+  },
+  {
+    "en": "The Word in your language",
+    "ko": "내 언어로 말씀을"
+  },
+  {
+    "en": "The Gospel, closer to you",
+    "ko": "당신에게 닿는 복음"
+  },
+  {
+    "en": "Grow in the Word",
+    "ko": "성경을 배워요"
+  },
+  {
+    "en": "Bible quizzes · New believers",
+    "ko": "성경퀴즈 · 새신자 교육"
+  },
+  {
+    "en": "Share the journey",
+    "ko": "삶을 나눠요"
+  },
+  {
+    "en": "Connected in prayer and grace",
+    "ko": "기도와 은혜로 연결되는 우리"
+  },
+  {
+    "en": "Small steps. Deeper faith.",
+    "ko": "작은 배움, 깊어지는 믿음"
+  },
+  {
+    "en": "Explore School",
+    "ko": "모든 교육"
+  },
+  {
+    "en": "FIRST STEPS",
+    "ko": "신앙의 첫걸음"
+  },
+  {
+    "en": "New believer course",
+    "ko": "새신자 교육"
+  },
+  {
+    "en": "Who is God?",
+    "ko": "하나님은 어떤 분이실까요?"
+  },
+  {
+    "en": "Let’s discover, one step at a time.",
+    "ko": "처음부터, 천천히 함께 알아가요."
+  },
+  {
+    "en": "4 lessons · Free",
+    "ko": "4개의 만남 · 무료"
+  },
+  {
+    "en": "REMEMBER THE WORD",
+    "ko": "말씀을 기억하는 시간"
+  },
+  {
+    "en": "Bible quiz",
+    "ko": "성경퀴즈"
+  },
+  {
+    "en": "One question at a time,",
+    "ko": "한 문제씩 풀어보며"
+  },
+  {
+    "en": "let the Word take root.",
+    "ko": "말씀을 마음에 새겨보세요."
+  },
+  {
+    "en": "Answers & explanations · Free",
+    "ko": "정답과 해설 · 무료"
+  },
+  {
+    "en": "WITHOUT BORDERS",
+    "ko": "국경을 넘어"
+  },
+  {
+    "en": "In your language,",
+    "ko": "당신의 언어로,"
+  },
+  {
+    "en": "close to your heart.",
+    "ko": "당신의 마음에."
+  },
+  {
+    "en": "So that no one is separated from the Gospel by language.",
+    "ko": "단 한 사람도 언어 때문에 복음을 접할 길이 끊기지 않도록."
+  },
+  {
+    "en": "Find your language",
+    "ko": "내 언어 선택하기"
+  },
+  {
+    "en": "Pray for one another",
+    "ko": "서로를 위한 기도"
+  },
+  {
+    "en": "You don’t have to walk alone.",
+    "ko": "혼자 걷지 않아도 괜찮아요."
+  },
+  {
+    "en": "THE WORD FOR TODAY",
+    "ko": "오늘의 말씀"
+  },
+  {
+    "en": "A day with the Word",
+    "ko": "말씀과 함께하는 하루"
+  },
+  {
+    "en": "All messages",
+    "ko": "모든 말씀"
+  },
+  {
+    "en": "No barriers to the way of salvation.",
+    "ko": "구원의 길 앞에, 어떤 장벽도 없도록."
+  },
+  {
+    "en": "No sign-in. No fee. Everyone is welcome in Jesus Christ.",
+    "ko": "로그인 없이. 비용 부담 없이. 예수 그리스도 안에서 누구나."
+  },
+  {
+    "en": "Our faith",
+    "ko": "NCG의 믿음"
+  },
+  {
+    "en": "Profile saved to your account.",
+    "ko": "프로필을 계정에 저장했습니다."
+  },
+  {
+    "en": "Profile saved on this device.",
+    "ko": "프로필을 이 기기에 저장했습니다."
+  },
+  {
+    "en": "Could not save your profile. Your input is kept.",
+    "ko": "프로필을 저장하지 못했습니다. 입력 내용은 유지됩니다."
+  },
+  {
+    "en": "Could not sign out. Please try again.",
+    "ko": "로그아웃하지 못했습니다. 다시 시도해주세요."
+  },
+  {
+    "en": "Guest learning and saved content imported from this device.",
+    "ko": "이 기기의 방문자 학습·저장 내용을 가져왔습니다."
+  },
+  {
+    "en": "Could not import local content.",
+    "ko": "기기 자료를 가져오지 못했습니다."
+  },
+  {
+    "en": "MY FAITH JOURNEY",
+    "ko": "나의 믿음 여정"
+  },
+  {
+    "en": "Your journey of Scripture, learning, and life together.",
+    "ko": "말씀을 만나고, 배우고, 함께 걸어온 나의 여정."
+  },
+  {
+    "en": "Sign out",
+    "ko": "로그아웃"
+  },
+  {
+    "en": "Could not check your account. Please sign in again.",
+    "ko": "계정을 확인하지 못했습니다. 다시 로그인해주세요."
+  },
+  {
+    "en": "Welcome",
+    "ko": "환영합니다"
+  },
+  {
+    "en": "About me",
+    "ko": "나의 소개"
+  },
+  {
+    "en": "Choose the name, nationality, and language shown to friends and with reflections.",
+    "ko": "친구와 나눔에 표시할 이름·국적·언어를 정해주세요."
+  },
+  {
+    "en": "e.g. Republic of Korea",
+    "ko": "예: 대한민국"
+  },
+  {
+    "en": "My language",
+    "ko": "내 언어"
+  },
+  {
+    "en": "Save profile",
+    "ko": "프로필 저장"
+  },
+  {
+    "en": "Stored only in this browser until you sign in.",
+    "ko": "로그인 전에는 이 브라우저에만 저장됩니다."
+  },
+  {
+    "en": "My learning & reflection",
+    "ko": "나의 배움과 묵상"
+  },
+  {
+    "en": "Learning milestones",
+    "ko": "학습한 항목"
+  },
+  {
+    "en": "QT saved on device",
+    "ko": "기기에 저장한 QT"
+  },
+  {
+    "en": "Saved messages",
+    "ko": "보관한 말씀"
+  },
+  {
+    "en": "Requests · Messages · Blocked members",
+    "ko": "친구 요청 · 메시지 · 차단 관리"
+  },
+  {
+    "en": "Skip video thumbnail downloads",
+    "ko": "영상 썸네일 다운로드 끄기"
+  },
+  {
+    "en": "Import guest learning from this device",
+    "ko": "이 기기의 방문자 학습 기록 가져오기"
+  },
+  {
+    "en": "My reflections",
+    "ko": "나의 나눔"
+  },
+  {
+    "en": "Loading saved messages…",
+    "ko": "보관한 말씀을 불러오는 중…"
+  },
+  {
+    "en": "Bookmark a message that speaks to your heart.",
+    "ko": "마음에 남은 말씀의 책갈피를 눌러보세요."
+  },
+  {
+    "en": "Explore messages",
+    "ko": "말씀 보러 가기"
+  },
+  {
+    "en": "Could not load saved church videos.",
+    "ko": "보관한 교회 영상을 불러오지 못했습니다."
+  },
+  {
+    "en": "One Scripture. Every language.",
+    "ko": "같은 말씀, 서로의 언어로."
+  },
+  {
+    "en": "Read the Word, live it out, and reflect with the world.",
+    "ko": "말씀을 읽고, 삶에 새기고, 전 세계와 함께 나누어요."
+  },
+  {
+    "en": "Weekly QT readings",
+    "ko": "주간 QT 본문 일정"
+  },
+  {
+    "en": "THIS WEEK IN THE WORD",
+    "ko": "이번 주 말씀 여정"
+  },
+  {
+    "en": "Previous week",
+    "ko": "이전 주"
+  },
+  {
+    "en": "Today",
+    "ko": "오늘"
+  },
+  {
+    "en": "Next week",
+    "ko": "다음 주"
+  },
+  {
+    "en": "Shared reading dates follow Korea Standard Time (UTC+9) so the whole world reads the same passage.",
+    "ko": "전 세계가 같은 본문을 읽도록 한국시간(UTC+9) 날짜를 기준으로 합니다."
+  },
+  {
+    "en": "Weekly preview · Reading selections and reflection guides await church review before publication.",
+    "ko": "주간 일정 미리보기 · 본문 범위와 묵상 안내는 교회 검수 후 정식 발행됩니다."
+  },
+  {
+    "en": "Loading the shared QT schedule…",
+    "ko": "공동 QT 일정을 불러오는 중…"
+  },
+  {
+    "en": "Unable to load the QT schedule.",
+    "ko": "QT 일정을 불러오지 못했습니다."
+  },
+  {
+    "en": "Part",
+    "ko": "나누어 읽기"
+  },
+  {
+    "en": "PREVIEW",
+    "ko": "미리보기"
+  },
+  {
+    "en": "ONE WORD. ONE WORLD.",
+    "ko": "하나의 말씀, 온 세상"
+  },
+  {
+    "en": "READ THE WORD",
+    "ko": "말씀을 읽어요"
+  },
+  {
+    "en": "Shared section",
+    "ko": "함께 읽는 단락"
+  },
+  {
+    "en": "REFLECT",
+    "ko": "말씀을 묵상해요"
+  },
+  {
+    "en": "The reflection guide is shown in English while your language is being prepared.",
+    "ko": "이 언어의 묵상 안내 번역을 준비하고 있어 영어 안내를 표시합니다."
+  },
+  {
+    "en": "A question for your life today",
+    "ko": "오늘, 내 삶에 던지는 질문"
+  },
+  {
+    "en": "RESPOND IN PRAYER",
+    "ko": "기도로 응답해요"
+  },
+  {
+    "en": "Respond to Scripture with gratitude, repentance, and a prayer for help. Pray for others reading with you.",
+    "ko": "말씀을 따라 감사와 회개, 도움을 구하는 기도를 드려보세요. 함께 읽는 이들을 위해서도 기도해주세요."
+  },
+  {
+    "en": "Share my reflection",
+    "ko": "내 묵상 나누기"
+  },
+  {
+    "en": "Reflection completed",
+    "ko": "오늘의 묵상 완료"
+  },
+  {
+    "en": "Mark as completed",
+    "ko": "묵상 완료하기"
+  },
+  {
+    "en": "TOGETHER IN THE WORD",
+    "ko": "말씀 안에서 함께"
+  },
+  {
+    "en": "Connected by the Word",
+    "ko": "말씀으로 연결되는 우리"
+  },
+  {
+    "en": "Read reflections on the same passage. Posts appear after review, with the original language available.",
+    "ko": "같은 본문의 나눔을 함께 읽습니다. 글은 검토 후 공개되며 다른 언어의 원문도 확인할 수 있습니다."
+  },
+  {
+    "en": "Reflections are currently saved on this device. Global sharing and translation are being connected.",
+    "ko": "현재 나눔은 이 기기에 저장됩니다. 전 세계 공유·번역 서비스를 연결하고 있습니다."
+  },
+  {
+    "en": "No shared QT has been published for this day.",
+    "ko": "이날의 공동 QT는 아직 발행되지 않았습니다."
+  },
+  {
+    "en": "Choose a published date or open the Bible to read.",
+    "ko": "발행된 날짜를 선택하거나 성경을 펼쳐 읽어보세요."
+  },
+  {
+    "en": "Read the Bible",
+    "ko": "성경 읽기"
+  },
+  {
+    "en": "NCG SCHOOL · BIBLE QUIZ",
+    "ko": "NCG SCHOOL · 성경퀴즈"
+  },
+  {
+    "en": "One question closer to the Word",
+    "ko": "한 문제씩, 말씀 가까이"
+  },
+  {
+    "en": "Enjoy the challenge, learn from explanations, and revisit missed questions.",
+    "ko": "즐겁게 도전하고, 해설로 배우고, 틀린 문제를 다시 만나보세요."
+  },
+  {
+    "en": "Quizzes in your language are being prepared. Current question language:",
+    "ko": "이 언어의 퀴즈를 준비 중입니다. 현재 문제 언어:"
+  },
+  {
+    "en": "YOUR NEXT SMALL STEP",
+    "ko": "나의 다음 한 걸음"
+  },
+  {
+    "en": "Choose your challenge",
+    "ko": "나에게 맞는 도전"
+  },
+  {
+    "en": "Difficulty",
+    "ko": "난이도"
+  },
+  {
+    "en": "Beginner",
+    "ko": "입문"
+  },
+  {
+    "en": "Growing",
+    "ko": "성장"
+  },
+  {
+    "en": "Advanced",
+    "ko": "심화"
+  },
+  {
+    "en": "Scripture scope",
+    "ko": "성경 범위"
+  },
+  {
+    "en": "Whole Bible",
+    "ko": "전체 성경"
+  },
+  {
+    "en": "Choose a book",
+    "ko": "성경책 선택"
+  },
+  {
+    "en": "All books in this scope",
+    "ko": "범위 안의 모든 성경책"
+  },
+  {
+    "en": "Questions",
+    "ko": "문제 수"
+  },
+  {
+    "en": "20-second challenge",
+    "ko": "20초 타이머 도전"
+  },
+  {
+    "en": "Keep off to read and answer at your own pace.",
+    "ko": "끄면 시간 제한 없이 천천히 풀 수 있어요."
+  },
+  {
+    "en": "Questions could not be loaded.",
+    "ko": "문제를 불러오지 못했습니다."
+  },
+  {
+    "en": "available ·",
+    "ko": "문항 중"
+  },
+  {
+    "en": "question round",
+    "ko": "문항 도전"
+  },
+  {
+    "en": "Loading question bank…",
+    "ko": "문제은행을 불러오는 중…"
+  },
+  {
+    "en": "Begin challenge",
+    "ko": "도전 시작"
+  },
+  {
+    "en": "Learning that stays with you",
+    "ko": "정답보다 소중한 배움"
+  },
+  {
+    "en": "Open a hint when you need one. After answering, read the explanation and grow in your understanding.",
+    "ko": "모르겠다면 힌트를 열어보세요. 정답을 확인한 뒤에는 해설을 읽으며 말씀을 더 깊이 알아갑니다."
+  },
+  {
+    "en": "Build a streak with consecutive answers",
+    "ko": "연속 정답으로 콤보 쌓기"
+  },
+  {
+    "en": "Learn with hints and explanations",
+    "ko": "힌트와 해설로 차근차근 배우기"
+  },
+  {
+    "en": "Revisit just the questions you missed",
+    "ko": "틀린 문제만 다시 도전하기"
+  },
+  {
+    "en": "Learn at your own pace, without public rankings.",
+    "ko": "순위나 경쟁 없이, 각자의 속도로 배우세요."
+  },
+  {
+    "en": "Best on this device",
+    "ko": "이 기기의 최고 점수"
+  },
+  {
+    "en": "pts",
+    "ko": "점"
+  },
+  {
+    "en": "streak",
+    "ko": "콤보"
+  },
+  {
+    "en": "Resume",
+    "ko": "계속하기"
+  },
+  {
+    "en": "Pause",
+    "ko": "잠시 멈추기"
+  },
+  {
+    "en": "Quiz progress",
+    "ko": "퀴즈 진도"
+  },
+  {
+    "en": "Take a moment.",
+    "ko": "잠시 쉬어가요."
+  },
+  {
+    "en": "Resume challenge",
+    "ko": "이어서 풀기"
+  },
+  {
+    "en": "BEGINNER",
+    "ko": "입문"
+  },
+  {
+    "en": "GROWING",
+    "ko": "성장"
+  },
+  {
+    "en": "ADVANCED",
+    "ko": "심화"
+  },
+  {
+    "en": "Show hint",
+    "ko": "힌트 보기"
+  },
+  {
+    "en": "That’s right!",
+    "ko": "맞았어요!"
+  },
+  {
+    "en": "Time is up. Let’s learn together.",
+    "ko": "시간이 되었어요. 함께 배워볼까요?"
+  },
+  {
+    "en": "Let’s learn from the explanation.",
+    "ko": "해설과 함께 다시 배워요."
+  },
+  {
+    "en": "Change challenge",
+    "ko": "도전 다시 설정"
+  },
+  {
+    "en": "See results",
+    "ko": "결과 보기"
+  },
+  {
+    "en": "Next question",
+    "ko": "다음 문제"
+  },
+  {
+    "en": "A LITTLE CLOSER, EVERY DAY",
+    "ko": "하루하루 더 가까이"
+  },
+  {
+    "en": "One more step in the Word.",
+    "ko": "오늘도 말씀에 한 걸음 더."
+  },
+  {
+    "en": "Points",
+    "ko": "획득 점수"
+  },
+  {
+    "en": "Correct answers",
+    "ko": "맞힌 문제"
+  },
+  {
+    "en": "Best streak",
+    "ko": "최고 콤보"
+  },
+  {
+    "en": "Missed questions are a place to begin again. Recall the explanations and try once more.",
+    "ko": "틀린 문제는 다음 배움의 시작이에요. 해설을 떠올리며 한 번 더 풀어보세요."
+  },
+  {
+    "en": "You answered every question correctly. Carry what you learned into your day.",
+    "ko": "모든 문제를 풀었어요. 배운 말씀을 오늘의 삶에도 이어가세요."
+  },
+  {
+    "en": "Review missed questions",
+    "ko": "오답 다시 풀기"
+  },
+  {
+    "en": "New challenge",
+    "ko": "새 도전"
+  },
+  {
+    "en": "Back to Bible School",
+    "ko": "성경교육으로"
+  },
+  {
+    "en": "Progress saved on this device.",
+    "ko": "학습 진도가 이 기기에 저장되었습니다."
+  },
+  {
+    "en": "A SMALL STEP OF FAITH",
+    "ko": "믿음의 작은 한 걸음"
+  },
+  {
+    "en": "One step closer to the Word.",
+    "ko": "말씀이 한 걸음 더 가까워졌어요."
+  },
+  {
+    "en": " questions completed",
+    "ko": "문항 학습 완료"
+  },
+  {
+    "en": "Back to School",
+    "ko": "교육으로 돌아가기"
+  },
+  {
+    "en": "Let’s think about it again.",
+    "ko": "다시 한번 생각해볼까요?"
+  },
+  {
+    "en": "Check answer",
+    "ko": "정답 확인"
+  },
+  {
+    "en": "Complete lesson",
+    "ko": "학습 완료"
+  },
+  {
+    "en": "Could not load the lessons.",
+    "ko": "교육 자료를 불러오지 못했습니다."
+  },
+  {
+    "en": "Grow deeper in faith.",
+    "ko": "배움으로 깊어지는 믿음"
+  },
+  {
+    "en": "From your first questions to deeper Bible study, one step at a time.",
+    "ko": "새신자 교육부터 깊은 성경공부까지, 한 걸음씩."
+  },
+  {
+    "en": "My learning journey",
+    "ko": "나의 믿음 여정"
+  },
+  {
+    "en": "lessons",
+    "ko": "과 완료"
+  },
+  {
+    "en": "Lesson language",
+    "ko": "교육 언어"
+  },
+  {
+    "en": "Lessons are not yet available in your preferred language. You can choose one of the available content languages.",
+    "ko": "선택한 언어의 교육 번역은 아직 준비되지 않았습니다. 현재 준비된 원문 언어를 선택해 학습할 수 있습니다."
+  },
+  {
+    "en": "Loading lessons…",
+    "ko": "교육 자료를 불러오고 있습니다."
+  },
+  {
+    "en": "All courses",
+    "ko": "모든 교육"
+  },
+  {
+    "en": "GROW IN THE WORD",
+    "ko": "말씀으로 자라는 믿음"
+  },
+  {
+    "en": "Save lesson text",
+    "ko": "본문 저장"
+  },
+  {
+    "en": " questions",
+    "ko": "문항"
+  },
+  {
+    "en": "Where shall we begin?",
+    "ko": "어떤 말씀으로 시작할까요?"
+  },
+  {
+    "en": "EVERY BEGINNING MATTERS",
+    "ko": "시작이 처음이어도 괜찮아요"
+  },
+  {
+    "en": "Start with a question. Grow in His love.",
+    "ko": "질문에서 시작하는, 하나님과의 만남."
+  },
+  {
+    "en": "Learn step by step with Bible education content from Dabar. Every course is free.",
+    "ko": "다바르의 성경교육 콘텐츠를 바탕으로 한 단계씩 배웁니다. 모든 과정은 무료입니다."
+  },
+  {
+    "en": "Beginner · First steps",
+    "ko": "입문 · 믿음의 시작"
+  },
+  {
+    "en": "Growing · Foundations",
+    "ko": "성장 · 신앙의 기초"
+  },
+  {
+    "en": "Advanced · Discipleship",
+    "ko": "심화 · 제자 양육"
+  },
+  {
+    "en": " lessons · Read & reflect",
+    "ko": "과 · 본문과 퀴즈"
+  },
+  {
+    "en": "Learn, reflect, and remember through 107 questions and answers.",
+    "ko": "107개의 문답으로 배우고, 생각하고, 마음에 새겨요."
+  },
+  {
+    "en": "BIBLE QUIZ",
+    "ko": "성경퀴즈"
+  },
+  {
+    "en": "One question. A deeper understanding.",
+    "ko": "한 문제씩, 말씀을 마음에."
+  },
+  {
+    "en": "Learn with Bible questions, answers, and explanations.",
+    "ko": "성경퀴즈를 풀고 해설과 함께 다시 배워보세요."
+  },
+  {
+    "en": "Start a quiz",
+    "ko": "성경퀴즈 시작"
+  },
+  {
+    "en": "Try the lesson quiz",
+    "ko": "성경퀴즈로 확인하기"
+  },
+  {
+    "en": "Guest progress is saved on this device. Connected accounts also keep their learning progress.",
+    "ko": "로그인 전 진도는 이 기기에 저장됩니다. 계정 연결 후에는 학습 진도를 함께 보관합니다."
+  },
+  {
+    "en": "WORSHIP TOGETHER",
+    "ko": "함께 드리는 예배"
+  },
+  {
+    "en": "THE WORD, FOR EVERYONE",
+    "ko": "모두를 위한 말씀"
+  },
+  {
+    "en": "Worship together, wherever you are.",
+    "ko": "어디에서나, 함께 드리는 예배"
+  },
+  {
+    "en": "The Word, in your language.",
+    "ko": "내 언어로 만나는 말씀"
+  },
+  {
+    "en": "Begin the week with one heart in Jesus Christ.",
+    "ko": "한 주의 시작, 예수 그리스도 안에서 한마음으로."
+  },
+  {
+    "en": "Listen to the Word. Let it take root. Live it out.",
+    "ko": "말씀을 듣고, 마음에 새기고, 삶으로 이어가세요."
+  },
+  {
+    "en": "Our worship brings us together.",
+    "ko": "우리의 예배는 하나로 이어집니다."
+  },
+  {
+    "en": "Worship videos will appear here when added. Live broadcast status is not connected yet.",
+    "ko": "예배 영상이 연결되면 이곳에서 함께할 수 있습니다. 현재 생방송 상태는 연결되지 않았습니다."
+  },
+  {
+    "en": "About our church",
+    "ko": "교회 안내"
+  },
+  {
+    "en": "Search titles and descriptions",
+    "ko": "제목이나 말씀 내용 검색"
+  },
+  {
+    "en": "Saved",
+    "ko": "보관한 말씀"
+  },
+  {
+    "en": "Choose language",
+    "ko": "언어 선택"
+  },
+  {
+    "en": "Could not load church videos.",
+    "ko": "교회 영상 목록을 불러오지 못했습니다."
+  },
+  {
+    "en": "Loading messages…",
+    "ko": "말씀을 불러오는 중…"
+  },
+  {
+    "en": "No messages here yet.",
+    "ko": "아직 이 말씀을 찾지 못했어요."
+  },
+  {
+    "en": "Try another search, or explore messages in their original language.",
+    "ko": "다른 검색어를 사용하거나 원문 언어의 말씀을 살펴보세요."
+  },
+  {
+    "en": "See all messages",
+    "ko": "전체 말씀 보기"
+  },
+  {
+    "en": "Language interest saved on this device. It has not been sent to the team.",
+    "ko": "언어 수요가 이 기기에 저장되었습니다. 아직 운영팀에 전송되지는 않습니다."
+  },
+  {
+    "en": "I need this language",
+    "ko": "이 언어가 필요해요"
+  },
+  {
+    "en": "More messages",
+    "ko": "말씀 더 보기"
+  },
+  {
+    "en": "Core Gospel content is free and open to everyone.",
+    "ko": "핵심 말씀 콘텐츠는 누구나 무료로 이용할 수 있습니다."
+  },
+  {
+    "en": "Genesis",
+    "ko": "창세기"
+  },
+  {
+    "en": "Exodus",
+    "ko": "출애굽기"
+  },
+  {
+    "en": "Leviticus",
+    "ko": "레위기"
+  },
+  {
+    "en": "Numbers",
+    "ko": "민수기"
+  },
+  {
+    "en": "Deuteronomy",
+    "ko": "신명기"
+  },
+  {
+    "en": "Joshua",
+    "ko": "여호수아"
+  },
+  {
+    "en": "Judges",
+    "ko": "사사기"
+  },
+  {
+    "en": "Ruth",
+    "ko": "룻기"
+  },
+  {
+    "en": "1 Samuel",
+    "ko": "사무엘상"
+  },
+  {
+    "en": "2 Samuel",
+    "ko": "사무엘하"
+  },
+  {
+    "en": "1 Kings",
+    "ko": "열왕기상"
+  },
+  {
+    "en": "2 Kings",
+    "ko": "열왕기하"
+  },
+  {
+    "en": "1 Chronicles",
+    "ko": "역대상"
+  },
+  {
+    "en": "2 Chronicles",
+    "ko": "역대하"
+  },
+  {
+    "en": "Ezra",
+    "ko": "에스라"
+  },
+  {
+    "en": "Nehemiah",
+    "ko": "느헤미야"
+  },
+  {
+    "en": "Esther",
+    "ko": "에스더"
+  },
+  {
+    "en": "Job",
+    "ko": "욥기"
+  },
+  {
+    "en": "Psalms",
+    "ko": "시편"
+  },
+  {
+    "en": "Proverbs",
+    "ko": "잠언"
+  },
+  {
+    "en": "Ecclesiastes",
+    "ko": "전도서"
+  },
+  {
+    "en": "Song of Songs",
+    "ko": "아가"
+  },
+  {
+    "en": "Isaiah",
+    "ko": "이사야"
+  },
+  {
+    "en": "Jeremiah",
+    "ko": "예레미야"
+  },
+  {
+    "en": "Lamentations",
+    "ko": "예레미야애가"
+  },
+  {
+    "en": "Ezekiel",
+    "ko": "에스겔"
+  },
+  {
+    "en": "Daniel",
+    "ko": "다니엘"
+  },
+  {
+    "en": "Hosea",
+    "ko": "호세아"
+  },
+  {
+    "en": "Joel",
+    "ko": "요엘"
+  },
+  {
+    "en": "Amos",
+    "ko": "아모스"
+  },
+  {
+    "en": "Obadiah",
+    "ko": "오바댜"
+  },
+  {
+    "en": "Jonah",
+    "ko": "요나"
+  },
+  {
+    "en": "Micah",
+    "ko": "미가"
+  },
+  {
+    "en": "Nahum",
+    "ko": "나훔"
+  },
+  {
+    "en": "Habakkuk",
+    "ko": "하박국"
+  },
+  {
+    "en": "Zephaniah",
+    "ko": "스바냐"
+  },
+  {
+    "en": "Haggai",
+    "ko": "학개"
+  },
+  {
+    "en": "Zechariah",
+    "ko": "스가랴"
+  },
+  {
+    "en": "Malachi",
+    "ko": "말라기"
+  },
+  {
+    "en": "Matthew",
+    "ko": "마태복음"
+  },
+  {
+    "en": "Mark",
+    "ko": "마가복음"
+  },
+  {
+    "en": "Luke",
+    "ko": "누가복음"
+  },
+  {
+    "en": "John",
+    "ko": "요한복음"
+  },
+  {
+    "en": "Acts",
+    "ko": "사도행전"
+  },
+  {
+    "en": "Romans",
+    "ko": "로마서"
+  },
+  {
+    "en": "1 Corinthians",
+    "ko": "고린도전서"
+  },
+  {
+    "en": "2 Corinthians",
+    "ko": "고린도후서"
+  },
+  {
+    "en": "Galatians",
+    "ko": "갈라디아서"
+  },
+  {
+    "en": "Ephesians",
+    "ko": "에베소서"
+  },
+  {
+    "en": "Philippians",
+    "ko": "빌립보서"
+  },
+  {
+    "en": "Colossians",
+    "ko": "골로새서"
+  },
+  {
+    "en": "1 Thessalonians",
+    "ko": "데살로니가전서"
+  },
+  {
+    "en": "2 Thessalonians",
+    "ko": "데살로니가후서"
+  },
+  {
+    "en": "1 Timothy",
+    "ko": "디모데전서"
+  },
+  {
+    "en": "2 Timothy",
+    "ko": "디모데후서"
+  },
+  {
+    "en": "Titus",
+    "ko": "디도서"
+  },
+  {
+    "en": "Philemon",
+    "ko": "빌레몬서"
+  },
+  {
+    "en": "Hebrews",
+    "ko": "히브리서"
+  },
+  {
+    "en": "James",
+    "ko": "야고보서"
+  },
+  {
+    "en": "1 Peter",
+    "ko": "베드로전서"
+  },
+  {
+    "en": "2 Peter",
+    "ko": "베드로후서"
+  },
+  {
+    "en": "1 John",
+    "ko": "요한일서"
+  },
+  {
+    "en": "2 John",
+    "ko": "요한이서"
+  },
+  {
+    "en": "3 John",
+    "ko": "요한삼서"
+  },
+  {
+    "en": "Jude",
+    "ko": "유다서"
+  },
+  {
+    "en": "Revelation",
+    "ko": "요한계시록"
+  }
+]

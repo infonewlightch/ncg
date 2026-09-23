@@ -1,0 +1,36 @@
+{
+  "name": "ncg",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4310",
+    "build": "node scripts/collect-ui.mjs --check && tsc --noEmit && vite build && node scripts/build-offline-shell.mjs && node scripts/build-static-host.mjs",
+    "preview": "vite preview --host 127.0.0.1 --port 4310",
+    "test": "node scripts/collect-ui.mjs --check && vitest run",
+    "push:dispatch": "node --env-file-if-exists=.env --env-file-if-exists=.env.local server/push-worker.mjs",
+    "start": "node --env-file-if-exists=.env --env-file-if-exists=.env.local server/production.ts",
+    "i18n:extract": "node scripts/collect-ui.mjs",
+    "i18n:check": "node scripts/collect-ui.mjs --check",
+    "bible:offline": "node scripts/build-offline-bible.mjs",
+    "db:prepare": "node scripts/build-database-setup.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.1",
+    "lucide-react": "1.47.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@types/node": "26.6.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "iso-639-3": "3.0.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.0",
+    "vitest": "5.0.1"
+  }
+}
