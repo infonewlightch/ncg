@@ -61,3 +61,22 @@ describe('production API authorization and resource limits',()=>{
   for(let i=0;i<10000;i++)limiter.take(`user-${i}`,1,1000,100);expect(limiter.take('overflow',1,1000,100)).toBe(false);expect(limiter.take('overflow',1,1000,1101)).toBe(true);
  });
 });
+
+describe('serverless stored-content translation boundary',()=>{
+ const messageId='22222222-2222-4222-8222-222222222222';
+ function secured(overrides:Partial<GatewayServices>={}){
+  const base=setup(overrides);
+  const services={...base.services,message:vi.fn(async()=>({body:'Stored private words',language:'en',status:'published'})),...overrides};
+  const gateway=createGateway({...env,NCG_TRANSLATION_STORED_ONLY:'1'},services);
+  const request=(value:unknown,authorized=true)=>invokeHandler(gateway,{url:'/api/translate',method:'POST',headers:{'content-type':'application/json',...(authorized?{authorization:`Bearer ${token}`}:{})},body:JSON.stringify(value)});
+  return {services,request};
+ }
+ it('rejects arbitrary text even for signed-in serverless clients',async()=>{const s=secured();expect((await s.request(body)).status).toBe(400);expect(s.services.translate).not.toHaveBeenCalled();});
+ it('requires a member and resolves the stored message under its bearer',async()=>{
+  const s=secured();expect((await s.request({messageId,target:'ko'},false)).status).toBe(401);
+  const r=await s.request({messageId,target:'ko',text:'Substitution',source:'fr'});expect(r.status).toBe(200);expect(r.json()).toMatchObject({body:{text:'Stored private words',source:'en',target:'ko'},cacheScope:`member:verified-member:message:${messageId}`});expect(s.services.message).toHaveBeenCalledWith(messageId,token,'verified-member');
+ });
+ it.each(['pending','rejected'])('does not translate %s posts even for their owner',async(status)=>{const s=secured({post:vi.fn(async()=>({body:'Private review',language:'en',status}))});expect((await s.request({postId,target:'ko'})).status).toBe(404);expect(s.services.translate).not.toHaveBeenCalled();});
+ it.each([null,{body:'Under review',language:'en',status:'pending'}])('rejects inaccessible or unapproved private messages',async(message)=>{const s=secured({message:vi.fn(async()=>message)});expect((await s.request({messageId,target:'ko'})).status).toBe(404);expect(s.services.translate).not.toHaveBeenCalled();});
+ it('rejects ambiguous resources and invalid language tags before translation',async()=>{const s=secured();for(const value of [{postId,messageId,target:'ko'},{messageId:'invalid',target:'ko'},{postId,target:'zzzzzz'},{postId,target:'en--US'}])expect((await s.request(value)).status).toBe(400);expect(s.services.translate).not.toHaveBeenCalled();});
+});

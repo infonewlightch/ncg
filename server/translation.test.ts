@@ -36,3 +36,18 @@ describe('provider translation integrity',()=>{
   const partial=await request();expect(partial.status).toBe(502);expect(partial.text).not.toContain('Truncated sentence');expect((await request()).status).toBe(422);expect(fetcher).toHaveBeenCalledTimes(2);
  });
 });
+
+describe('shared provider reservation',()=>{
+ it('does not call a provider when quota is exhausted or unavailable',async()=>{
+  const provider=vi.fn();vi.stubGlobal('fetch',provider);
+  for(const claim of [vi.fn(async()=>false),vi.fn(async()=>{throw Error('secret database URL');})]){
+   const r=await invokeHandler((req,res)=>translationHandler(req,res,fakeEnv,{body:{text:'Reserve before spending.',source:'en',target:'ko'},cacheScope:crypto.randomUUID(),claim}),{method:'POST',headers:{'content-type':'application/json'}});
+   expect([429,503]).toContain(r.status);expect(r.text).not.toContain('secret database');expect(provider).not.toHaveBeenCalled();
+  }
+ });
+ it('does not charge again for a cached result',async()=>{
+  const provider=vi.fn(async()=>Response.json({choices:[{finish_reason:'stop',message:{content:'함께 기도합니다.'}}]}));vi.stubGlobal('fetch',provider);const claim=vi.fn(async()=>true),scope=crypto.randomUUID();
+  const call=()=>invokeHandler((req,res)=>translationHandler(req,res,fakeEnv,{body:{text:'Praying together.',source:'en',target:'ko'},cacheScope:scope,claim}),{method:'POST',headers:{'content-type':'application/json'}});
+  expect((await call()).status).toBe(200);expect((await call()).status).toBe(200);expect(provider).toHaveBeenCalledTimes(1);expect(claim).toHaveBeenCalledTimes(1);
+ });
+});

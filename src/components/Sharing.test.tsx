@@ -36,3 +36,6 @@ it('does not reuse another account’s cached translation without a new request'
  mocks.fetch.mockResolvedValueOnce(translated('For first account')).mockResolvedValueOnce({ok:false,status:403});
  await render();mocks.user='another-viewer';await render();expect(mocks.fetch).toHaveBeenCalledTimes(2);expect(body()).toBe('Original reflection');
 });
+it('does not transmit a device-only reflection to the translation service',async()=>{await act(async()=>root.render(<SharedPost post={post}/>));expect(mocks.fetch).not.toHaveBeenCalled();expect(body()).toBe('Original reflection');});
+it('requests the published post ID without transmitting the browser copy',async()=>{mocks.fetch.mockResolvedValue(translated('Translated'));await render();expect(JSON.parse(mocks.fetch.mock.calls[0][1].body)).toEqual({postId:post.id,target:'es'});});
+it('distinguishes a temporary quota outage from an unconfigured translator',async()=>{mocks.fetch.mockResolvedValue({ok:false,status:503,json:async()=>({error:'translation_quota_unavailable'})});await render();expect(container.textContent).toContain('Translation unavailable for this language');expect(container.textContent).not.toContain('Translation service not connected');});

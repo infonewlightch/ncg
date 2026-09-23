@@ -32,3 +32,7 @@ Browser validation used the actual Friends component with a simulated server: pe
 ## Chat translation ordering (2026-09-24 KST)
 
 Late translation JSON cannot replace the current target language or restore a translation after returning to the original language. When message publication status changes, translation status is cleared and controls are hidden for messages awaiting review or restricted from publication. Three regressions failed before the fix and pass afterward; 214 tests in 40 files and the production build now pass. The combined simulated browser check is documented in `community-feed.md`. Actual provider connection and two-account production chat checks remain incomplete.
+
+## Stored-message translation adapter
+
+The subsequent Netlify adapter resolves message IDs under the member token, verifies participant identity and current friendship/block permissions, and reserves shared usage before provider work. See [translation boundaries and verification](community-translation.md). Actual two-account provider delivery remains unverified.

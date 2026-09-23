@@ -42,17 +42,19 @@
 - [x] NCG 전용 Supabase 연결 및 001–010 적용. 신규 테이블까지 RLS, 공개/비공개 익명 접근 검사 통과. 03:48 Netlify 연결 환경변수 누락 수정 후 재배포·실제 공개 인증 설정 조회 확인.
 - [ ] Google/이메일 실제 가입 계정 통합 검증. 운영 복귀 주소는 설정 완료. 02:36 공개 Auth 설정 확인: 이메일 가입 on/확인메일 필요, Google provider off. SMTP 및 Google OAuth 연결 필요.
 - [ ] 관리자 계정 infonewlighch@gmail.com 검증 후 서버 역할 지정.
-- [ ] NKRV 등 승인된 성경 공급자 키/역본 사용허가, 공동체 번역 서버 연결. 영어 기반 성경 참고 번역은 Netlify AI Gateway 실요청 검증 완료.
+- [ ] NKRV 등 승인된 성경 공급자 키/역본 사용허가, 실제 회원 간 공동체 번역 전송 검증. 영어 기반 성경 참고 번역은 Netlify AI Gateway 실요청 검증 완료.
 - [ ] 교회 공식 YouTube 링크, 교육/주간QT 초안 교회 검수.
 - [ ] VAPID 키, 운영 HTTPS 주소, 실제 푸시 예약 작업 및 수신 검증.
 - [x] 사용자 승인 후 Netlify 공개: https://newlightchurchglobal.com/ . Git 연속 배포와 서버 함수 4개 연결 완료.
 - [x] 공식 도메인 newlightchurchglobal.com: 가비아 DNS 및 Netlify Let's Encrypt apex/www 발급 확인. 실제 HTTPS200, HTTP/www301 확인. Supabase 기본 URL도 공식 주소로 전환.
 - [x] 사용자 확정 NCG.png OG 이미지 및 NCG 제목/슬로건 설명 공개 배포. 원본과 공개 이미지 해시 일치 확인.
-- [x] GitHub infonewlightch/ncg 백업. 기능 변경을 main에 백업하고 연속 배포. 237 tests/44 files 및 build 통과(번역 응답 격리·사용량 DB 예약 검증 단계).
-- [x] 011 SQL 적용: 번역 사용량을 Supabase transaction으로 예약, 기존 성경 사용량 이월·UTC 일일 제한·오류 시 생성 중단. 공동체용 할당량 준비; 실제 공동체 번역 API는 아직 503이며 별도 연결 필요.
+- [x] GitHub infonewlightch/ncg 백업. 기능 변경을 main에 백업하고 연속 배포. 259 tests/46 files 및 build 통과(번역 응답 격리·사용량 DB 예약 검증 단계).
+- [x] 011 SQL 적용: 번역 사용량을 Supabase transaction으로 예약, 기존 성경 사용량 이월·UTC 일일 제한·오류 시 생성 중단. 공동체 API에도 연결, 실제 회원 간 번역 전송 검증은 남음.
 - [x] Git 연속 배포 및 서버 함수 실제 배포. Netlify deploy 6ab40c67428d32000894e262 (02:29), 요청 제한 규칙 2개 확인.
 - [x] 공유 제목 NCG - New Light Church Global, 원본 OG 유지, Contact 비공개 Netlify Forms 수신함 등록.
 - [x] eBible 공식 1,550역본/1,242 ISO 언어 카탈로그(전체 읽기 가능 또는 전체 검수 완료라는 뜻은 아님), 라이선스 허용분 본문 어댑터. 실제 스페인어/아랍어 36절, RTL, 독립 3열 PC 탐색·모바일 선택 검증.
 - [x] 연결된 역본이 없을 때 영어 WEBP 원문 + 명시적 요청식 자동 참고 번역. 검수 전 표시·6절 제한·원문 대조·공유 캐시·일일 요청 상한. 실제 아일랜드어 생성 및 재요청 캐시 동일성 검증. 원어민/교회 내용 검수와 모든 언어의 정확성 확인은 미완료.
 
 단일 편집 세션 원칙을 지킨다. 외부 프로젝트나 원본 다바르를 수정하지 않는다. 15분 heartbeat `ncg`가 이 작업에 연결되어 있으며 완료 또는 기한 도달 시 비활성화한다.
+
+- [x] Netlify 공동체·채팅 번역 adapter 연결: ID별 서버 원문/RLS·친구/차단 검사·외부 AI/공유quota. 기기 전용 글 미전송, ko/en/es 안내. 259 tests/46 files 및 모의 서버 PC/모바일 브라우저 검증; 실제 회원 간 공급자 전송은 미검증.
