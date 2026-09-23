@@ -28,3 +28,7 @@ Friend-list refresh cancels the previous read and ignores a response arriving af
 All six new regressions failed before these fixes and pass afterward. The complete suite now passes 205 tests in 39 files; production build and the 746-message ko/en/es catalogue check pass. The existing build warning about large chunks remains.
 
 Browser validation used the actual Friends component with a simulated server: pending lookup → edit code → resolve old lookup leaves no old target, and the next lookup returns only the current target. A subsequent failed lookup removes the prior target and displays its error. Desktop 1292px and mobile 390px have no horizontal overflow; the mobile form and error were visually checked. These are local component checks, not real two-member production integration or proof of connected translation.
+
+## Chat translation ordering (2026-09-24 KST)
+
+Late translation JSON cannot replace the current target language or restore a translation after returning to the original language. When message publication status changes, translation status is cleared and controls are hidden for messages awaiting review or restricted from publication. Three regressions failed before the fix and pass afterward; 214 tests in 40 files and the production build now pass. The combined simulated browser check is documented in `community-feed.md`. Actual provider connection and two-account production chat checks remain incomplete.
