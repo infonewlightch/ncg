@@ -42,7 +42,7 @@ When no edition is present in the connected catalogue, NCG shows the original En
 - The model must preserve each supplied verse ID exactly once and in order. Missing, duplicated, reordered, unchanged-English, malformed or truncated results fail closed. Textual-note-only verses are not sent to the model as empty text to be filled in.
 - Known sign languages are not represented as machine-written translations. Unknown or unsupported languages show an honest message with continued access to the English original.
 - Netlify AI Gateway provides server-only provider credentials; `gpt-4.1-mini` is the initial model. No credentials enter the browser or repository.
-- Site-wide Netlify Blobs cache keys include source content, prompt revision, model and target tag. An atomic daily counter caps fresh provider calls at 60 across instances; per-IP rate limit is six requests per 180 seconds. Cache hits do not use the generation budget. Two active provider requests per instance and a 25-second timeout bound runtime work. The standalone Node/Vite adapter uses an in-memory cache/counter for development.
+- Site-wide Netlify Blobs cache keys include source content, prompt revision, model and target tag. A shared daily preview budget is configured for 60 fresh provider calls; per-IP rate limit is six requests per 180 seconds. Cache hits do not use the generation budget. Two active provider requests per instance and a 25-second timeout bound runtime work. The standalone Node/Vite adapter uses an in-memory cache/counter for development.
 - The cap is a launch safeguard, not a guarantee of indefinite free service. Increase only with measured usage and a funded hosting plan. No paid plan or automatic credit recharge was enabled for this change.
 - Automated structural checks do not establish linguistic or theological accuracy. Native-language and church review are still needed.
 
@@ -51,3 +51,11 @@ References: [Netlify AI Gateway](https://docs.netlify.com/build/ai-gateway/overv
 ## Remaining source work
 
 NKRV still needs a licensed in-app source. The full global published-version catalogue, automated translations in every language, and native-speaker review are not complete.
+
+## Budget storage failure handling (2026-09-24 KST)
+
+The installed Blobs SDK’s conditional-write branch can return `modified: true` after a failed HTTP response. The adapter now rejects failed PUT responses before the SDK sees them, while preserving 412 conflicts for a fresh read. A reported success without an ETag, corrupt/non-numeric/negative persisted usage, or an existing record without its comparison tag also fails closed. An uncertain reservation cannot start a model request. Normal cache hits remain readable; no quota records are reset or deleted by this change.
+
+Eight new adapter cases (five failed before the fix), five transport cases (three failed with the previous pass-through transport), and a provider-not-called regression pass. The complete suite passes 228 tests in 42 files; production build passes. Tests simulate failure responses without sending private text, provider requests or real storage writes.
+
+This remains a preview guard, not a financial or transactional quota guarantee. Before expanding community/chat generation, move shared quotas to a transactional store and keep provider-side spending limits. Netlify’s own guidance recommends a database for counters rather than read-modify-write Blobs. References: [Netlify Blobs guidance](https://github.com/netlify/context-and-tools/blob/main/cursor/rules/netlify-blobs.mdc), [conditional-write failure report](https://github.com/netlify/primitives/issues/741).

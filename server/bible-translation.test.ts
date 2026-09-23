@@ -36,4 +36,9 @@ describe('unreviewed English-source Scripture assistance',()=>{
   const fetcher=vi.fn(async()=>completion(translated));const source={...chapter,verses:[...chapter.verses,{id:'JHN.3.3',number:'3',text:'',notes:['Omitted in this text.']}]};
   const r=await bibleTranslation(request(body),env,{store:fixture(),fetcher,readSource:async()=>source});expect(r.status).toBe(200);expect((await r.json()).verses).toHaveLength(2);
  });
+ it('does not call the model when the budget reservation cannot be verified',async()=>{
+  const store=fixture();store.claim.mockRejectedValue(new Error('internal storage details'));const fetcher=vi.fn();
+  const response=await bibleTranslation(request(body),env,{store,fetcher,readSource:async()=>chapter});expect(response.status).toBe(502);expect(await response.text()).not.toContain('internal storage details');expect(fetcher).not.toHaveBeenCalled();expect(store.set).not.toHaveBeenCalled();
+ });
+
 });
