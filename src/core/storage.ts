@@ -4,7 +4,7 @@ import {emptyQuiz,readQuiz,readQuizSync,readQuizImports,uuidPattern} from './qui
 import {readBookmarks,readBookmarkSync} from './bible-bookmarks';
 import {parseMedia} from './media';
 import {interfaceLanguage} from './languages';
-export const initialState:AppState={version:1,ui:'ko',language:'ko',lowData:false,profile:{name:'',nationality:''},videos:[],posts:[],bookmarks:[],videoSync:{baseline:[],pending:null,revision:0},completed:[],prayed:[],requests:[],quiz:{...emptyQuiz},quizSourceId:'',quizSync:{baseline:{...emptyQuiz},pending:null,revision:0},quizImports:{},bibleBookmarks:[],bibleSync:{baseline:[],pending:null,revision:0},progressSync:{baseline:[],pending:null,revision:0}};
+export const initialState:AppState={version:1,ui:'ko',language:'ko',lowData:false,largeText:false,profile:{name:'',nationality:''},videos:[],posts:[],bookmarks:[],videoSync:{baseline:[],pending:null,revision:0},completed:[],prayed:[],requests:[],quiz:{...emptyQuiz},quizSourceId:'',quizSync:{baseline:{...emptyQuiz},pending:null,revision:0},quizImports:{},bibleBookmarks:[],bibleSync:{baseline:[],pending:null,revision:0},progressSync:{baseline:[],pending:null,revision:0}};
 const count=(v:unknown)=>typeof v==='number'&&Number.isSafeInteger(v)&&v>=0?v:0;
 const strings=(v:unknown,max=5000):string[]=>Array.isArray(v)?v.filter((s):s is string=>typeof s==='string').slice(0,max):[];
 const str=(v:unknown,max=500)=>typeof v==='string'&&v.length<=max;
@@ -13,7 +13,7 @@ export function readState(raw:string|null,legacyReader:string|null=null):AppStat
     const s=JSON.parse(raw||'null');
     if(!s||s.version!==1) return {...structuredClone(initialState),bibleBookmarks:readLegacyBookmarks(legacyReader)};
     const language=typeof s.language==='string'&&/^[a-zA-Z0-9-]{2,40}$/.test(s.language)?s.language:'ko';
-    return {...initialState,ui:interfaceLanguage(language),language,lowData:s.lowData===true,
+    return {...initialState,ui:interfaceLanguage(language),language,lowData:s.lowData===true,largeText:s.largeText===true,
       profile:{name:str(s.profile?.name,80)?s.profile.name:'',nationality:str(s.profile?.nationality,80)?s.profile.nationality:''},
       bibleBookmarks:Array.isArray(s.bibleBookmarks)?readBookmarks(s.bibleBookmarks):readLegacyBookmarks(legacyReader),bibleSync:readBookmarkSync(s.bibleSync),
       bookmarks:strings(s.bookmarks,10000),videoSync:readVideoSync(s.videoSync),completed:strings(s.completed).filter(id=>!id.startsWith('quiz:')),prayed:strings(s.prayed),requests:strings(s.requests),

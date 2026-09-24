@@ -16,10 +16,6 @@
     "ko": "성경 읽기"
   },
   {
-    "en": "Worship",
-    "ko": "온라인 예배"
-  },
-  {
     "en": "Messages",
     "ko": "말씀 · 설교"
   },
@@ -90,6 +86,14 @@
   {
     "en": "CONNECTED IN THE GOSPEL",
     "ko": "복음으로 연결되는 우리"
+  },
+  {
+    "en": "Large text mode",
+    "ko": "큰 글씨 모드"
+  },
+  {
+    "en": "Large text",
+    "ko": "큰 글씨"
   },
   {
     "en": "Sign in",
@@ -394,6 +398,38 @@
   {
     "en": "Account sync is delayed. Your work is kept on this device and retried when connected.",
     "ko": "계정 동기화가 지연되고 있습니다. 이 기기의 기록을 보관하고 연결되면 다시 시도합니다."
+  },
+  {
+    "en": "Nationality",
+    "ko": "국적"
+  },
+  {
+    "en": "Select a country",
+    "ko": "국가 선택"
+  },
+  {
+    "en": "Please reselect your nationality from the list.",
+    "ko": "기존 국적을 목록에서 다시 선택해주세요."
+  },
+  {
+    "en": "Search countries",
+    "ko": "국가 검색"
+  },
+  {
+    "en": "Search by country name or code",
+    "ko": "국가명 또는 코드 검색"
+  },
+  {
+    "en": "countries and regions",
+    "ko": "개 국가·지역"
+  },
+  {
+    "en": "Country list",
+    "ko": "국가 목록"
+  },
+  {
+    "en": "No countries found. Check the country name or code.",
+    "ko": "검색 결과가 없습니다. 국가명이나 코드를 다시 확인해주세요."
   },
   {
     "en": "Choose a language",
@@ -992,6 +1028,10 @@
     "ko": "신고 접수"
   },
   {
+    "en": "Choose your nationality from the list.",
+    "ko": "목록에서 국적을 선택해주세요."
+  },
+  {
     "en": "Enter your name, nationality, and reflection.",
     "ko": "이름, 국적, 나눔 내용을 입력해주세요."
   },
@@ -1030,14 +1070,6 @@
   {
     "en": "Display name",
     "ko": "표시 이름"
-  },
-  {
-    "en": "Nationality",
-    "ko": "국적"
-  },
-  {
-    "en": "Enter in your own words",
-    "ko": "자유롭게 입력"
   },
   {
     "en": "Post type",
@@ -1082,6 +1114,22 @@
   {
     "en": "Newlight Church · Gyeonggi Dongjung Presbytery · Presbyterian Church in Korea (Hapdong)",
     "ko": "대한예수교장로회(합동) 경기동중노회 · 새빛교회"
+  },
+  {
+    "en": "Newlight Church official channels",
+    "ko": "새빛교회 공식 채널"
+  },
+  {
+    "en": "Newlight Church website",
+    "ko": "새빛교회 홈페이지"
+  },
+  {
+    "en": "YouTube",
+    "ko": "유튜브"
+  },
+  {
+    "en": "Instagram",
+    "ko": "인스타그램"
   },
   {
     "en": "NCG original content",
@@ -1182,6 +1230,14 @@
   {
     "en": "No version connected",
     "ko": "역본 연결 대기"
+  },
+  {
+    "en": "Explore more Bible languages and editions",
+    "ko": "전 세계 언어·역본 더 찾기"
+  },
+  {
+    "en": "Additional editions can be read on the official YouVersion website.",
+    "ko": "추가 역본은 YouVersion 공식 사이트에서 읽을 수 있습니다."
   },
   {
     "en": "Open editions and source links are available. Additional partner editions are being connected.",
@@ -1932,16 +1988,12 @@
     "ko": "복음 알아보기"
   },
   {
-    "en": "Join in worship",
-    "ko": "온라인 예배"
+    "en": "Read the Bible",
+    "ko": "성경을 읽어요"
   },
   {
-    "en": "Worship together",
-    "ko": "함께 예배해요"
-  },
-  {
-    "en": "One heart, wherever you are",
-    "ko": "어디에 있든, 한마음으로"
+    "en": "Scripture in your language",
+    "ko": "나의 언어로 만나는 성경"
   },
   {
     "en": "The Word in your language",
@@ -2116,10 +2168,6 @@
     "ko": "친구와 나눔에 표시할 이름·국적·언어를 정해주세요."
   },
   {
-    "en": "e.g. Republic of Korea",
-    "ko": "예: 대한민국"
-  },
-  {
     "en": "My language",
     "ko": "내 언어"
   },
@@ -2166,6 +2214,10 @@
   {
     "en": "Requests · Messages · Blocked members",
     "ko": "친구 요청 · 메시지 · 차단 관리"
+  },
+  {
+    "en": "Enlarge menus and reading text.",
+    "ko": "메뉴와 본문을 크게 표시합니다."
   },
   {
     "en": "Skip video thumbnail downloads",
@@ -2314,10 +2366,6 @@
   {
     "en": "Choose a published date or open the Bible to read.",
     "ko": "발행된 날짜를 선택하거나 성경을 펼쳐 읽어보세요."
-  },
-  {
-    "en": "Read the Bible",
-    "ko": "성경 읽기"
   },
   {
     "en": "NCG SCHOOL · BIBLE QUIZ",
@@ -2684,40 +2732,16 @@
     "ko": "로그인 전 진도는 이 기기에 저장됩니다. 계정 연결 후에는 학습 진도를 함께 보관합니다."
   },
   {
-    "en": "WORSHIP TOGETHER",
-    "ko": "함께 드리는 예배"
-  },
-  {
     "en": "THE WORD, FOR EVERYONE",
     "ko": "모두를 위한 말씀"
-  },
-  {
-    "en": "Worship together, wherever you are.",
-    "ko": "어디에서나, 함께 드리는 예배"
   },
   {
     "en": "The Word, in your language.",
     "ko": "내 언어로 만나는 말씀"
   },
   {
-    "en": "Begin the week with one heart in Jesus Christ.",
-    "ko": "한 주의 시작, 예수 그리스도 안에서 한마음으로."
-  },
-  {
     "en": "Listen to the Word. Let it take root. Live it out.",
     "ko": "말씀을 듣고, 마음에 새기고, 삶으로 이어가세요."
-  },
-  {
-    "en": "Our worship brings us together.",
-    "ko": "우리의 예배는 하나로 이어집니다."
-  },
-  {
-    "en": "Worship videos will appear here when added. Live broadcast status is not connected yet.",
-    "ko": "예배 영상이 연결되면 이곳에서 함께할 수 있습니다. 현재 생방송 상태는 연결되지 않았습니다."
-  },
-  {
-    "en": "About our church",
-    "ko": "교회 안내"
   },
   {
     "en": "Search titles and descriptions",
