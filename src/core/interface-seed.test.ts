@@ -1,2 +1,27 @@
-import {expect,it} from 'vitest';import pt from '../i18n-generated/pt.json';import {interfaceSource,validInterfaceMessages} from './interface-catalogue';
-it('ships every current Portuguese interface message with unchanged placeholders and unreviewed provenance',()=>{const messages=pt.messages as Record<string,string>;expect(pt.language).toBe('pt');expect(pt.reviewed).toBe(false);for(const [id,row] of interfaceSource.entries())expect(validInterfaceMessages([{id,text:messages[row.en]}],[{id,en:row.en}]),row.en).toBe(true);expect(messages.Home).toBe('Início');expect(messages.Bible).toBe('Bíblia');});
+// @vitest-environment jsdom
+import {afterEach,expect,it,vi} from 'vitest';
+import {interfaceSeed} from './interface-seeds';
+import {interfaceSource,validInterfaceMessages} from './interface-catalogue';
+import {runtimeInterfaceMessage,runtimeInterfaceStatus} from './interface-runtime';
+const languages=['pt','zh','zh-Hant','th','ar','fa','hi','fr'];
+afterEach(()=>vi.unstubAllGlobals());
+it.each(languages)('ships all current %s UI messages without a generation request',async language=>{
+ const fetcher=vi.fn();vi.stubGlobal('fetch',fetcher);
+ const loader=interfaceSeed(language);expect(loader).toBeDefined();
+ const {default:pack}=await loader!();expect(pack.language).toBe(language);expect(pack.reviewed).toBe(false);
+ for(const [id,row] of interfaceSource.entries())expect(validInterfaceMessages([{id,text:pack.messages[row.en]}],[{id,en:row.en}]),row.en).toBe(true);
+ runtimeInterfaceMessage('Home',language);
+ await vi.waitFor(()=>expect(runtimeInterfaceStatus(language)).toBe('automatic'));
+ for(const row of interfaceSource)expect(runtimeInterfaceMessage(row.en,language),row.en).toBe(pack.messages[row.en]);
+ await Promise.resolve();expect(fetcher).not.toHaveBeenCalled();
+});
+it('chooses regional and Chinese-script fallbacks without substituting a different script',()=>{
+ expect(interfaceSeed('fa-IR')).toBe(interfaceSeed('fa'));
+ expect(interfaceSeed('hi-IN')).toBe(interfaceSeed('hi'));
+ expect(interfaceSeed('zh-CN')).toBe(interfaceSeed('zh'));
+ expect(interfaceSeed('zh-SG')).toBe(interfaceSeed('zh'));
+ expect(interfaceSeed('zh-TW')).toBe(interfaceSeed('zh-Hant'));
+ expect(interfaceSeed('zh-Hant-HK')).toBe(interfaceSeed('zh-Hant'));
+ expect(interfaceSeed('hi-Latn')).toBeUndefined();expect(interfaceSeed('ar-Latn')).toBeUndefined();
+ expect(interfaceSeed('invalid_tag')).toBeUndefined();expect(interfaceSeed('vi')).toBeUndefined();
+});

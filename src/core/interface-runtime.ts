@@ -1,4 +1,5 @@
 import {interfaceBatch,interfaceBatchSize,interfaceIds,interfaceRevision,validInterfaceMessages} from './interface-catalogue';
+import {interfaceSeed} from './interface-seeds';
 export type InterfaceStatus='bundled'|'loading'|'automatic'|'unavailable'|'unsupported';
 type Pack={messages:Map<string,string>;wanted:Set<number>;failed:Set<number>;pending:Set<number>;unsupported:boolean;seeding:boolean};
 const packs=new Map<string,Pack>();const listeners=new Set<()=>void>();let revision=0,scheduled=false,active=0;
@@ -7,9 +8,10 @@ export const interfaceSnapshot=()=>revision;
 const emit=()=>{revision++;listeners.forEach(listener=>listener());};
 function packFor(locale:string){
  let pack=packs.get(locale);if(pack)return pack;
- pack={messages:new Map(),wanted:new Set(),failed:new Set(),pending:new Set(),unsupported:false,seeding:locale==='pt'};packs.set(locale,pack);
+ const seed=interfaceSeed(locale);
+ pack={messages:new Map(),wanted:new Set(),failed:new Set(),pending:new Set(),unsupported:false,seeding:Boolean(seed)};packs.set(locale,pack);
  try{const cached=JSON.parse(localStorage.getItem(`ncg:interface:${interfaceRevision}:${locale}`)||'null');if(cached&&typeof cached==='object')for(const [batch,messages] of Object.entries(cached)){const rows=interfaceBatch(Number(batch));if(rows.length&&validInterfaceMessages(messages,rows))for(const m of messages)pack.messages.set(rows.find(r=>r.id===m.id)!.en,m.text);}}catch{}
- if(pack.seeding){const target=pack;void import('../i18n-generated/pt.json').then(({default:data})=>{const messages=data.messages as Record<string,string>|undefined;if(!messages)return;for(const [en,text] of Object.entries(messages)){const id=interfaceIds.get(en);if(id!==undefined&&validInterfaceMessages([{id,text}],[{id,en}]))target.messages.set(en,text);}save(locale,target);}).catch(()=>{}).finally(()=>{target.seeding=false;emit();schedule();});}
+ if(seed){const target=pack;void seed().then(({default:data})=>{const messages=data.messages;if(!messages)return;for(const [en,text] of Object.entries(messages)){const id=interfaceIds.get(en);if(id!==undefined&&validInterfaceMessages([{id,text}],[{id,en}]))target.messages.set(en,text);}save(locale,target);}).catch(()=>{}).finally(()=>{target.seeding=false;emit();schedule();});}
  return pack;
 }
 function save(locale:string,pack:Pack){

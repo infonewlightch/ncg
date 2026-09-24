@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import {afterEach,beforeEach,it,expect,vi} from 'vitest';
-vi.mock('../i18n-generated/pt.json',()=>({default:{messages:{}}}));
+vi.mock('./interface-seeds',()=>({interfaceSeed:()=>undefined}));
 import {interfaceBatch,interfaceIds,interfaceBatchSize,interfaceRevision,validInterfaceMessages} from './interface-catalogue';
 let runtime:typeof import('./interface-runtime');
 beforeEach(async()=>{localStorage.clear();vi.resetModules();runtime=await import('./interface-runtime');});
