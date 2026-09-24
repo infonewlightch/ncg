@@ -8,7 +8,7 @@
 - 서비스: https://newlightchurchglobal.com
 - 관리자: https://newlightchurchglobal.com/admin.html
 - 공식 이메일/관리자: **infonewlightch@gmail.com** (`light`에 t 포함).
-- 운영 코드: **d26f580**. Netlify Production `main@d26f580`, 17:50 KST 배포 시작 / 30초 후 Published 확인. 영상 가로 전체화면 대응에 이어 사전 생성 UI 번역 16종·캐시 유지·언어 선택 미리 불러오기를 반영했습니다.
+- 운영 코드: **98514cd**. Netlify Production `main@98514cd`, 18:13:21 KST 빌드 시작 / 총 배포 34초, Published 확인. UI 사전 번역 22종·서버 캐시 일괄 읽기·이전 언어 요청을 기다리지 않는 전환을 반영했습니다.
 - QT 작업 브랜치 **work/ncg-qt-scripture-20260924**는 main에 통합·GitHub 백업 완료했습니다. 이후 운영 기록만 추가한 커밋은 `[skip ci]`로 배포를 생략합니다.
 - 사용자 요청 없이 PR을 생성하지 않습니다. 같은 저장소 동시 편집 금지. 비밀값은 .env.local 등 로컬 설정에만, Git에 추가하지 않습니다.
 
@@ -27,7 +27,7 @@
 - 매일 **05:00 KST `ncg-qt` 일정 확인 자동화 ACTIVE**. 사용자 재개 요청에 따라 배포 확인 후 재개했습니다. 기한이 지난 밤샘 개발 `ncg`는 PAUSED로 유지합니다. 이는 QT 일정 관리 자동화이며 이용자 푸시 알림 운영 연결과는 별개입니다.
 
 ## 외부 연결·허가 대기
-- [언어 사전 제작](../interface-localization.md): UI 748문구를 ko/en/es 및 생성팩 13개(총 16종 언어·문자 조합)로 제공. 신규 ja/vi/id/ru/sw는 Codex 초안이며 원어민 검수 미완료. 전체 74파일/379테스트·빌드 통과. 라오어 312/748은 `tmp/interface-packs/lo.json`에 보관, `429 translation_daily_limit` 후 생성 중단. 7,867개 언어 전체 완료 아님. 한도는 늘리지 않았으며 무인 생성 자동화도 추가하지 않았습니다.
+- [언어 사전 제작](../interface-localization.md): UI 748문구를 ko/en/es 및 생성팩 19개(총 22종 언어·문자 조합)로 제공. 추가 de/it/tr/ms/bn/ur도 Codex 초안이며 원어민 검수 미완료. 전체 74파일/392테스트·빌드 통과. 벵골어·우르두어 390px 큰 글씨/RTL, 독일어 320px 큰 글씨 검증 및 긴 하단 메뉴 줄바꿈 수정. 운영 말레이어 전환 확인 후 한국어 복원. 라오어 312/748은 `tmp/interface-packs/lo.json`에 보관하며 정적 팩은 미완성입니다. 새 읽기 전용 GET으로 운영 서버의 동일 13배치/312문구를 한 번에 조회 확인(첫 요청 2,430ms, 캐시 재요청 78ms). 7,867개 언어 전체 완료 아님. 생성 후보 6,809개 중 19개 완료/6,790개 미완료, ko/en/es 별도. 기존 `429 translation_daily_limit` 이후 생성 한도를 늘리지 않았고 무인 생성 자동화도 추가하지 않았습니다.
 - [모바일 영상 검증 기록](mobile-video-2026-09-24.md): 320/390px 세로·844px 가로·1280px PC 레이아웃, 운영 인앱과 macOS Chrome 153·Safari의 실제 영상/자막 재생·전체화면·복귀 확인. 전체 **71파일/364테스트** 및 빌드 통과. Chrome 모바일 에뮬레이션의 방향 잠금은 NotSupportedError로 거절됐으며 전체화면은 유지됩니다. 실물 iOS/Android의 자동 회전과 네이버/카카오 등 각 인앱 검증은 남아 있습니다.
 - Google Cloud OAuth 클라이언트/시크릿 사용자 인계 중. 마지막 확인에서 Supabase Google provider Disabled. 실제 Google 로그인 미완료.
 - 일반 회원용 custom SMTP 미연결. 교회 계정의 이메일 인증/로그인 성공을 일반 회원 발송 완료로 간주하지 않습니다.
