@@ -12,3 +12,11 @@
 - 이메일 알림은 설정하지 않았습니다. 문의는 운영자 접수함에서 확인하고 답장을 수동으로 보냅니다.
 
 공식 문서: https://docs.netlify.com/manage/forms/setup/ · https://docs.netlify.com/manage/forms/spam-filters/ · https://docs.netlify.com/manage/forms/submissions/
+
+## 2026-09-24 14:07 KST 운영 검증
+
+- 사용자가 공식 주소를 `infonewlightch@gmail.com`으로 확정했습니다. 기존 `infonewlighch@gmail.com`은 오기입니다.
+- `ncg-contact`에 새 접수 이메일 알림을 연결했습니다. 수신자는 위 공식 주소, 제목은 `[NCG] 새 문의가 접수되었습니다`입니다.
+- 실제 HTTPS 사이트에서 한국어 기타 문의 1건(이름 `NCG 운영 점검`, 답장 주소 비움)을 제출했습니다. 사이트 성공 화면, Netlify **Verified submissions**의 동일 본문·분류·언어, 공식 Gmail 받은편지함의 알림 메일을 모두 확인했습니다. 검증 표식: `NCG-QA-20260924-1419`(식별자이며 시각 아님). 실제 접수 시각 14:02 KST.
+- 최초 조회에 빈 목록이 잠시 나타났고, 수신함이 갱신된 후 같은 1건을 확인했습니다. 중복 전송하지 않았습니다. 시험 기록은 접수함에 유지합니다.
+- 기본 스팸·honeypot 설정은 유지했습니다. 모든 메시지가 스팸 오탐 없이 전달된다는 의미는 아닙니다.

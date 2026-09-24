@@ -45,7 +45,7 @@ export async function runQtPush(env,deps={}){
  try{
   const sender=deps.webpush||webpush;
   const client=(deps.createClient||createClient)(env.NCG_SUPABASE_URL,env.NCG_SUPABASE_SERVICE_ROLE_KEY,{auth:{persistSession:false,autoRefreshToken:false},global:{fetch:(input,init={})=>fetch(input,{...init,redirect:'error',signal:AbortSignal.any([AbortSignal.timeout(5000),...(init.signal?[init.signal]:[])])})}});
-  sender.setVapidDetails('mailto:infonewlighch@gmail.com',env.NCG_VAPID_PUBLIC_KEY,env.NCG_VAPID_PRIVATE_KEY);
+  sender.setVapidDetails('mailto:infonewlightch@gmail.com',env.NCG_VAPID_PUBLIC_KEY,env.NCG_VAPID_PRIVATE_KEY);
   // Four concurrent devices fit one scheduled invocation. Uncertain leases are never auto-reclaimed.
   return await dispatchQtPush({client,send:sender.sendNotification.bind(sender),batchSize:4});
  }catch{throw Error('QT reminder dispatch failed');}
