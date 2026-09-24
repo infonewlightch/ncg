@@ -777,6 +777,11 @@
     "Subtitles": "字幕",
     "Comments": "评论",
     "Write a comment": "写评论",
-    "No comments yet.": "还没有评论。"
+    "No comments yet.": "还没有评论。",
+    "Fullscreen": "全屏",
+    "Exit fullscreen": "退出全屏",
+    "Exit expanded view": "退出放大视图",
+    "Open in YouTube": "在 YouTube 中打开",
+    "Using expanded view in this browser.": "此浏览器使用放大视图。"
   }
 }

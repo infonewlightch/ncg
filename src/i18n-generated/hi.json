@@ -777,6 +777,11 @@
     "Subtitles": "उपशीर्षक",
     "Comments": "टिप्पणियाँ",
     "Write a comment": "टिप्पणी लिखें",
-    "No comments yet.": "अभी कोई टिप्पणी नहीं है।"
+    "No comments yet.": "अभी कोई टिप्पणी नहीं है।",
+    "Fullscreen": "फ़ुल स्क्रीन",
+    "Exit fullscreen": "फ़ुल स्क्रीन से बाहर निकलें",
+    "Exit expanded view": "बड़े दृश्य से बाहर निकलें",
+    "Open in YouTube": "YouTube में खोलें",
+    "Using expanded view in this browser.": "इस ब्राउज़र में बड़ा दृश्य इस्तेमाल किया जा रहा है।"
   }
 }

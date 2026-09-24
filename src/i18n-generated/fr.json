@@ -777,6 +777,11 @@
     "Subtitles": "Sous-titres",
     "Comments": "Commentaires",
     "Write a comment": "Écrire un commentaire",
-    "No comments yet.": "Aucun commentaire pour le moment."
+    "No comments yet.": "Aucun commentaire pour le moment.",
+    "Fullscreen": "Plein écran",
+    "Exit fullscreen": "Quitter le plein écran",
+    "Exit expanded view": "Quitter la vue agrandie",
+    "Open in YouTube": "Ouvrir dans YouTube",
+    "Using expanded view in this browser.": "Affichage agrandi utilisé dans ce navigateur."
   }
 }

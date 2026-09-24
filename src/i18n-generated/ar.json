@@ -777,6 +777,11 @@
     "Subtitles": "الترجمة النصية",
     "Comments": "التعليقات",
     "Write a comment": "كتابة تعليق",
-    "No comments yet.": "لا توجد تعليقات بعد."
+    "No comments yet.": "لا توجد تعليقات بعد.",
+    "Fullscreen": "ملء الشاشة",
+    "Exit fullscreen": "الخروج من ملء الشاشة",
+    "Exit expanded view": "الخروج من العرض الموسّع",
+    "Open in YouTube": "فتح في YouTube",
+    "Using expanded view in this browser.": "يُستخدم العرض الموسّع في هذا المتصفح."
   }
 }

@@ -777,6 +777,11 @@
     "Subtitles": "字幕",
     "Comments": "留言",
     "Write a comment": "撰寫留言",
-    "No comments yet.": "尚無留言。"
+    "No comments yet.": "尚無留言。",
+    "Fullscreen": "全螢幕",
+    "Exit fullscreen": "退出全螢幕",
+    "Exit expanded view": "退出放大檢視",
+    "Open in YouTube": "在 YouTube 中開啟",
+    "Using expanded view in this browser.": "此瀏覽器使用放大檢視。"
   }
 }

@@ -777,6 +777,11 @@
     "Subtitles": "คำบรรยาย",
     "Comments": "ความคิดเห็น",
     "Write a comment": "เขียนความคิดเห็น",
-    "No comments yet.": "ยังไม่มีความคิดเห็น"
+    "No comments yet.": "ยังไม่มีความคิดเห็น",
+    "Fullscreen": "เต็มหน้าจอ",
+    "Exit fullscreen": "ออกจากเต็มหน้าจอ",
+    "Exit expanded view": "ออกจากมุมมองขยาย",
+    "Open in YouTube": "เปิดใน YouTube",
+    "Using expanded view in this browser.": "กำลังใช้มุมมองขยายในเบราว์เซอร์นี้"
   }
 }

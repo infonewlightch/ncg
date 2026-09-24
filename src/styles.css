@@ -201,9 +201,9 @@ footer>span{font-size:max(var(--ui-font-min,0px),calc(8px * var(--ui-font-scale,
 .error{color:#9c382d;font-size:max(var(--ui-font-min,0px),calc(12px * var(--ui-font-scale,1)))}
 .callout{display:flex;gap:10px;align-items:flex-start;background:#f0eee1;border:1px solid #e3deca;padding:13px 14px;border-radius:5px;font-size:max(var(--ui-font-min,0px),calc(11px * var(--ui-font-scale,1)));line-height:1.9;margin:15px 0 20px;color:#726344}
 .callout svg{margin-top:3px}
-.player{aspect-ratio:16/9;min-height:210px;background:#123564;border-radius:6px;overflow:hidden;margin-bottom:20px}
-.player iframe,.player video{width:100%;height:100%;min-height:210px;display:block;border:0}
-.player-start{width:100%;height:100%;min-height:250px;background:radial-gradient(ellipse at 75% 20%,#576c87,#123564);border:0;color:#edf2f8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.player{position:relative;width:100%;min-width:0;aspect-ratio:16/9;min-height:200px;background:#090f19;overflow:hidden}
+.player iframe,.player video{position:absolute;inset:0;width:100%;height:100%;min-width:0;display:block;border:0;object-fit:contain}
+.player-start{position:absolute;inset:0;width:100%;height:100%;min-height:0;background:radial-gradient(ellipse at 75% 20%,#576c87,#123564);border:0;color:#edf2f8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
 .player-start small{font-size:max(var(--ui-font-min,0px),calc(10px * var(--ui-font-scale,1)));color:#dbe3ed}
 .ui-language{display:flex;align-items:center;gap:10px;font-size:max(var(--ui-font-min,0px),calc(12px * var(--ui-font-scale,1)));padding:14px 0 20px}
 .ui-language>span{margin-right:auto}
@@ -536,7 +536,7 @@ footer>span{display:block;margin-top:15px;text-align:left;font-size:max(var(--ui
 .modal{padding:19px;max-height:88dvh}
 .modal-heading h2{font-size:max(var(--ui-font-min,0px),calc(18px * var(--ui-font-scale,1)))}
 .form-row{grid-template-columns:1fr}
-.player-start{min-height:210px}
+.player-start{gap:12px;padding:18px}
 .language-grid{grid-template-columns:1fr 1fr}
 .language-grid button{padding:11px 9px}
 .language-grid b{font-size:max(var(--ui-font-min,0px),calc(12px * var(--ui-font-scale,1)))}
@@ -1128,3 +1128,33 @@ html[dir=rtl] .brand-wordmark { direction:ltr; }
 .qt-reading{max-width:900px;margin-inline:auto}.qt-sharing-below{max-width:900px;margin:40px auto}.qt-reminder-below{max-width:900px;margin:32px auto}.qt-chapter+.qt-chapter{border-top:1px solid var(--border);padding-top:28px;margin-top:32px}.qt-chapter>h3{font-family:var(--serif);font-size:1.3rem}
 
 .post-comments{margin-top:20px;border-top:1px solid var(--line);padding-top:20px}.post-comments .shared-post{box-shadow:none;margin-inline-start:12px;border-inline-start:3px solid var(--line)}.post-comments .qt-empty{padding:24px}.post-comments .qt-empty>svg{display:none}.post-comments .qt-empty h3{font-size:1rem;font-family:inherit;color:var(--muted)}.post-footer{flex-wrap:wrap;gap:12px}.admin-comment-parent{border-inline-start:3px solid var(--line);padding:12px;background:var(--paper);margin-top:12px}.admin-comment-parent blockquote{white-space:pre-wrap;font-size:14px;margin:8px 0}.post-comments .section-head{margin-bottom:12px}
+
+/* Keep provider controls inside the viewport, including short landscape screens. */
+.modal.video-modal{padding:0;max-height:calc(100dvh - 32px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.modal.video-modal.wide{width:min(960px,calc(100vw - 40px));max-width:none}
+.video-modal>.modal-heading{position:sticky;top:0;z-index:1;margin:0;padding:16px 20px;background:var(--paper);border-bottom:1px solid var(--line)}
+.video-modal>.modal-heading h2{min-width:0;overflow-wrap:anywhere;font-size:max(16px,var(--ui-font-min,0px));line-height:1.5;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.video-modal>.modal-heading .icon-button{flex:none;width:44px;height:44px}
+.video-stage{min-width:0;background:#090f19;color:#fff;display:flex;flex-direction:column;align-items:center}
+.video-controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 14px;width:100%;flex:none;padding:6px max(14px,env(safe-area-inset-right)) 6px max(14px,env(safe-area-inset-left));background:#101d30}
+.video-controls button,.video-controls a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 4px;border:0;background:none;color:#fff;font-size:max(14px,var(--ui-font-min,0px));line-height:1.4;text-align:start;cursor:pointer}
+.video-controls svg{flex:none}
+.video-controls button:focus-visible,.video-controls a:focus-visible{outline:2px solid #f4d898;outline-offset:2px}
+.video-details{padding:20px 24px max(24px,env(safe-area-inset-bottom));overflow-wrap:anywhere}
+.video-details>p:first-child{margin-top:0}
+.video-screen-note{margin:0;padding:5px 16px 10px;color:#dbe3ed;font-size:12px;line-height:1.5;text-align:center;flex:none}
+.modal.video-modal.video-expanded{inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;border-radius:0;display:flex;overflow:hidden;background:#090f19}
+.video-expanded>.modal-heading,.video-expanded>.video-details{display:none}
+.video-expanded>.video-stage,.video-stage:fullscreen{width:100%;height:100%;flex:1;min-height:0;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.video-stage:-webkit-full-screen{width:100%;height:100%;flex:1;min-height:0;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.video-expanded .player,.video-stage:fullscreen .player{flex:1;min-height:0;max-width:none;aspect-ratio:auto}
+.video-stage:-webkit-full-screen .player{flex:1;min-height:0;max-width:none;aspect-ratio:auto}
+@media(max-width:680px){
+ .modal.video-modal.wide{inset:0;width:100%;height:100dvh;max-height:100dvh;margin:0;border:0;border-radius:0}
+ .video-modal>.modal-heading{padding:calc(8px + env(safe-area-inset-top)) 14px 8px}
+ .video-details{padding:20px 20px max(24px,env(safe-area-inset-bottom))}
+}
+@media(max-height:500px) and (orientation:landscape){
+ .modal.video-modal.wide{inset:0;width:100%;height:100dvh;max-height:100dvh;margin:0;border:0;border-radius:0}
+ .video-modal:not(.video-expanded) .player{max-width:calc((100dvh - 140px) * 16 / 9)}
+}

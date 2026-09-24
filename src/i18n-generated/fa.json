@@ -777,6 +777,11 @@
     "Subtitles": "زیرنویس",
     "Comments": "دیدگاه‌ها",
     "Write a comment": "نوشتن دیدگاه",
-    "No comments yet.": "هنوز دیدگاهی ثبت نشده است."
+    "No comments yet.": "هنوز دیدگاهی ثبت نشده است.",
+    "Fullscreen": "تمام‌صفحه",
+    "Exit fullscreen": "خروج از تمام‌صفحه",
+    "Exit expanded view": "خروج از نمای بزرگ‌شده",
+    "Open in YouTube": "باز کردن در YouTube",
+    "Using expanded view in this browser.": "در این مرورگر از نمای بزرگ‌شده استفاده می‌شود."
   }
 }

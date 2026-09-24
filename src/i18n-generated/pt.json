@@ -777,6 +777,11 @@
     "Subtitles": "Legendas",
     "Comments": "Comentários",
     "Write a comment": "Escrever um comentário",
-    "No comments yet.": "Ainda não há comentários."
+    "No comments yet.": "Ainda não há comentários.",
+    "Fullscreen": "Tela cheia",
+    "Exit fullscreen": "Sair da tela cheia",
+    "Exit expanded view": "Sair da visualização ampliada",
+    "Open in YouTube": "Abrir no YouTube",
+    "Using expanded view in this browser.": "Usando a visualização ampliada neste navegador."
   }
 }

@@ -532,6 +532,30 @@
     "ko": "재생을 누르면 영상 서비스에 연결됩니다."
   },
   {
+    "en": "Exit fullscreen",
+    "ko": "전체화면 종료"
+  },
+  {
+    "en": "Exit expanded view",
+    "ko": "확대 종료"
+  },
+  {
+    "en": "Fullscreen",
+    "ko": "전체화면"
+  },
+  {
+    "en": "Open in YouTube",
+    "ko": "YouTube에서 열기"
+  },
+  {
+    "en": "Open original",
+    "ko": "원본에서 열기"
+  },
+  {
+    "en": "Using expanded view in this browser.",
+    "ko": "이 브라우저에서는 화면 확대 보기로 전환됩니다."
+  },
+  {
     "en": "Could not load this file. Check the URL and access permissions.",
     "ko": "영상 파일에 연결하지 못했습니다. 주소와 접근 권한을 확인해주세요."
   },
@@ -570,10 +594,6 @@
   {
     "en": "Subtitles",
     "ko": "자막"
-  },
-  {
-    "en": "Open original",
-    "ko": "원본에서 열기"
   },
   {
     "en": "No messages here yet.",

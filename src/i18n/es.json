@@ -798,5 +798,10 @@
   "Subtitles": "Subtítulos",
   "Comments": "Comentarios",
   "Write a comment": "Escribir un comentario",
-  "No comments yet.": "Todavía no hay comentarios."
+  "No comments yet.": "Todavía no hay comentarios.",
+  "Fullscreen": "Pantalla completa",
+  "Exit fullscreen": "Salir de pantalla completa",
+  "Exit expanded view": "Salir de vista ampliada",
+  "Open in YouTube": "Abrir en YouTube",
+  "Using expanded view in this browser.": "Se está usando la vista ampliada en este navegador."
 }
