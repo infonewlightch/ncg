@@ -33,6 +33,7 @@ export async function interfaceTranslation(request:Request,env:Record<string,str
    if(!response.ok)throw Error();const rawResponse=await response.text();if(rawResponse.length>120000)throw Error();const data=JSON.parse(rawResponse);const choice=data.choices?.[0];if(choice?.finish_reason!=='stop'||typeof choice.message?.content!=='string')throw Error();const translated=JSON.parse(choice.message.content);
    if(translated.supported===false)return reply(422,{error:'unsupported_language'});
    if(translated.supported!==true||!validInterfaceMessages(translated.messages,rows))throw Error();
+   if(target.tag.split('-')[0]!=='en'&&translated.messages.every((m:{text:string},i:number)=>m.text.trim()===rows[i].en.trim()))return reply(422,{error:'unsupported_language'});
    const result:InterfaceResult={revision:interfaceRevision,language:target.tag,batch:input.batch,reviewed:false,messages:translated.messages};await store.set(key,result);return reply(200,result);
   }catch{return reply(502,{error:'translation_unavailable'});}finally{active--;inflight.delete(key);}
  })();inflight.set(key,work);return (await work).clone();

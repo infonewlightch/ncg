@@ -1,14 +1,15 @@
 import {interfaceBatch,interfaceBatchSize,interfaceIds,interfaceRevision,validInterfaceMessages} from './interface-catalogue';
 export type InterfaceStatus='bundled'|'loading'|'automatic'|'unavailable'|'unsupported';
-type Pack={messages:Map<string,string>;wanted:Set<number>;failed:Set<number>;pending:Set<number>;unsupported:boolean};
+type Pack={messages:Map<string,string>;wanted:Set<number>;failed:Set<number>;pending:Set<number>;unsupported:boolean;seeding:boolean};
 const packs=new Map<string,Pack>();const listeners=new Set<()=>void>();let revision=0,scheduled=false,active=0;
 export const subscribeInterface=(listener:()=>void)=>{listeners.add(listener);return()=>{listeners.delete(listener);};};
 export const interfaceSnapshot=()=>revision;
 const emit=()=>{revision++;listeners.forEach(listener=>listener());};
 function packFor(locale:string){
  let pack=packs.get(locale);if(pack)return pack;
- pack={messages:new Map(),wanted:new Set(),failed:new Set(),pending:new Set(),unsupported:false};packs.set(locale,pack);
+ pack={messages:new Map(),wanted:new Set(),failed:new Set(),pending:new Set(),unsupported:false,seeding:locale==='pt'};packs.set(locale,pack);
  try{const cached=JSON.parse(localStorage.getItem(`ncg:interface:${interfaceRevision}:${locale}`)||'null');if(cached&&typeof cached==='object')for(const [batch,messages] of Object.entries(cached)){const rows=interfaceBatch(Number(batch));if(rows.length&&validInterfaceMessages(messages,rows))for(const m of messages)pack.messages.set(rows.find(r=>r.id===m.id)!.en,m.text);}}catch{}
+ if(pack.seeding){const target=pack;void import('../i18n-generated/pt.json').then(({default:data})=>{const messages=data.messages as Record<string,string>|undefined;if(!messages)return;for(const [en,text] of Object.entries(messages)){const id=interfaceIds.get(en);if(id!==undefined&&validInterfaceMessages([{id,text}],[{id,en}]))target.messages.set(en,text);}save(locale,target);}).catch(()=>{}).finally(()=>{target.seeding=false;emit();schedule();});}
  return pack;
 }
 function save(locale:string,pack:Pack){
@@ -25,7 +26,7 @@ async function load(locale:string,pack:Pack,batch:number){
  }catch{pack.failed.add(batch);}finally{pack.pending.delete(batch);active--;emit();schedule();}
 }
 async function drain(){
- for(const [locale,pack] of packs){if(pack.unsupported)continue;for(const batch of pack.wanted){if(active>=2)return;const rows=interfaceBatch(batch);if(pack.pending.has(batch)||pack.failed.has(batch)||rows.every(r=>pack.messages.has(r.en)))continue;void load(locale,pack,batch);}}
+ for(const [locale,pack] of packs){if(pack.unsupported||pack.seeding)continue;for(const batch of pack.wanted){if(active>=2)return;const rows=interfaceBatch(batch);if(pack.pending.has(batch)||pack.failed.has(batch)||rows.every(r=>pack.messages.has(r.en)))continue;void load(locale,pack,batch);}}
 }
 export function runtimeInterfaceMessage(en:string,locale:string){
  const pack=packFor(locale);const translated=pack.messages.get(en);if(translated)return translated;

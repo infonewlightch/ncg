@@ -20,6 +20,7 @@ describe('public interface translation, only developer-owned catalogue text',()=
   for(const data of [incomplete,html])expect((await interfaceTranslation(req(input),env,{store,fetcher:vi.fn().mockResolvedValue(answer(data))})).status).toBe(502);
   expect((await interfaceTranslation(req(input),env,{store,fetcher:vi.fn().mockResolvedValue(answer(translated(),'length'))})).status).toBe(502);expect(store.set).not.toHaveBeenCalled();
  });
+ it('rejects a provider that claims support but returns the whole English batch unchanged',async()=>{const fetcher=vi.fn().mockResolvedValue(answer({supported:true,messages:interfaceBatch(0).map(r=>({id:r.id,text:r.en}))}));expect((await interfaceTranslation(req(input),env,{store,fetcher})).status).toBe(422);expect(store.set).not.toHaveBeenCalled();});
  it('honors the shared budget and provider refusal without labelling English as translated',async()=>{
   const fetcher=vi.fn().mockResolvedValue(answer({supported:false,messages:[]}));vi.mocked(store.claim).mockResolvedValue(false);expect((await interfaceTranslation(req(input),env,{store,fetcher})).status).toBe(429);expect(fetcher).not.toHaveBeenCalled();vi.mocked(store.claim).mockResolvedValue(true);expect((await interfaceTranslation(req(input),env,{store,fetcher})).status).toBe(422);expect(store.set).not.toHaveBeenCalled();
  });
