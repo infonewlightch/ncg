@@ -54,11 +54,12 @@ export function koreanRevisedLink(passage:string){
 }
 export async function bibleRequest<T>(resource:string,params:Record<string,string>,signal:AbortSignal):Promise<T>{
  if(params.version==='webp')return localBible<T>(resource,params.passage,signal);
+ if(params.version?.startsWith('eb-gb-'))return (await import('./getbible')).getBibleRequest<T>(resource,params,signal);
  if(params.version?.startsWith('eb-'))return (await import('./ebible')).ebibleRequest<T>(resource,params,signal);
  let local:BibleVersion[]=[];
  if(resource==='versions'){
   const language=new Intl.Locale(params.language).language;
-  local=[...(language==='en'?[webVersion]:[]),...(language==='ko'?[nkrvVersion]:[]),...await (await import('./ebible')).ebibleVersions(language)];
+  local=[...(language==='en'?[webVersion]:[]),...(language==='ko'?[nkrvVersion]:[]),...await (await import('./ebible')).ebibleVersions(language),...await (await import('./getbible')).getBibleVersions(language)];
  }
  let response:Response;let data;
  try{response=await fetch(`/api/bible/${resource}?${new URLSearchParams(params)}`,{signal});data=await response.json();}

@@ -17,6 +17,15 @@ The catalogue records source certification and redistribution flags. Editions ma
 
 Korean NKRV (개역개정) remains the preferred Korean edition. Until licensed in-app access is connected, it opens the Korean Bible Society. The public-domain Korean 1910 edition is distinctly labelled and never presented as NKRV or KRV.
 
+## Additional public-domain source (2026-09-24)
+
+- Added 74 editions across 48 provider language tags from [getBible v2](https://github.com/getbible/v2), alongside the existing eBible catalogue. These overlap some existing editions/languages; the counts must not be added together as unique worldwide coverage.
+- Imported only editions whose current [official metadata](https://api.getbible.net/v2/translations.json) explicitly says `Public Domain`. Other entries with GPL or additional permissions were not imported. Metadata snapshot: `src/data/getbible-catalogue.json`.
+- Shared same-origin gateway accepts only this allowlist, fixed getBible host, books/chapter lists and individual passages. Method/origin validation, no redirects, 18-second timeout, 1.5 MB response limit, 80 cached responses and six active upstream requests bound access. Existing Netlify rate limiting still applies.
+- Provider book/chapter counts are used, verses are identity-checked and rendered as plain text. SWORD `<FI>`/`<Fi>` italic markers are removed without changing enclosed wording. `eb-gb-` IDs fit the existing saved-bookmark namespace without a database migration.
+- Live source audit: every one of the 74 editions returned its book list, first book's chapter list and first chapter with verses. Audit metadata is in `docs/verification/getbible-2026-09-24.json`. This is a representative connectivity check, not full-text/theological verification. Actual reader check: ASV John 3, 36 verses, desktop/mobile large text.
+- A visible YouVersion language directory link also lets readers find additional publisher-hosted editions. NKRV still needs licensed in-app access; the external Korean Bible Society link remains.
+
 ## Server adapter
 
 `GET /api/bible-source?version=<catalogue-id>&file=<allowed-htm-name>` fetches a fixed eBible.org host. It rejects unknown/restricted editions, traversal, redirects, unexpected content types and oversized responses; concurrency, timeouts, memory-cache size and response size are bounded. Netlify also applies per-IP rate limiting. HTML is returned as JSON and parsed into plain verse text, source headings and separate notes; third-party HTML/scripts are never rendered directly in NCG.

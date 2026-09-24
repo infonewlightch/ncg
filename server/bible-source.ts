@@ -1,4 +1,5 @@
 import type {IncomingMessage,ServerResponse} from 'node:http';
+import {getBibleSource} from './getbible-source.ts';
 import catalogue from '../src/data/bible-catalogue.json' with {type:'json'};
 
 const permitted=new Set(catalogue.versions.filter(v=>v.redistributable).map(v=>v.id));
@@ -8,6 +9,7 @@ export async function bibleSourceHandler(req:IncomingMessage,res:ServerResponse,
  if(req.method!=='GET')return json(405,{error:'method_not_allowed'});
  if(req.headers.origin){try{if(new URL(req.headers.origin).host!==req.headers.host)return json(403,{error:'origin_not_allowed'});}catch{return json(403,{error:'origin_not_allowed'});}}
  const url=new URL(req.url||'/','http://ncg.local');const id=url.searchParams.get('version')||'',file=url.searchParams.get('file')||'';
+ if(url.searchParams.get('provider')==='getbible')return getBibleSource(req,res,fetcher);
  if(!permitted.has(id)||!/^[a-zA-Z0-9_-]+$/.test(id)||!/^(?:index|copyright|[A-Z0-9]{3}(?:\d{2,3})?)\.htm$/.test(file))return json(400,{error:'invalid_source'});
  const key=`${id}/${file}`;const stored=cache.get(key);if(stored&&stored.until>Date.now())return json(200,{html:stored.html});
  if(active>=6)return json(429,{error:'bible_busy'});active++;

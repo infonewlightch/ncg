@@ -4,6 +4,7 @@ import {join} from 'node:path';
 import type {IncomingMessage,ServerResponse} from 'node:http';
 import languages from '../src/data/languages-index.json' with {type:'json'};
 import catalogue from '../src/data/bible-catalogue.json' with {type:'json'};
+import additionalCatalogue from '../src/data/getbible-catalogue.json' with {type:'json'};
 
 type Verse={id:string;number:string;text:string;heading?:string;notes?:string[]};
 type Source={id:string;reference:string;verses:Verse[]};
@@ -14,7 +15,7 @@ export interface TranslationStore{
  claim():Promise<boolean>;
 }
 const canonical=(code:string)=>{try{return new Intl.Locale(code).language;}catch{return '';}};
-const published=new Set(catalogue.versions.map(v=>canonical(v.language)));published.add('en');published.add('ko');
+const published=new Set(catalogue.versions.map(v=>canonical(v.language)));for(const version of additionalCatalogue.versions)published.add(canonical(version.language));published.add('en');published.add('ko');
 const cache=new Map<string,ScriptureTranslation>();let budgetDay='',budgetUsed=0;
 const memoryStore:TranslationStore={async get(key){return cache.get(key)||null;},async set(key,value){if(cache.size>=150)cache.delete(cache.keys().next().value!);cache.set(key,value);},async claim(){const day=new Date().toISOString().slice(0,10);if(day!==budgetDay){budgetDay=day;budgetUsed=0;}return ++budgetUsed<=60;}};
 const inflight=new Map<string,Promise<Response>>();let active=0;
