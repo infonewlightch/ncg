@@ -16,7 +16,7 @@
 - 프랑스어 [Louis Segond 1910](https://ebible.org/fraLSG/copyright.htm), 스페인어 [Reina Valera 1909](https://ebible.org/spaRV1909/copyright.htm): Public Domain.
 - 태국어 [Thai KJV](https://ebible.org/thaKJV/copyright.htm): Philip Pope 번역, CC BY-NC-ND 4.0. 출처 표시, 비영리, 원문 유지 조건.
 - 포르투갈어 [Biblica Open Nova Bíblia Viva](https://ebible.org/poronbv/copyright.htm), 페르시아어 [Biblica Open Persian Contemporary Bible](https://ebible.org/pesopcb/copyright.htm), 힌디어 [Biblica Open Hindi Contemporary Version](https://ebible.org/hincv/copyright.htm): Biblica 공급, CC BY-SA 4.0. 원문·명칭·저작권과 출처 유지.
-- getBible는 같은 ASV 1901의 Public Domain 공급본만 허용. 나머지 전체 목록은 추가 검토 전 제외.
+- 초기 getBible 승인은 같은 ASV 1901의 Public Domain 공급본으로 시작했습니다. 아래 추가 검토에서 일본어 문어역도 허용했으며, 나머지 목록은 검토 전 제외합니다.
 
 개역개정은 대한성서공회 외부 읽기 링크만 제공합니다. NIV/개역개정 앱 내 전문 및 YouVersion 역본은 사용허가/공급본 검토 완료 전 활성화하지 않습니다.
 
