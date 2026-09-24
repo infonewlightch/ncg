@@ -1088,7 +1088,8 @@ main{padding:28px 20px 0}
 html[data-text-size=large] { --ui-font-scale:1.3; --ui-font-min:15px; }
 body { font-size:calc(16px * var(--ui-font-scale)); }
 .brand { --ui-font-scale:1; --ui-font-min:0px; }
-.brand-wordmark { display:block; width:180px; max-width:100%; height:auto; }
+.brand-wordmark { display:block; width:140px; max-width:100%; height:auto; }
+.sidebar > .brand { padding-inline-start:14px; }
 .mobile-brand { flex-shrink:0; }
 .mobile-brand .brand-wordmark { width:124px; }
 @media(max-width:360px){.mobile-brand .brand-wordmark{width:108px}.topbar-actions>a[href="#/sermons"]{display:none}}
