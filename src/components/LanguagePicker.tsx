@@ -15,7 +15,7 @@ export default function LanguagePicker({onClose,onSelect}:{onClose:()=>void;onSe
  useEffect(()=>setLimit(60),[query]);
  const options=useMemo(()=>{
   const q=query.trim().toLocaleLowerCase();
-  const common=['ko','en','es','pt','zh','hi','ar','fa','th','lo','fr','sw','id','vi','ja','ru'];
+  const common=['ko','en','es','pt','zh','hi','ar','fa','th','lo','fr','sw','id','vi','ja','ru','de','it','tr','ms','bn','ur'];
   if(!q)return common.flatMap(c=>languages.filter(l=>l.code===c));
   return languages.filter(l=>[l.code,l.iso3,l.name,languageName(l.code,state.ui)].some(v=>v.toLocaleLowerCase().includes(q)));
  },[languages,query,state.ui]);

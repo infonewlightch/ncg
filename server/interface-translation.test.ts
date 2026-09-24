@@ -4,10 +4,28 @@ import {interfaceBatch,interfaceRevision} from '../src/core/interface-catalogue'
 const env={OPENAI_API_KEY:'test-only',OPENAI_BASE_URL:'https://provider.invalid'};
 const req=(data:unknown,origin='https://example.test')=>new Request('https://example.test/api/interface-translation',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify(data)});
 const input={language:'pt',batch:0,revision:interfaceRevision};
+const cachedReq=(language='pt',revision=interfaceRevision,extra='')=>new Request(`https://example.test/api/interface-translation?language=${language}&revision=${revision}${extra}`);
 const translated=()=>({supported:true,messages:interfaceBatch(0).map(r=>({id:r.id,text:r.en==='Home'?'Início':r.en}))});
 const answer=(data:unknown,finish_reason='stop')=>Response.json({choices:[{finish_reason,message:{content:JSON.stringify(data)}}]});
 let store:InterfaceStore;beforeEach(()=>{store={get:vi.fn().mockResolvedValue(null),set:vi.fn().mockResolvedValue(undefined),claim:vi.fn().mockResolvedValue(true)};});
 describe('public interface translation, only developer-owned catalogue text',()=>{
+ it('delivers all cached batches with one GET even without model credentials or remaining budget',async()=>{
+  const saved=new Map();store.get=vi.fn(async key=>saved.get(key)||null);store.set=vi.fn(async(key,value)=>{saved.set(key,value);});
+  const fetcher=vi.fn().mockResolvedValue(answer(translated()));await interfaceTranslation(req(input),env,{store,fetcher});
+  fetcher.mockClear();vi.mocked(store.claim).mockClear().mockResolvedValue(false);
+  const response=await interfaceTranslation(cachedReq(),{},{store,fetcher});expect(response.status).toBe(200);
+  const data=await response.json();expect(data.batches).toHaveLength(1);expect(data.complete).toBe(false);expect(data.batches[0].messages).toEqual(translated().messages);expect(response.headers.get('cache-control')).toContain('public');expect(fetcher).not.toHaveBeenCalled();expect(store.claim).not.toHaveBeenCalled();
+ });
+ it('does not publish corrupt, stale or wrong-language cached batches',async()=>{
+  for(const change of [{language:'ar'},{revision:'old'},{messages:[{id:0,text:'<script>'}]}]){
+   vi.mocked(store.get).mockResolvedValue({language:'pt',revision:interfaceRevision,batch:0,reviewed:false,messages:translated().messages,...change});
+   const data=await (await interfaceTranslation(cachedReq(),{},{store})).json();expect(data.batches).toEqual([]);
+  }
+ });
+ it('validates cache query fields before reading storage and keeps errors uncacheable',async()=>{
+  for(const [request,status] of [[cachedReq('pt','old'),409],[cachedReq('ase'),422],[cachedReq('pt',interfaceRevision,'&language=ar'),400],[cachedReq('pt',interfaceRevision,'&text=private'),400]] as const){const response=await interfaceTranslation(request,{},{store});expect(response.status).toBe(status);expect(response.headers.get('cache-control')).toBe('no-store');}
+  expect(store.get).not.toHaveBeenCalled();expect(store.claim).not.toHaveBeenCalled();
+ });
  it('translates an exact script tag, stores a validated result and reuses cache without a model call',async()=>{
   const fetcher=vi.fn().mockResolvedValue(answer(translated()));const response=await interfaceTranslation(req({...input,language:'pt-BR'}),env,{store,fetcher});expect(response.status).toBe(200);const result=await response.json();expect(result.language).toBe('pt-BR');expect(result.reviewed).toBe(false);expect(store.claim).toHaveBeenCalledOnce();expect(store.set).toHaveBeenCalledOnce();
   vi.mocked(store.get).mockResolvedValue(result);fetcher.mockClear();expect((await interfaceTranslation(req({...input,language:'pt-BR'}),env,{store,fetcher})).status).toBe(200);expect(fetcher).not.toHaveBeenCalled();

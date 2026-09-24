@@ -511,7 +511,8 @@ footer b{font-size:max(var(--ui-font-min,0px),calc(8px * var(--ui-font-scale,1))
 footer p{font-size:max(var(--ui-font-min,0px),calc(8px * var(--ui-font-scale,1)));line-height:1.9}
 footer>span{display:block;margin-top:15px;text-align:left;font-size:max(var(--ui-font-min,0px),calc(7px * var(--ui-font-scale,1)))}
 .mobile-nav{position:fixed;bottom:0;left:0;right:0;z-index:20;display:flex;justify-content:space-around;background:#f8fafcf5;border-top:1px solid #dbe3ed;padding:8px 4px max(8px,env(safe-area-inset-bottom));backdrop-filter:blur(15px)}
-.mobile-nav a{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:56px;min-height:49px;padding:4px;color:#576c87;font-size:max(var(--ui-font-min,0px),calc(9px * var(--ui-font-scale,1)))}
+.mobile-nav a{display:flex;flex:1;flex-direction:column;align-items:center;gap:6px;min-width:0;min-height:49px;padding:4px;color:#576c87;font-size:max(var(--ui-font-min,0px),calc(9px * var(--ui-font-scale,1)))}
+.mobile-nav a>span{width:100%;text-align:center;overflow-wrap:anywhere;hyphens:auto;line-height:1.35}
 .mobile-nav a.active{color:#123564;font-weight:600}
 .mobile-nav a.active>svg{background:#edf2f8;box-shadow:0 0 0 5px #edf2f8;border-radius:5px}
 .page-heading{padding:0 0 20px}
@@ -741,6 +742,7 @@ main{padding:30px 26px 0}
 .language-button{padding:8px;font-size:max(var(--ui-font-min,0px),calc(11px * var(--ui-font-scale,1)));max-width:100px}
 .topbar .header-user{display:inline-flex}
 main{padding:28px 20px 0}
+.app-body main{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
 .welcome-row{margin-bottom:24px}
 .welcome-row h1{font-size:max(var(--ui-font-min,0px),calc(23px * var(--ui-font-scale,1)))}
 .hero{padding:34px 26px 54px;min-height:460px}
