@@ -4,7 +4,7 @@ export function baseLanguage(code:string){
  try{return new Intl.Locale(code).language;}catch{return code.toLowerCase().split('-')[0];}
 }
 export function hasInterfaceTranslation(code:string){return ['ko','en','es'].includes(baseLanguage(code));}
-export function interfaceLanguage(code:string):UiLanguage{const base=baseLanguage(code);return hasInterfaceTranslation(base)?base as UiLanguage:'en';}
+export function interfaceLanguage(code:string):UiLanguage{try{const locale=new Intl.Locale(code);return hasInterfaceTranslation(locale.language)?locale.language:locale.toString();}catch{return 'en';}}
 export function contentLanguage(code:string,available:readonly string[]){
  return available.find(x=>x===code)||available.find(x=>x===baseLanguage(code))||available.find(x=>x==='en')||available[0];
 }

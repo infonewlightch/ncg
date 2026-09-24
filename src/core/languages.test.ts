@@ -16,7 +16,7 @@ describe('one language preference throughout NCG',()=>{
  it('keeps an unsupported preference and explicitly distinguishes the fallback',()=>{
   const state=readState(JSON.stringify({...initialState,language:'ar'}));
   expect(state.language).toBe('ar');
-  expect(state.ui).toBe('en');
+  expect(state.ui).toBe('ar');
   expect(hasInterfaceTranslation('ar')).toBe(false);
   expect(contentLanguage('ar',['ko','en','th'])).toBe('en');
  });

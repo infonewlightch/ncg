@@ -1,6 +1,6 @@
 import {readFileSync,readdirSync} from 'node:fs';
 import {describe,it,expect,vi} from 'vitest';
-import {preferredBibleVersion,verseInSelection,navigateBibleChapter,koreanRevisedLink,webVersion,adjacentChapter,readReaderPreferences,resolvePassage,safeBibleLink,bibleRequest,parsePassage,type BibleIndex} from './bible';
+import {firstVerse,preferredBibleVersion,verseInSelection,navigateBibleChapter,koreanRevisedLink,webVersion,adjacentChapter,readReaderPreferences,resolvePassage,safeBibleLink,bibleRequest,parsePassage,type BibleIndex} from './bible';
 
 const index:BibleIndex={text_direction:'ltr',books:[{id:'GEN',title:'Genesis',full_title:'Genesis',abbreviation:'Gen',canon:'old_testament',chapters:[{id:1,title:1,passage_id:'GEN.1',verses:[{id:1,title:1,passage_id:'GEN.1.1'}]}]},{id:'EXO',title:'Exodus',full_title:'Exodus',abbreviation:'Exo',canon:'old_testament',chapters:[{id:1,title:1,passage_id:'EXO.1',verses:[]}]}]};
 describe('Bible navigation and source integrity',()=>{
@@ -19,6 +19,7 @@ describe('Bible navigation and source integrity',()=>{
    expect(parsePassage('JHN.1.18-14')).toBeNull();expect(parsePassage('JHN.1.0')).toBeNull();
   }finally{spy.mockRestore();}
  });
+ it('starts a chapter at verse one while retaining explicit QT ranges and bookmarks',()=>{expect(firstVerse('GEN.1')).toBe('GEN.1.1');expect(firstVerse('JHN.3.16-18')).toBe('JHN.3.16-18');});
  it('navigates across book boundaries, stopping at each end',()=>{
   expect(adjacentChapter(index,'GEN.1.1',1)).toBe('EXO.1');
   expect(adjacentChapter(index,'GEN.1',-1)).toBeNull();

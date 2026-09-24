@@ -1114,3 +1114,8 @@ html[data-text-size=large] .filter-row { flex-wrap:wrap; gap:12px; }
 .bible-more-editions { display:flex; align-items:center; flex-wrap:wrap; gap:4px 14px; padding:14px 30px 0; }
 .bible-more-editions small { color:var(--reader-muted); line-height:1.6; }
 @media(max-width:680px){.bible-more-editions{padding-inline:20px}}
+/* Keep the reading direction and physical sidebar placement coherent. */
+html[dir=rtl] .brand-wordmark { direction:ltr; }
+@media(min-width:961px){html[dir=rtl] .sidebar{left:auto;right:0}html[dir=rtl] .app-body{margin-left:0;margin-right:240px}}
+.language-fallback { flex-wrap:wrap; }
+.language-fallback > span { flex:1; min-width:160px; }

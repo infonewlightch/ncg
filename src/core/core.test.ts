@@ -33,7 +33,7 @@ describe('learning integrity', () => {
 });
 describe('storage recovery', () => {
   it('preserves a valid profile, video, QT post and progress on reload',()=>{
-    const saved={...initialState,ui:'en',language:'th',profile:{name:'Test',nationality:'Thailand'},videos:[{id:'v1',title:'Test',description:'',url:'https://youtu.be/Abc_def-123',language:'th',category:'sermon',createdAt:'2026-09-23'}],posts:[{id:'p1',body:'Test reflection',language:'th',author:'Test',nationality:'Thailand',category:'story',createdAt:'2026-09-23',topic:'qt-preview'}],bookmarks:['v1'],completed:['newcomer:1']};
+    const saved={...initialState,ui:'th',language:'th',profile:{name:'Test',nationality:'Thailand'},videos:[{id:'v1',title:'Test',description:'',url:'https://youtu.be/Abc_def-123',language:'th',category:'sermon',createdAt:'2026-09-23'}],posts:[{id:'p1',body:'Test reflection',language:'th',author:'Test',nationality:'Thailand',category:'story',createdAt:'2026-09-23',topic:'qt-preview'}],bookmarks:['v1'],completed:['newcomer:1']};
     expect(readState(JSON.stringify(saved))).toEqual(saved);
   });
   it('recovers from invalid JSON', () => expect(readState('{oops').bookmarks).toEqual([]));

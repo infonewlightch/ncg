@@ -120,8 +120,24 @@
     "ko": "데이터 절약 모드 · 영상 썸네일을 불러오지 않습니다."
   },
   {
-    "en": "Interface translation is being prepared. Menus currently appear in English.",
-    "ko": "이 언어의 화면 번역을 준비하고 있습니다. 현재 메뉴는 영어로 표시합니다."
+    "en": "Translating the interface into your language.",
+    "ko": "선택한 언어로 화면을 번역하고 있습니다."
+  },
+  {
+    "en": "Automatic interface translation · Scripture uses your selected Bible edition.",
+    "ko": "화면 자동번역 · 성경 본문은 선택한 역본을 사용합니다."
+  },
+  {
+    "en": "Interface translation is unavailable for this language. English is shown.",
+    "ko": "이 언어의 화면 번역을 제공하지 못해 영어로 안내합니다."
+  },
+  {
+    "en": "Some interface translations could not load. You can try again.",
+    "ko": "일부 화면 번역을 불러오지 못했습니다. 다시 시도할 수 있습니다."
+  },
+  {
+    "en": "Try again",
+    "ko": "다시 시도"
   },
   {
     "en": "Change language",
@@ -206,10 +222,6 @@
   {
     "en": "Could not check available sign-in methods. Check your connection and try again.",
     "ko": "로그인 방법을 확인하지 못했습니다. 연결을 확인한 뒤 다시 시도해주세요."
-  },
-  {
-    "en": "Try again",
-    "ko": "다시 시도"
   },
   {
     "en": "Checking available sign-in methods.",
@@ -448,8 +460,8 @@
     "ko": "모든 언어를 향해"
   },
   {
-    "en": "Your language applies to menus and content. Untranslated screens use English. Published Bible editions come first; if no edition is connected, you can request an English-source translation aid.",
-    "ko": "선택한 언어를 메뉴와 콘텐츠에 함께 적용합니다. 아직 번역되지 않은 화면은 영어로 안내합니다. 성경은 출판된 역본을 우선하며, 연결된 역본이 없으면 영어 기반 참고 번역을 요청할 수 있습니다."
+    "en": "Menus and guidance are translated into your language. Where automatic translation is unavailable, English remains available. Published Bible editions come first; if no edition is connected, you can request an English-source translation aid.",
+    "ko": "선택한 언어로 메뉴와 안내문을 번역합니다. 자동번역을 제공할 수 없는 언어는 영어로 안내합니다. 성경은 출판된 역본을 우선하며, 연결된 역본이 없으면 영어 기반 참고 번역을 요청할 수 있습니다."
   },
   {
     "en": "Search a language or code",
@@ -464,8 +476,8 @@
     "ko": "개 항목 · 수어 포함"
   },
   {
-    "en": "Interface translation pending",
-    "ko": "화면 번역 준비 중"
+    "en": "Automatic interface translation",
+    "ko": "자동 화면 번역"
   },
   {
     "en": "Show more",
@@ -1232,6 +1244,18 @@
     "ko": "역본 연결 대기"
   },
   {
+    "en": "Old & New Testaments",
+    "ko": "구약 + 신약"
+  },
+  {
+    "en": "books",
+    "ko": "권"
+  },
+  {
+    "en": "Read at the source",
+    "ko": "제공처에서 읽기"
+  },
+  {
     "en": "Explore more Bible languages and editions",
     "ko": "전 세계 언어·역본 더 찾기"
   },
@@ -1300,10 +1324,6 @@
     "ko": "이 역본은 제공처에서 읽을 수 있습니다. 앱 내 본문 이용은 별도 연결이 필요합니다."
   },
   {
-    "en": "Read at the source",
-    "ko": "제공처에서 읽기"
-  },
-  {
     "en": "This passage could not be loaded.",
     "ko": "이 본문을 불러오지 못했습니다."
   },
@@ -1318,10 +1338,6 @@
   {
     "en": "Bookmark passage",
     "ko": "책갈피 저장"
-  },
-  {
-    "en": "Read the full chapter",
-    "ko": "이 장 전체 읽기"
   },
   {
     "en": "Previous chapter",

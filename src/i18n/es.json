@@ -784,5 +784,13 @@
   "YouTube": "YouTube",
   "Instagram": "Instagram",
   "Explore more Bible languages and editions": "Explorar más idiomas y versiones de la Biblia",
-  "Additional editions can be read on the official YouVersion website.": "Puedes leer otras versiones en el sitio web oficial de YouVersion."
+  "Additional editions can be read on the official YouVersion website.": "Puedes leer otras versiones en el sitio web oficial de YouVersion.",
+  "Translating the interface into your language.": "Traduciendo la interfaz a tu idioma.",
+  "Automatic interface translation · Scripture uses your selected Bible edition.": "Traducción automática de la interfaz · Las Escrituras usan la edición bíblica que elegiste.",
+  "Interface translation is unavailable for this language. English is shown.": "La traducción de la interfaz no está disponible para este idioma. Se muestra en inglés.",
+  "Some interface translations could not load. You can try again.": "No se pudieron cargar algunas traducciones de la interfaz. Puedes volver a intentarlo.",
+  "Menus and guidance are translated into your language. Where automatic translation is unavailable, English remains available. Published Bible editions come first; if no edition is connected, you can request an English-source translation aid.": "Los menús y las indicaciones se traducen a tu idioma. Si la traducción automática no está disponible, puedes usar el inglés. Las ediciones bíblicas publicadas tienen prioridad; si no hay ninguna conectada, puedes solicitar una traducción de apoyo basada en el inglés.",
+  "Automatic interface translation": "Traducción automática de la interfaz",
+  "Old & New Testaments": "Antiguo y Nuevo Testamento",
+  "books": "libros"
 }

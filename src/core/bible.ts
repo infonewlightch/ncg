@@ -1,5 +1,5 @@
 import {readOfflineWebp} from './offline-bible';
-export type BibleVersion={id:string;title:string;localized_title:string;abbreviation:string;localized_abbreviation:string;language_tag:string;copyright:string;info:string;publisher_url:string;youversion_deep_link:string;promotional_content:string;access?:'reader'|'external'};
+export type BibleVersion={coverage?:{books:number;oldTestament:number;newTestament:number};id:string;title:string;localized_title:string;abbreviation:string;localized_abbreviation:string;language_tag:string;copyright:string;info:string;publisher_url:string;youversion_deep_link:string;promotional_content:string;access?:'reader'|'external'};
 export type BibleVerse={id:number|string;passage_id:string;title:number|string};
 export type BibleChapter={id:number|string;passage_id:string;title:number|string;verses:BibleVerse[];versesKnown?:boolean;sourceFile?:string};
 export type BibleBook={id:string;title:string;full_title:string;abbreviation:string;canon:string;chapters:BibleChapter[];chaptersKnown?:boolean};
@@ -17,6 +17,7 @@ export function readReaderPreferences(raw:unknown):ReaderPreferences{
  return {versions:Object.fromEntries(Object.entries(s.versions||{}).filter(([k,v])=>/^[a-zA-Z0-9-]{2,40}$/.test(k)&&typeof v==='string'&&/^(webp|ext-nkrv|eb-[a-zA-Z0-9_-]{1,60}|[1-9][0-9]{0,8})$/.test(v))),passage:typeof s.passage==='string'&&parsePassage(s.passage)?s.passage:defaultReader.passage,fontSize:typeof s.fontSize==='number'&&Number.isFinite(s.fontSize)?Math.min(30,Math.max(16,s.fontSize)):20,theme:['light','warm','dark'].includes(s.theme||'')?s.theme!:'light',bookmarks:Array.isArray(s.bookmarks)?s.bookmarks.filter(x=>x&&typeof x.version==='string'&&/^(webp|ext-nkrv|eb-[a-zA-Z0-9_-]{1,60}|[1-9][0-9]{0,8})$/.test(x.version)&&typeof x.reference==='string'&&typeof x.language==='string'&&typeof x.passage==='string'&&parsePassage(x.passage)).slice(0,300):[]};
 }
 export function chapterOf(passage:string){return passage.split('.').slice(0,2).join('.');}
+export function firstVerse(passage:string){return parsePassage(passage)?.from?passage:`${chapterOf(passage)}.1`;}
 export function verseInSelection(passage:string,number:string){
  const range=parsePassage(passage);const verse=/^(\d+)(?:[-–](\d+))?$/.exec(number);
  return Boolean(range?.from&&verse&&Number(verse[1])<=range.to!&&Number(verse[2]||verse[1])>=range.from);

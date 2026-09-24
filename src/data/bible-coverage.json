@@ -1,0 +1,31 @@
+{
+  "checked": "2026-09-24",
+  "source": "Publisher HTML book indexes at https://ebible.org/{id}/index.htm",
+  "editions": {
+    "porblt": {
+      "books": 27,
+      "oldTestament": 0,
+      "newTestament": 27
+    },
+    "porbr2018": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "porbrbsl": {
+      "books": 81,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "poronbv": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "portft": {
+      "books": 27,
+      "oldTestament": 0,
+      "newTestament": 27
+    }
+  }
+}

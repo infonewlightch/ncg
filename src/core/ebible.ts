@@ -1,3 +1,4 @@
+import coverage from '../data/bible-coverage.json';
 import type {BibleBook,BibleChapter,BibleIndex,BiblePassage,BibleVersion} from './bible';
 
 type Entry={id:string;language:string;title:string;shortTitle:string;description:string;copyright:string;redistributable:boolean;certified:boolean;direction:string;script:string;dialect:string};
@@ -9,9 +10,11 @@ const canonical=(code:string)=>{try{return new Intl.Locale(code).language;}catch
 const catalog=()=>import('../data/bible-catalogue.json');
 const cache=new Map<string,string>();
 const allowedFile=/^(?:index|copyright|[A-Z0-9]{3}(?:\d{2,3})?)\.htm$/;
+const editionCoverage=(id:string)=>(coverage.editions as Record<string,{books:number;oldTestament:number;newTestament:number}>)[id];
+const complete=(id:string)=>{const c=editionCoverage(id);return c?.oldTestament===39&&c?.newTestament===27?(c.books===66?2:1):0;};
 export async function ebibleVersions(language:string):Promise<BibleVersion[]>{
  const {default:data}=await catalog();const code=canonical(language);
- return data.versions.filter(v=>canonical(v.language)===code&&v.id!=='engwebp').sort((a,b)=>Number(b.redistributable)-Number(a.redistributable)||Number(b.certified)-Number(a.certified)).map(v=>({id:`eb-${v.id}`,title:v.shortTitle||v.description,localized_title:v.title,abbreviation:v.id,localized_abbreviation:v.shortTitle||v.id,language_tag:code,copyright:v.copyright,info:[v.dialect,v.script].filter(Boolean).join(' · '),publisher_url:`${base}${v.id}/copyright.htm`,youversion_deep_link:`${base}${v.id}/`,promotional_content:'',access:v.redistributable?'reader':'external'}));
+ return data.versions.filter(v=>canonical(v.language)===code&&v.id!=='engwebp').sort((a,b)=>Number(b.redistributable)-Number(a.redistributable)||complete(b.id)-complete(a.id)||Number(b.certified)-Number(a.certified)).map(v=>({coverage:editionCoverage(v.id),id:`eb-${v.id}`,title:v.shortTitle||v.description,localized_title:v.title,abbreviation:v.id,localized_abbreviation:v.shortTitle||v.id,language_tag:code,copyright:v.copyright,info:[v.dialect,v.script].filter(Boolean).join(' · '),publisher_url:`${base}${v.id}/copyright.htm`,youversion_deep_link:`${base}${v.id}/`,promotional_content:'',access:v.redistributable?'reader':'external'}));
 }
 async function entry(version:string):Promise<Entry>{const {default:data}=await catalog();const found=data.versions.find(v=>`eb-${v.id}`===version);if(!found||!found.redistributable||!/^[a-zA-Z0-9_-]+$/.test(found.id))throw Error('bible_source_unavailable');return found;}
 async function html(id:string,file:string,signal:AbortSignal){
@@ -21,10 +24,10 @@ async function html(id:string,file:string,signal:AbortSignal){
 }
 function parse(text:string){const doc=new DOMParser().parseFromString(text,'text/html');doc.querySelectorAll('script,style,iframe,object,embed,img,link').forEach(n=>n.remove());return doc;}
 function sourceBooks(doc:Document):BibleBook[]{
- const used=new Set<string>();return Array.from(doc.querySelectorAll('.bookList a[href]')).flatMap(a=>{const match=/^([A-Z0-9]{3})(\d{2,3})\.htm$/.exec(a.getAttribute('href')||'');if(!match||used.has(match[1]))return [];used.add(match[1]);const id=match[1],title=normalize(a.textContent||id),chapter=Number(match[2]);return [{id,title,full_title:title,abbreviation:id,canon:a.classList.contains('oo')?'old_testament':a.classList.contains('nn')?'new_testament':'other',chaptersKnown:false,chapters:[{id:chapter,title:chapter,passage_id:`${id}.${chapter}`,verses:[],versesKnown:false,sourceFile:match[0]}]}];});
+ const used=new Set<string>();return Array.from(doc.querySelectorAll('.bookList a[href]')).flatMap(a=>{const match=/^([A-Z0-9]{3})(\d{2,3})\.htm$/.exec(a.getAttribute('href')||'');if(!match||used.has(match[1]))return [];used.add(match[1]);const id=match[1],title=normalize(a.textContent||id),chapter=Math.max(1,Number(match[2]));return [{id,title,full_title:title,abbreviation:id,canon:a.classList.contains('oo')?'old_testament':a.classList.contains('nn')?'new_testament':'other',chaptersKnown:false,chapters:[{id:chapter,title:chapter,passage_id:`${id}.${chapter}`,verses:[],versesKnown:false,sourceFile:match[0]}]}];});
 }
 export function parseEbibleChapters(doc:Document,book:string):BibleChapter[]{
- const used=new Set<string>();return Array.from(doc.querySelectorAll('.tnav a[href]')).flatMap(a=>{const match=/^([A-Z0-9]{3})(\d{2,3})\.htm$/.exec(a.getAttribute('href')||'');if(!match||match[1]!==book||used.has(match[0]))return [];used.add(match[0]);const id=Number(match[2]);return [{id,title:normalize(a.textContent||'')||id,passage_id:`${book}.${id}`,verses:[],versesKnown:false,sourceFile:match[0]}];});
+ const used=new Set<string>();return Array.from(doc.querySelectorAll('.tnav a[href]')).flatMap(a=>{const match=/^([A-Z0-9]{3})(\d{2,3})\.htm$/.exec(a.getAttribute('href')||'');if(!match||Number(match[2])<1||match[1]!==book||used.has(match[0]))return [];used.add(match[0]);const id=Number(match[2]);return [{id,title:normalize(a.textContent||'')||id,passage_id:`${book}.${id}`,verses:[],versesKnown:false,sourceFile:match[0]}];});
 }
 /** Plain text only: preserve inline words, retain source headings and separate footnotes. */
 export function parseEbiblePassage(doc:Document,passage:string):BiblePassage{

@@ -3,6 +3,7 @@ import {readFile,realpath,stat} from 'node:fs/promises';
 import {resolve,sep,extname} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import {gzipSync,brotliCompressSync} from 'node:zlib';
+import {interfaceTranslationNode} from './interface-translation.ts';
 import {bibleTranslationNode} from './bible-translation.ts';
 import {bibleSourceHandler} from './bible-source.ts';
 import {createGateway} from './gateway.ts';
@@ -31,6 +32,7 @@ export function createProductionHandler(env:Record<string,string>,dist=resolve(f
     if(req.method!=='GET')return fail(405);
     const configured=pushConfiguration(env);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({configured,...(configured?{publicKey:env.NCG_VAPID_PUBLIC_KEY}:{})}));return;
    }
+   if(url.pathname==='/api/interface-translation'){await interfaceTranslationNode(req,res,env);return;}
    if(url.pathname==='/api/bible-translation'){await bibleTranslationNode(req,res,env);return;}
    if(url.pathname==='/api/bible-source'){await bibleSourceHandler(req,res);return;}
    if(url.pathname.startsWith('/api/')){await gateway(req,res);return;}

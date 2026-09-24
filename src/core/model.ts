@@ -1,4 +1,4 @@
-export type UiLanguage = 'ko' | 'en' | 'es';
+export type UiLanguage = string;
 export type Media = {kind:'youtube'; id:string; url:string} | {kind:'file'; url:string};
 export type Video = { id:string; title:string; description:string; url:string; language:string; category:'sermon'|'worship'; createdAt:string; publishedAt?:string;official?:boolean;speaker?:string;scripture?:string;recordedOn?:string };
 export type Post = { id:string; body:string; language:string; author:string; nationality:string; category:'prayer'|'story'; createdAt:string; topic?:string };

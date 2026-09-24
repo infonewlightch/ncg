@@ -15,7 +15,8 @@ describe('complete interface language packs',()=>{
   for(const [en,expected] of [['Home','Inicio'],['Sign in','Entrar'],['Try again','Intentar de nuevo'],['Book','Libro'],['John','Juan']])expect(translateInterface('한국어',en,'es')).toBe(expected);
   expect(translateInterface('문','Question {number}','es').replace('{number}','107')).toBe('Pregunta 107');
  });
+ it('preserves script and region preferences and selects correct writing direction',()=>{expect(interfaceLanguage('zh-Hant')).toBe('zh-Hant');expect(interfaceLanguage('pt-BR')).toBe('pt-BR');expect(interfaceDirection('ar')).toBe('rtl');expect(interfaceDirection('az-Arab')).toBe('rtl');expect(interfaceDirection('az-Latn')).toBe('ltr');});
  it('preserves the actual source language when the requested UI or content is not available',()=>{
-  expect(interfaceLanguage('ar')).toBe('en');expect(contentLanguage('th-TH',['ko','en','th'])).toBe('th');expect(translateInterface('한국어','Future message','es')).toBe('Future message');
+  expect(interfaceLanguage('ar')).toBe('ar');expect(contentLanguage('th-TH',['ko','en','th'])).toBe('th');expect(translateInterface('한국어','Future message','es')).toBe('Future message');
  });
 });
