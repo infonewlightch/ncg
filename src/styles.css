@@ -123,11 +123,6 @@ main{max-width:1500px;margin:0 auto;padding:34px 40px 0;min-height:calc(100vh - 
 .education-card:hover{box-shadow:0 7px 24px #12356410}
 .course-art{position:relative;height:144px;background:#edf2f8;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .course-art .course-number{position:absolute;right:15px;bottom:9px;font-family:serif;font-size:max(var(--ui-font-min,0px),calc(47px * var(--ui-font-scale,1)));font-style:italic;color:#8798ae66;line-height:1}
-.arched-window{width:85px;height:135px;border-radius:55px 55px 0 0;background:linear-gradient(150deg,#f8fafc,#dbe3ed);display:flex;align-items:center;justify-content:center;transform:translateY(21px);border:1px solid #8798ae;box-shadow:-14px -8px 0 #dbe3ed,13px 12px 0 #8798ae41}
-.arched-window svg{width:45px;color:#576c87;transform:translateY(-10px)}
-.quiz .course-art{background:#eee6db;color:#8e785f}
-.quiz .course-number{color:#b7a08788}
-.little-spark{position:absolute;top:16px;right:62px;font-size:max(var(--ui-font-min,0px),calc(22px * var(--ui-font-scale,1)));color:#b79c74}
 .course-card-copy{padding:19px 20px 16px}
 .course-card-copy .pill{font-size:max(var(--ui-font-min,0px),calc(7px * var(--ui-font-scale,1)));margin-bottom:9px;padding:3px 6px}
 .course-card-copy h3{font-size:max(var(--ui-font-min,0px),calc(18px * var(--ui-font-scale,1)));font-weight:500;margin-bottom:8px}
@@ -494,8 +489,6 @@ main{padding:25px 20px 85px}
 .course-card-copy h3{font-size:max(var(--ui-font-min,0px),calc(16px * var(--ui-font-scale,1)))}
 .course-card-copy p{font-size:max(var(--ui-font-min,0px),calc(9px * var(--ui-font-scale,1)))}
 .course-card-bottom{font-size:max(var(--ui-font-min,0px),calc(8px * var(--ui-font-scale,1)))}
-.quiz .course-art>svg{width:59px}
-.little-spark{right:30px;top:14px}
 .mission-card h3{font-size:max(var(--ui-font-min,0px),calc(20px * var(--ui-font-scale,1)))}
 .mission-card{padding:18px!important}
 .home-aside{grid-template-columns:1.4fr 1fr;gap:12px}
@@ -679,9 +672,10 @@ main{padding:40px 48px 0;max-width:1520px}
 .course-card-copy p{font-size:max(var(--ui-font-min,0px),calc(13px * var(--ui-font-scale,1)))}
 .course-card-copy .pill{font-size:max(var(--ui-font-min,0px),calc(10px * var(--ui-font-scale,1)))}
 .course-card-bottom{font-size:max(var(--ui-font-min,0px),calc(11px * var(--ui-font-scale,1)))}
-.course-art{background:#e9eff7;height:160px}
-.arched-window{background:linear-gradient(150deg,#fff,#d3dfef);border-color:#b6c9e0;box-shadow:-14px -8px 0 #dfe7f2,13px 12px 0 #becddd55}
-.arched-window .church-symbol{width:72px;height:72px;background:#123564;border-radius:5px}
+.course-art{background:#edf2f8;height:clamp(120px,12vw,160px)}
+.course-illustration{width:104px;height:104px;display:grid;place-items:center;border:1px solid #ccd9e9;border-radius:50%;background:#f8fafc;color:#123564}
+.course-illustration>svg{width:64px;height:64px}
+@media(max-width:600px){.course-illustration{width:84px;height:84px}.course-illustration>svg{width:52px;height:52px}}
 .mission-card{background:#f0f4fa;border-color:#e0e7f0;padding:27px;min-height:300px}
 .mission-card p{font-size:max(var(--ui-font-min,0px),calc(13px * var(--ui-font-scale,1)));max-width:250px}
 .mission-card .text-link{font-size:max(var(--ui-font-min,0px),calc(12px * var(--ui-font-scale,1)))}
@@ -1091,8 +1085,8 @@ body { font-size:calc(16px * var(--ui-font-scale)); }
 .brand-wordmark { display:block; width:140px; max-width:100%; height:auto; }
 .sidebar > .brand { padding-inline-start:14px; }
 .mobile-brand { flex-shrink:0; }
-.mobile-brand .brand-wordmark { width:124px; }
-@media(max-width:360px){.mobile-brand .brand-wordmark{width:108px}.topbar-actions>a[href="#/sermons"]{display:none}}
+.mobile-brand .brand-wordmark { width:96px; }
+@media(max-width:360px){.mobile-brand .brand-wordmark{width:84px}.topbar-actions>a[href="#/sermons"]{display:none}}
 .text-size-toggle { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-width:44px; min-height:44px; border:1px solid var(--line); background:white; color:var(--navy); border-radius:6px; padding:6px 10px; }
 .text-size-toggle>span { font-weight:700; font-size:20px; }
 .text-size-toggle>span>span { font-size:13px; vertical-align:super; }
