@@ -2,6 +2,7 @@ import {Readable} from 'node:stream';
 import type {IncomingMessage,ServerResponse} from 'node:http';
 import {createGateway,gatewayServices,type GatewayServices} from '../../server/gateway.ts';
 import {claimTranslationBudget} from '../../server/translation-quota.ts';
+import {netlifyRequestLimit,type RequestContext} from '../../server/netlify-request-limits.ts';
 
 export function createTranslationFunction(values:Record<string,string>,services?:GatewayServices,claim=claimTranslationBudget){
  const env:Record<string,string>={...values,NCG_TRANSLATION_STORED_ONLY:'1',NCG_TRUST_LOOPBACK_PROXY:'0'};
@@ -20,8 +21,9 @@ export function createTranslationFunction(values:Record<string,string>,services?
  };
 }
 let handler:ReturnType<typeof createTranslationFunction>|undefined;
-export default (request:Request,context:{ip?:string})=>{
+export default (request:Request,context:RequestContext={})=>{
+ const limited=netlifyRequestLimit('community',context);if(limited)return limited;
  handler??=createTranslationFunction(Object.fromEntries(['NCG_PUBLIC_ORIGIN','NCG_SUPABASE_URL','VITE_SUPABASE_URL','VITE_SUPABASE_PUBLISHABLE_KEY','OPENAI_API_KEY','OPENAI_BASE_URL','NCG_TRANSLATION_MODEL'].map(key=>[key,process.env[key]||''])));
  return handler(request,context);
 };
-export const config={path:'/api/translate',rateLimit:{windowLimit:30,windowSize:180,aggregateBy:['ip','domain']}};
+export const config={path:'/api/translate'};
