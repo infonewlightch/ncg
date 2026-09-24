@@ -2,6 +2,9 @@ import {describe,it,expect,vi} from 'vitest';
 import {Readable} from 'node:stream';
 import type {IncomingMessage,ServerResponse} from 'node:http';
 import {bibleHandler} from './bible';
+// Exercise the future licensed gateway with explicitly approved fixture IDs.
+// The production empty allowlist is independently covered by bible-policy.test.ts.
+vi.mock('../src/core/bible-policy.ts',async()=>{const actual=await vi.importActual<typeof import('../src/core/bible-policy.ts')>('../src/core/bible-policy.ts');return {...actual,approvedEdition:(provider:string,id:string)=>provider==='youversion'?['1','2'].includes(id):actual.approvedEdition(provider as 'ebible'|'getbible',id)};});
 
 const env={NCG_YOUVERSION_APP_KEY:'test-server-key'};
 async function invoke(url:string,options:{env?:Record<string,string>;fetcher?:typeof fetch;method?:string;origin?:string}={}){

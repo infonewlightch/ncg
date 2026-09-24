@@ -4,10 +4,10 @@ import {describe,it,expect,vi} from 'vitest';
 import {ebibleVersions,ebibleRequest,parseEbibleChapters,parseEbiblePassage} from './ebible';
 const parse=(s:string)=>new DOMParser().parseFromString(s,'text/html') as unknown as Document;
 describe('published multilingual Scripture',()=>{
- it('maps ISO language codes and keeps every edition including source-only editions',async()=>{
-  const es=await ebibleVersions('es-MX');expect(es).toHaveLength(11);expect(es.find(v=>v.id==='eb-spaRV1909')?.access).toBe('reader');expect(es.find(v=>v.id==='eb-spaLBLA')?.access).toBe('external');
+ it('maps ISO language codes and exposes only individually reviewed editions',async()=>{
+  const es=await ebibleVersions('es-MX');expect(es).toHaveLength(1);expect(es.find(v=>v.id==='eb-spaRV1909')?.access).toBe('reader');expect(es.find(v=>v.id==='eb-spaLBLA')).toBeUndefined();
   expect(await ebibleVersions('spa')).toEqual(es);expect((await ebibleVersions('ar')).length).toBeGreaterThan(0);expect((await ebibleVersions('zh')).length).toBeGreaterThan(0);
-  const ko=await ebibleVersions('ko');expect(ko[0].title).toBe('Korean Bible 1910');expect(ko[0].abbreviation).not.toBe('NKRV');expect(await ebibleVersions('zzz')).toEqual([]);
+  expect(await ebibleVersions('ko')).toEqual([]);expect(await ebibleVersions('zzz')).toEqual([]);
  });
  it('reads actual chapter links rather than using another edition’s chapter counts',()=>{
   const chapters=parseEbibleChapters(parse('<ul class="tnav"><li><a href="PSA001.htm">1</a></li><li><a href="PSA151.htm">151</a></li><li><a href="JHN01.htm">1</a></li></ul>'),'PSA');expect(chapters.map(c=>c.passage_id)).toEqual(['PSA.1','PSA.151']);expect(chapters[1].versesKnown).toBe(false);

@@ -1,4 +1,5 @@
 import {readOfflineWebp} from './offline-bible';
+import {approvedReaderVersion,canonicalPassage} from './bible-policy';
 export type BibleVersion={coverage?:{books:number;oldTestament:number;newTestament:number};id:string;title:string;localized_title:string;abbreviation:string;localized_abbreviation:string;language_tag:string;copyright:string;info:string;publisher_url:string;youversion_deep_link:string;promotional_content:string;access?:'reader'|'external'};
 export type BibleVerse={id:number|string;passage_id:string;title:number|string};
 export type BibleChapter={id:number|string;passage_id:string;title:number|string;verses:BibleVerse[];versesKnown?:boolean;sourceFile?:string};
@@ -54,9 +55,15 @@ export function koreanRevisedLink(passage:string){
  const range=parsePassage(passage);return `https://bible.bskorea.or.kr/bible/NKRV/${range?`${range.book}.${range.chapter}`:'GEN.1'}`;
 }
 export async function bibleRequest<T>(resource:string,params:Record<string,string>,signal:AbortSignal):Promise<T>{
+ if(resource!=='versions'&&!approvedReaderVersion(params.version))throw new BibleError('bible_edition_not_approved');
+ if(resource==='passage'&&!canonicalPassage(params.passage))throw new BibleError('invalid_reference');
  if(params.version==='webp')return localBible<T>(resource,params.passage,signal);
- if(params.version?.startsWith('eb-gb-'))return (await import('./getbible')).getBibleRequest<T>(resource,params,signal);
- if(params.version?.startsWith('eb-'))return (await import('./ebible')).ebibleRequest<T>(resource,params,signal);
+ if(params.version?.startsWith('eb-')){
+  const read=params.version.startsWith('eb-gb-')?(await import('./getbible')).getBibleRequest:(await import('./ebible')).ebibleRequest;
+  const range=resource==='passage'?parsePassage(params.passage):null;
+  if(range?.from){const data=await read<BiblePassage>(resource,{...params,passage:chapterOf(params.passage)},signal);return selectPassageRange(data,params.passage) as T;}
+  return read<T>(resource,params,signal);
+ }
  let local:BibleVersion[]=[];
  if(resource==='versions'){
   const language=new Intl.Locale(params.language).language;
@@ -68,7 +75,7 @@ export async function bibleRequest<T>(resource:string,params:Record<string,strin
  if(resource==='versions'){
   if(!response.ok)return {data:local,providerStatus:data.error||'bible_unavailable'} as T;
   if(!Array.isArray(data.data))throw new BibleError('bible_unavailable');
-  const licensed=data.data.map((v:BibleVersion)=>({...v,id:String(v.id)}));
+  const licensed=data.data.filter((v:BibleVersion)=>approvedReaderVersion(String(v.id))).map((v:BibleVersion)=>({...v,id:String(v.id)}));
   return {data:[...licensed,...local.filter(v=>v.id!=='ext-nkrv'||!licensed.some(isKoreanRevisedVersion))]} as T;
  }
  if(!response.ok)throw new BibleError(data.error||'bible_unavailable');
@@ -77,6 +84,14 @@ export async function bibleRequest<T>(resource:string,params:Record<string,strin
 const nkrvVersion:BibleVersion={id:'ext-nkrv',title:'New Korean Revised Version',localized_title:'개역개정',abbreviation:'NKRV',localized_abbreviation:'개역개정',language_tag:'ko',copyright:'대한성서공회',info:'',publisher_url:'https://bible.bskorea.or.kr/',youversion_deep_link:'https://bible.bskorea.or.kr/bible/NKRV/GEN.1',promotional_content:'',access:'external'};
 
 export const webVersion:BibleVersion={id:'webp',title:'World English Bible · Protestant Edition',localized_title:'World English Bible · Protestant Edition',abbreviation:'WEBP',localized_abbreviation:'WEBP',language_tag:'en',copyright:'World English Bible — Public Domain. World English Bible is a trademark of eBible.org.',info:'66 books · Source: eBible.org · 2026-09-23',publisher_url:'https://ebible.org/engwebp/copyright.htm',youversion_deep_link:'https://ebible.org/engwebp/',promotional_content:''};
+export function selectPassageRange(data:BiblePassage,passage:string):BiblePassage{
+ const range=parsePassage(passage);if(!range?.from)return data;
+ if(data.id!==chapterOf(passage))throw new BibleError('passage_unavailable');
+ const verses=data.verses?.filter(v=>verseInSelection(passage,v.number));
+ // Preserve merged verse labels and reject missing requested endpoints.
+ if(!verses?.length||!verses.some(v=>verseInSelection(`${chapterOf(passage)}.${range.from}`,v.number))||!verses.some(v=>verseInSelection(`${chapterOf(passage)}.${range.to}`,v.number)))throw new BibleError('passage_unavailable');
+ return {...data,id:passage,reference:`${data.reference}:${passage.split('.')[2]}`,content:verses.map(v=>v.text).join('\n'),verses};
+}
 async function localBible<T>(resource:string,passage:string,signal:AbortSignal):Promise<T>{
  if(resource==='index'){
   let data=await readOfflineWebp('index',undefined,signal) as {books:(Omit<BibleBook,'chapters'>&{chapters:{id:number;verses:string[]}[]})[]}|null;

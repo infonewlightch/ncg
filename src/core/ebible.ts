@@ -1,4 +1,5 @@
 import coverage from '../data/bible-coverage.json';
+import {approvedEdition,canonicalBook,canonicalChapter} from './bible-policy';
 import type {BibleBook,BibleChapter,BibleIndex,BiblePassage,BibleVersion} from './bible';
 
 type Entry={id:string;language:string;title:string;shortTitle:string;description:string;copyright:string;redistributable:boolean;certified:boolean;direction:string;script:string;dialect:string};
@@ -14,9 +15,9 @@ const editionCoverage=(id:string)=>(coverage.editions as Record<string,{books:nu
 const complete=(id:string)=>{const c=editionCoverage(id);return c?.oldTestament===39&&c?.newTestament===27?(c.books===66?2:1):0;};
 export async function ebibleVersions(language:string):Promise<BibleVersion[]>{
  const {default:data}=await catalog();const code=canonical(language);
- return data.versions.filter(v=>canonical(v.language)===code&&v.id!=='engwebp').sort((a,b)=>Number(b.redistributable)-Number(a.redistributable)||complete(b.id)-complete(a.id)||Number(b.certified)-Number(a.certified)).map(v=>({coverage:editionCoverage(v.id),id:`eb-${v.id}`,title:v.shortTitle||v.description,localized_title:v.title,abbreviation:v.id,localized_abbreviation:v.shortTitle||v.id,language_tag:code,copyright:v.copyright,info:[v.dialect,v.script].filter(Boolean).join(' · '),publisher_url:`${base}${v.id}/copyright.htm`,youversion_deep_link:`${base}${v.id}/`,promotional_content:'',access:v.redistributable?'reader':'external'}));
+ return data.versions.filter(v=>approvedEdition('ebible',v.id)&&canonical(v.language)===code&&v.id!=='engwebp').sort((a,b)=>Number(b.redistributable)-Number(a.redistributable)||complete(b.id)-complete(a.id)||Number(b.certified)-Number(a.certified)).map(v=>({coverage:editionCoverage(v.id),id:`eb-${v.id}`,title:v.shortTitle||v.description,localized_title:v.title,abbreviation:v.id,localized_abbreviation:v.shortTitle||v.id,language_tag:code,copyright:v.copyright,info:[v.dialect,v.script].filter(Boolean).join(' · '),publisher_url:`${base}${v.id}/copyright.htm`,youversion_deep_link:`${base}${v.id}/`,promotional_content:'',access:v.redistributable?'reader':'external'}));
 }
-async function entry(version:string):Promise<Entry>{const {default:data}=await catalog();const found=data.versions.find(v=>`eb-${v.id}`===version);if(!found||!found.redistributable||!/^[a-zA-Z0-9_-]+$/.test(found.id))throw Error('bible_source_unavailable');return found;}
+async function entry(version:string):Promise<Entry>{const {default:data}=await catalog();const found=data.versions.find(v=>`eb-${v.id}`===version);if(!found||!approvedEdition('ebible',found.id)||!found.redistributable||!/^[a-zA-Z0-9_-]+$/.test(found.id))throw Error('bible_source_unavailable');return found;}
 async function html(id:string,file:string,signal:AbortSignal){
  if(!allowedFile.test(file))throw Error('invalid_reference');const url=`${base}${id}/${file}`;const stored=cache.get(url);if(stored)return parse(stored);
  const r=await fetch(`/api/bible-source?${new URLSearchParams({version:id,file})}`,{signal});if(!r.ok)throw Error('bible_unavailable');const data=await r.json();const text=data.html;if(typeof text!=='string')throw Error('bible_source_unavailable');if(text.length>1500000)throw Error('bible_source_unavailable');if(signal.aborted)throw signal.reason;
@@ -56,9 +57,9 @@ async function license(id:string,signal:AbortSignal){
  if(!permitted)throw Error('bible_license_review');return text;
 }
 export async function ebibleRequest<T>(resource:string,params:Record<string,string>,signal:AbortSignal):Promise<T>{
- const v=await entry(params.version);const copyright=await license(v.id,signal);
+ const v=await entry(params.version);if(resource==='book'&&!canonicalBook(params.book)||resource==='passage'&&!canonicalChapter(params.passage?.split('.')[0],Number(params.passage?.split('.')[1])))throw Error('invalid_reference');const copyright=await license(v.id,signal);
  if(resource==='index'){
-  const books=sourceBooks(await html(v.id,'index.htm',signal));if(!books.length)throw Error('bible_source_unavailable');
+  const books=sourceBooks(await html(v.id,'index.htm',signal)).filter(book=>canonicalBook(book.id));if(!books.length)throw Error('bible_source_unavailable');
   const selected=books.find(b=>b.id===params.passage?.split('.')[0])||books[0];const chapters=parseEbibleChapters(await html(v.id,`${selected.id}.htm`,signal),selected.id);if(!chapters.length)throw Error('bible_source_unavailable');selected.chapters=chapters;selected.chaptersKnown=true;
   return {text_direction:v.direction==='rtl'?'rtl':'ltr',books,license:copyright} as BibleIndex as T;
  }

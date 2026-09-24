@@ -1,11 +1,14 @@
 import type {IncomingMessage,ServerResponse} from 'node:http';
 import catalogue from '../src/data/getbible-catalogue.json' with {type:'json'};
-const permitted=new Set(catalogue.versions.filter(v=>v.license==='Public Domain').map(v=>v.id));
+import {approvedEdition,canonicalChapter} from '../src/core/bible-policy.ts';
+import books from '../src/data/bible-books.json' with {type:'json'};
+const permitted=new Set(catalogue.versions.filter(v=>v.license==='Public Domain'&&approvedEdition('getbible',v.id)).map(v=>v.id));
 const cache=new Map<string,{data:unknown;until:number}>();let active=0;
 export async function getBibleSource(req:IncomingMessage,res:ServerResponse,fetcher:typeof fetch=fetch){
  const json=(status:number,data:unknown)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','X-Content-Type-Options':'nosniff','Cache-Control':status===200?'public, max-age=3600':'no-store'});res.end(JSON.stringify(data));};
  const url=new URL(req.url||'/','http://ncg.local');const id=url.searchParams.get('version')||'',resource=url.searchParams.get('resource'),book=url.searchParams.get('book')||'',chapter=url.searchParams.get('chapter')||'';
  if(!permitted.has(id)||!/^[a-z0-9_-]+$/i.test(id)||!['index','book','passage'].includes(resource||'')||(resource!=='index'&&!/^[1-9]\d?$/.test(book))||(resource==='passage'&&!/^[1-9]\d{0,2}$/.test(chapter)))return json(400,{error:'invalid_source'});
+ if(resource!=='index'&&Number(book)>66||resource==='passage'&&!canonicalChapter(books[Number(book)-1]?.code,Number(chapter)))return json(400,{error:'invalid_source'});
  const path=resource==='index'?`${id}/books.json`:resource==='book'?`${id}/${book}/chapters.json`:`${id}/${book}/${chapter}.json`;
  const stored=cache.get(path);if(stored&&stored.until>Date.now())return json(200,stored.data);
  if(active>=6)return json(429,{error:'bible_busy'});active++;

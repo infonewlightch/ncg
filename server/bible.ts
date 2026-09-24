@@ -1,4 +1,5 @@
 import type {IncomingMessage,ServerResponse} from 'node:http';
+import {approvedEdition,canonicalPassage,canonicalBook} from '../src/core/bible-policy.ts';
 
 /** Provider content is passed through unchanged; credentials never leave this boundary. */
 export async function bibleHandler(req:IncomingMessage,res:ServerResponse,env:Record<string,string>,fetcher:typeof fetch=fetch){
@@ -12,6 +13,8 @@ export async function bibleHandler(req:IncomingMessage,res:ServerResponse,env:Re
  if(!['/versions','/index','/passage'].includes(url.pathname))return json(404,{error:'not_found'});
  if(url.pathname==='/versions'?!/^(\*|[a-zA-Z]{2,8}(?:-[a-zA-Z0-9]{1,8})*)$/.test(language):!/^\d{1,9}$/.test(version))return json(400,{error:'invalid_request'});
  if(url.pathname==='/passage'&&!/^[A-Z0-9]{3}\.[1-9]\d{0,2}(?:\.[1-9]\d{0,2}(?:-[1-9]\d{0,2})?)?$/.test(passage))return json(400,{error:'invalid_request'});
+ if(url.pathname!=='/versions'&&!approvedEdition('youversion',version))return json(403,{error:'bible_edition_not_approved'});
+ if(url.pathname==='/passage'&&!canonicalPassage(passage))return json(400,{error:'invalid_request'});
  if(!env.NCG_YOUVERSION_APP_KEY)return json(503,{error:'bible_not_configured'});
  const signal=AbortSignal.timeout(20000);
  async function get(path:string,params:Record<string,string>={}){
@@ -32,9 +35,9 @@ export async function bibleHandler(req:IncomingMessage,res:ServerResponse,env:Re
     if(token&&seen.has(token))throw Error('repeated_page');
     if(token)seen.add(token);
    }while(token);
-   return json(200,{data});
+   return json(200,{data:data.filter(value=>value&&typeof value==='object'&&'id' in value&&approvedEdition('youversion',String(value.id)))});
   }
-  if(url.pathname==='/index')return json(200,await get(`/v1/bibles/${version}/index`));
+  if(url.pathname==='/index'){const data=await get(`/v1/bibles/${version}/index`);return json(200,{...data,books:data.books?.filter((book:{id:string})=>canonicalBook(book.id))});}
   return json(200,await get(`/v1/bibles/${version}/passages/${encodeURIComponent(passage)}`,{format:'text'}));
  }catch{return json(502,{error:'bible_unavailable'});}
 }
