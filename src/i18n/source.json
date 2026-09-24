@@ -2240,54 +2240,6 @@
     "ko": "전 세계가 같은 본문을 읽도록 한국시간(UTC+9) 날짜를 기준으로 합니다."
   },
   {
-    "en": "Loading the shared QT schedule…",
-    "ko": "공동 QT 일정을 불러오는 중…"
-  },
-  {
-    "en": "Unable to load the QT schedule.",
-    "ko": "QT 일정을 불러오지 못했습니다."
-  },
-  {
-    "en": "Part",
-    "ko": "나누어 읽기"
-  },
-  {
-    "en": "PREVIEW",
-    "ko": "미리보기"
-  },
-  {
-    "en": "ONE WORD. ONE WORLD.",
-    "ko": "하나의 말씀, 온 세상"
-  },
-  {
-    "en": "READ THE WORD",
-    "ko": "말씀을 읽어요"
-  },
-  {
-    "en": "Shared section",
-    "ko": "함께 읽는 단락"
-  },
-  {
-    "en": "REFLECT",
-    "ko": "말씀을 묵상해요"
-  },
-  {
-    "en": "The reflection guide is shown in English while your language is being prepared.",
-    "ko": "이 언어의 묵상 안내 번역을 준비하고 있어 영어 안내를 표시합니다."
-  },
-  {
-    "en": "A question for your life today",
-    "ko": "오늘, 내 삶에 던지는 질문"
-  },
-  {
-    "en": "RESPOND IN PRAYER",
-    "ko": "기도로 응답해요"
-  },
-  {
-    "en": "Respond to Scripture with gratitude, repentance, and a prayer for help. Pray for others reading with you.",
-    "ko": "말씀을 따라 감사와 회개, 도움을 구하는 기도를 드려보세요. 함께 읽는 이들을 위해서도 기도해주세요."
-  },
-  {
     "en": "Share my reflection",
     "ko": "내 묵상 나누기"
   },
@@ -2298,6 +2250,14 @@
   {
     "en": "Mark as completed",
     "ko": "묵상 완료하기"
+  },
+  {
+    "en": "Loading the shared QT schedule…",
+    "ko": "공동 QT 일정을 불러오는 중…"
+  },
+  {
+    "en": "Unable to load the QT schedule.",
+    "ko": "QT 일정을 불러오지 못했습니다."
   },
   {
     "en": "TOGETHER IN THE WORD",
@@ -2312,16 +2272,8 @@
     "ko": "같은 본문의 나눔을 함께 읽습니다. 글은 검토 후 공개되며 다른 언어의 원문도 확인할 수 있습니다."
   },
   {
-    "en": "Reflections are currently saved on this device. Global sharing and translation are being connected.",
-    "ko": "현재 나눔은 이 기기에 저장됩니다. 전 세계 공유·번역 서비스를 연결하고 있습니다."
-  },
-  {
     "en": "No shared QT has been published for this day.",
     "ko": "이날의 공동 QT는 아직 발행되지 않았습니다."
-  },
-  {
-    "en": "Choose a published date or open the Bible to read.",
-    "ko": "발행된 날짜를 선택하거나 성경을 펼쳐 읽어보세요."
   },
   {
     "en": "NCG SCHOOL · BIBLE QUIZ",

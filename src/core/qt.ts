@@ -1,7 +1,7 @@
 import spanishQt from '../data/qt/es.json';
 export const QT_TIME_ZONE='Asia/Seoul';
 export type QtCopy={title:string;guide:string;question:string};
-export type QtReading={id:string;date:string;passage:string;section:string;part:number;parts:number;status:'draft'|'published';translations:Record<string,QtCopy>};
+export type QtReading={id:string;date:string;passage:string;passages?:string[];section:string;part:number;parts:number;status:'draft'|'published';translations:Record<string,QtCopy>};
 export function dateInZone(now:Date,timeZone=QT_TIME_ZONE){
  const parts=new Intl.DateTimeFormat('en-CA',{timeZone,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);
  const part=(type:string)=>parts.find(p=>p.type===type)?.value;
@@ -11,7 +11,7 @@ export function validDate(value:string){return /^\d{4}-\d{2}-\d{2}$/.test(value)
 export function shiftDate(value:string,days:number){if(!validDate(value))throw Error('invalid_date');const d=new Date(`${value}T12:00:00Z`);d.setUTCDate(d.getUTCDate()+days);return d.toISOString().slice(0,10);}
 export function weekDates(value:string){if(!validDate(value))throw Error('invalid_date');const weekday=new Date(`${value}T12:00:00Z`).getUTCDay();const monday=shiftDate(value,-((weekday+6)%7));return Array.from({length:7},(_,i)=>shiftDate(monday,i));}
 export function qtTopic(reading:QtReading){return `qt:${reading.id}`;}
-export function qtCopy(reading:QtReading,language:string){const base=language.split('-')[0];const lang=reading.translations[language]?language:reading.translations[base]?base:reading.translations.en?'en':Object.keys(reading.translations)[0];return {language:lang,...reading.translations[lang]};}
+export function qtCopy(reading:QtReading,language:string){const base=language.split('-')[0];const lang=reading.translations[language]?language:reading.translations[base]?base:reading.translations.en?'en':Object.keys(reading.translations)[0];return {language:lang||language,...(reading.translations[lang]||{title:'',guide:'',question:''})};}
 export function formatQtDate(value:string,locale:string,options:Intl.DateTimeFormatOptions={month:'short',day:'numeric',weekday:'short'}){return new Intl.DateTimeFormat(locale,{...options,timeZone:'UTC'}).format(new Date(`${value}T12:00:00Z`));}
 
 // Editorial sample only. Public publication requires a reviewed record on the server.
@@ -26,3 +26,5 @@ const previewDrafts:QtReading[]=[
 ];
 
 export const previewQtWeek:QtReading[]=previewDrafts.map(reading=>({...reading,translations:{...reading.translations,...((spanishQt as Record<string,QtCopy>)[reading.date]?{es:(spanishQt as Record<string,QtCopy>)[reading.date]}:{})}}));
+
+export function qtPassages(reading:{passage:string;passages?:string[]}){return reading.passages?.length?reading.passages:[reading.passage];}

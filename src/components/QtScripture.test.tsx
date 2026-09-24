@@ -23,3 +23,20 @@ it('offers an official external NKRV link without treating licensing as a networ
  expect(mocks.request).toHaveBeenLastCalledWith('passage',{version:'webp',passage:'1CH.14.1-17'},expect.any(AbortSignal));
  expect(container.textContent).toContain('Verified WEB passage.');
 });
+
+it('loads every chapter of a shared range and preserves their separate verse numbers',async()=>{
+ mocks.request.mockImplementation(async(resource:string,params:{passage:string})=>resource==='versions'?{data:[{id:'webp',title:'WEB',language_tag:'en',access:'public'}]}:{reference:params.passage,verses:[{id:params.passage,number:params.passage.includes('.22.')?'1':'18',text:`Text ${params.passage}`}]});
+ await act(async()=>root.render(<QtScripture passage="1CH.21.18-30" passages={['1CH.21.18-30','1CH.22.1-1']} onLanguage={()=>{}}/>));
+ expect(container.querySelectorAll('.qt-chapter')).toHaveLength(2);
+ expect(container.textContent).toContain('Text 1CH.22.1-1');
+ expect([...container.querySelectorAll('sup')].map(n=>n.textContent)).toEqual(['18','1']);
+});
+it('does not silently show an incomplete reading when a later chapter fails',async()=>{
+ mocks.request.mockImplementation(async(resource:string,params:{passage:string})=>{if(resource==='versions')return {data:[{id:'webp',title:'WEB',language_tag:'en',access:'public'}]};if(params.passage.includes('.22.'))throw Error('provider_failed');return {reference:params.passage,verses:[{id:params.passage,number:'18',text:'Partial reading'}]};});
+ await act(async()=>root.render(<QtScripture passage="1CH.21.18-30" passages={['1CH.21.18-30','1CH.22.1-1']} onLanguage={()=>{}}/>));
+ expect(container.textContent).toContain('Unable to load the passage');expect(container.textContent).not.toContain('Partial reading');
+});
+it('offers each chapter at the official Korean Bible reader',async()=>{
+ await act(async()=>root.render(<QtScripture passage="1CH.21.18-30" passages={['1CH.21.18-30','1CH.22.1-1']} onLanguage={()=>{}}/>));
+ expect(container.querySelector('a[href="https://bible.bskorea.or.kr/bible/NKRV/1CH.22"]')).not.toBeNull();
+});

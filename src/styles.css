@@ -1124,3 +1124,5 @@ html[dir=rtl] .brand-wordmark { direction:ltr; }
 .admin-track-languages input{width:auto}
 
 .admin-login{max-width:480px;margin:40px auto}.admin-login>.text-link{margin-top:24px}.admin-account{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-bottom:24px}.admin-account>span{overflow-wrap:anywhere}
+
+.qt-reading{max-width:900px;margin-inline:auto}.qt-sharing-below{max-width:900px;margin:40px auto}.qt-reminder-below{max-width:900px;margin:32px auto}.qt-chapter+.qt-chapter{border-top:1px solid var(--border);padding-top:28px;margin-top:32px}.qt-chapter>h3{font-family:var(--serif);font-size:1.3rem}
