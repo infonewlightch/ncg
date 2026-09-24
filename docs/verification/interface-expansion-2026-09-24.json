@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-24T14:58:21.503Z",
+  "checkedAt": "2026-09-24T15:05:54.274461+00:00",
   "catalogueMessages": 748,
   "staticLanguageCombinations": 29,
   "bundledLanguages": [
@@ -10,7 +10,6 @@
   "generatedPacks": 26,
   "generationCandidates": 6809,
   "pendingCandidates": 6783,
-  "modelRequestsForThisChange": 0,
   "nativeReviewCompleted": false,
   "packs": [
     {
@@ -143,6 +142,75 @@
     }
   },
   "production": {
-    "verified": false
-  }
+    "verified": true,
+    "codeCommit": "82e705e0194df8021878f99104b0df0ee9c9c212",
+    "url": "https://newlightchurchglobal.com",
+    "deploymentId": "6ab53aae7533790008755f51",
+    "deploymentUrl": "https://app.netlify.com/projects/ncg-newlight/deploys/6ab53aae7533790008755f51",
+    "buildStartedAt": "2026-09-24T23:59:12+09:00",
+    "buildEndedAt": "2026-09-24T23:59:48+09:00",
+    "deployDurationSeconds": 37,
+    "publicAssets": [
+      {
+        "language": "km",
+        "status": 200,
+        "contentType": "application/javascript; charset=UTF-8",
+        "bytes": 148679,
+        "matchesBuild": true
+      },
+      {
+        "language": "my",
+        "status": 200,
+        "contentType": "application/javascript; charset=UTF-8",
+        "bytes": 156416,
+        "matchesBuild": true
+      },
+      {
+        "language": "lo",
+        "status": 200,
+        "contentType": "application/javascript; charset=UTF-8",
+        "bytes": 145751,
+        "matchesBuild": true
+      },
+      {
+        "language": "fil",
+        "status": 200,
+        "contentType": "application/javascript; charset=UTF-8",
+        "bytes": 112293,
+        "matchesBuild": true
+      },
+      {
+        "language": "uk",
+        "status": 200,
+        "contentType": "application/javascript; charset=UTF-8",
+        "bytes": 128778,
+        "matchesBuild": true
+      },
+      {
+        "language": "ta",
+        "status": 200,
+        "contentType": "application/javascript; charset=UTF-8",
+        "bytes": 159684,
+        "matchesBuild": true
+      },
+      {
+        "language": "pl",
+        "status": 200,
+        "contentType": "application/javascript; charset=UTF-8",
+        "bytes": 110836,
+        "matchesBuild": true
+      }
+    ],
+    "browser": {
+      "languages": [
+        "lo",
+        "ta"
+      ],
+      "nativeSearch": "ລາວ",
+      "restoredLanguage": "ko",
+      "visibleLocalizedHeadingsVerified": true
+    },
+    "gitHubBackup": true
+  },
+  "interfaceGenerationRequestsForThisChange": 0
 }
