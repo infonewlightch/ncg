@@ -888,6 +888,10 @@
     "ko": "이 기기에 저장한 나눔"
   },
   {
+    "en": "No comments yet.",
+    "ko": "아직 댓글이 없습니다."
+  },
+  {
     "en": "Begin with your reflection.",
     "ko": "당신의 묵상으로 시작해요."
   },
@@ -902,6 +906,10 @@
   {
     "en": "Unable to complete this action. Check your connection and account status.",
     "ko": "처리하지 못했습니다. 연결과 이용 상태를 확인해주세요."
+  },
+  {
+    "en": "Comments",
+    "ko": "댓글"
   },
   {
     "en": "Prayer",
@@ -966,6 +974,10 @@
   {
     "en": "Block",
     "ko": "차단"
+  },
+  {
+    "en": "Write a comment",
+    "ko": "댓글 쓰기"
   },
   {
     "en": "Report reflection",

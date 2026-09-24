@@ -34,3 +34,14 @@ it('requests the next page only once for rapid repeated clicks',async()=>{
  expect(mocks.feed).toHaveBeenCalledTimes(2);await act(async()=>pending.resolve(response(['Next reflection'])));
  expect([...container.querySelectorAll('.post-body')].filter(p=>p.textContent==='Next reflection')).toHaveLength(1);
 });
+it('loads replies for the selected parent without adding nested reply controls',async()=>{
+ mocks.feed.mockResolvedValueOnce(response(['Parent reflection'])).mockResolvedValueOnce(response(['A reply']));
+ await act(async()=>root.render(<SharedFeed/>));await act(async()=>button('Comments').click());
+ expect(mocks.feed).toHaveBeenLastCalledWith({parent:'Parent reflection'});
+ expect(container.textContent).toContain('A reply');expect([...container.querySelectorAll('button')].filter(b=>b.textContent==='Comments')).toHaveLength(1);
+});
+it('discards a previous parent’s comments when switching conversations',async()=>{
+ const old=deferred();mocks.feed.mockReturnValueOnce(old.promise).mockResolvedValueOnce(response(['Current reply']));
+ await act(async()=>root.render(<SharedFeed parent="first"/>));await act(async()=>root.render(<SharedFeed parent="second"/>));
+ await act(async()=>old.resolve(response(['Old reply'])));expect(container.textContent).toContain('Current reply');expect(container.textContent).not.toContain('Old reply');
+});

@@ -795,5 +795,8 @@
   "books": "libros",
   "Choose your audio track and subtitles separately in the video settings (⚙).": "Elige la pista de audio y los subtítulos por separado en los ajustes del vídeo (⚙).",
   "Dubbed audio": "Audio doblado",
-  "Subtitles": "Subtítulos"
+  "Subtitles": "Subtítulos",
+  "Comments": "Comentarios",
+  "Write a comment": "Escribir un comentario",
+  "No comments yet.": "Todavía no hay comentarios."
 }

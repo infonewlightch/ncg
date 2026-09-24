@@ -774,6 +774,9 @@
     "Revelation": "วิวรณ์",
     "Choose your audio track and subtitles separately in the video settings (⚙).": "เลือกแทร็กเสียงและภาษาคำบรรยายแยกกันในการตั้งค่าวิดีโอ (⚙)",
     "Dubbed audio": "เสียงพากย์",
-    "Subtitles": "คำบรรยาย"
+    "Subtitles": "คำบรรยาย",
+    "Comments": "ความคิดเห็น",
+    "Write a comment": "เขียนความคิดเห็น",
+    "No comments yet.": "ยังไม่มีความคิดเห็น"
   }
 }
