@@ -30,6 +30,7 @@ if(process.argv.includes('--check')){
   const data=JSON.parse(fs.readFileSync(file,'utf8'));const pack=file.includes('i18n-generated')?data.messages:data;
   if(file.includes('i18n-generated')){
    if(file.split('/').pop()!==`${data.language}.json`)throw Error(`${file}: language tag mismatch`);
+   if(new Intl.Locale(data.language).toString()!==data.language)throw Error(`${file}: use a canonical language tag so the browser can load this pack`);
    for(const row of result)if(data.sourceContext?.[row.en]!==row.ko)throw Error(`${file}: changed or missing source context for ${row.en}`);
   }
   const missing=result.filter(({en})=>typeof pack[en]!=='string'||!pack[en].trim());

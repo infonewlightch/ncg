@@ -1,0 +1,148 @@
+{
+  "checkedAt": "2026-09-24T14:58:21.503Z",
+  "catalogueMessages": 748,
+  "staticLanguageCombinations": 29,
+  "bundledLanguages": [
+    "ko",
+    "en",
+    "es"
+  ],
+  "generatedPacks": 26,
+  "generationCandidates": 6809,
+  "pendingCandidates": 6783,
+  "modelRequestsForThisChange": 0,
+  "nativeReviewCompleted": false,
+  "packs": [
+    {
+      "language": "lo",
+      "reviewed": false,
+      "messages": 748,
+      "validatedMessages": 748,
+      "sourceContextMatches": true,
+      "sha256": "5a61b352ed4b97930400094f549e7df44225b32106f85db22663302772b448b1",
+      "asset": "assets/lo-BqyCtQQ8.js",
+      "bytes": 145751,
+      "gzipBytes": 39702
+    },
+    {
+      "language": "km",
+      "reviewed": false,
+      "messages": 748,
+      "validatedMessages": 748,
+      "sourceContextMatches": true,
+      "sha256": "02119ea7aff6b233002a716062944ba2b53a63cbcf4041b84a572b9c3a5c2d44",
+      "asset": "assets/km-BwMUkqmU.js",
+      "bytes": 148679,
+      "gzipBytes": 39286
+    },
+    {
+      "language": "my",
+      "reviewed": false,
+      "messages": 748,
+      "validatedMessages": 748,
+      "sourceContextMatches": true,
+      "sha256": "78beacde612c10c25fef498154f86e28cc707a96893812005664972510e83074",
+      "asset": "assets/my-uWLheoRE.js",
+      "bytes": 156416,
+      "gzipBytes": 39789
+    },
+    {
+      "language": "fil",
+      "reviewed": false,
+      "messages": 748,
+      "validatedMessages": 748,
+      "sourceContextMatches": true,
+      "sha256": "39bacf8d4721c19eb4c7ce069094d000458da2903a9b3a64ffd32f2c4f52f671",
+      "asset": "assets/fil-DIw1mw7K.js",
+      "bytes": 112293,
+      "gzipBytes": 36880
+    },
+    {
+      "language": "ta",
+      "reviewed": false,
+      "messages": 748,
+      "validatedMessages": 748,
+      "sourceContextMatches": true,
+      "sha256": "23cce71195ee27b11199850e3232b786898bf2f77674118a4c73ed2b0674e52e",
+      "asset": "assets/ta-BJ2ERHk_.js",
+      "bytes": 159684,
+      "gzipBytes": 40114
+    },
+    {
+      "language": "uk",
+      "reviewed": false,
+      "messages": 748,
+      "validatedMessages": 748,
+      "sourceContextMatches": true,
+      "sha256": "7a9eb57a5e5498d2d4e4065bebbc832d6840409b0437e968ba632b1b19364c5c",
+      "asset": "assets/uk-DYPGe-HK.js",
+      "bytes": 128778,
+      "gzipBytes": 40299
+    },
+    {
+      "language": "pl",
+      "reviewed": false,
+      "messages": 748,
+      "validatedMessages": 748,
+      "sourceContextMatches": true,
+      "sha256": "c98a592d85ef455ad517e3e21cbec62ac05a5df74b2e2762f51eeaa1f0f4a400",
+      "asset": "assets/pl-B9RjG0Iw.js",
+      "bytes": 110836,
+      "gzipBytes": 38156
+    }
+  ],
+  "laoCheckpointCorrections": 137,
+  "validation": {
+    "fullSuite": {
+      "files": 76,
+      "tests": 420,
+      "passed": true
+    },
+    "finalSeedSuite": {
+      "files": 1,
+      "tests": 28,
+      "passed": true
+    },
+    "typecheckAndBuild": true,
+    "offlineShell": {
+      "files": 344,
+      "bytes": 6923257
+    },
+    "browser": {
+      "local": true,
+      "mobileLargeText": [
+        {
+          "width": 390,
+          "languages": [
+            "fil",
+            "km",
+            "ta",
+            "my",
+            "lo"
+          ],
+          "horizontalOverflow": false
+        },
+        {
+          "width": 320,
+          "languages": [
+            "uk",
+            "pl"
+          ],
+          "horizontalOverflow": false
+        }
+      ],
+      "desktop": {
+        "width": 1280,
+        "language": "zh-Hant"
+      },
+      "nativeSearch": [
+        "ខ្មែរ",
+        "繁體"
+      ],
+      "limits": "Browser viewport emulation and structural checks; not native-device, native-language or theological certification."
+    }
+  },
+  "production": {
+    "verified": false
+  }
+}

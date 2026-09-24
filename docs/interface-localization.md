@@ -1,5 +1,21 @@
 # Interface localization
 
+## Current delivery — 2026-09-24 late evening
+
+The current UI catalogue has **748 messages**. This change prepares **29 language/script combinations**: bundled ko/en/es plus 26 generated static packs (pt, zh, zh-Hant, th, ar, fa, hi, fr, ja, vi, id, ru, sw, de, it, tr, ms, bn, ur, lo, km, my, fil, ta, uk, pl). The seven additions are Lao, Khmer, Burmese, Filipino/Tagalog, Tamil, Ukrainian and Polish. Each pack contains every current message and its Korean source context; all generated packs remain **unreviewed**. This is interface coverage, not a claim of worldwide language completion or newly translated Scripture/course/video content.
+
+Prepared languages download their own static asset before switching, without generating translations on demand. The picker automatically includes newly prepared packs, exposes Traditional Chinese separately, and searches native names such as ລາວ, ខ្មែរ, မြန်မာ and 繁體 even from another UI language. Explicit native names also cover browsers whose Intl data falls back to English. Tagalog codes tl/tl-PH canonicalize to fil/fil-PH and reuse the same Filipino pack. Build checks reject noncanonical filenames that would otherwise be unreachable.
+
+The six entirely new packs were authored with Codex. Lao fills the prior 436 missing messages and corrects defects in its earlier 312-message API checkpoint, including Gospel/grace, verse terminology, worship, mixed Thai characters, and a reversed reminder-enabled message. These targeted corrections are not native-speaker or theological certification. The incomplete historical checkpoint remains in ignored tmp storage; the complete static pack is the delivery source.
+
+Read-only inventory: **6,809 generation candidates / 26 complete / 6,783 pending**, plus bundled ko/en/es. No new model requests, quota increases, secrets, database migrations or unattended generation jobs were used for this change. Existing public API caches remain independent of these checked-in static packs.
+
+Current request limits: UI generation retains the shared **300 uncached requests per UTC day** budget; its IP throttle is **80 requests / 180 seconds within each warm worker**, not a global Netlify rule. See [request limits](operations/request-limits.md). The earlier chronological entries below describe previous snapshots, not current completion counts.
+
+Validation: **76 files / 420 tests passed**, followed by the final **28 static-pack tests** after 137 Lao checkpoint corrections. TypeScript and production build passed. Each of the 26 generated packs loads all 748 UI keys with zero translation endpoint requests. The seven new compressed assets are approximately 37–40 KB each. Offline shell: **344 files / 6,923,257 bytes**, under the existing limits. The existing 500 KB shared-chunk warning remains. Local browser verification covered 390px large-text Filipino, Khmer, Tamil, Burmese and Lao, and 320px large-text Ukrainian and Polish, without document overflow; Traditional Chinese was selected at 1280px and native-name search was verified. [Structured results](verification/interface-expansion-2026-09-24.json). Production rollout is pending verification.
+
+## Earlier implementation and rollout history
+
 2026-09-24: NCG now retains the selected BCP 47 language/script for its interface, instead of coercing every language other than Korean, English and Spanish to English. Korean/English/Spanish ship with the app; generated packs for Portuguese, Simplified Chinese, Traditional Chinese, Thai, Arabic, Persian, Hindi and French also load on demand without a model request. Other written languages request automatic translations of the current page's known UI messages. This is a delivery mechanism, not a claim that all ISO entries (including sign languages) have verified translations.
 
 - `src/i18n/source.json` is the developer-owned catalogue (768 messages). Browser requests contain only language, fixed batch number and catalogue revision. They cannot include user posts, chat, credentials or arbitrary text. Scripture and course content are not sent to this endpoint.

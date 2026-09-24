@@ -1,8 +1,12 @@
 import {describe,expect,it} from 'vitest';
-import {interfaceLanguage,contentLanguage,hasInterfaceTranslation} from './languages';
+import {interfaceLanguage,contentLanguage,hasInterfaceTranslation,languageName} from './languages';
 import {readState,initialState} from './storage';
 
 describe('one language preference throughout NCG',()=>{
+ it('keeps native language names readable when browser locale data is unavailable',()=>{
+  expect(languageName('lo','lo')).toBe('ລາວ');expect(languageName('km','km')).toBe('ខ្មែរ');expect(languageName('my','my')).toBe('မြန်မာ');
+  expect(languageName('lo','en')).toBe('Lao');expect(interfaceLanguage('tl-PH')).toBe('fil-PH');
+ });
  it('migrates the old English content / Korean interface split',()=>{
   const state=readState(JSON.stringify({...initialState,language:'en',ui:'ko'}));
   expect(state.language).toBe('en');
