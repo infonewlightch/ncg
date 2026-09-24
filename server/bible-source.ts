@@ -2,6 +2,7 @@ import type {IncomingMessage,ServerResponse} from 'node:http';
 import {getBibleSource} from './getbible-source.ts';
 import catalogue from '../src/data/bible-catalogue.json' with {type:'json'};
 import {approvedEdition,canonicalBook,canonicalChapter} from '../src/core/bible-policy.ts';
+import {canonicalEbibleBook} from '../src/core/bible-source-codes.ts';
 
 const permitted=new Set(catalogue.versions.filter(v=>v.redistributable&&approvedEdition('ebible',v.id)).map(v=>v.id));
 const cache=new Map<string,{html:string;until:number}>();let active=0;
@@ -12,7 +13,7 @@ export async function bibleSourceHandler(req:IncomingMessage,res:ServerResponse,
  const url=new URL(req.url||'/','http://ncg.local');const id=url.searchParams.get('version')||'',file=url.searchParams.get('file')||'';
  if(url.searchParams.get('provider')==='getbible')return getBibleSource(req,res,fetcher);
  if(!permitted.has(id)||!/^[a-zA-Z0-9_-]+$/.test(id)||!/^(?:index|copyright|[A-Z0-9]{3}(?:\d{2,3})?)\.htm$/.test(file))return json(400,{error:'invalid_source'});
- const chapter=/^([A-Z0-9]{3})(\d{2,3})?\.htm$/.exec(file);if(chapter&&(!canonicalBook(chapter[1])||chapter[2]&&!canonicalChapter(chapter[1],Number(chapter[2]))))return json(400,{error:'invalid_source'});
+ const chapter=/^([A-Z0-9]{3})(\d{2,3})?\.htm$/.exec(file);if(chapter&&(!canonicalBook(canonicalEbibleBook(chapter[1]))||chapter[2]&&!canonicalChapter(canonicalEbibleBook(chapter[1]),Number(chapter[2]))))return json(400,{error:'invalid_source'});
  const key=`${id}/${file}`;const stored=cache.get(key);if(stored&&stored.until>Date.now())return json(200,{html:stored.html});
  if(active>=6)return json(429,{error:'bible_busy'});active++;
  try{

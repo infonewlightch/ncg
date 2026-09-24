@@ -44,6 +44,8 @@ describe('verified offline Scripture',()=>{
   const reading=await bibleRequest<{verses:{number:string;text:string}[]}>('passage',{version:'webp',passage:'JHN.1.14-18'},signal);
   expect(reading.verses.map(v=>v.number)).toEqual(['14','15','16','17','18']);expect(env.fetch).not.toHaveBeenCalled();
   expect(await readOfflineWebp('passage','REV.22',signal)).toMatchObject({id:'REV.22'});
+  for(const passage of ['NAH.1.7','NAM.1.7'])expect(await bibleRequest('passage',{version:'webp',passage},signal)).toMatchObject({id:'NAH.1.7',verses:[{id:'NAH.1.7'}]});
+  const index=await bibleRequest<{books:{id:string}[]}>('index',{version:'webp'},signal);expect(index.books.some(book=>book.id==='NAH')).toBe(true);expect(env.fetch).not.toHaveBeenCalled();
  });
  it('does not accept corrupt Scripture as saved, and repairs only that file',async()=>{
   const env=setup();const signal=new AbortController().signal;await downloadOfflineBible(signal,()=>{});

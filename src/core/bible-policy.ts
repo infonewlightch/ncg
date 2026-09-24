@@ -2,6 +2,7 @@ import policy from '../data/bible-policy.json' with {type:'json'};
 import books from '../data/bible-books.json' with {type:'json'};
 
 // Explicit edition review, independent of a provider's redistribution/certification flags.
+export const hasLicensedBibleEditions=policy.youversion.length>0;
 export function approvedEdition(provider:'ebible'|'getbible'|'youversion',id:string){return (policy[provider] as string[]).includes(id);}
 export function approvedReaderVersion(id:string){
  if(id==='webp')return true;

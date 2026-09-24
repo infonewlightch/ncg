@@ -1,7 +1,7 @@
 {
   "reviewedOn": "2026-09-24",
   "canon": "protestant-66",
-  "ebible": ["engwebp", "eng-asv", "cmn-cu89s", "cmn-cu89t", "arb-vd", "fraLSG", "spaRV1909", "thaKJV", "poronbv", "pesopcb", "hincv"],
-  "getbible": ["asv"],
+  "ebible": ["engwebp", "eng-asv", "cmn-cu89s", "cmn-cu89t", "arb-vd", "fraLSG", "spaRV1909", "thaKJV", "poronbv", "pesopcb", "hincv", "deu1912", "deuelo", "deu1951", "ita1885", "swhonen", "benobcv", "urdoucv", "vieovcb"],
+  "getbible": ["asv", "japbungo"],
   "youversion": []
 }

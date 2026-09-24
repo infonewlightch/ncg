@@ -1,10 +1,15 @@
 import {describe,it,expect} from 'vitest';
-import {bookmarkDelta,bookmarkKey,applyBookmarkDelta,pullBookmarks,acknowledgeBookmarks,readBookmarks} from './bible-bookmarks';
+import {bookmarkDelta,bookmarkKey,sameBookmarkLocation,applyBookmarkDelta,pullBookmarks,acknowledgeBookmarks,readBookmarks} from './bible-bookmarks';
 import {initialState,readState} from './storage';
 const one={version:'webp',passage:'JHN.3.16',reference:'John 3:16',language:'en'};
 const two={...one,passage:'JHN.3.17',reference:'John 3:17'};
 const three={...one,passage:'JHN.3.18',reference:'John 3:18'};
 describe('private Bible bookmark reconciliation',()=>{
+ it('recognizes legacy Nahum bookmarks while preserving their server removal keys',()=>{
+  const legacy={...one,passage:'NAM.1.7',reference:'Nahum 1:7'};const current={...legacy,passage:'NAH.1.7'};
+  expect(sameBookmarkLocation(legacy,current)).toBe(true);expect(sameBookmarkLocation(legacy,{...current,passage:'NAH.1.8'})).toBe(false);expect(sameBookmarkLocation(legacy,{...current,version:'eb-eng-asv'})).toBe(false);
+  expect(bookmarkDelta([legacy],[]).removed).toEqual(['webp:NAM.1.7:en']);expect(readBookmarks([legacy])[0].passage).toBe('NAM.1.7');
+ });
  it('keeps independent device additions while applying explicit removals',()=>{
   const delta=bookmarkDelta([one],[two]);expect(delta).toEqual({added:[two],removed:[bookmarkKey(one)]});
   expect(applyBookmarkDelta([one,three],delta)).toEqual([two,three]);

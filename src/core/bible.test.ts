@@ -1,6 +1,7 @@
 import {readFileSync,readdirSync} from 'node:fs';
 import {describe,it,expect,vi} from 'vitest';
 import {firstVerse,preferredBibleVersion,verseInSelection,navigateBibleChapter,koreanRevisedLink,webVersion,adjacentChapter,readReaderPreferences,resolvePassage,safeBibleLink,bibleRequest,parsePassage,type BibleIndex} from './bible';
+import canonicalBooks from '../data/bible-books.json';
 
 const index:BibleIndex={text_direction:'ltr',books:[{id:'GEN',title:'Genesis',full_title:'Genesis',abbreviation:'Gen',canon:'old_testament',chapters:[{id:1,title:1,passage_id:'GEN.1',verses:[{id:1,title:1,passage_id:'GEN.1.1'}]}]},{id:'EXO',title:'Exodus',full_title:'Exodus',abbreviation:'Exo',canon:'old_testament',chapters:[{id:1,title:1,passage_id:'EXO.1',verses:[]}]}]};
 describe('Bible navigation and source integrity',()=>{
@@ -20,6 +21,21 @@ describe('Bible navigation and source integrity',()=>{
   }finally{spy.mockRestore();}
  });
  it('starts a chapter at verse one while retaining explicit QT ranges and bookmarks',()=>{expect(firstVerse('GEN.1')).toBe('GEN.1.1');expect(firstVerse('JHN.3.16-18')).toBe('JHN.3.16-18');});
+ it('opens original WEBP Nahum files using canonical and legacy references without changing Scripture',async()=>{
+  const spy=vi.spyOn(globalThis,'fetch').mockImplementation(async url=>new Response(readFileSync(`public${String(url)}`,'utf8')));
+  try{
+   const signal=new AbortController().signal;
+   const bookIndex=await bibleRequest<BibleIndex>('index',{version:'webp',passage:'NAM.1'},signal);
+   expect(bookIndex.books.map(book=>book.id)).toEqual(canonicalBooks.map(book=>book.code));
+   expect(firstVerse('NAM.1.7')).toBe('NAH.1.7');expect(resolvePassage(bookIndex,'NAM.1.7')).toBe('NAH.1.7');
+   for(const passage of ['NAH.1.7','NAM.1.7']){
+    const result=await bibleRequest<{id:string;verses:{id:string;text:string}[]}>('passage',{version:'webp',passage},signal);
+    const source=JSON.parse(readFileSync('public/bibles/webp/NAM.1.json','utf8'));
+    expect(result.id).toBe('NAH.1.7');expect(result.verses[0].id).toBe('NAH.1.7');expect(result.verses[0].text).toBe(source.verses[6].text);
+   }
+   expect(spy).toHaveBeenCalledWith('/bibles/webp/NAM.1.json',expect.anything());
+  }finally{spy.mockRestore();}
+ });
  it('navigates across book boundaries, stopping at each end',()=>{
   expect(adjacentChapter(index,'GEN.1.1',1)).toBe('EXO.1');
   expect(adjacentChapter(index,'GEN.1',-1)).toBeNull();
@@ -47,9 +63,9 @@ describe('Bible navigation and source integrity',()=>{
   expect(safeBibleLink('javascript:alert(1)')).toBeNull();
   expect(safeBibleLink('https://ebible.org/engwebp/')).toBe('https://ebible.org/engwebp/');
  });
- it('keeps local public-domain Scripture available during a catalogue outage',async()=>{
+ it('lists approved Scripture without waiting for a provider that has no approved editions',async()=>{
   const spy=vi.spyOn(globalThis,'fetch').mockRejectedValue(new Error('offline'));
-  try{expect(await bibleRequest('versions',{language:'en'},new AbortController().signal)).toMatchObject({data:expect.arrayContaining([expect.objectContaining({id:'webp',language_tag:'en'})]),providerStatus:'bible_unavailable'});}finally{spy.mockRestore();}
+  try{expect(await bibleRequest('versions',{language:'en'},new AbortController().signal)).toMatchObject({data:expect.arrayContaining([expect.objectContaining({id:'webp',language_tag:'en'})]),providerStatus:'bible_not_configured'});expect(spy).not.toHaveBeenCalled();}finally{spy.mockRestore();}
  });
  it('contains 66 books / 1189 chapters with unique, correctly aligned verse identifiers',()=>{
   const root=new URL('../../public/bibles/webp/',import.meta.url);

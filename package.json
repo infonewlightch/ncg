@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 4310",
-    "build": "node scripts/collect-ui.mjs --check && tsc --noEmit && vite build && node scripts/build-offline-shell.mjs && node scripts/build-static-host.mjs",
+    "build": "node scripts/collect-ui.mjs --check && node scripts/build-bible-reader-catalogue.mjs --check && tsc --noEmit && vite build && node scripts/build-offline-shell.mjs && node scripts/build-static-host.mjs",
     "preview": "vite preview --host 127.0.0.1 --port 4310",
-    "test": "node scripts/collect-ui.mjs --check && vitest run",
+    "test": "node scripts/collect-ui.mjs --check && node scripts/build-bible-reader-catalogue.mjs --check && vitest run",
     "push:dispatch": "node --env-file-if-exists=.env --env-file-if-exists=.env.local server/push-worker.mjs",
     "start": "node --env-file-if-exists=.env --env-file-if-exists=.env.local server/production.ts",
     "i18n:extract": "node scripts/collect-ui.mjs",
     "i18n:check": "node scripts/collect-ui.mjs --check",
     "bible:offline": "node scripts/build-offline-bible.mjs",
+    "bible:catalogue": "node scripts/build-bible-reader-catalogue.mjs",
     "db:prepare": "node scripts/build-database-setup.mjs"
   },
   "dependencies": {

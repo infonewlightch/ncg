@@ -1,9 +1,12 @@
+import {canonicalBibleReference} from './bible-source-codes';
 export type BibleBookmark={version:string;passage:string;reference:string;language:string};
 export type BookmarkDelta={added:BibleBookmark[];removed:string[]};
 export type BookmarkPending=BookmarkDelta&{id:string;sent:BibleBookmark[]};
 export type BookmarkSync={baseline:BibleBookmark[];pending:BookmarkPending|null;revision:number};
 export type BookmarkStatus='waiting'|'synced'|'error';
 export const bookmarkKey=(item:BibleBookmark)=>`${item.version}:${item.passage}:${item.language}`;
+// Keep stored/server keys intact while recognizing older WEBP Nahum references.
+export const sameBookmarkLocation=(a:Pick<BibleBookmark,'version'|'passage'|'language'>,b:Pick<BibleBookmark,'version'|'passage'|'language'>)=>a.version===b.version&&a.language===b.language&&canonicalBibleReference(a.passage)===canonicalBibleReference(b.passage);
 const version=/^(webp|ext-nkrv|eb-[a-zA-Z0-9_-]{1,60}|[1-9][0-9]{0,8})$/;
 const passage=/^([A-Z0-9]{3})\.([1-9]\d{0,2})(?:\.([1-9]\d{0,2})(?:-([1-9]\d{0,2}))?)?$/;
 export function readBookmarks(value:unknown):BibleBookmark[]{

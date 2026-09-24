@@ -1,7 +1,7 @@
 import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,Bookmark,BookOpen,ChevronDown,Globe,Settings2,X} from 'lucide-react';
 import {useAuth} from '../auth';
-import {bookmarkKey,bookmarkDelta} from '../core/bible-bookmarks';
+import {bookmarkKey,bookmarkDelta,sameBookmarkLocation} from '../core/bible-bookmarks';
 import {useApp} from '../state';
 import {Modal} from '../components/Ui';
 import {BibleTranslationAssist} from '../components/BibleTranslationAssist';
@@ -38,12 +38,12 @@ export default function Bible({onLanguage}:{onLanguage:()=>void}){
  useEffect(()=>{if(!index||chaptersKnown!==false)return;const controller=new AbortController();bibleRequest<BibleChapter[]>('book',{version:versionId,book:bookCode},controller.signal).then(chapters=>{if(controller.signal.aborted)return;setIndex(previous=>previous?{...previous,books:previous.books.map(b=>b.id===bookCode?{...b,chaptersKnown:true,chapters:chapters.map(c=>{const existing=b.chapters.find(old=>old.passage_id===c.passage_id);return existing?.versesKnown?{...c,verses:existing.verses,versesKnown:true}:c;})}:b)}:previous);}).catch(e=>{if(!controller.signal.aborted){if(import.meta.env.DEV)console.warn('Bible reading failed',e);setReadingError(e.message);}});return()=>controller.abort();},[versionId,bookCode,chaptersKnown,retry]);
  const currentBook=index?.books.find(b=>b.id===passage.split('.')[0]);const currentChapter=currentBook?.chapters.find(c=>c.passage_id===chapterOf(passage));
  const previous=index?adjacentChapter(index,passage,-1):null;const next=index?adjacentChapter(index,passage,1):null;
- const bookmarked=state.bibleBookmarks.some(b=>String(b.version)===versionId&&b.passage===passage&&b.language===readingLanguage);
+ const bookmarked=state.bibleBookmarks.some(b=>sameBookmarkLocation(b,{version:versionId,passage,language:readingLanguage}));
  const reference=text?`${text.reference}${parsePassage(passage)?.from?`:${passage.split('.')[2]}`:''}`:`${currentBook?.title||''} ${currentChapter?.title||''}`.trim();
  const publisher=safeBibleLink(version?.publisher_url);const source=safeBibleLink(version?.youversion_deep_link);
  function go(id:string,close=true){navigating.current?.abort();scrollRequest.current=true;setPreferences(p=>({...p,passage:firstVerse(id)}));setNavigation(n=>n+1);if(close)setPicker(false);}
  async function adjacent(step:-1|1){if(!index)return;navigating.current?.abort();const controller=new AbortController();navigating.current=controller;try{const result=await navigateBibleChapter(index,passage,step,book=>bibleRequest<BibleChapter[]>('book',{version:versionId,book},controller.signal));if(result&&!controller.signal.aborted){setIndex(result.index);go(result.passage);}}catch(e){if(!controller.signal.aborted)setReadingError(e instanceof Error?e.message:'bible_unavailable');}}
- function bookmark(){if(!text||!version)return;const item={version:versionId,passage,reference,language:readingLanguage};if(!bookmarked&&state.bibleBookmarks.length>=300){notify(t('책갈피가 300개에 도달했습니다. 필요 없는 책갈피를 해제한 뒤 저장해주세요.','You have 300 bookmarks. Remove an unused bookmark before saving another.'));return;}update(s=>({...s,bibleBookmarks:bookmarked?s.bibleBookmarks.filter(b=>bookmarkKey(b)!==bookmarkKey(item)):[item,...s.bibleBookmarks]}));}
+ function bookmark(){if(!text||!version)return;const item={version:versionId,passage,reference,language:readingLanguage};if(!bookmarked&&state.bibleBookmarks.length>=300){notify(t('책갈피가 300개에 도달했습니다. 필요 없는 책갈피를 해제한 뒤 저장해주세요.','You have 300 bookmarks. Remove an unused bookmark before saving another.'));return;}update(s=>({...s,bibleBookmarks:bookmarked?s.bibleBookmarks.filter(b=>!sameBookmarkLocation(b,item)):[item,...s.bibleBookmarks]}));}
  const bookmarkItems=useMemo(()=>state.bibleBookmarks.filter(b=>b.language===readingLanguage),[state.bibleBookmarks,readingLanguage]);
  const changes=bookmarkDelta(state.bibleSync.baseline,state.bibleBookmarks);const bookmarksPending=Boolean(state.bibleSync.pending||changes.added.length||changes.removed.length);
  const bookmarkNotice=!session?t('성경 책갈피는 이 기기에 저장됩니다. 로그인하면 계정에 보관할 수 있습니다.','Bible bookmarks are saved on this device. Sign in to keep them in your account.'):bookmarkStatus==='error'?t('책갈피를 기기에 보관했습니다. 계정 연결이 복구되면 다시 동기화합니다.','Bookmarks are kept on this device. Account sync will retry when connected.'):bookmarkStatus==='waiting'||bookmarksPending?t('성경 책갈피를 계정과 동기화하고 있습니다.','Syncing Bible bookmarks with your account.'):t('성경 책갈피가 계정에 저장되어 있습니다.','Bible bookmarks are saved to your account.');

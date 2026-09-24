@@ -8,6 +8,10 @@ const body={language:'ga',chapter:'JHN.3',start:0};
 function fixture(){const data=new Map<string,ScriptureTranslation>();return {get:vi.fn(async(key:string)=>data.get(key)||null),set:vi.fn(async(key:string,value:ScriptureTranslation)=>{data.set(key,value);}),claim:vi.fn(async()=>true)} satisfies TranslationStore;}
 const completion=(value:unknown,finish='stop')=>new Response(JSON.stringify({choices:[{finish_reason:finish,message:{content:JSON.stringify(value)}}]}));
 describe('unreviewed English-source Scripture assistance',()=>{
+ it('reads canonical Nahum references from original WEBP files and retains exact source verse IDs',async()=>{
+  const fetcher=vi.fn(async(_url:unknown,init?:RequestInit)=>{const data=JSON.parse(String(init?.body));const verses=JSON.parse(data.messages[1].content).verses;expect(verses.map((verse:{id:string})=>verse.id)).toEqual(['NAH.1.1','NAH.1.2','NAH.1.3','NAH.1.4','NAH.1.5','NAH.1.6']);return completion({supported:true,verses:verses.map((verse:{id:string})=>({id:verse.id,text:'Fixture reference translation.'}))});});
+  const result=await bibleTranslation(request({...body,chapter:'NAH.1'}),env,{store:fixture(),fetcher});expect(result.status).toBe(200);expect((await result.json()).chapter).toBe('NAH.1');expect(fetcher).toHaveBeenCalledTimes(1);
+ });
  it('accepts known language tags and prefers published versions, never text pretending to be sign language',()=>{
   expect(translationLanguage('ga')).toMatchObject({tag:'ga',published:false});expect(translationLanguage('es')).toMatchObject({published:true});expect(translationLanguage('kor')).toMatchObject({published:true});expect(translationLanguage('ase')).toBeNull();expect(translationLanguage('xyz-INVALID-!')).toBeNull();expect(translationLanguage('zzz')).toBeNull();
  });

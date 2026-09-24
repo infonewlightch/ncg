@@ -26,6 +26,91 @@
       "books": 27,
       "oldTestament": 0,
       "newTestament": 27
+    },
+    "cmn-cu89s": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "eng-asv": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "cmn-cu89t": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "arb-vd": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "fraLSG": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "spaRV1909": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "thaKJV": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "pesopcb": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "hincv": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "deu1912": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "deuelo": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "deu1951": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "ita1885": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "swhonen": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "benobcv": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "urdoucv": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
+    },
+    "vieovcb": {
+      "books": 66,
+      "oldTestament": 39,
+      "newTestament": 27
     }
   }
 }

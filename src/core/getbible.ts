@@ -1,7 +1,7 @@
 import type {BibleBook,BibleChapter,BibleIndex,BiblePassage,BibleVersion} from './bible';
 import bookCodes from '../data/bible-books.json';
 import {approvedEdition,canonicalBook,canonicalChapter} from './bible-policy';
-const catalogue=()=>import('../data/getbible-catalogue.json');
+const catalogue=async()=>({default:{versions:(await import('../data/bible-reader-catalogue.json')).default.getbible}});
 const canonical=(language:string)=>{try{return new Intl.Locale(language).language;}catch{return language;}};
 export async function getBibleVersions(language:string):Promise<BibleVersion[]>{
  const {default:data}=await catalogue();return data.versions.filter(v=>approvedEdition('getbible',v.id)&&canonical(v.language)===canonical(language)).map(v=>({id:`eb-gb-${v.id}`,title:v.description||v.title,localized_title:v.description||v.title,abbreviation:v.id.toUpperCase(),localized_abbreviation:v.id.toUpperCase(),language_tag:v.language,copyright:`${v.license} · getBible / CrossWire`,info:v.about.replace(/\\par/g,'\n').replace(/\\/g,''),publisher_url:'https://github.com/getbible/v2',youversion_deep_link:`https://api.getbible.net/v2/${v.id}.json`,promotional_content:'',access:'reader'}));

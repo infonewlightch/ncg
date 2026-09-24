@@ -5,6 +5,7 @@ import type {IncomingMessage,ServerResponse} from 'node:http';
 import languages from '../src/data/languages-index.json' with {type:'json'};
 import catalogue from '../src/data/bible-catalogue.json' with {type:'json'};
 import additionalCatalogue from '../src/data/getbible-catalogue.json' with {type:'json'};
+import {canonicalBibleReference,sourceBibleReference} from '../src/core/bible-source-codes.ts';
 
 type Verse={id:string;number:string;text:string;heading?:string;notes?:string[]};
 type Source={id:string;reference:string;verses:Verse[]};
@@ -26,7 +27,7 @@ export function translationLanguage(tag:string){
  if(!entry||/sign language/i.test(entry[1]))return null;
  return {tag:locale.toString(),name:entry[1],published:published.has(base)};
 }
-async function readSource(chapter:string):Promise<Source>{return JSON.parse(await readFile(join(process.cwd(),'public/bibles/webp',`${chapter}.json`),'utf8'));}
+async function readSource(chapter:string):Promise<Source>{const source:Source=JSON.parse(await readFile(join(process.cwd(),'public/bibles/webp',`${sourceBibleReference(chapter)}.json`),'utf8'));return {...source,id:chapter.startsWith('NAH.')?canonicalBibleReference(source.id):source.id,verses:source.verses.map(verse=>({...verse,id:chapter.startsWith('NAH.')?canonicalBibleReference(verse.id):verse.id}))};}
 export function validTranslation(value:unknown,source:Verse[]):value is {supported:true;verses:{id:string;text:string}[]}{
  if(!value||typeof value!=='object')return false;const data=value as {supported?:unknown;verses?:unknown};
  if(data.supported!==true||!Array.isArray(data.verses)||data.verses.length!==source.length)return false;
