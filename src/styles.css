@@ -599,7 +599,7 @@ footer>span{display:block;margin-top:15px;text-align:left;font-size:max(var(--ui
 .qt-invitation-icon{color:#576c87}
 .qt-invitation h2{font-size:max(var(--ui-font-min,0px),calc(21px * var(--ui-font-scale,1)));margin-bottom:8px}
 .qt-invitation p{font-size:max(var(--ui-font-min,0px),calc(13px * var(--ui-font-scale,1)));margin:0;color:var(--muted)}
-.qt-invitation .button{margin-left:auto;flex-shrink:0}
+.qt-invitation .button{margin-left:auto;flex-shrink:0;max-width:100%;overflow-wrap:anywhere;text-align:center}
 .qt-invitation .eyebrow{font-size:max(var(--ui-font-min,0px),calc(9px * var(--ui-font-scale,1)))}
 @media(max-width:960px){.qt-invitation{flex-wrap:wrap}
 .qt-invitation .button{margin-left:0}

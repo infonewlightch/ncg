@@ -18,6 +18,13 @@ function setup(){
 }
 afterEach(()=>vi.unstubAllGlobals());
 describe('verified offline Scripture',()=>{
+ it('accepts multilingual builds above 100 assets while bounding total size and file count',()=>{
+  const env=setup();const shell=JSON.parse(env.bodies.get('/offline-shell.json')!);
+  const files=[...shell.files,...Array.from({length:350},(_,i)=>file(`/assets/locale-${i}.js`,'public language'))];
+  expect(parseShellManifest({...shell,files}).files).toHaveLength(353);
+  expect(()=>parseShellManifest({...shell,files:[...shell.files,...Array.from({length:1024},(_,i)=>file(`/assets/locale-${i}.js`,'x'))]})).toThrow('offline_integrity');
+  expect(()=>parseShellManifest({...shell,files:files.map(f=>({...f,bytes:100000}))})).toThrow('offline_integrity');
+ });
  it('keeps every downloaded chapter identical to its official import',()=>{
   let chapters=0;
   for(const entry of offlineBibleManifest.files){

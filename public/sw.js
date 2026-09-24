@@ -1,7 +1,9 @@
 const SHELL='ncg-public-shell-v2';
+// Online eviction must never delete the user's verified offline download.
+const RUNTIME='ncg-public-runtime-v1';
 const CONTENT='ncg-public-content-v1';
 const ICON='/brand/newlight-symbol.png';
-self.addEventListener('install',event=>event.waitUntil(caches.open(SHELL).then(cache=>cache.addAll(['/','/offline.html',ICON]))));
+self.addEventListener('install',event=>event.waitUntil(caches.open(RUNTIME).then(cache=>cache.addAll(['/','/offline.html',ICON]))));
 self.addEventListener('activate',event=>event.waitUntil(Promise.all([caches.delete('ncg-public-shell-v1'),self.clients.claim()])));
 async function store(cacheName,request,response,max){
  if(!response.ok||response.type==='opaque')return;
@@ -14,13 +16,13 @@ self.addEventListener('fetch',event=>{
  // Never cache admin pages, callbacks, APIs, or private account responses as the public shell.
  if(request.mode==='navigate'){
   if(url.pathname!=='/'&&url.pathname!=='/index.html')return;
-  event.respondWith(fetch(request).then(async response=>{await store(SHELL,'/',response,100).catch(()=>{});return response;}).catch(async()=>await caches.match('/offline-entry.html')||await caches.match('/')||await caches.match('/offline.html')));return;
+  event.respondWith(fetch(request).then(async response=>{await store(RUNTIME,'/',response,100).catch(()=>{});return response;}).catch(async()=>await caches.match('/offline-entry.html')||await caches.match('/')||await caches.match('/offline.html')));return;
  }
  const asset=url.pathname.startsWith('/assets/')||url.pathname===ICON;
  const publicContent=/^\/bibles\/webp\/(index|[A-Z0-9]{3}\.\d+)\.json$/.test(url.pathname)||/^\/quizzes\/(ko|en|th)\.json$/.test(url.pathname);
  if(!asset&&!publicContent)return;
- const cacheName=asset?SHELL:CONTENT;
- event.respondWith((async()=>{const cache=await caches.open(cacheName);const cached=await cache.match(request);if(asset&&cached)return cached;try{const response=await fetch(request);if(response.ok)await store(cacheName,request,response,asset?100:200).catch(()=>{});return response;}catch(error){if(cached)return cached;throw error;}})());
+ const cacheName=asset?RUNTIME:CONTENT;
+ event.respondWith((async()=>{const cache=await caches.open(cacheName);const cached=await cache.match(request)||(asset?await (await caches.open(SHELL)).match(request):undefined);if(asset&&cached)return cached;try{const response=await fetch(request);if(response.ok)await store(cacheName,request,response,asset?100:200).catch(()=>{});return response;}catch(error){if(cached)return cached;throw error;}})());
 });
 self.addEventListener('push',event=>{
  let payload={};try{payload=event.data?.json()||{};}catch{}

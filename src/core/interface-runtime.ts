@@ -1,7 +1,7 @@
-import {interfaceBatch,interfaceBatchSize,interfaceIds,interfaceRevision,validInterfaceMessages} from './interface-catalogue';
+import {interfaceBatch,interfaceBatchSize,interfaceIds,interfaceRevision,interfaceSource,validInterfaceMessages} from './interface-catalogue';
 import {interfaceSeed} from './interface-seeds';
 export type InterfaceStatus='bundled'|'loading'|'automatic'|'unavailable'|'unsupported';
-type Pack={messages:Map<string,string>;wanted:Set<number>;failed:Set<number>;pending:Set<number>;unsupported:boolean;seeding:boolean};
+type Pack={messages:Map<string,string>;wanted:Set<number>;failed:Set<number>;pending:Set<number>;unsupported:boolean;seeding:boolean;seedFailed?:boolean;ready?:Promise<void>};
 const packs=new Map<string,Pack>();const listeners=new Set<()=>void>();let revision=0,scheduled=false,active=0;
 export const subscribeInterface=(listener:()=>void)=>{listeners.add(listener);return()=>{listeners.delete(listener);};};
 export const interfaceSnapshot=()=>revision;
@@ -10,13 +10,30 @@ function packFor(locale:string){
  let pack=packs.get(locale);if(pack)return pack;
  const seed=interfaceSeed(locale);
  pack={messages:new Map(),wanted:new Set(),failed:new Set(),pending:new Set(),unsupported:false,seeding:Boolean(seed)};packs.set(locale,pack);
+ // Keep valid individual messages when unrelated source text changes in a new release.
+ try{const cached=JSON.parse(localStorage.getItem(`ncg:interface:v2:${locale}`)||'null');if(Array.isArray(cached))for(const row of cached){const id=interfaceIds.get(row?.en);if(id!==undefined&&row.ko===interfaceSource[id].ko&&validInterfaceMessages([{id,text:row.text}],[{id,en:row.en}]))pack.messages.set(row.en,row.text);}}catch{}
  try{const cached=JSON.parse(localStorage.getItem(`ncg:interface:${interfaceRevision}:${locale}`)||'null');if(cached&&typeof cached==='object')for(const [batch,messages] of Object.entries(cached)){const rows=interfaceBatch(Number(batch));if(rows.length&&validInterfaceMessages(messages,rows))for(const m of messages)pack.messages.set(rows.find(r=>r.id===m.id)!.en,m.text);}}catch{}
- if(seed){const target=pack;void seed().then(({default:data})=>{const messages=data.messages;if(!messages)return;for(const [en,text] of Object.entries(messages)){const id=interfaceIds.get(en);if(id!==undefined&&validInterfaceMessages([{id,text}],[{id,en}]))target.messages.set(en,text);}save(locale,target);}).catch(()=>{}).finally(()=>{target.seeding=false;emit();schedule();});}
+ if(seed)loadSeed(locale,pack);
  return pack;
 }
-function save(locale:string,pack:Pack){
- try{const batches:Record<string,{id:number;text:string}[]>={};for(const [en] of pack.messages){const batch=Math.floor(interfaceIds.get(en)!/interfaceBatchSize),rows=interfaceBatch(batch);if(rows.every(r=>pack.messages.has(r.en)))batches[batch]=rows.map(r=>({id:r.id,text:pack.messages.get(r.en)!}));}localStorage.setItem(`ncg:interface:${interfaceRevision}:${locale}`,JSON.stringify(batches));}catch{}
+function loadSeed(locale:string,pack:Pack){
+ const seed=interfaceSeed(locale);if(!seed||pack.ready&&!pack.seedFailed)return;
+ pack.seeding=true;pack.seedFailed=false;
+ pack.ready=seed().then(({default:data})=>{
+  if(!data.messages)throw Error('invalid_pack');
+  for(const [en,text] of Object.entries(data.messages)){
+   const id=interfaceIds.get(en);
+   if(id!==undefined&&(data.sourceContext?.[en]===undefined||data.sourceContext[en]===interfaceSource[id].ko)&&validInterfaceMessages([{id,text}],[{id,en}]))pack.messages.set(en,text);
+  }
+  save(locale,pack);
+ }).catch(()=>{pack.seedFailed=true;}).finally(()=>{pack.seeding=false;emit();schedule();});
 }
+
+function save(locale:string,pack:Pack){
+ try{const messages=interfaceSource.flatMap(({en,ko})=>{const text=pack.messages.get(en);return text?[{en,ko,text}]:[];});localStorage.setItem(`ncg:interface:v2:${locale}`,JSON.stringify(messages));}catch{}
+}
+// Hover/focus and selection can load a static pack without starting model requests.
+export function prepareInterface(locale:string){const pack=packFor(locale);if(pack.seedFailed)loadSeed(locale,pack);return pack.ready||Promise.resolve();}
 function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;void drain();});}
 async function load(locale:string,pack:Pack,batch:number){
  pack.pending.add(batch);active++;emit();
@@ -38,4 +55,4 @@ export function runtimeInterfaceStatus(locale:string):InterfaceStatus{
  const pack=packFor(locale);if(pack.unsupported)return 'unsupported';if(pack.failed.size)return 'unavailable';
  if([...pack.wanted].some(b=>!interfaceBatch(b).every(r=>pack.messages.has(r.en))))return 'loading';return pack.messages.size?'automatic':'loading';
 }
-export function retryInterface(locale:string){const pack=packFor(locale);pack.failed.clear();pack.unsupported=false;schedule();emit();}
+export function retryInterface(locale:string){const pack=packFor(locale);pack.failed.clear();pack.unsupported=false;if(pack.seedFailed)loadSeed(locale,pack);schedule();emit();}

@@ -20,10 +20,11 @@ export async function verifiedResponse(response:Response|undefined,file:FileEntr
 }
 export function parseShellManifest(value:unknown):ShellManifest{
  const data=value as ShellManifest;
- if(!data||!Array.isArray(data.files)||data.files.length<3||data.files.length>100||!/^[a-f0-9]{20}$/.test(data.revision))throw Error('offline_integrity');
+ if(!data||!Array.isArray(data.files)||data.files.length<3||data.files.length>1024||!/^[a-f0-9]{20}$/.test(data.revision))throw Error('offline_integrity');
  const validPath=(path:string)=>[OFFLINE_ENTRY,'/offline.html','/brand/newlight-symbol.png'].includes(path)||/^\/assets\/[A-Za-z0-9_-]+\.(js|css|woff2?|png|svg)$/.test(path);
  const validSource=(f:FileEntry)=>f.path.endsWith('.html')?f.source===`${f.path}.json`:f.source===undefined;
  if(data.files.some(f=>!f||typeof f.path!=='string'||!validPath(f.path)||!validSource(f)||!Number.isInteger(f.bytes)||f.bytes<1||f.bytes>5_000_000||!/^[a-f0-9]{64}$/.test(f.sha256))||new Set(data.files.map(f=>f.path)).size!==data.files.length||!data.files.some(f=>f.path===OFFLINE_ENTRY)||!data.files.some(f=>f.path.endsWith('.js')))throw Error('offline_integrity');
+ if(data.files.reduce((total,file)=>total+file.bytes,0)>32_000_000)throw Error('offline_integrity');
  return data;
 }
 export async function storeVerifiedFiles(store:Store,files:FileEntry[],signal:AbortSignal,onFile:(file:FileEntry)=>void){

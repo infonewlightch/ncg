@@ -1,14 +1,15 @@
 // @vitest-environment jsdom
 import {afterEach,expect,it,vi} from 'vitest';
-import {interfaceSeed} from './interface-seeds';
+import {interfaceSeed,interfaceSeedLanguages} from './interface-seeds';
 import {interfaceSource,validInterfaceMessages} from './interface-catalogue';
 import {runtimeInterfaceMessage,runtimeInterfaceStatus} from './interface-runtime';
-const languages=['pt','zh','zh-Hant','th','ar','fa','hi','fr'];
+const languages=interfaceSeedLanguages;
 afterEach(()=>vi.unstubAllGlobals());
 it.each(languages)('ships all current %s UI messages without a generation request',async language=>{
  const fetcher=vi.fn();vi.stubGlobal('fetch',fetcher);
  const loader=interfaceSeed(language);expect(loader).toBeDefined();
  const {default:pack}=await loader!();expect(pack.language).toBe(language);expect(pack.reviewed).toBe(false);
+ for(const row of interfaceSource)expect(pack.sourceContext?.[row.en],`source context: ${row.en}`).toBe(row.ko);
  for(const [id,row] of interfaceSource.entries())expect(validInterfaceMessages([{id,text:pack.messages[row.en]}],[{id,en:row.en}]),row.en).toBe(true);
  runtimeInterfaceMessage('Home',language);
  await vi.waitFor(()=>expect(runtimeInterfaceStatus(language)).toBe('automatic'));
@@ -23,5 +24,5 @@ it('chooses regional and Chinese-script fallbacks without substituting a differe
  expect(interfaceSeed('zh-TW')).toBe(interfaceSeed('zh-Hant'));
  expect(interfaceSeed('zh-Hant-HK')).toBe(interfaceSeed('zh-Hant'));
  expect(interfaceSeed('hi-Latn')).toBeUndefined();expect(interfaceSeed('ar-Latn')).toBeUndefined();
- expect(interfaceSeed('invalid_tag')).toBeUndefined();expect(interfaceSeed('vi')).toBeUndefined();
+ expect(interfaceSeed('invalid_tag')).toBeUndefined();expect(interfaceSeed('ja-Latn')).toBeUndefined();
 });

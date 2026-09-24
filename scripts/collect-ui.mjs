@@ -25,8 +25,13 @@ const result=[...messages.values()];
 const serialized=JSON.stringify(result,null,2)+'\n';
 if(process.argv.includes('--check')){
  if(fs.readFileSync('src/i18n/source.json','utf8')!==serialized)throw Error('UI catalogue changed. Run npm run i18n:extract, then complete each language pack.');
- for(const file of fs.readdirSync('src/i18n').filter(file=>file.endsWith('.json')&&file!=='source.json')){
-  const pack=JSON.parse(fs.readFileSync(`src/i18n/${file}`,'utf8'));
+ const packs=[...fs.readdirSync('src/i18n').filter(file=>file.endsWith('.json')&&file!=='source.json').map(file=>`src/i18n/${file}`),...fs.readdirSync('src/i18n-generated').filter(file=>file.endsWith('.json')).map(file=>`src/i18n-generated/${file}`)];
+ for(const file of packs){
+  const data=JSON.parse(fs.readFileSync(file,'utf8'));const pack=file.includes('i18n-generated')?data.messages:data;
+  if(file.includes('i18n-generated')){
+   if(file.split('/').pop()!==`${data.language}.json`)throw Error(`${file}: language tag mismatch`);
+   for(const row of result)if(data.sourceContext?.[row.en]!==row.ko)throw Error(`${file}: changed or missing source context for ${row.en}`);
+  }
   const missing=result.filter(({en})=>typeof pack[en]!=='string'||!pack[en].trim());
   if(missing.length)throw Error(`${file}: ${missing.length} UI translations missing: ${missing.slice(0,5).map(row=>row.en).join(' | ')}`);
   for(const {en} of result){const slots=value=>JSON.stringify((value.match(/\{[A-Za-z0-9_]+\}/g)||[]).sort());if(slots(en)!==slots(pack[en]))throw Error(`${file}: changed placeholders in ${en}`);}

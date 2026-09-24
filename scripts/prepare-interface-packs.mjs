@@ -1,16 +1,48 @@
-/** Generate only the app's public UI catalogue through its bounded translation API. */
-import {readFileSync,writeFileSync,existsSync,mkdirSync} from 'node:fs';
-import {interfaceSource,interfaceRevision,interfaceBatch,interfaceBatchSize,validInterfaceMessages} from '../src/core/interface-catalogue.ts';
-const languages=process.argv.slice(2);if(!languages.length)throw Error('Pass exact language tags.');
-const root='/tmp/ncg-interface-packs';mkdirSync(root,{recursive:true});const count=Math.ceil(interfaceSource.length/interfaceBatchSize);
+/** Pregenerate public UI only. Never bypass the provider's shared request budget. */
+import {readFileSync,readdirSync,writeFileSync,mkdirSync,renameSync} from 'node:fs';
+import {interfaceSource,interfaceRevision,interfaceBatch} from '../src/core/interface-catalogue.ts';
+import {validPackMessages,pendingPackBatches,acceptedBatch,generationAction} from './lib/interface-packs.mjs';
+const args=process.argv.slice(2),all=args.includes('--all'),plan=args.includes('--plan');
+const written=JSON.parse(readFileSync('src/data/languages.json')).filter(row=>row.type==='living'&&!['ko','en','es'].includes(row.code)&&!/sign language/i.test(row.name)).map(row=>new Intl.Locale(row.code).toString());
+const existing=readdirSync('src/i18n-generated').filter(name=>name.endsWith('.json')).map(name=>name.slice(0,-5));
+const languages=all?[...new Set([...existing,'lo','ja','vi','id','ru','sw',...written])]:args.filter(arg=>!arg.startsWith('--'));
+if(!languages.length)throw Error('Pass exact language tags, or --all [--plan].');
+const maxArg=args.find(arg=>arg.startsWith('--max-requests='));const maxRequests=maxArg?Number(maxArg.split('=')[1]):240;
+if(!Number.isInteger(maxRequests)||maxRequests<1||maxRequests>300)throw Error('max-requests must be 1–300; the shared server budget still applies.');
+const root='tmp/interface-packs';mkdirSync(root,{recursive:true});mkdirSync('src/i18n-generated',{recursive:true});let requests=0,stopped=false,completed=0,pending=0,unsupported=0;
+function read(path){try{return JSON.parse(readFileSync(path,'utf8'));}catch{return null;}}
+function atomic(path,data){writeFileSync(`${path}.pending`,JSON.stringify(data,null,2)+'\n');renameSync(`${path}.pending`,path);}
 for(const language of languages){
  if(new Intl.Locale(language).toString()!==language)throw Error('Use canonical language tags.');
- const path=`${root}/${language}.json`;let result={revision:interfaceRevision,language,batches:{}};
- if(existsSync(path)){const previous=JSON.parse(readFileSync(path));if(previous.revision===interfaceRevision&&previous.language===language)result=previous;}
- const queue=Array.from({length:count},(_,batch)=>batch).filter(batch=>!validInterfaceMessages(result.batches[batch]?.messages,interfaceBatch(batch)));
- const worker=async()=>{while(queue.length){const batch=queue.shift();try{const r=await fetch('https://newlightchurchglobal.com/api/interface-translation',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({language,batch,revision:interfaceRevision}),signal:AbortSignal.timeout(35000)});const data=await r.json();const ok=r.ok&&data.language===language&&data.revision===interfaceRevision&&data.batch===batch&&validInterfaceMessages(data.messages,interfaceBatch(batch));result.batches[batch]=ok?{messages:data.messages}:{error:data.error||'invalid_response',status:r.status};console.log(JSON.stringify({language,batch,status:r.status,ok}));if(r.status===429){queue.length=0;}}catch(error){result.batches[batch]={error:error.name};console.log(JSON.stringify({language,batch,error:error.name}));}writeFileSync(path,JSON.stringify(result,null,2));}};
- await Promise.all([worker(),worker()]);
- const complete=Array.from({length:count},(_,i)=>i).every(batch=>validInterfaceMessages(result.batches[batch]?.messages,interfaceBatch(batch)));
- if(!complete){process.exitCode=1;console.log(JSON.stringify({language,complete:false}));continue;}
- const messages=Object.fromEntries(Object.values(result.batches).flatMap(batch=>batch.messages).map(m=>[interfaceSource[m.id].en,m.text]));mkdirSync('src/i18n-generated',{recursive:true});writeFileSync(`src/i18n-generated/${language}.json`,JSON.stringify({language,reviewed:false,provider:[...new Set(Object.values(result.batches).map(batch=>batch.provider||'Netlify AI Gateway / gpt-4.1-mini'))].join('; '),generated:new Date().toISOString().slice(0,10),messages},null,2)+'\n');console.log(JSON.stringify({language,complete:true,messages:Object.keys(messages).length}));
+ const path=`${root}/${language}.json`,output=`src/i18n-generated/${language}.json`;
+ const previous=read(output),checkpoint=read(path);
+ const messages={...validPackMessages(previous),...validPackMessages(checkpoint?.language===language?checkpoint:null)};
+ const batches=pendingPackBatches(messages);
+ if(batches.length&&checkpoint?.unsupportedRevision===interfaceRevision&&!args.includes('--retry-unsupported')){unsupported++;if(plan)console.log(JSON.stringify({language,unsupported:true}));continue;}
+ if(plan){console.log(JSON.stringify({language,messages:Object.keys(messages).length,missing:interfaceSource.length-Object.keys(messages).length,batches:batches.length}));if(batches.length)pending++;else completed++;continue;}
+ if(stopped){pending++;continue;}
+ const result={language,reviewed:false,provider:[...new Set([previous?.provider,checkpoint?.provider,...(batches.length?['Netlify AI Gateway / gpt-4.1-mini']:[])].filter(Boolean))].join('; '),generated:new Date().toISOString().slice(0,10),sourceContext:Object.fromEntries(interfaceSource.map(row=>[row.en,row.ko])),messages};
+ if(!batches.length){if(pendingPackBatches(validPackMessages(previous)).length)atomic(output,result);completed++;continue;}
+ let unavailable=false;
+ for(const batch of batches){
+  for(let attempt=0;attempt<2;attempt++){
+   if(requests>=maxRequests){stopped=true;break;}
+   requests++;
+   try{
+    const r=await fetch('https://newlightchurchglobal.com/api/interface-translation',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({language,batch,revision:interfaceRevision}),signal:AbortSignal.timeout(35000)});
+    const data=await r.json();const ok=r.ok&&acceptedBatch(data,language,batch,interfaceRevision);
+    console.log(JSON.stringify({language,batch,status:r.status,ok,error:ok?undefined:data.error||'invalid_response'}));
+    if(ok){for(const m of data.messages)messages[interfaceSource[m.id].en]=m.text;atomic(path,result);break;}
+    const action=generationAction(r.status,data.error);
+    if(action==='stop'){stopped=true;break;}if(action==='skip-language'){unavailable=true;result.unsupportedRevision=interfaceRevision;break;}if(action!=='retry')break;
+   }catch(error){console.log(JSON.stringify({language,batch,error:error.name}));}
+   if(attempt===0)await new Promise(resolve=>setTimeout(resolve,1000));
+  }
+  if(stopped||unavailable)break;
+ }
+ const complete=!pendingPackBatches(messages).length;
+ if(complete){atomic(output,result);completed++;}else{pending++;process.exitCode=1;atomic(path,result);}
+ console.log(JSON.stringify({language,complete,messages:Object.keys(messages).length,unavailable}));
 }
+console.log(JSON.stringify({revision:interfaceRevision,targets:languages.length,completed,pending,unsupported,requests,stopped}));
+if(stopped)process.exitCode=1;

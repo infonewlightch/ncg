@@ -18,3 +18,11 @@ it('does not silently retry errors or report failed responses as translated',asy
 it('rejects corrupt cache entries and substitutions of placeholders or URLs',()=>{
  expect(validInterfaceMessages([{id:1,text:'Pregunta 8'}],[{id:1,en:'Question {number}'}])).toBe(false);expect(validInterfaceMessages([{id:1,text:'https://evil.test'}],[{id:1,en:'https://newlightchurchglobal.com'}])).toBe(false);
 });
+it('reuses individual translations after a release but rejects changed context and corrupt entries',()=>{
+ const row=interfaceBatch(batch).find(row=>row.en==='Home')!;
+ localStorage.setItem('ncg:interface:v2:de',JSON.stringify([{en:row.en,ko:row.ko,text:'Startseite'},{en:'Bible',ko:'old meaning',text:'wrong'},{en:'Removed message',ko:'old',text:'ignored'}]));
+ const fetcher=vi.fn();vi.stubGlobal('fetch',fetcher);
+ expect(runtime.runtimeInterfaceMessage('Home','de')).toBe('Startseite');
+ expect(runtime.runtimeInterfaceMessage('Bible','de')).toBe('Bible');
+ expect(fetcher).not.toHaveBeenCalled();
+});
