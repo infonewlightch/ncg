@@ -8,7 +8,7 @@
 - 서비스: https://newlightchurchglobal.com
 - 관리자: https://newlightchurchglobal.com/admin.html
 - 공식 이메일/관리자: **infonewlightch@gmail.com** (`light`에 t 포함).
-- 운영 코드: **3e91553**. Netlify Production `main@3e91553`, 16:44 KST 배포 시작 / 34초 후 Published 확인. 모바일 영상 크기·전체화면 개선까지 반영했습니다.
+- 운영 코드: **e0013a1**. Netlify Production `main@e0013a1`, 17:20 KST 배포 시작 / 35초 후 Published 확인. 모바일 영상 크기·전체화면 개선과 지원 환경의 가로 방향 잠금 요청까지 반영했습니다.
 - QT 작업 브랜치 **work/ncg-qt-scripture-20260924**는 main에 통합·GitHub 백업 완료했습니다. 이후 운영 기록만 추가한 커밋은 `[skip ci]`로 배포를 생략합니다.
 - 사용자 요청 없이 PR을 생성하지 않습니다. 같은 저장소 동시 편집 금지. 비밀값은 .env.local 등 로컬 설정에만, Git에 추가하지 않습니다.
 
@@ -27,7 +27,7 @@
 - 매일 **05:00 KST `ncg-qt` 일정 확인 자동화 ACTIVE**. 사용자 재개 요청에 따라 배포 확인 후 재개했습니다. 기한이 지난 밤샘 개발 `ncg`는 PAUSED로 유지합니다. 이는 QT 일정 관리 자동화이며 이용자 푸시 알림 운영 연결과는 별개입니다.
 
 ## 외부 연결·허가 대기
-- [모바일 영상 검증 기록](mobile-video-2026-09-24.md): 320/390px 세로·844px 가로·1280px PC 레이아웃, 운영 인앱 실제 영상/자막 재생·전체화면·복귀 확인. 전체 **70파일/360테스트** 및 빌드 통과. Chrome/Safari 실제 앱 검증은 Mac 잠금 때문에 사용자 해제 요청 중이며, 실물 iOS/Android와 각 인앱 검증은 남아 있습니다.
+- [모바일 영상 검증 기록](mobile-video-2026-09-24.md): 320/390px 세로·844px 가로·1280px PC 레이아웃, 운영 인앱과 macOS Chrome 153·Safari의 실제 영상/자막 재생·전체화면·복귀 확인. 전체 **71파일/364테스트** 및 빌드 통과. Chrome 모바일 에뮬레이션의 방향 잠금은 NotSupportedError로 거절됐으며 전체화면은 유지됩니다. 실물 iOS/Android의 자동 회전과 네이버/카카오 등 각 인앱 검증은 남아 있습니다.
 - Google Cloud OAuth 클라이언트/시크릿 사용자 인계 중. 마지막 확인에서 Supabase Google provider Disabled. 실제 Google 로그인 미완료.
 - 일반 회원용 custom SMTP 미연결. 교회 계정의 이메일 인증/로그인 성공을 일반 회원 발송 완료로 간주하지 않습니다.
 - 개역개정: 14:31 KST 대한성서공회 저작권 메일 발송 확인. [기록](nkrv-permission-request.md). 회신/허가/본문 공급 대기, 중복 발송하지 않습니다.

@@ -42,3 +42,8 @@
 - 방향 잠금 성공/거절/늦은 완료/다음 세션 보호 테스트와 플레이어 전체화면 진입·종료 연결 검증을 추가했습니다. 전체 **71파일/364테스트** 및 타입 검사·빌드 통과.
 - iOS Safari는 방향 잠금 API가 지원되지 않는 환경이 있어 강제 가로 회전을 보장할 수 없습니다. [MDN](https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/lock), [W3C](https://w3c.github.io/screen-orientation/#interaction-with-fullscreen-api). Chrome Device Mode 지원은 [공식 설명](https://developer.chrome.com/blog/new-in-devtools-147#refreshed-device-mode-toolbar)과 현 환경의 실제 거절 결과를 구분해 기록합니다.
 - 직접 호스팅 파일은 현재 운영 콘텐츠가 아닙니다. 재생 전 iPhone 전용 전체화면 진입과 확대 중 파일 로드 실패 안내는 파일 영상 운영 시작 전 추가 개선 대상으로 남깁니다.
+
+## 가로 전환 운영 반영
+- **e0013a1** main push 및 GitHub 백업 완료. Netlify Production `main@e0013a1` **Published**, 17:20 KST 시작 / 35초 배포를 대시보드에서 확인했습니다.
+- 배포 후 운영 페이지를 새로고침해 인앱 전체화면에서 실제 영상과 한국어 자막 진행, 전체화면 종료 후 이어지는 재생을 확인했습니다. 마지막에 영상 창을 닫아 재생을 종료했습니다. 자동 재생 허용 여부는 브라우저 정책에 따릅니다.
+- 네이티브 브라우저 정리 중 Mac이 다시 잠겼습니다. Safari 영상 창은 닫았고, Chrome 게스트 QA 창은 로컬 영상·Device Mode/개발자 도구 상태로 남아 있습니다. 검증용 창이며 사용자의 기존 Chrome 프로필은 사용하지 않았습니다. 잠금을 우회하거나 개인 창을 닫지 않았습니다.
