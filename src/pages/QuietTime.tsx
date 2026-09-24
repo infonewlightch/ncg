@@ -11,7 +11,7 @@ import {dateInZone,weekDates,shiftDate,qtPassages,qtTopic,formatQtDate,validDate
 import {qtScheduleOn,publishedQtOn} from '../core/qt-schedule';
 import books from '../data/bible-books.json';
 
-function passageLabel(passages:string[],ui:string){const [code,chapter,range]=passages[0].split('.');const book=books.find(b=>b.code===code);const last=passages.at(-1)!.split('.');const verse=range?.split('-')[0];return `${book?translateInterface(book.ko,book.en,ui):code} ${chapter}:${passages.length>1?`${verse}–${last[1]}:${last[2].split('-').at(-1)}`:range}`;}
+function passageLabel(passages:string[],ui:string){const [code,chapter,range]=passages[0].split('.');const book=books.find(b=>b.code===code);const last=passages.at(-1)!.split('.');const verse=range?.split('-')[0];return <>{book?translateInterface(book.ko,book.en,ui):code} <bdi dir="ltr">{`${chapter}:${passages.length>1?`${verse}–${last[1]}:${last[2].split('-').at(-1)}`:range}`}</bdi></>;}
 export default function QuietTime({onLanguage}:{onLanguage:()=>void}){
  const {state,t,update}=useApp();const [today,setToday]=useState(()=>dateInZone(new Date()));const [selected,setSelected]=useState(()=>{const date=new URLSearchParams(location.hash.split('?')[1]).get('date');return date&&validDate(date)?date:today;});const [week,setWeek]=useState(selected);const [compose,setCompose]=useState(false);const [refresh,setRefresh]=useState(0);const [readings,setReadings]=useState<QtReading[]>([]);const [loading,setLoading]=useState(Boolean(supabase));const [error,setError]=useState(false);const [retry,setRetry]=useState(0);
  const dates=weekDates(week);const first=dates[0];const last=dates[6];

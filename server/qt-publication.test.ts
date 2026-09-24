@@ -32,3 +32,8 @@ describe('QT publication access rules',()=>{
  });
 
 });
+it('accepts all 61 verified calendar ranges using the server canonical bounds',async()=>{
+ const schedule=JSON.parse(readFileSync(new URL('../src/data/qt/duranno-schedule.json',import.meta.url),'utf8')) as {passage:string;passages:string[]}[];
+ expect(schedule).toHaveLength(61);
+ for(const item of schedule)expect((await db.query<{valid:boolean}>('select ncg_valid_qt_passages($1::text[],$2) as valid',[item.passages,item.passage])).rows[0].valid,item.passage).toBe(true);
+});

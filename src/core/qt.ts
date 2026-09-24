@@ -12,7 +12,7 @@ export function shiftDate(value:string,days:number){if(!validDate(value))throw E
 export function weekDates(value:string){if(!validDate(value))throw Error('invalid_date');const weekday=new Date(`${value}T12:00:00Z`).getUTCDay();const monday=shiftDate(value,-((weekday+6)%7));return Array.from({length:7},(_,i)=>shiftDate(monday,i));}
 export function qtTopic(reading:QtReading){return `qt:${reading.id}`;}
 export function qtCopy(reading:QtReading,language:string){const base=language.split('-')[0];const lang=reading.translations[language]?language:reading.translations[base]?base:reading.translations.en?'en':Object.keys(reading.translations)[0];return {language:lang||language,...(reading.translations[lang]||{title:'',guide:'',question:''})};}
-export function formatQtDate(value:string,locale:string,options:Intl.DateTimeFormatOptions={month:'short',day:'numeric',weekday:'short'}){return new Intl.DateTimeFormat(locale,{...options,timeZone:'UTC'}).format(new Date(`${value}T12:00:00Z`));}
+export function formatQtDate(value:string,locale:string,options:Intl.DateTimeFormatOptions={month:'short',day:'numeric',weekday:'short'}){return new Intl.DateTimeFormat(locale,{...options,calendar:'gregory',timeZone:'UTC'}).format(new Date(`${value}T12:00:00Z`));}
 
 // Editorial sample only. Public publication requires a reviewed record on the server.
 const previewDrafts:QtReading[]=[
