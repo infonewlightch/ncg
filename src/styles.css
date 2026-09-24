@@ -1036,13 +1036,15 @@ main{padding:28px 20px 0}
 .bible-canon-tabs{display:flex;gap:4px;padding:0 0 15px}
 .bible-canon-tabs button{flex:1;border:0;background:transparent;font-size:11px;min-height:40px;padding:7px 5px;border-radius:6px;color:var(--muted)}
 .bible-canon-tabs button[aria-pressed=true]{background:var(--surface-soft);color:var(--navy);font-weight:600}
+.bible-canon-tabs button[data-canon=new_testament]{color:#a63236}.bible-canon-tabs button[data-canon=new_testament][aria-pressed=true]{background:#fbeff0}
 .bible-scroll-columns{display:grid;grid-template-columns:minmax(0,1fr) 62px 62px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .bible-scroll-column{min-width:0}.bible-scroll-column+.bible-scroll-column{border-inline-start:1px solid var(--line)}
 .bible-scroll-column h3{margin:0;background:var(--surface-soft);padding:13px 6px;font-size:11px;text-align:center;font-weight:600;border-bottom:1px solid var(--line)}
-.bible-scroll-list{height:clamp(230px,49dvh,520px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-width:thin;padding:4px;position:relative}
-.bible-scroll-list button{display:block;width:100%;min-height:44px;border:0;border-radius:5px;background:transparent;color:var(--navy);padding:10px 5px;font-size:12px;margin:2px 0;overflow-wrap:anywhere}
-.bible-scroll-list button:hover{background:var(--surface-soft)}
-.bible-scroll-list button[aria-current=true]{background:var(--navy);color:white}
+.bible-scroll-list{--index-color:var(--navy);--index-soft:var(--surface-soft);height:clamp(230px,49dvh,520px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-width:thin;padding:4px;position:relative}
+.bible-scroll-column[data-canon=new_testament] .bible-scroll-list,.bible-books-column button[data-canon=new_testament]{--index-color:#a63236;--index-soft:#fbeff0}
+.bible-scroll-list button{display:block;width:100%;min-height:44px;border:0;border-radius:5px;background:transparent;color:var(--index-color);padding:10px 5px;font-size:12px;margin:2px 0;overflow-wrap:anywhere}
+.bible-scroll-list button:hover{background:var(--index-soft)}
+.bible-scroll-list button[aria-current=true]{background:var(--index-color);color:white}
 .bible-scroll-list button:focus-visible,.bible-canon-tabs button:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
 .bible-books-column button{text-align:start;padding-inline:10px}.bible-books-column b{font-size:12px;font-weight:500;display:block}.bible-books-column small{font-size:9px;opacity:.75;display:block;margin-top:4px}
 .navigator-empty{font-size:12px;padding:12px;line-height:1.8;color:var(--muted)}
