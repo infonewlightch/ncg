@@ -16,6 +16,6 @@ export function parseMedia(input:string):Media|null {
 }
 export function mediaEmbed(media:Media,language:string):string {
   if(media.kind==='file') return media.url;
-  const query=new URLSearchParams({autoplay:'1',playsinline:'1',rel:'0',cc_load_policy:'1',cc_lang_pref:language});
+  const query=new URLSearchParams({autoplay:'1',playsinline:'1',rel:'0',cc_load_policy:'1',cc_lang_pref:language,hl:language});
   return `https://www.youtube-nocookie.com/embed/${media.id}?${query}`;
 }

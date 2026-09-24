@@ -771,6 +771,9 @@
     "2 John": "约翰二书",
     "3 John": "约翰三书",
     "Jude": "犹大书",
-    "Revelation": "启示录"
+    "Revelation": "启示录",
+    "Choose your audio track and subtitles separately in the video settings (⚙).": "请在视频设置（⚙）中分别选择音轨和字幕语言。",
+    "Dubbed audio": "配音",
+    "Subtitles": "字幕"
   }
 }

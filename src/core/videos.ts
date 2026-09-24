@@ -4,7 +4,7 @@ import type {Video} from './model';
 export type VideoFilter={category?:Video['category'];language?:string;query?:string;saved?:string[]};
 export function videoFromRow(row:Record<string,unknown>):Video|null{
  if(typeof row.id!=='string'||typeof row.title!=='string'||typeof row.url!=='string'||!parseMedia(row.url)||typeof row.language!=='string'||!['sermon','worship'].includes(String(row.category)))return null;
- return {id:row.id,title:row.title,description:String(row.description||''),url:row.url,language:row.language,category:row.category as Video['category'],createdAt:String(row.created_at),publishedAt:String(row.published_at),official:true,speaker:String(row.speaker||''),scripture:String(row.scripture||''),recordedOn:typeof row.recorded_on==='string'?row.recorded_on:undefined};
+ return {id:row.id,title:row.title,description:String(row.description||''),url:row.url,language:row.language,category:row.category as Video['category'],createdAt:String(row.created_at),publishedAt:String(row.published_at),official:true,audioLanguages:Array.isArray(row.audio_languages)?row.audio_languages.filter((x):x is string=>typeof x==='string'):[],captionLanguages:Array.isArray(row.caption_languages)?row.caption_languages.filter((x):x is string=>typeof x==='string'):[],speaker:String(row.speaker||''),scripture:String(row.scripture||''),recordedOn:typeof row.recorded_on==='string'?row.recorded_on:undefined};
 }
 export async function fetchVideos(filter:VideoFilter={},cursor?:Video,signal?:AbortSignal){
  if(!supabase)return {videos:[],hasMore:false};

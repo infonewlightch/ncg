@@ -9,7 +9,7 @@ async function guest<T>(sql:string,args:unknown[]=[]){await db.exec('set role an
 async function save(input:Record<string,unknown>=content,publish=false,reviewed=false,id:string|null=null){return (await user<{id:string}>(ADMIN,'select ncg_save_video($1,$2,$3,$4) id',[id,input,publish,reviewed])).rows[0].id;}
 beforeAll(async()=>{
  db=new PGlite();await db.exec("create role anon;create role authenticated;create schema auth;create table auth.users(id uuid primary key);create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid;$$;grant usage on schema auth,public to authenticated,anon;grant execute on function auth.uid() to authenticated,anon;");
- for(const file of ['001_ncg_members.sql','006_ncg_videos.sql'])await db.exec(readFileSync(new URL(`../supabase/migrations/${file}`,import.meta.url),'utf8'));
+ for(const file of ['001_ncg_members.sql','006_ncg_videos.sql','012_ncg_video_languages.sql'])await db.exec(readFileSync(new URL(`../supabase/migrations/${file}`,import.meta.url),'utf8'));
  for(const id of [MEMBER,ADMIN])await db.query('insert into auth.users values($1)',[id]);await db.query('insert into ncg_admins values($1)',[ADMIN]);
 },20000);
 afterAll(async()=>{await db?.close();});
@@ -28,6 +28,15 @@ describe('church video publishing and public catalogue',()=>{
  it('rejects executable, credentialed, spoofed YouTube and invalid media links',async()=>{
   for(const url of ['javascript:alert(1)','https://user:pass@example.com/test.mp4','https://youtube.com.evil.test/watch?v=Abc_def-123','https://example.com/page','http://example.com/test.mp4'])await expect(save({...content,url})).rejects.toThrow('invalid_video_url');
   await expect(save({...content,url:'https://cdn.example.com/messages/test.mp4?token=public-example'})).resolves.toBeTypeOf('string');
+ });
+ it('preserves paragraphs and filters by provided audio or captions, without granting write access',async()=>{
+  const id=await save({...content,title:'Multilingual sermon',description:'First line.\nSecond line.\n\nNew paragraph.',language:'ko',audio_languages:['en','pt'],caption_languages:['th','ar']},true,true);
+  const row=(await guest<{description:string}>('select * from ncg_video_feed(saved=>$1)',[[id]])).rows[0];expect(row.description).toBe('First line.\nSecond line.\n\nNew paragraph.');
+  for(const lang of ['pt-BR','ar','th'])expect((await guest('select * from ncg_video_feed(source_language=>$1,saved=>$2)',[lang,[id]])).rows).toHaveLength(1);
+  expect((await guest('select * from ncg_video_feed(source_language=>$1,saved=>$2)',['ja',[id]])).rows).toHaveLength(0);
+  await expect(save({...content,audio_languages:['en','en']})).rejects.toThrow('invalid_video_languages');
+  await expect(save({...content,caption_languages:['<script>']})).rejects.toThrow('invalid_video_languages');
+  await save({...content,audio_languages:[],caption_languages:[]},false,false,id);
  });
  it('paginates equal-time rows without omission and treats search characters literally',async()=>{
   const ids=[];for(let n=0;n<26;n++)ids.push(await save({...content,title:n===0?'Literal 100% grace':`Page test ${n}`,language:n===0?'ko':'en'},true,true));

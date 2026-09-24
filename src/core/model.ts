@@ -1,6 +1,6 @@
 export type UiLanguage = string;
 export type Media = {kind:'youtube'; id:string; url:string} | {kind:'file'; url:string};
-export type Video = { id:string; title:string; description:string; url:string; language:string; category:'sermon'|'worship'; createdAt:string; publishedAt?:string;official?:boolean;speaker?:string;scripture?:string;recordedOn?:string };
+export type Video = { id:string; title:string; description:string; url:string; language:string; category:'sermon'|'worship'; createdAt:string; publishedAt?:string;official?:boolean;speaker?:string;scripture?:string;recordedOn?:string;audioLanguages?:string[];captionLanguages?:string[] };
 export type Post = { id:string; body:string; language:string; author:string; nationality:string; category:'prayer'|'story'; createdAt:string; topic?:string };
 export type QuizProgress={answered:number;correct:number;rounds:number;bestScore:number;bestStreak:number};
 export type AppState = { version:1; ui:UiLanguage; language:string; lowData:boolean;largeText:boolean; profile:{name:string;nationality:string}; videos:Video[]; posts:Post[]; bookmarks:string[];videoSync:import('./progress').ProgressSync; completed:string[]; prayed:string[]; requests:string[];quiz:QuizProgress;quizSourceId:string;quizSync:import('./quiz-progress').QuizSync;quizImports:Record<string,QuizProgress>;bibleBookmarks:import('./bible-bookmarks').BibleBookmark[];bibleSync:import('./bible-bookmarks').BookmarkSync;progressSync:import('./progress').ProgressSync };

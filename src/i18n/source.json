@@ -516,10 +516,6 @@
     "ko": "새빛교회"
   },
   {
-    "en": "Saved on this device",
-    "ko": "기기에 등록한 영상"
-  },
-  {
     "en": "Remove bookmark",
     "ko": "보관 해제"
   },
@@ -544,80 +540,48 @@
     "ko": "말씀과 함께하는 시간을 가져보세요."
   },
   {
-    "en": "Captions depend on the languages available for this video. Availability and accuracy vary by provider.",
-    "ko": "자막은 영상에 제공된 언어만 이용할 수 있습니다. 자동 번역의 정확성과 제공 여부는 영상 서비스에 따라 달라집니다."
+    "en": "Automatic translation",
+    "ko": "자동 번역"
+  },
+  {
+    "en": "Show translation",
+    "ko": "번역 보기"
+  },
+  {
+    "en": "Show original",
+    "ko": "원문 보기"
+  },
+  {
+    "en": "Translating into your language…",
+    "ko": "내 언어로 번역 중…"
+  },
+  {
+    "en": "Translation unavailable for this language · showing original.",
+    "ko": "이 언어의 번역을 불러오지 못해 원문으로 표시합니다."
+  },
+  {
+    "en": "Choose your audio track and subtitles separately in the video settings (⚙).",
+    "ko": "영상의 설정(⚙)에서 오디오 트랙과 자막 언어를 각각 선택하세요."
+  },
+  {
+    "en": "Dubbed audio",
+    "ko": "오디오 더빙"
+  },
+  {
+    "en": "Subtitles",
+    "ko": "자막"
   },
   {
     "en": "Open original",
     "ko": "원본에서 열기"
   },
   {
-    "en": "Enter a valid YouTube video link or HTTPS MP4/WebM URL.",
-    "ko": "유효한 YouTube 영상 링크 또는 HTTPS MP4/WebM 주소를 입력해주세요."
+    "en": "No messages here yet.",
+    "ko": "아직 이 말씀을 찾지 못했어요."
   },
   {
-    "en": "Please enter a title.",
-    "ko": "영상 제목을 입력해주세요."
-  },
-  {
-    "en": "This video is already in your library.",
-    "ko": "이미 등록된 영상입니다."
-  },
-  {
-    "en": "Video saved on this device.",
-    "ko": "영상이 이 기기에 등록되었습니다."
-  },
-  {
-    "en": "Add a video link",
-    "ko": "영상 링크 등록"
-  },
-  {
-    "en": "Saved in this browser. It is not published to other members.",
-    "ko": "현재는 이 브라우저에 저장됩니다. 회원 전체에게 공개되지는 않습니다."
-  },
-  {
-    "en": "YouTube or hosted video URL",
-    "ko": "YouTube 또는 직접 호스팅 영상 주소"
-  },
-  {
-    "en": "Title",
-    "ko": "제목"
-  },
-  {
-    "en": "Description",
-    "ko": "설명"
-  },
-  {
-    "en": "Category",
-    "ko": "분류"
-  },
-  {
-    "en": "Sermon / message",
-    "ko": "설교 · 말씀"
-  },
-  {
-    "en": "Online worship",
-    "ko": "온라인 예배"
-  },
-  {
-    "en": "Video language",
-    "ko": "영상 언어"
-  },
-  {
-    "en": "Add video",
-    "ko": "영상 등록"
-  },
-  {
-    "en": "Your first connection to the Word",
-    "ko": "말씀을 만나는 첫 연결"
-  },
-  {
-    "en": "Add a YouTube link to find and watch it here.",
-    "ko": "YouTube 링크를 등록하면 여기에서 바로 찾고 시청할 수 있어요."
-  },
-  {
-    "en": "Add a video",
-    "ko": "영상 링크 등록"
+    "en": "Core Gospel content is free and open to everyone.",
+    "ko": "핵심 말씀 콘텐츠는 누구나 무료로 이용할 수 있습니다."
   },
   {
     "en": "Read the Bible offline",
@@ -948,28 +912,8 @@
     "ko": "은혜나눔"
   },
   {
-    "en": "Translating into your language…",
-    "ko": "내 언어로 번역 중…"
-  },
-  {
-    "en": "Automatic translation",
-    "ko": "자동 번역"
-  },
-  {
-    "en": "Show translation",
-    "ko": "번역 보기"
-  },
-  {
-    "en": "Show original",
-    "ko": "원문 보기"
-  },
-  {
     "en": "Translation service not connected · showing original.",
     "ko": "번역 서비스 연결 전 · 원문으로 표시합니다."
-  },
-  {
-    "en": "Translation unavailable for this language · showing original.",
-    "ko": "이 언어의 번역을 불러오지 못해 원문으로 표시합니다."
   },
   {
     "en": "Prayed with you",
@@ -2776,10 +2720,6 @@
     "ko": "말씀을 불러오는 중…"
   },
   {
-    "en": "No messages here yet.",
-    "ko": "아직 이 말씀을 찾지 못했어요."
-  },
-  {
     "en": "Try another search, or explore messages in their original language.",
     "ko": "다른 검색어를 사용하거나 원문 언어의 말씀을 살펴보세요."
   },
@@ -2798,10 +2738,6 @@
   {
     "en": "More messages",
     "ko": "말씀 더 보기"
-  },
-  {
-    "en": "Core Gospel content is free and open to everyone.",
-    "ko": "핵심 말씀 콘텐츠는 누구나 무료로 이용할 수 있습니다."
   },
   {
     "en": "Genesis",

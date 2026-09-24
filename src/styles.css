@@ -1113,3 +1113,14 @@ html[dir=rtl] .brand-wordmark { direction:ltr; }
 @media(min-width:961px){html[dir=rtl] .sidebar{left:auto;right:0}html[dir=rtl] .app-body{margin-left:0;margin-right:240px}}
 .language-fallback { flex-wrap:wrap; }
 .language-fallback > span { flex:1; min-width:160px; }
+
+/* Preserve the editor's paragraphs and intentional line breaks in sermon notes. */
+.video-description{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.85}
+.video-language-help{margin:20px 0 24px}
+.video-language-help>p{display:grid;gap:6px;margin:14px 0;font-size:.875rem;line-height:1.8}
+.video-language-help>p>span{color:var(--muted)}
+.admin-track-languages{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin:12px 0}
+.admin-track-languages label{display:flex;gap:8px;align-items:center;font-weight:400}
+.admin-track-languages input{width:auto}
+
+.admin-login{max-width:480px;margin:40px auto}.admin-login>.text-link{margin-top:24px}.admin-account{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-bottom:24px}.admin-account>span{overflow-wrap:anywhere}

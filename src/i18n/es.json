@@ -792,5 +792,8 @@
   "Menus and guidance are translated into your language. Where automatic translation is unavailable, English remains available. Published Bible editions come first; if no edition is connected, you can request an English-source translation aid.": "Los menús y las indicaciones se traducen a tu idioma. Si la traducción automática no está disponible, puedes usar el inglés. Las ediciones bíblicas publicadas tienen prioridad; si no hay ninguna conectada, puedes solicitar una traducción de apoyo basada en el inglés.",
   "Automatic interface translation": "Traducción automática de la interfaz",
   "Old & New Testaments": "Antiguo y Nuevo Testamento",
-  "books": "libros"
+  "books": "libros",
+  "Choose your audio track and subtitles separately in the video settings (⚙).": "Elige la pista de audio y los subtítulos por separado en los ajustes del vídeo (⚙).",
+  "Dubbed audio": "Audio doblado",
+  "Subtitles": "Subtítulos"
 }
