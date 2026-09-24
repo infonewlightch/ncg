@@ -1,6 +1,15 @@
 # SNS 공유 썸네일
 
-## 최종 OG 선택 — 사용자가 지정한 NCG.png
+## 2026-09-24 중앙 정렬 수정
+
+- 사용자 요청에 따라 NCG 세 글자와 영문 풀네임의 중심을 캔버스 중심에 맞췄다. 기존에는 금색 점을 포함한 전체 외곽이 중앙이어서 글자가 약 41.5px 왼쪽으로 보였다.
+- 기존 승인 로고와 일치하는 윤곽선 벡터 전체를 수평 이동했다. 글자 크기·형태, 풀네임의 양 끝선, 금색 점의 상대 위치, 흰색 단색 배경, 1800×945 크기는 유지했다.
+- 현재 파일: `public/brand/ncg-og-centered.png` 및 같은 이름 SVG. NCG/풀네임의 남색 픽셀 외곽 중심은 x=900. Open Graph/Twitter 이미지 URL도 새 파일명으로 변경해 이전 이미지와 구분했다.
+- 재현 스크립트: `scripts/center-og.cjs` (저작 도구의 sharp 필요). 원본 NCG.png와 이전 공유 파일은 보존했다.
+- 화면 좌상단 홈 링크는 같은 윤곽선 벡터의 여백만 좁힌 `public/brand/ncg-wordmark.svg`를 사용한다. 별도 십자가 심볼을 제거하고 PC 180px/모바일 124px 너비로 표시한다. 본문과 사명 영역의 십자가는 유지한다.
+- 공유 제목 `NCG - New Light Church Global`, 사이트명 `NCG`, 설명 `One Gospel. Every Nation. Every Language.` 유지. SNS 자체 캐시의 갱신 시점은 플랫폼마다 다르다.
+
+## 이전 OG 선택 — 사용자가 지정한 NCG.png
 
 - 사용자가 `NCG.png`를 지정하며 "이것을 og로 써"라고 확정했다.
 - 원본을 수정·리사이즈 없이 `public/brand/ncg-og-final.png`로 복사했다. 1800×945 PNG.
