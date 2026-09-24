@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-09-24T20:04:39.439090+00:00",
+  "automationId": "ncg-qt",
+  "status": "partial_reauthentication_required",
+  "repositoryConcurrentEditorFound": false,
+  "september": {
+    "month": "2026-09",
+    "freshOfficialCheckCompleted": false,
+    "reason": "Duranno calendar redirected to login; maintained browser session expired; blank normal login form left for user.",
+    "previousVerificationDate": "2026-09-24"
+  },
+  "october": {
+    "month": "2026-10",
+    "sourceUrl": "https://www.duranno.com/qt/plus/202610_daily_schedule.pdf",
+    "pdfSha256": "db6f499b3ed3aca6812da37f0e5d3f34f364eb19a2d10bf3af2d6107f4845f93",
+    "pdfPages": 1,
+    "visuallyInspected": true,
+    "parsedDates": 31,
+    "allMatch": true,
+    "mismatchedDates": []
+  },
+  "publishedSchedule": {
+    "checkedAt": "2026-09-24T20:03:03.055Z",
+    "httpStatus": 200,
+    "expectedCount": 61,
+    "publishedCount": 61,
+    "mismatchedDates": [],
+    "unexpectedDates": [],
+    "allMatch": true
+  },
+  "browser": {
+    "url": "https://newlightchurchglobal.com/#/qt?date=2026-09-25",
+    "selectedDate": "2026-09-25",
+    "visiblePassage": "1CH.15.1-15",
+    "verified": true
+  },
+  "tests": {
+    "command": "npx vitest run src/core/qt-schedule.test.ts",
+    "filesPassed": 1,
+    "testsPassed": 4
+  },
+  "scheduleChanges": 0,
+  "databaseWrites": 0,
+  "deploymentRequired": false,
+  "nextAction": "Resume official September calendar comparison after user restores Duranno login. Do not infer September has no changes from the matching stored database."
+}
