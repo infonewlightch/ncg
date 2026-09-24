@@ -2,6 +2,7 @@ import {useEffect,useRef,useState} from 'react';
 import {useVideoTranslation} from './useVideoTranslation';
 import {Play,Bookmark,ExternalLink,Globe,Maximize,Minimize} from 'lucide-react';
 import {parseMedia,mediaEmbed} from '../core/media';
+import {requestVideoLandscape} from '../core/video-orientation';
 import type {Video} from '../core/model';
 import {useApp} from '../state';
 import {Modal,Empty} from './Ui';
@@ -19,8 +20,9 @@ export function VideoPlayer({video,onClose}:{video:Video;onClose:()=>void}){
  const stage=useRef<FullscreenStage>(null),file=useRef<FullscreenVideo>(null),ownsFullscreen=useRef(false),nativeVideo=useRef(false);
  const [view,setView]=useState<'inline'|'expanded'|'fullscreen'>('inline');const expanded=view!=='inline';
  useEffect(()=>{
-  const sync=()=>{const doc=document as FullscreenDocument;const active=doc.fullscreenElement||doc.webkitFullscreenElement;if(active&&stage.current?.contains(active)){ownsFullscreen.current=true;setView('fullscreen');}else if(ownsFullscreen.current){ownsFullscreen.current=false;setView('inline');}};
-  document.addEventListener('fullscreenchange',sync);document.addEventListener('webkitfullscreenchange',sync);return()=>{document.removeEventListener('fullscreenchange',sync);document.removeEventListener('webkitfullscreenchange',sync);};
+  let releaseOrientation=()=>{};
+  const sync=()=>{const doc=document as FullscreenDocument;const active=doc.fullscreenElement||doc.webkitFullscreenElement;if(active&&stage.current?.contains(active)){if(!ownsFullscreen.current)releaseOrientation=requestVideoLandscape(screen.orientation);ownsFullscreen.current=true;setView('fullscreen');}else if(ownsFullscreen.current){releaseOrientation();ownsFullscreen.current=false;setView('inline');}};
+  document.addEventListener('fullscreenchange',sync);document.addEventListener('webkitfullscreenchange',sync);return()=>{releaseOrientation();document.removeEventListener('fullscreenchange',sync);document.removeEventListener('webkitfullscreenchange',sync);};
  },[]);
  useEffect(()=>{const element=file.current;if(!element)return;const done=()=>{nativeVideo.current=false;setView('inline');};element.addEventListener('webkitendfullscreen',done);return()=>element.removeEventListener('webkitendfullscreen',done);},[playing]);
  async function expand(){
@@ -44,6 +46,7 @@ export function VideoPlayer({video,onClose}:{video:Video;onClose:()=>void}){
    <div className="player">{!playing?<button className="player-start" aria-label={t('영상 재생','Play video')} onClick={()=>setPlaying(true)}><span className="play-circle"><Play size={28} fill="currentColor"/></span><b>{t('영상 재생','Play video')}</b><small>{t('재생을 누르면 영상 서비스에 연결됩니다.','Connects to the video provider when you play.')}</small></button>:media?.kind==='youtube'?<iframe title={copy.title} src={mediaEmbed(media,state.language)} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"/>:media?.kind==='file'?<video ref={file} src={media.url} controls autoPlay playsInline onError={()=>setFailed(true)}/>:null}</div>
    <div className="video-controls"><button type="button" onClick={()=>void (expanded?shrink():expand())} disabled={!media}>{expanded?<Minimize size={19}/>:<Maximize size={19}/>}<span>{view==='fullscreen'?t('전체화면 종료','Exit fullscreen'):expanded?t('확대 종료','Exit expanded view'):t('전체화면','Fullscreen')}</span></button>{media&&<a href={media.url} target="_blank" rel="noreferrer">{media.kind==='youtube'?t('YouTube에서 열기','Open in YouTube'):t('원본에서 열기','Open original')}<ExternalLink size={17}/></a>}</div>
    {view==='expanded'&&<p className="video-screen-note" role="status">{t('이 브라우저에서는 화면 확대 보기로 전환됩니다.','Using expanded view in this browser.')}</p>}
+   {expanded&&<p className="video-screen-note video-rotate-hint">{t('휴대폰을 가로로 돌리면 더 크게 볼 수 있어요.','Rotate your phone sideways for a wider view.')}</p>}
   </div>
   <div className="video-details">
    {failed&&<p className="error" role="alert">{t('영상 파일에 연결하지 못했습니다. 주소와 접근 권한을 확인해주세요.','Could not load this file. Check the URL and access permissions.')}</p>}

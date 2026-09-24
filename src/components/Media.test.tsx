@@ -28,13 +28,14 @@ it('falls back to expanded viewing and preserves the playing iframe when returni
 });
 it('requests native fullscreen on the video stage and restores inline viewing on exit',async()=>{
  let active:Element|null=null;
+ const orientation={lock:vi.fn().mockResolvedValue(undefined),unlock:vi.fn()};vi.stubGlobal('screen',{orientation});
  Object.defineProperty(document,'fullscreenElement',{configurable:true,get:()=>active});
  HTMLElement.prototype.requestFullscreen=async function(){expect(this.tagName).not.toBe('DIALOG');active=this;document.dispatchEvent(new Event('fullscreenchange'));};
  document.exitFullscreen=async()=>{active=null;document.dispatchEvent(new Event('fullscreenchange'));};
  await act(async()=>root.render(<VideoPlayer video={video} onClose={close}/>));expect(button('Fullscreen')).toBeDefined();await act(async()=>button('Fullscreen')!.click());
- expect(active).toBe(container.querySelector('.video-stage'));expect(button('Exit fullscreen')).toBeDefined();
+ expect(active).toBe(container.querySelector('.video-stage'));expect(button('Exit fullscreen')).toBeDefined();expect(orientation.lock).toHaveBeenCalledExactlyOnceWith('landscape');
  const frame=container.querySelector('iframe');await act(async()=>button('Exit fullscreen')!.click());
- expect(active).toBeNull();expect(container.querySelector('dialog')?.classList.contains('video-expanded')).toBe(false);expect(container.querySelector('iframe')).toBe(frame);
+ expect(active).toBeNull();expect(container.querySelector('dialog')?.classList.contains('video-expanded')).toBe(false);expect(container.querySelector('iframe')).toBe(frame);expect(orientation.unlock).toHaveBeenCalledOnce();
 });
 it('keeps a usable expanded player when a browser rejects the fullscreen request',async()=>{
  HTMLElement.prototype.requestFullscreen=async()=>{throw new Error('Fullscreen blocked by browser');};

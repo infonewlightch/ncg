@@ -1143,6 +1143,8 @@ html[dir=rtl] .brand-wordmark { direction:ltr; }
 .video-details{padding:20px 24px max(24px,env(safe-area-inset-bottom));overflow-wrap:anywhere}
 .video-details>p:first-child{margin-top:0}
 .video-screen-note{margin:0;padding:5px 16px 10px;color:#dbe3ed;font-size:12px;line-height:1.5;text-align:center;flex:none}
+.video-rotate-hint{display:none}
+@media(orientation:portrait) and (pointer:coarse){.video-rotate-hint{display:block}}
 .modal.video-modal.video-expanded{inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;border-radius:0;display:flex;overflow:hidden;background:#090f19}
 .video-expanded>.modal-heading,.video-expanded>.video-details{display:none}
 .video-expanded>.video-stage,.video-stage:fullscreen{width:100%;height:100%;flex:1;min-height:0;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}

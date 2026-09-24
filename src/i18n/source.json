@@ -556,6 +556,10 @@
     "ko": "이 브라우저에서는 화면 확대 보기로 전환됩니다."
   },
   {
+    "en": "Rotate your phone sideways for a wider view.",
+    "ko": "휴대폰을 가로로 돌리면 더 크게 볼 수 있어요."
+  },
+  {
     "en": "Could not load this file. Check the URL and access permissions.",
     "ko": "영상 파일에 연결하지 못했습니다. 주소와 접근 권한을 확인해주세요."
   },
