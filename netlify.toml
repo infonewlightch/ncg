@@ -14,3 +14,6 @@
 
 [functions."bible-translation"]
   included_files = ["public/bibles/webp/*.json"]
+
+[functions."education-translation"]
+  included_files = ["public/quizzes/en.json"]

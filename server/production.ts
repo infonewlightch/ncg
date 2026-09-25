@@ -1,3 +1,4 @@
+import {educationTranslationNode} from './education-translation.ts';
 import {createServer,type IncomingMessage,type ServerResponse} from 'node:http';
 import {readFile,realpath,stat} from 'node:fs/promises';
 import {resolve,sep,extname} from 'node:path';
@@ -34,6 +35,7 @@ export function createProductionHandler(env:Record<string,string>,dist=resolve(f
     const configured=pushConfiguration(env);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({configured,...(configured?{publicKey:env.NCG_VAPID_PUBLIC_KEY}:{})}));return;
    }
    if(url.pathname==='/api/video-translation'){await videoTranslationNode(req,res,env);return;}
+   if(url.pathname==='/api/education-translation'){await educationTranslationNode(req,res,env);return;}
    if(url.pathname==='/api/interface-translation'){await interfaceTranslationNode(req,res,env);return;}
    if(url.pathname==='/api/bible-translation'){await bibleTranslationNode(req,res,env);return;}
    if(url.pathname==='/api/bible-source'){await bibleSourceHandler(req,res);return;}
