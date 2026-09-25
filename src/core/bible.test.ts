@@ -1,10 +1,22 @@
 import {readFileSync,readdirSync} from 'node:fs';
 import {describe,it,expect,vi} from 'vitest';
-import {firstVerse,preferredBibleVersion,verseInSelection,navigateBibleChapter,koreanRevisedLink,webVersion,adjacentChapter,readReaderPreferences,resolvePassage,safeBibleLink,bibleRequest,parsePassage,type BibleIndex} from './bible';
+import {externalBibleLink,firstVerse,preferredBibleVersion,verseInSelection,navigateBibleChapter,koreanRevisedLink,webVersion,adjacentChapter,readReaderPreferences,resolvePassage,safeBibleLink,bibleRequest,parsePassage,type BibleVersion,type BibleIndex} from './bible';
 import canonicalBooks from '../data/bible-books.json';
 
 const index:BibleIndex={text_direction:'ltr',books:[{id:'GEN',title:'Genesis',full_title:'Genesis',abbreviation:'Gen',canon:'old_testament',chapters:[{id:1,title:1,passage_id:'GEN.1',verses:[{id:1,title:1,passage_id:'GEN.1.1'}]}]},{id:'EXO',title:'Exodus',full_title:'Exodus',abbreviation:'Exo',canon:'old_testament',chapters:[{id:1,title:1,passage_id:'EXO.1',verses:[]}]}]};
 describe('Bible navigation and source integrity',()=>{
+ it('offers the publisher-identified Lao LCV as external reading without unlocking in-app Scripture',async()=>{
+  const spy=vi.spyOn(globalThis,'fetch').mockRejectedValue(Error('No network expected'));
+  try{
+   const {data}=await bibleRequest<{data:BibleVersion[]}>('versions',{language:'lo-LA'},new AbortController().signal);
+   expect(data).toHaveLength(1);expect(data[0]).toMatchObject({id:'3755',abbreviation:'LCV',language_tag:'lo',access:'external'});
+   expect(externalBibleLink(data[0],'JHN.3.16-18')).toBe('https://www.bible.com/bible/3755/JHN.3.LCV');
+   expect(externalBibleLink(data[0],'NAH.1.7')).toBe('https://www.bible.com/bible/3755/NAM.1.LCV');
+   expect(externalBibleLink(data[0],'TOB.1')).toBe('https://www.bible.com/bible/3755/GEN.1.LCV');
+   await expect(bibleRequest('passage',{version:'3755',passage:'JHN.3'},new AbortController().signal)).rejects.toThrow('bible_edition_not_approved');
+   expect(spy).not.toHaveBeenCalled();
+  }finally{spy.mockRestore();}
+ });
  it('prefers actual NKRV for Korean while respecting a saved version and distinguishing KRV',()=>{
   const krv={...webVersion,id:'88',title:'개역한글',localized_title:'개역한글',abbreviation:'KRV',localized_abbreviation:'KRV',language_tag:'ko'};const nkrv={...krv,id:'fixture-nkrv',title:'개역개정',localized_title:'개역개정',abbreviation:'NKRV'};
   expect(preferredBibleVersion([krv,nkrv],'ko-KR')?.id).toBe('fixture-nkrv');expect(preferredBibleVersion([krv,nkrv],'ko','88')?.id).toBe('88');expect(preferredBibleVersion([krv],'ko')?.title).toBe('개역한글');expect(koreanRevisedLink('JHN.3.16-18')).toBe('https://bible.bskorea.or.kr/bible/NKRV/JHN.3');

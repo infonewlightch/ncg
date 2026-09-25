@@ -1,0 +1,600 @@
+{
+  "pdfAudit": {
+    "checkedAt": "2026-09-25T01:02:16.205978+00:00",
+    "sourceFile": "User-supplied Lao-The_New_Testament_2015.pdf",
+    "sha256": "26083eeeb0c726719e77cab0a65b06728d0a9302dd0c4bf17d8e56cff6bbc1d4",
+    "bytes": 7841118,
+    "pages": 492,
+    "encrypted": false,
+    "pdfMetadata": {
+      "creator": "pdftk 2.02 - www.pdftk.com",
+      "producer": "itext-paulo-155 (itextpdf.sf.net-lowagie.com)",
+      "creationDate": "2022-06-05T12:37:32Z"
+    },
+    "editionAsPrinted": {
+      "title": "ພຣະຄຳພີ ພຣະສັນຍາໃໝ່",
+      "edition": "2015",
+      "evidencePage": 1
+    },
+    "lineageAsPrinted": {
+      "description": "Revised and extended from the Lao Shorter Old Testament and New Testament, originally published in 1991 by Thailand Bible Society.",
+      "evidencePage": 2,
+      "reference": "http://laobible.net/"
+    },
+    "scope": {
+      "testament": "New Testament only",
+      "tocBooks": 27,
+      "first": "Matthew",
+      "last": "Revelation",
+      "tocPage": 2,
+      "explicitChapterHeadings": 256,
+      "singleChapterBooksWithoutHeading": [
+        "PHM",
+        "2JN",
+        "3JN",
+        "JUD"
+      ],
+      "chapterHeadingCoverageMatchesExpected": true,
+      "verseContentCompletenessVerified": false
+    },
+    "rights": {
+      "copyrightOrLicenceFoundInPDF": false,
+      "full492PageTextSearch": true,
+      "unrestrictedRedistributionEstablished": false
+    },
+    "provenance": {
+      "2015RevisionPublisherIdentityEstablished": false,
+      "ThailandBibleSocietyAttributionAppliesTo1991Source": true,
+      "sameAsRLV15Established": false,
+      "churchTheologicalReviewComplete": false
+    },
+    "extractability": {
+      "all492PagesContainText": true,
+      "scanOnly": false,
+      "textNotSafeForDirectVerseImport": true,
+      "evidence": "PDF page 3 renders Lao cleanly but pypdf splits vowel/tone combining sequences and inserts spaces, e.g. ໜັງສ  ລ  ຳດ ັບ. Mixed embedded VangVieng MX and Saysettha OT fonts; some WinAnsi font resources lack ToUnicode maps.",
+      "visualPagesReviewed": [
+        1,
+        2,
+        3
+      ]
+    },
+    "currentNCG": {
+      "laoReaderEditionPresent": false,
+      "laoResearchCatalogueEntryPresent": false,
+      "laoApprovedPolicyEntryPresent": false,
+      "interfaceLocaleSeparate": "lo exists as UI translation; not a scripture edition"
+    },
+    "externalReferences": [
+      {
+        "url": "https://laobible.net/",
+        "finding": "Origin identified by attached PDF; currently advertises Popular 2015 complete Bible and separate Thai-Isan-adapted Spoken Lao NT. Acknowledges UBS incomplete 1979 Lao edition. This alone does not grant NCG redistribution or establish current revision publisher."
+      },
+      {
+        "url": "https://dir.sermon-online.com/lao/Bible/",
+        "finding": "Public directory lists same filename, 7841 KB, timestamp 2022-06-05 12:37; likely mirror relationship, byte identity not tested."
+      },
+      {
+        "url": "https://www.bible.com/versions/3755",
+        "finding": "Distinct Biblica Lao Contemporary Version, copyright 2023/2025, all rights reserved. Not the submitted 2015 PDF."
+      },
+      {
+        "url": "https://www.bible.com/audio-bible-app-versions/1727-rlv15-revised-lao-version-2015",
+        "finding": "Distinct named RLV15 entry (Laos Partnership); do not assume same edition as this PDF."
+      }
+    ],
+    "recommendation": "Retain user file as source candidate. Before public in-app scripture addition, verify 2015 revision producer, accepted edition lineage, and reuse terms with origin/publisher. Prefer exact authorized Unicode/USFM/USX source rather than repairing PDF extraction with AI. If only PDF is authorized, original PDF reading can preserve glyphs, with explicit NT-only coverage; never synthesize missing OT or label PDF as another known edition. Do not widen provider allowlist based on filename, year, or 27-book count alone."
+  },
+  "externalLCV": {
+    "checkedAt": "2026-09-25T01:11:17.270452+00:00",
+    "versionId": 3755,
+    "abbreviation": "LCV",
+    "publisher": "Biblica, Inc.",
+    "sourceUrl": "https://www.bible.com/versions/3755",
+    "sourceHttpStatus": 200,
+    "canonBaseline": "NCG Protestant 66-book chapter counts",
+    "bookCount": 66,
+    "oldTestamentBookCount": 39,
+    "newTestamentBookCount": 27,
+    "chapterLinkCount": 1189,
+    "expectedChapterCount": 1189,
+    "mismatches": [],
+    "extraBooks": [],
+    "allExpectedChaptersLinked": true,
+    "nahumMapping": {
+      "canonicalCode": "NAH",
+      "providerCode": "NAM",
+      "example": "https://www.bible.com/bible/3755/NAM.1.LCV"
+    },
+    "linkPattern": "https://www.bible.com/bible/3755/{providerCode}.{chapter}.LCV",
+    "linkProbes": [
+      {
+        "url": "https://www.bible.com/bible/3755/JHN.3.LCV",
+        "method": "HEAD",
+        "status": 200,
+        "finalUrl": "https://www.bible.com/bible/3755/JHN.3.LCV",
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://www.bible.com/bible/3755/1CH.21.LCV",
+        "method": "HEAD",
+        "status": 200,
+        "finalUrl": "https://www.bible.com/bible/3755/1CH.21.LCV",
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://www.bible.com/bible/3755/NAM.1.LCV",
+        "method": "HEAD",
+        "status": 200,
+        "finalUrl": "https://www.bible.com/bible/3755/NAM.1.LCV",
+        "contentType": "text/html; charset=utf-8"
+      }
+    ],
+    "books": [
+      {
+        "canonicalCode": "GEN",
+        "providerCode": "GEN",
+        "chapters": 50,
+        "expectedChapters": 50,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "EXO",
+        "providerCode": "EXO",
+        "chapters": 40,
+        "expectedChapters": 40,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "LEV",
+        "providerCode": "LEV",
+        "chapters": 27,
+        "expectedChapters": 27,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "NUM",
+        "providerCode": "NUM",
+        "chapters": 36,
+        "expectedChapters": 36,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "DEU",
+        "providerCode": "DEU",
+        "chapters": 34,
+        "expectedChapters": 34,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JOS",
+        "providerCode": "JOS",
+        "chapters": 24,
+        "expectedChapters": 24,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JDG",
+        "providerCode": "JDG",
+        "chapters": 21,
+        "expectedChapters": 21,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "RUT",
+        "providerCode": "RUT",
+        "chapters": 4,
+        "expectedChapters": 4,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "1SA",
+        "providerCode": "1SA",
+        "chapters": 31,
+        "expectedChapters": 31,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "2SA",
+        "providerCode": "2SA",
+        "chapters": 24,
+        "expectedChapters": 24,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "1KI",
+        "providerCode": "1KI",
+        "chapters": 22,
+        "expectedChapters": 22,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "2KI",
+        "providerCode": "2KI",
+        "chapters": 25,
+        "expectedChapters": 25,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "1CH",
+        "providerCode": "1CH",
+        "chapters": 29,
+        "expectedChapters": 29,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "2CH",
+        "providerCode": "2CH",
+        "chapters": 36,
+        "expectedChapters": 36,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "EZR",
+        "providerCode": "EZR",
+        "chapters": 10,
+        "expectedChapters": 10,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "NEH",
+        "providerCode": "NEH",
+        "chapters": 13,
+        "expectedChapters": 13,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "EST",
+        "providerCode": "EST",
+        "chapters": 10,
+        "expectedChapters": 10,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JOB",
+        "providerCode": "JOB",
+        "chapters": 42,
+        "expectedChapters": 42,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "PSA",
+        "providerCode": "PSA",
+        "chapters": 150,
+        "expectedChapters": 150,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "PRO",
+        "providerCode": "PRO",
+        "chapters": 31,
+        "expectedChapters": 31,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "ECC",
+        "providerCode": "ECC",
+        "chapters": 12,
+        "expectedChapters": 12,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "SNG",
+        "providerCode": "SNG",
+        "chapters": 8,
+        "expectedChapters": 8,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "ISA",
+        "providerCode": "ISA",
+        "chapters": 66,
+        "expectedChapters": 66,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JER",
+        "providerCode": "JER",
+        "chapters": 52,
+        "expectedChapters": 52,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "LAM",
+        "providerCode": "LAM",
+        "chapters": 5,
+        "expectedChapters": 5,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "EZK",
+        "providerCode": "EZK",
+        "chapters": 48,
+        "expectedChapters": 48,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "DAN",
+        "providerCode": "DAN",
+        "chapters": 12,
+        "expectedChapters": 12,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "HOS",
+        "providerCode": "HOS",
+        "chapters": 14,
+        "expectedChapters": 14,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JOL",
+        "providerCode": "JOL",
+        "chapters": 3,
+        "expectedChapters": 3,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "AMO",
+        "providerCode": "AMO",
+        "chapters": 9,
+        "expectedChapters": 9,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "OBA",
+        "providerCode": "OBA",
+        "chapters": 1,
+        "expectedChapters": 1,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JON",
+        "providerCode": "JON",
+        "chapters": 4,
+        "expectedChapters": 4,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "MIC",
+        "providerCode": "MIC",
+        "chapters": 7,
+        "expectedChapters": 7,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "NAH",
+        "providerCode": "NAM",
+        "chapters": 3,
+        "expectedChapters": 3,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "HAB",
+        "providerCode": "HAB",
+        "chapters": 3,
+        "expectedChapters": 3,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "ZEP",
+        "providerCode": "ZEP",
+        "chapters": 3,
+        "expectedChapters": 3,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "HAG",
+        "providerCode": "HAG",
+        "chapters": 2,
+        "expectedChapters": 2,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "ZEC",
+        "providerCode": "ZEC",
+        "chapters": 14,
+        "expectedChapters": 14,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "MAL",
+        "providerCode": "MAL",
+        "chapters": 4,
+        "expectedChapters": 4,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "MAT",
+        "providerCode": "MAT",
+        "chapters": 28,
+        "expectedChapters": 28,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "MRK",
+        "providerCode": "MRK",
+        "chapters": 16,
+        "expectedChapters": 16,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "LUK",
+        "providerCode": "LUK",
+        "chapters": 24,
+        "expectedChapters": 24,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JHN",
+        "providerCode": "JHN",
+        "chapters": 21,
+        "expectedChapters": 21,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "ACT",
+        "providerCode": "ACT",
+        "chapters": 28,
+        "expectedChapters": 28,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "ROM",
+        "providerCode": "ROM",
+        "chapters": 16,
+        "expectedChapters": 16,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "1CO",
+        "providerCode": "1CO",
+        "chapters": 16,
+        "expectedChapters": 16,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "2CO",
+        "providerCode": "2CO",
+        "chapters": 13,
+        "expectedChapters": 13,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "GAL",
+        "providerCode": "GAL",
+        "chapters": 6,
+        "expectedChapters": 6,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "EPH",
+        "providerCode": "EPH",
+        "chapters": 6,
+        "expectedChapters": 6,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "PHP",
+        "providerCode": "PHP",
+        "chapters": 4,
+        "expectedChapters": 4,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "COL",
+        "providerCode": "COL",
+        "chapters": 4,
+        "expectedChapters": 4,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "1TH",
+        "providerCode": "1TH",
+        "chapters": 5,
+        "expectedChapters": 5,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "2TH",
+        "providerCode": "2TH",
+        "chapters": 3,
+        "expectedChapters": 3,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "1TI",
+        "providerCode": "1TI",
+        "chapters": 6,
+        "expectedChapters": 6,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "2TI",
+        "providerCode": "2TI",
+        "chapters": 4,
+        "expectedChapters": 4,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "TIT",
+        "providerCode": "TIT",
+        "chapters": 3,
+        "expectedChapters": 3,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "PHM",
+        "providerCode": "PHM",
+        "chapters": 1,
+        "expectedChapters": 1,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "HEB",
+        "providerCode": "HEB",
+        "chapters": 13,
+        "expectedChapters": 13,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JAS",
+        "providerCode": "JAS",
+        "chapters": 5,
+        "expectedChapters": 5,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "1PE",
+        "providerCode": "1PE",
+        "chapters": 5,
+        "expectedChapters": 5,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "2PE",
+        "providerCode": "2PE",
+        "chapters": 3,
+        "expectedChapters": 3,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "1JN",
+        "providerCode": "1JN",
+        "chapters": 5,
+        "expectedChapters": 5,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "2JN",
+        "providerCode": "2JN",
+        "chapters": 1,
+        "expectedChapters": 1,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "3JN",
+        "providerCode": "3JN",
+        "chapters": 1,
+        "expectedChapters": 1,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "JUD",
+        "providerCode": "JUD",
+        "chapters": 1,
+        "expectedChapters": 1,
+        "allChapterLinksPresent": true
+      },
+      {
+        "canonicalCode": "REV",
+        "providerCode": "REV",
+        "chapters": 22,
+        "expectedChapters": 22,
+        "allChapterLinksPresent": true
+      }
+    ],
+    "scope": "Book/chapter link metadata only. No scripture body downloaded or saved. HEAD probes check route availability; no claim of all verse correctness, native-language or theological review.",
+    "scriptureTextStored": false
+  }
+}

@@ -2,13 +2,13 @@
 import {afterEach,beforeEach,it,expect,vi} from 'vitest';
 import {act} from 'react';
 import {createRoot,type Root} from 'react-dom/client';
-const mocks=vi.hoisted(()=>({request:vi.fn()}));
-vi.mock('../state',()=>({useApp:()=>({state:{language:'ko',ui:'en'},t:(_ko:string,en:string)=>en})}));
+const mocks=vi.hoisted(()=>({request:vi.fn(),language:'ko'}));
+vi.mock('../state',()=>({useApp:()=>({state:{language:mocks.language,ui:'en'},t:(_ko:string,en:string)=>en})}));
 vi.mock('../core/bible',async()=>({...await vi.importActual('../core/bible'),bibleRequest:mocks.request}));
 import {QtScripture} from './QtScripture';
 let root:Root,container:HTMLElement;
 beforeEach(()=>{
- vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT',true);vi.clearAllMocks();
+ vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT',true);vi.clearAllMocks();mocks.language='ko';
  document.body.innerHTML='<div id="root"></div>';container=document.getElementById('root')!;root=createRoot(container);
  mocks.request.mockImplementation(async(resource:string)=>resource==='versions'?{data:[{id:'ext-nkrv',title:'NKRV',language_tag:'ko',access:'external'}]}:{reference:'1 Chronicles 14:1–17',verses:[{id:'1CH.14.1',number:'1',text:'Verified WEB passage.'}]});
 });
@@ -39,4 +39,11 @@ it('does not silently show an incomplete reading when a later chapter fails',asy
 it('offers each chapter at the official Korean Bible reader',async()=>{
  await act(async()=>root.render(<QtScripture passage="1CH.21.18-30" passages={['1CH.21.18-30','1CH.22.1-1']} onLanguage={()=>{}}/>));
  expect(container.querySelector('a[href="https://bible.bskorea.or.kr/bible/NKRV/1CH.22"]')).not.toBeNull();
+});
+it('opens each Lao QT chapter at the licensed source without attempting an unlicensed text request',async()=>{
+ mocks.language='lo';mocks.request.mockResolvedValue({data:[{id:'3755',title:'Lao Contemporary Version',abbreviation:'LCV',language_tag:'lo',access:'external',copyright:'© 2023, 2025 Biblica, Inc.',youversion_deep_link:'https://www.bible.com/bible/3755/GEN.1.LCV'}]});
+ await act(async()=>root.render(<QtScripture passage="1CH.21.18-30" passages={['1CH.21.18-30','1CH.22.1-1']} onLanguage={()=>{}}/>));
+ expect(container.querySelector('a[href="https://www.bible.com/bible/3755/1CH.21.LCV"]')).not.toBeNull();
+ expect(container.querySelector('a[href="https://www.bible.com/bible/3755/1CH.22.LCV"]')).not.toBeNull();
+ expect(mocks.request).toHaveBeenCalledTimes(1);expect(container.textContent).toContain('Biblica');
 });

@@ -852,6 +852,10 @@
     "ko": "대한성서공회에서 개역개정 읽기"
   },
   {
+    "en": "Read at the source",
+    "ko": "제공처에서 읽기"
+  },
+  {
     "en": "Read the WEB in English",
     "ko": "WEB 영어 성경으로 읽기"
   },
@@ -1230,10 +1234,6 @@
   {
     "en": "books",
     "ko": "권"
-  },
-  {
-    "en": "Read at the source",
-    "ko": "제공처에서 읽기"
   },
   {
     "en": "Explore more Bible languages and editions",

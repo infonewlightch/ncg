@@ -57,6 +57,16 @@ export function preferredBibleVersion(versions:BibleVersion[],language:string,pr
 export function koreanRevisedLink(passage:string){
  const range=parsePassage(passage);return `https://bible.bskorea.or.kr/bible/NKRV/${range?`${range.book}.${range.chapter}`:'GEN.1'}`;
 }
+export function externalBibleLink(version:BibleVersion|undefined,passage:string){
+ if(version?.access!=='external')return null;
+ if(isKoreanRevisedVersion(version))return koreanRevisedLink(passage);
+ // LCV is linked to its licensed host, not enabled in the text gateway.
+ if(version.id==='3755'&&version.language_tag==='lo'){
+  const reference=canonicalBibleReference(passage);
+  return `https://www.bible.com/bible/3755/${canonicalPassage(reference)?sourceBibleReference(chapterOf(reference)):'GEN.1'}.LCV`;
+ }
+ return safeBibleLink(version.youversion_deep_link);
+}
 export async function bibleRequest<T>(resource:string,params:Record<string,string>,signal:AbortSignal):Promise<T>{
  params={...params,...(params.passage?{passage:canonicalBibleReference(params.passage)}:{}),...(params.book?{book:canonicalEbibleBook(params.book)}:{})};
  if(resource!=='versions'&&!approvedReaderVersion(params.version))throw new BibleError('bible_edition_not_approved');
@@ -71,7 +81,7 @@ export async function bibleRequest<T>(resource:string,params:Record<string,strin
  let local:BibleVersion[]=[];
  if(resource==='versions'){
   const language=new Intl.Locale(params.language).language;
-  local=[...(language==='en'?[webVersion]:[]),...(language==='ko'?[nkrvVersion]:[]),...await (await import('./ebible')).ebibleVersions(language),...await (await import('./getbible')).getBibleVersions(language)];
+  local=[...(language==='en'?[webVersion]:[]),...(language==='ko'?[nkrvVersion]:[]),...(language==='lo'?[laoLCVVersion]:[]),...await (await import('./ebible')).ebibleVersions(language),...await (await import('./getbible')).getBibleVersions(language)];
   // A provider with no approved editions cannot add results. Never wait for it.
   if(!hasLicensedBibleEditions){signal.throwIfAborted();return {data:local,providerStatus:'bible_not_configured'} as T;}
  }
@@ -82,12 +92,13 @@ export async function bibleRequest<T>(resource:string,params:Record<string,strin
   if(!response.ok)return {data:local,providerStatus:data.error||'bible_unavailable'} as T;
   if(!Array.isArray(data.data))throw new BibleError('bible_unavailable');
   const licensed=data.data.filter((v:BibleVersion)=>approvedReaderVersion(String(v.id))).map((v:BibleVersion)=>({...v,id:String(v.id)}));
-  return {data:[...licensed,...local.filter(v=>v.id!=='ext-nkrv'||!licensed.some(isKoreanRevisedVersion))]} as T;
+  return {data:[...licensed,...local.filter(v=>!licensed.some((item:BibleVersion)=>item.id===v.id)&&(v.id!=='ext-nkrv'||!licensed.some(isKoreanRevisedVersion)))]} as T;
  }
  if(!response.ok)throw new BibleError(data.error||'bible_unavailable');
  return data as T;
 }
 const nkrvVersion:BibleVersion={id:'ext-nkrv',title:'New Korean Revised Version',localized_title:'개역개정',abbreviation:'NKRV',localized_abbreviation:'개역개정',language_tag:'ko',copyright:'대한성서공회',info:'',publisher_url:'https://bible.bskorea.or.kr/',youversion_deep_link:'https://bible.bskorea.or.kr/bible/NKRV/GEN.1',promotional_content:'',access:'external'};
+const laoLCVVersion:BibleVersion={coverage:{books:66,oldTestament:39,newTestament:27},id:'3755',title:'Holy Bible, Lao Contemporary Version',localized_title:'ພຣະຄຳພີລາວສະບັບສະໄໝໃໝ່',abbreviation:'LCV',localized_abbreviation:'LCV',language_tag:'lo',copyright:'Copyright © 2023, 2025 by Biblica, Inc. All rights reserved worldwide.',info:'',publisher_url:'https://www.bible.com/versions/3755',youversion_deep_link:'https://www.bible.com/bible/3755/GEN.1.LCV',promotional_content:'',access:'external'};
 
 export const webVersion:BibleVersion={id:'webp',title:'World English Bible · Protestant Edition',localized_title:'World English Bible · Protestant Edition',abbreviation:'WEBP',localized_abbreviation:'WEBP',language_tag:'en',copyright:'World English Bible — Public Domain. World English Bible is a trademark of eBible.org.',info:'66 books · Source: eBible.org · 2026-09-23',publisher_url:'https://ebible.org/engwebp/copyright.htm',youversion_deep_link:'https://ebible.org/engwebp/',promotional_content:''};
 export function selectPassageRange(data:BiblePassage,passage:string):BiblePassage{
