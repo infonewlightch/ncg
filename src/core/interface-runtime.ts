@@ -16,24 +16,33 @@ function packFor(locale:string){
  if(seed)loadSeed(locale,pack);
  return pack;
 }
+const seedTimeoutMs=10000;
+const completePack=(pack:Pack)=>interfaceSource.every(row=>pack.messages.has(row.en));
 function loadSeed(locale:string,pack:Pack){
  const seed=interfaceSeed(locale);if(!seed||pack.ready&&!pack.seedFailed)return;
  pack.seeding=true;pack.seedFailed=false;
- pack.ready=seed().then(({default:data})=>{
-  if(!data.messages)throw Error('invalid_pack');
-  for(const [en,text] of Object.entries(data.messages)){
-   const id=interfaceIds.get(en);
-   if(id!==undefined&&(data.sourceContext?.[en]===undefined||data.sourceContext[en]===interfaceSource[id].ko)&&validInterfaceMessages([{id,text}],[{id,en}]))pack.messages.set(en,text);
-  }
+ let timer:ReturnType<typeof setTimeout>;
+ // A stalled or obsolete chunk must not lock the picker indefinitely. Late loads
+ // are ignored, and a failed static language never spends the generation budget.
+ pack.ready=Promise.race([
+  Promise.resolve().then(seed),
+  new Promise<never>((_,reject)=>{timer=setTimeout(()=>reject(Error('pack_timeout')),seedTimeoutMs);}),
+ ]).then(({default:data})=>{
+  if(!data.messages||interfaceSeed(data.language)!==seed)throw Error('invalid_pack');
+  const rows=interfaceSource.map((row,id)=>({...row,id}));
+  const messages=rows.map(row=>({id:row.id,text:data.messages[row.en]}));
+  if(!rows.every(row=>data.sourceContext?.[row.en]===row.ko)||!validInterfaceMessages(messages,rows))throw Error('invalid_pack');
+  for(const message of messages)pack.messages.set(interfaceSource[message.id].en,message.text);
+  pack.failed.clear();pack.limited=false;pack.unsupported=false;
   save(locale,pack);
- }).catch(()=>{pack.seedFailed=true;}).finally(()=>{pack.seeding=false;emit();schedule();});
+ }).catch(()=>{pack.seedFailed=true;}).finally(()=>{clearTimeout(timer);pack.seeding=false;emit();schedule();});
 }
 
 function save(locale:string,pack:Pack){
  try{const messages=interfaceSource.flatMap(({en,ko})=>{const text=pack.messages.get(en);return text?[{en,ko,text}]:[];});localStorage.setItem(`ncg:interface:v2:${locale}`,JSON.stringify(messages));}catch{}
 }
 // Hover/focus and selection can load a static pack without starting model requests.
-export function prepareInterface(locale:string){const pack=packFor(locale);if(pack.seedFailed)loadSeed(locale,pack);return pack.ready||Promise.resolve();}
+export async function prepareInterface(locale:string){const pack=packFor(locale);if(completePack(pack))return true;if(pack.seedFailed)loadSeed(locale,pack);await pack.ready;return completePack(pack);}
 function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;void drain();});}
 async function loadCached(locale:string,pack:Pack){
  pack.cacheChecked=true;pack.hydrating=true;
@@ -62,7 +71,7 @@ async function load(locale:string,pack:Pack,batch:number){
 }
 async function drain(){
  for(const [locale,pack] of packs){
-  if(pack.unsupported||pack.seeding||pack.hydrating||pack.limited)continue;
+  if(interfaceSeed(locale)||pack.unsupported||pack.seeding||pack.hydrating||pack.limited)continue;
   const missing=[...pack.wanted].filter(batch=>!interfaceBatch(batch).every(row=>pack.messages.has(row.en)));
   if(missing.length&&!pack.cacheChecked){void loadCached(locale,pack);continue;}
   for(const batch of missing){if(active>=2)break;if(pack.pending.has(batch)||pack.failed.has(batch))continue;void load(locale,pack,batch);}
@@ -73,7 +82,7 @@ export function runtimeInterfaceMessage(en:string,locale:string){
  const id=interfaceIds.get(en);if(id!==undefined&&!pack.unsupported){pack.wanted.add(Math.floor(id/interfaceBatchSize));schedule();}return en;
 }
 export function runtimeInterfaceStatus(locale:string):InterfaceStatus{
- const pack=packFor(locale);if(pack.unsupported)return 'unsupported';if(pack.failed.size)return 'unavailable';
+ const pack=packFor(locale);if(pack.seedFailed&&!completePack(pack))return 'unavailable';if(pack.unsupported)return 'unsupported';if(pack.failed.size)return 'unavailable';
  if([...pack.wanted].some(b=>!interfaceBatch(b).every(r=>pack.messages.has(r.en))))return 'loading';return pack.messages.size?'automatic':'loading';
 }
 export function retryInterface(locale:string){const pack=packFor(locale);pack.failed.clear();pack.unsupported=false;pack.limited=false;pack.cacheChecked=false;if(pack.seedFailed)loadSeed(locale,pack);schedule();emit();}

@@ -476,6 +476,18 @@
     "ko": "개 항목 · 수어 포함"
   },
   {
+    "en": "The connection may have been interrupted or the app updated. Reload to reopen this address.",
+    "ko": "연결이 끊겼거나 앱이 업데이트되었을 수 있어요. 새로고침하면 현재 주소를 다시 엽니다."
+  },
+  {
+    "en": "Reloading may discard unsaved input. Close this dialog to return to your screen.",
+    "ko": "새로고침하면 저장하지 않은 입력은 사라질 수 있습니다. 이 창을 닫으면 기존 화면으로 돌아갑니다."
+  },
+  {
+    "en": "Reload",
+    "ko": "다시 불러오기"
+  },
+  {
     "en": "Automatic interface translation",
     "ko": "자동 화면 번역"
   },
@@ -692,24 +704,12 @@
     "ko": "인터넷 연결이 끊겨 있습니다. 연결한 뒤 다시 불러와 주세요."
   },
   {
-    "en": "The connection may have been interrupted or the app updated. Reload to reopen this address.",
-    "ko": "연결이 끊겼거나 앱이 업데이트되었을 수 있어요. 새로고침하면 현재 주소를 다시 엽니다."
-  },
-  {
     "en": "Check your connection and try again.",
     "ko": "연결을 확인한 뒤 다시 시도해주세요."
   },
   {
-    "en": "Reloading may discard unsaved input. Close this dialog to return to your screen.",
-    "ko": "새로고침하면 저장하지 않은 입력은 사라질 수 있습니다. 이 창을 닫으면 기존 화면으로 돌아갑니다."
-  },
-  {
     "en": "Reloading…",
     "ko": "다시 불러오는 중…"
-  },
-  {
-    "en": "Reload",
-    "ko": "다시 불러오기"
   },
   {
     "en": "GLOBAL QUIET TIME",

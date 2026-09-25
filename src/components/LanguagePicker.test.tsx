@@ -7,8 +7,8 @@ vi.mock('../data/languages-index.json',()=>({default:[['jpn','Japanese','ja'],['
 vi.mock('../core/interface-seeds',()=>({interfaceSeed:()=>true,interfaceSeedLanguages:['ja','zh','zh-Hant','fil','km']}));
 vi.mock('../core/interface-runtime',()=>({prepareInterface:mocks.prepare}));
 import LanguagePicker from './LanguagePicker';
-let root:Root,container:HTMLElement,finish:()=>void;
-beforeEach(()=>{vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT',true);document.body.innerHTML='<div id="root"></div>';container=document.getElementById('root')!;root=createRoot(container);mocks.update.mockClear();mocks.prepare.mockReset();mocks.prepare.mockImplementation(()=>new Promise<void>(resolve=>{finish=resolve;}));Object.defineProperty(HTMLDialogElement.prototype,'showModal',{configurable:true,value:function(){this.setAttribute('open','');}});});
+let root:Root,container:HTMLElement,finish:(ready?:boolean)=>void;
+beforeEach(()=>{vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT',true);document.body.innerHTML='<div id="root"></div>';container=document.getElementById('root')!;root=createRoot(container);mocks.update.mockClear();mocks.prepare.mockReset();mocks.prepare.mockImplementation(()=>new Promise<boolean>(resolve=>{finish=(ready=true)=>resolve(ready);}));Object.defineProperty(HTMLDialogElement.prototype,'showModal',{configurable:true,value:function(){this.setAttribute('open','');}});});
 afterEach(async()=>{await act(async()=>root.unmount());vi.unstubAllGlobals();delete (HTMLDialogElement.prototype as any).showModal;});
 it('loads the selected static pack before changing the screen language',async()=>{
  const close=vi.fn();await act(async()=>root.render(<LanguagePicker onClose={close}/>));await act(async()=>{await import('../data/languages-index.json');});
@@ -36,4 +36,14 @@ it('does not change language after the picker is dismissed during a download',as
  const close=vi.fn();await act(async()=>root.render(<LanguagePicker onClose={close}/>));await act(async()=>{await import('../data/languages-index.json');});
  await act(async()=>{(container.querySelector('.language-grid button') as HTMLButtonElement).click();});
  await act(async()=>root.render(null));await act(async()=>finish());expect(mocks.update).not.toHaveBeenCalled();expect(close).not.toHaveBeenCalled();
+});
+
+it('keeps the current language on download failure and allows retrying the choice',async()=>{
+ const close=vi.fn();await act(async()=>root.render(<LanguagePicker onClose={close}/>));await act(async()=>{await import('../data/languages-index.json');});
+ const japanese=[...container.querySelectorAll<HTMLButtonElement>('.language-grid button')].find(button=>button.textContent?.includes('jpn'))!;
+ await act(async()=>japanese.click());await act(async()=>finish(false));
+ expect(mocks.update).not.toHaveBeenCalled();expect(close).not.toHaveBeenCalled();expect(container.querySelector('[role="alert"]')).not.toBeNull();expect(japanese.disabled).toBe(false);
+ const retry=[...container.querySelectorAll<HTMLButtonElement>('button')].find(button=>button.textContent==='Try again')!;
+ expect(retry).toBeDefined();await act(async()=>retry.click());await act(async()=>finish(true));
+ expect(mocks.update.mock.calls[0][0]({language:'en'}).language).toBe('ja');expect(close).toHaveBeenCalledOnce();
 });
