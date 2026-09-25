@@ -1,0 +1,70 @@
+{
+  "checkedAt": "2026-09-25T01:20:00Z",
+  "productionCommit": "6d96b17e4baf8d5f7f8b13625353508e11f8c0ec",
+  "deployId": "6ab5cba606ddef0008e86a0d",
+  "deployState": "Published",
+  "assets": [
+    {
+      "file": "LanguagePicker-D1j6YcwT.js",
+      "status": 200,
+      "matchesLocalBuild": true,
+      "contentType": "application/javascript; charset=UTF-8"
+    },
+    {
+      "file": "Bible-pABGfFis.js",
+      "status": 200,
+      "matchesLocalBuild": true,
+      "contentType": "application/javascript; charset=UTF-8"
+    },
+    {
+      "file": "QuietTime-pVQlL5ee.js",
+      "status": 200,
+      "matchesLocalBuild": true,
+      "contentType": "application/javascript; charset=UTF-8"
+    },
+    {
+      "file": "pt-DEvXRcPj.js",
+      "status": 200,
+      "matchesLocalBuild": true,
+      "contentType": "application/javascript; charset=UTF-8"
+    },
+    {
+      "file": "zh-Hant-19golxKu.js",
+      "status": 200,
+      "matchesLocalBuild": true,
+      "contentType": "application/javascript; charset=UTF-8"
+    },
+    {
+      "file": "zh-DBR1JuZk.js",
+      "status": 200,
+      "matchesLocalBuild": true,
+      "contentType": "application/javascript; charset=UTF-8"
+    },
+    {
+      "file": "lo-BqyCtQQ8.js",
+      "status": 200,
+      "matchesLocalBuild": true,
+      "contentType": "application/javascript; charset=UTF-8"
+    }
+  ],
+  "testFiles": 77,
+  "testsPassed": 428,
+  "subsequentQtDateChange": {
+    "targetedTestsPassed": 8,
+    "typecheckAndBuildPassed": true
+  },
+  "browser": {
+    "productionPortugueseInterface": true,
+    "productionChineseInterface": true,
+    "productionLaoExternalLink": true,
+    "localStaticDownload503Recovery": true,
+    "localLaoQtMultiChapterLinks": true,
+    "realWhaleChromeFinalRecheckCompleted": false,
+    "mobileViewportActuallyApplied": false
+  },
+  "limits": [
+    "User-reported exact PC browser failure cause is not confirmed.",
+    "Lao LCV is external reading only; attached 2015 PDF is a different edition and is not published.",
+    "No new in-app Scripture license or language quality approval is claimed."
+  ]
+}
